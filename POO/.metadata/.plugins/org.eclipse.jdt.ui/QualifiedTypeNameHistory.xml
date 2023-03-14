@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="vactores.Punto"/>
+    <fullyQualifiedTypeName name="vectores.Punto"/>
+    <fullyQualifiedTypeName name="usuarios.Punto"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.ls.LSOutput"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="usuarios.User"/>
+    <fullyQualifiedTypeName name="java.security.DrbgParameters.Capability"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="jarra.Jarra"/>
+</qualifiedTypeNameHistroy>

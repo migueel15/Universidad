@@ -1,0 +1,10 @@
+content_assist_autoactivation_triggers_java=.abcdefghijklmnopqrstuvwxyz
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="vactores.Punto"><rhs name\="vactores.Punto"/></lhs><lhs name\="usuarios.User"><rhs name\="usuarios.User"/></lhs><lhs name\="jarra.Jarra"><rhs name\="jarra.Jarra"/></lhs></history>
+content_assist_number_of_computers=12
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=22
+sourceHoverBackgroundColor=0,0,0
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

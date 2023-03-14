@@ -1,0 +1,5 @@
+
+feb 01, 2023 11:12:15.169 NEW SESSION
+feb 01, 2023 11:12:15.170 which: no mozilla in (/home/firez/.local/bin:/usr/local/bin:/usr/bin:/var/lib/snapd/snap/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl)
+feb 01, 2023 11:12:15.171 which: no netscape in (/home/firez/.local/bin:/usr/local/bin:/usr/bin:/var/lib/snapd/snap/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl)
+feb 01, 2023 11:12:15.172 /usr/bin/firefox
