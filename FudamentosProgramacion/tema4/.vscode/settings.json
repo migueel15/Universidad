@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.ejs": "html",
+    "*.pl": "prolog",
+    "iostream": "cpp",
+    "array": "cpp"
+  }
+}

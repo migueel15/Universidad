@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "*.ejs": "html",
+    "*.pl": "prolog",
+    "array": "cpp",
+    "*.tcc": "cpp",
+    "functional": "cpp",
+    "random": "cpp",
+    "istream": "cpp",
+    "new": "cpp",
+    "ostream": "cpp",
+    "sstream": "cpp",
+    "streambuf": "cpp",
+    "type_traits": "cpp",
+    "tuple": "cpp",
+    "*.inc": "cpp",
+    "cmath": "cpp",
+    "numbers": "cpp",
+    "limits": "cpp"
+  }
+}
