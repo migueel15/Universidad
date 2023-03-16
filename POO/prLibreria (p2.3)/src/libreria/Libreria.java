@@ -26,12 +26,11 @@ public class Libreria {
 
   public double getPrecioFinal(String autor, String titulo){
     int posicion = buscarLibro(autor, titulo);
-    if( posicion > -1) {
-      return libs.get(posicion).getPrecioFinal();
-    }else{
+    if( posicion <= -1) {
       throw new RuntimeException("Libro no encontrado (" + autor + ", "
           + titulo + ")");
     }
+    return libs.get(posicion).getPrecioFinal();
   }
 
   @Override
