@@ -9,7 +9,7 @@ public class Alumno {
 
   public Alumno(String dni, String nombre, double calificacion) throws AlumnoException {
     if(calificacion < 0){
-      throw new AlumnoException("Calificación negatia");
+      throw new AlumnoException("Calificación negativa");
     }
     this.dni = dni;
     this.nombre = nombre;
@@ -44,7 +44,7 @@ public class Alumno {
     boolean igual = false;
     if(obj instanceof Alumno){
       Alumno alumno = (Alumno)obj;
-      igual =  this.getNombre().equalsIgnoreCase(alumno.getNombre()) &&
+      igual =  this.getNombre().equals(alumno.getNombre()) &&
           this.getDni().equalsIgnoreCase(alumno.getDni());
     }
     return igual;
@@ -52,6 +52,6 @@ public class Alumno {
 
   @Override
   public int hashCode(){
-    return Objects.hash(this.dni.toLowerCase(), this.nombre.toLowerCase());
+    return Objects.hash(this.dni.toLowerCase(), this.nombre);
   }
 }
