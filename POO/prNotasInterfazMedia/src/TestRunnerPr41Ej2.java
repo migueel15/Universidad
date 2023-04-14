@@ -12,7 +12,7 @@ import notas.*;
 
 //--------------------------------------------------------------------------
 
-public class TestRunnerPr41Ej1 {
+public class TestRunnerPr41Ej2 {
 	//----------------------------------------------------------------------
 	//--JUnitTest-----------------------------------------------------------
 	//----------------------------------------------------------------------
@@ -187,6 +187,183 @@ public class TestRunnerPr41Ej1 {
 	//----------------------------------------------------------------------
 	//--JUnitTest-----------------------------------------------------------
 	//----------------------------------------------------------------------
+	public static class JUnitTestMediaAritmetica {
+		private static final java.util.List<Alumno> emptyValues = new java.util.ArrayList<>();
+		private static final java.util.List<Alumno> inputValues = crearAlumnos();
+		private MediaAritmetica op1;
+		private static java.util.List<Alumno> crearAlumnos() {
+			java.util.List<Alumno> alumnos = new java.util.ArrayList<>();
+			try {
+				alumnos.add(new Alumno("25653443S", "Garcia Gomez, Juan", 8.1));
+				alumnos.add(new Alumno("23322443K", "Lopez Turo, Manuel", 4.3));
+				alumnos.add(new Alumno("24433522M", "Merlo Martinez, Juana", 5.3));
+				alumnos.add(new Alumno("42424312G", "Lopez Gama, Luisa", 7.1));
+			} catch (Exception e) {
+				fail("\n> Error: crearAlumnos: lanza excepcion no esperada");
+			}
+			return alumnos;
+		}
+		@BeforeClass
+		public static void beforeClass() {
+			// Code executed before the first test method
+			System.out.println("Start of MediaAritmetica JUnit Test");
+		}
+		@AfterClass
+		public static void  afterClass() {
+			// Code executed after the last test method
+			System.out.println("End of MediaAritmetica JUnit Test");
+		}
+		@Before
+		public void setUp() {
+			// Code executed before each test
+			op1 = new MediaAritmetica();
+		}
+		@After
+		public void tearDown() {
+			// Code executed after each test
+		}
+		@Test(timeout = 1000)
+		public void mediaAritmeticaCtorTest1() {
+			assertTrue("\n> Error: MediaAritmetica implements CalculoMedia:", ((Object)op1 instanceof CalculoMedia));
+		}
+		@Test(timeout = 1000)
+		public void mediaAritmeticaCalculaTest1() throws Exception {
+			assertEquals("\n> Error: new MediaAritmetica.calcula():", 6.20, op1.calcula(inputValues), 1e-6);
+		}
+		@Test(timeout = 1000)
+		public void mediaAritmeticaCalculaTest2() {
+			try {
+				double valor = op1.calcula(emptyValues);
+				fail("\n> Error: op1.calcula(emptyValues): No se lanzo ninguna excepcion");
+			} catch (AlumnoException e) {
+				//assertEquals("\n> Error: op1.calcula(emptyValues): exception.getMessage():", "no hay alumnos", e.getMessage());
+			} catch (Exception e) {
+				fail("\n> Error: op1.calcula(emptyValues): la excepcion lanzada no es AlumnoException");
+			}
+		}
+		//------------------------------------------------------------------
+	}
+	//----------------------------------------------------------------------
+	//--JUnitTest-----------------------------------------------------------
+	//----------------------------------------------------------------------
+	public static class JUnitTestMediaArmonica {
+		private static final java.util.List<Alumno> emptyValues = new java.util.ArrayList<>();
+		private static final java.util.List<Alumno> inputValues = crearAlumnos();
+		private MediaArmonica op1;
+		private static java.util.List<Alumno> crearAlumnos() {
+			java.util.List<Alumno> alumnos = new java.util.ArrayList<>();
+			try {
+				alumnos.add(new Alumno("25653443S", "Garcia Gomez, Juan", 8.1));
+				alumnos.add(new Alumno("23322443K", "Lopez Turo, Manuel", 4.3));
+				alumnos.add(new Alumno("24433522M", "Merlo Martinez, Juana", 5.3));
+				alumnos.add(new Alumno("42424312G", "Lopez Gama, Luisa", 7.1));
+			} catch (Exception e) {
+				fail("\n> Error: crearAlumnos: lanza excepcion no esperada");
+			}
+			return alumnos;
+		}
+		@BeforeClass
+		public static void beforeClass() {
+			// Code executed before the first test method
+			System.out.println("Start of MediaArmonica JUnit Test");
+		}
+		@AfterClass
+		public static void  afterClass() {
+			// Code executed after the last test method
+			System.out.println("End of MediaArmonica JUnit Test");
+		}
+		@Before
+		public void setUp() {
+			// Code executed before each test
+			op1 = new MediaArmonica();
+		}
+		@After
+		public void tearDown() {
+			// Code executed after each test
+		}
+		@Test(timeout = 1000)
+		public void mediaArmonicaCtorTest1() {
+			assertTrue("\n> Error: MediaArmonica implements CalculoMedia:", ((Object)op1 instanceof CalculoMedia));
+		}
+		@Test(timeout = 1000)
+		public void mediaArmonicaCalculaTest1() throws Exception {
+			assertEquals("\n> Error: new MediaArmonica.calcula():", 5.834823, op1.calcula(inputValues), 1e-6);
+		}
+		@Test(timeout = 1000)
+		public void mediaArmonicaCalculaTest2() {
+			try {
+				double valor = op1.calcula(emptyValues);
+				fail("\n> Error: op1.calcula(emptyValues): No se lanzo ninguna excepcion");
+			} catch (AlumnoException e) {
+				//assertEquals("\n> Error: op1.calcula(emptyValues): exception.getMessage():", "no hay alumnos", e.getMessage());
+			} catch (Exception e) {
+				fail("\n> Error: op1.calcula(emptyValues): la excepcion lanzada no es AlumnoException");
+			}
+		}
+		//------------------------------------------------------------------
+	}
+	//----------------------------------------------------------------------
+	//--JUnitTest-----------------------------------------------------------
+	//----------------------------------------------------------------------
+	public static class JUnitTestMediaSinExtremos {
+		private static final java.util.List<Alumno> emptyValues = new java.util.ArrayList<>();
+		private static final java.util.List<Alumno> inputValues = crearAlumnos();
+		private MediaSinExtremos op1;
+		private static java.util.List<Alumno> crearAlumnos() {
+			java.util.List<Alumno> alumnos = new java.util.ArrayList<>();
+			try {
+				alumnos.add(new Alumno("25653443S", "Garcia Gomez, Juan", 8.1));
+				alumnos.add(new Alumno("23322443K", "Lopez Turo, Manuel", 4.3));
+				alumnos.add(new Alumno("24433522M", "Merlo Martinez, Juana", 5.3));
+				alumnos.add(new Alumno("42424312G", "Lopez Gama, Luisa", 7.1));
+			} catch (Exception e) {
+				fail("\n> Error: crearAlumnos: lanza excepcion no esperada");
+			}
+			return alumnos;
+		}
+		@BeforeClass
+		public static void beforeClass() {
+			// Code executed before the first test method
+			System.out.println("Start of MediaSinExtremos JUnit Test");
+		}
+		@AfterClass
+		public static void  afterClass() {
+			// Code executed after the last test method
+			System.out.println("End of MediaSinExtremos JUnit Test");
+		}
+		@Before
+		public void setUp() {
+			// Code executed before each test
+			op1 = new MediaSinExtremos(5.0, 9.0);
+		}
+		@After
+		public void tearDown() {
+			// Code executed after each test
+		}
+		@Test(timeout = 1000)
+		public void mediaSinExtremosCtorTest1() {
+			assertTrue("\n> Error: MediaSinExtremos implements CalculoMedia:", ((Object)op1 instanceof CalculoMedia));
+		}
+		@Test(timeout = 1000)
+		public void mediaSinExtremosCalculaTest1() throws Exception {
+			assertEquals("\n> Error: new MediaSinExtremos.calcula():", 6.833333, op1.calcula(inputValues), 1e-6);
+		}
+		@Test(timeout = 1000)
+		public void mediaSinExtremosCalculaTest2() {
+			try {
+				double valor = op1.calcula(emptyValues);
+				fail("\n> Error: op1.calcula(emptyValues): No se lanzo ninguna excepcion");
+			} catch (AlumnoException e) {
+				//assertEquals("\n> Error: op1.calcula(emptyValues): exception.getMessage():", "no hay alumnos", e.getMessage());
+			} catch (Exception e) {
+				fail("\n> Error: op1.calcula(emptyValues): la excepcion lanzada no es AlumnoException");
+			}
+		}
+		//------------------------------------------------------------------
+	}
+	//----------------------------------------------------------------------
+	//--JUnitTest-----------------------------------------------------------
+	//----------------------------------------------------------------------
 	public static class JUnitTestAsignatura {
 		private static final String nmAsg = "Algebra";
 		private static final String[] inputData = {
@@ -266,6 +443,25 @@ public class TestRunnerPr41Ej1 {
 			}
 		}
 		@Test(timeout = 1000)
+		public void asignaturaCalcMediaAritmeticaTest1() throws Exception {
+			MediaAritmetica mediaAritmetica = new MediaAritmetica();
+			assertEquals("\n> Error: asg1.getMedia(new MediaAritmetica()):", 6.20, asg1.getMedia(mediaAritmetica), 1e-6);
+		}
+		@Test(timeout = 1000)
+		public void asignaturaCalcMediaAritmeticaTest2() {
+			try {
+				String[] datos = { "xxx" };
+				Asignatura asg2 = new Asignatura(nmAsg, datos);
+				MediaAritmetica mediaAritmetica = new MediaAritmetica();
+				double valor = asg2.getMedia(mediaAritmetica);
+				fail("\n> Error: getMedia(new MediaAritmetica()): No se lanzo ninguna excepcion");
+			} catch (AlumnoException e) {
+				//assertEquals("\n> Error: getMedia(new MediaAritmetica()): exception.getMessage():", "No hay alumnos", e.getMessage());
+			} catch (Exception e) {
+				fail("\n> Error: getMedia(new MediaAritmetica()): la excepcion lanzada no es AlumnoException");
+			}
+		}
+		@Test(timeout = 1000)
 		public void asignaturaGetCalificacionTest1() throws Exception {
 			assertEquals("\n> Error: asg1.getCalificacion(Garcia Gomez, Juan):", 8.1, asg1.getCalificacion(inputValues.get(0)), 1e-6);
 			assertEquals("\n> Error: asg1.getCalificacion(Lopez Turo, Manuel):", 4.3, asg1.getCalificacion(inputValues.get(1)), 1e-6);
@@ -298,6 +494,9 @@ public class TestRunnerPr41Ej1 {
 	@RunWith(Suite.class)
 	@Suite.SuiteClasses({ JUnitTestAlumnoException.class ,
 				JUnitTestAlumno.class ,
+				JUnitTestMediaAritmetica.class ,
+				JUnitTestMediaArmonica.class ,
+				JUnitTestMediaSinExtremos.class ,
 				JUnitTestAsignatura.class
 				})
 				public static class JUnitTestSuite { /*empty*/ }

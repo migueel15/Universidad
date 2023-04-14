@@ -23,33 +23,11 @@ public class PruebaAsignatura {
 
     try {
       System.out.println(asignatura.getCalificacion(asignatura.getAlumnos().get(0)));
+      System.out.println(asignatura.getCalificacion(new Alumno("12455666F", "Lopez Lopez, Pedro")));
     } catch (AlumnoException e){
       System.out.println(e.getMessage());
     }
 
 
-
-    String[] alumnos2 = {
-        "12455666F;Lopez Lopez, Pedro;6.7",
-        "33678999D;Merlo Gomez, Isabel;5.8",
-        "23555875G;Martinez Herrera, Lucia;9.1"
-    };
-    asignatura = new Asignatura("POO",alumnos);
-
-    try {
-      System.out.println(asignatura.getMedia());
-    }catch (AlumnoException e){
-      System.out.println(e.getMessage());
-    }
-
-    for(Alumno al : asignatura.getAlumnos()){
-      System.out.println(al.getDni());
-    }
-
-    try {
-      System.out.println(asignatura.getCalificacion(asignatura.getAlumnos().get(0)));
-    } catch (AlumnoException e){
-      System.out.println(e.getMessage());
-    }
   }
 }

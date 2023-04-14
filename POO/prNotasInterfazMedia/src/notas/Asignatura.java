@@ -84,4 +84,8 @@ public class Asignatura {
     }
     return totalNotas / (alumnos.size());
   }
+
+  public double getMedia(CalculoMedia calc) throws AlumnoException{
+    return calc.calcula(getAlumnos());
+  }
 }

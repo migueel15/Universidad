@@ -10,7 +10,7 @@ public class PruebaAlumno {
       System.out.println(" Nombre: " + alumno1.getNombre() + " Nota: " + alumno1.getCalificacion());
       System.out.println(" Nombre: " + alumno2.getNombre() + " Nota: " + alumno2.getCalificacion());
 
-      System.out.println(alumno1.equals(alumno2));
+      System.out.println("Son iguales?: " + alumno1.equals(alumno2));
 
       alumno2 = new Alumno("33456777S", "Gonzalez Perez, Juan", -3.4);
 
