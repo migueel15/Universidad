@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class personas {
+import java.util.Collection;
+
+public class personas {
+  public boolean estaOrdenado(Collection<Persona> c);
 }
