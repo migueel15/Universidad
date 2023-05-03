@@ -4,10 +4,7 @@ import java.awt.print.PrinterException;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class ContadorPalabras {
   private List<PalabraEnTexto> palabras;
@@ -101,3 +98,35 @@ public class ContadorPalabras {
     }
   }
 }
+
+/*
+public Persona buscarPersona(Collection<Persona> c, Persona p){
+  Iterator<Persona> it = c.iterator();
+  boolean exist = false;
+  Persona pActual;
+  while(it.hasNext() && !exist){
+    pActual = it.next();
+    if(pActual.equals(p)){
+      exist = true;
+    }
+  }
+  return exist ? pActual : null;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
