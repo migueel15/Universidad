@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Web {
   private static final double THRESHOLD = 1E-5;
+  public static Random alea = new Random(1);
   protected Set<Site> sites;
   private Set<Link> links;
   public Web(){
@@ -72,13 +73,16 @@ public class Web {
     }
   }
   public void click(String name){
-    Site site = getSite(name);
-    distribute(site,1);
+    try{
+      Site site = getSite(name);
+      distribute(site,1);
+    }catch (Exception e){
+      //
+    }
   }
   public void simulateClick(int numClick){
     if(sites.size() > 0){
       int contador = numClick;
-      Random alea = new Random(1);
       Object[] sitesA = sites.toArray();
       while (contador > 0){
         Site site1 = (Site) sitesA[alea.nextInt(sitesA.length)];

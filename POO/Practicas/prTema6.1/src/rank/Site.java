@@ -1,5 +1,6 @@
 package rank;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Site implements Comparable<Site> {
@@ -38,11 +39,12 @@ public class Site implements Comparable<Site> {
 
   @Override
   public int compareTo(Site o) {
-    return this.name.compareTo(o.name);
+    return this.name.compareToIgnoreCase(o.name);
   }
 
   @Override
   public String toString() {
+    Locale.setDefault(Locale.US);
     return String.format("%s(%.5f)",name,rank);
   }
 }
