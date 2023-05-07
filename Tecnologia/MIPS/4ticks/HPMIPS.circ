@@ -144,8 +144,8 @@
     <comp loc="(540,90)" name="MIPS"/>
     <comp lib="7" loc="(390,90)" name="StopClk"/>
     <comp lib="0" loc="(240,100)" name="Clock">
-      <a name="highDuration" val="8"/>
-      <a name="lowDuration" val="8"/>
+      <a name="highDuration" val="2"/>
+      <a name="lowDuration" val="2"/>
       <a name="label" val="CLK"/>
     </comp>
   </circuit>
