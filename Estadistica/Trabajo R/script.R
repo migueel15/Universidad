@@ -5,6 +5,9 @@ library(tidyverse)
 library(readr)
 library(purrr)
 
+# Añado mi directorio como ruta del trabajo
+setwd("~/Universidad/Estadistica/Trabajo R")
+
 # Para cargar el fichero usamos read_csv dando como parametros el nombre del archivo y col_types. Este último nos permite definir el tipo
 # de dato que representa cada columno. En este caso hay algunas columnas que no representan datos numéricos sino que son datos
 # cualitativos. A todos estos les pongo la propiedad col_factor(). Por ejemplo sexo representa un factor de dos niveles.
@@ -28,7 +31,7 @@ data <- na.omit(data)
 
 dfNumerico <- keep(data,is.numeric)
 medias <- map_dbl(dfNumerico, mean)
-
+medias
 # Calculamos la desviación tipica de cada columna numérica. Para ello partimos del df procesado con datos numéricos.
 # "%>%" Nos permite pasar el resultado del calculo anterior a el como parametro al cálculo siguiente.
 # De esta forma con el método summarise_all calcula lo definido en la función para todas las columnas del dataframe.
@@ -41,8 +44,8 @@ desvTipicas <- dfNumerico %>%
 # Calculamos los coeficientes de regresion y el coeficiente de determinación
 # para las 12 regresiones lineales unidimensionales.
 
-namesRegresiones <- names(data[4:15])
-
+varPredictorias <- names(data[3:14])
+varPredictorias
 # Creo una funcion para calcular los ceficientes de regresión haciendo uso de la función lm y summary para obtener un resumen de
 # las principales propiedades.
 
@@ -61,14 +64,14 @@ calcR2 <- function(df,y,x){
 # Haciendo uso de map_dbl puedo calcular una funcion para cada  elemento de un vector
 # siendo este el dado como parametro .x
 # Es este caso calculo el coeficiente de regresión para todos los valores del vector
-# namesRegresiones y los guardo en un vector llamado coeficientes.
+# varPredictorias y los guardo en un vector llamado coeficientes.
 
-coeficientes <- map_dbl(namesRegresiones, ~ coefRegresion(data,data$IMC, data[[.]]))
+coeficientes <- map_dbl(varPredictorias, ~ coefRegresion(data,data$IMC, data[[.]]))
+coeficientes
+# De igual forma calculamos el R2 de cada valor del vector varPredictorias.
 
-# De igual forma calculamos el R2 de cada valor del vector namesRegresiones.
-
-valoresR2 <- map_dbl(namesRegresiones, ~ calcR2(data,data$IMC, data[[.]]))
-
+valoresR2 <- map_dbl(varPredictorias, ~ calcR2(data,data$IMC, data[[.]]))
+valoresR2
 # Creamos una función que nos devuelva una lista con el nombre de las variables
 # "x", "y" y el modelo. esta lista la utilizremos para crear los plots con mayor facilidad
 
@@ -97,11 +100,11 @@ dibujarModelos <- function(mod) {
 # A continuación utilizamos un map para realizar la funcion linearAdjust a todos
 # las columnas del dataframe.
 
-# mods <- names(data) %>% map(~linearAdjust(data, "IMC", .))
 mods <- names(data) %>% map(~linearAdjust(data, "IMC", .))
 
-# Utilizando el metodo walk para generar los graficos.
-
+# Utilizando el metodo walk para generar los graficos. Creo la carpeta imagenes
+# en caso de no estarlo.
+dir.create("Imagenes")
 mods %>% walk(dibujarModelos)
 
 # Separamos el dataframe en 3 sets distintos. Entrenamiento, test y validacion.
@@ -121,39 +124,78 @@ separarSets <- function(df, p1, p2) {
 
 setsSeparados <- separarSets(data,.6,.2)
 
-# Nuestra función estrella que calcula el mejor ajuste lineal
+# Buscamos cual de las 12 variables es la que mejor explica la variable IMC. Para ello
+# creamos una funcion que calcule el el R2 ajustado
 
-encontrarMejorAjuste <- function(dfTrain, dfTest, varPos) {
-  
+calcR2ajst <- function(df, mod, y) {
+  MSE <- mean((df[[y]] - predict.lm(mod, df)) ^ 2)
+  varY <- mean(df[[y]] ^ 2) - mean(df[[y]]) ^ 2
+  R2 <- 1 - MSE / varY
+  ajR2 <- 1 - (1- R2) * (nrow(df) - 1) / (nrow(df) - mod$rank)
+  ajR2
 }
 
-encontrarMejorAjuste(setsSeparados$train, setsSeparados$test, "IMC")
+# Calculamos el coeficiente de determinación 
 
+calcModR2 <- function(dfTrain, dfTest, y, x) {
+  mod <- linearAdjust(dfTrain, y, x)
+  calcR2ajst(dfTest, mod$mod, y)
+}
 
+# Calculamos los R2 ajustados de cada una de las variables. Estás determinarán como de
+# dependientes son las variables. Aquella con el valor más alto, será la más relaciada.
 
+AjstR2 <- varPredictorias %>%
+  map_dbl(calcModR2,dfTrain=setsSeparados$train,dfTest=setsSeparados$test,y="IMC")
 
+#Aquí calculamos la mejor variable que explique el IMC
 
+x <- which.max(AjstR2)
+mejorVar <- varPredictorias[x]
 
+# La mejor variable y su valor:
 
+mejorVar
+AjstR2[x]
 
+# Creamos una función para calcular el mejor ajuste
 
+encontrarMejorAjuste <- function(dfTrain, dfTest, varPos) {
+  bestVars <- character(0)
+  aR2      <- 0
+  
+  repeat {
+    aR2v <- map_dbl(varPos, ~calcModR2(dfTrain, dfTest, "IMC", c(bestVars, .)))
+    i    <- which.max(aR2v)
+    aR2M <- aR2v[i]
+    if (aR2M <= aR2) break
+    
+    cat(sprintf("%1.4f %s\n", aR2M, varPos[i]))
+    aR2 <- aR2M
+    bestVars <- c(bestVars, varPos[i])
+    varPos   <- varPos[-i]
+  }
+  
+  mod <- linearAdjust(dfTrain, "IMC", bestVars)
+  
+  list(vars=bestVars, mod=mod)
+}
 
+mejorAjuste <- encontrarMejorAjuste(setsSeparados$train, setsSeparados$test, varPredictorias)
+mejorMod <- mejorAjuste$mod$mod
+calcR2ajst(setsSeparados$valid, mejorMod, "IMC")
 
+# Leemos el dataframe eval
 
+dfEval <- read_csv("eval.csv")
 
+# Para predecir las nueva variable IMC utilizaremos predict.lm
+# Creamos la nueva columna con los valores.
+# Calculamos el peso en función a la altura y al nuevo IMC. 
 
+dfEval["IMC"] <- predict.lm(mejorMod, dfEval)
+dfEval["Peso"] <- dfEval$IMC*dfEval$altura^2
 
+# Guardamos en el archivo evalX el dataframe dfEval
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+write.csv(dfEval, "evalX.csv", row.names = FALSE)
