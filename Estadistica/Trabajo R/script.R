@@ -40,7 +40,7 @@ medias
 desvTipicas <- dfNumerico %>% 
   summarise_all(function(x) sqrt(mean(x^2) - mean(x)^2)) %>%
   map_dbl(function(x) x)
-
+desvTipicas
 # Calculamos los coeficientes de regresion y el coeficiente de determinación
 # para las 12 regresiones lineales unidimensionales.
 
@@ -199,3 +199,4 @@ dfEval["Peso"] <- dfEval$IMC*dfEval$altura^2
 # Guardamos en el archivo evalX el dataframe dfEval
 
 write.csv(dfEval, "evalX.csv", row.names = FALSE)
+
