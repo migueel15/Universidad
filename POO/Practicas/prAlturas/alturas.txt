@@ -1,0 +1,101 @@
+Albania,Europe,1.74
+Algeria,Africa,1.722
+Argentina,South America,1.745
+Australia,Oceania,1.756
+Austria,Europe,1.792
+Azerbaijan,Asia,1.718
+Bahrain,Asia,1.651
+Belgium,Europe,1.786
+Bolivia,South America,1.6
+Bosnia & Herzegovina,Europe,1.839
+Brazil,South America,1.731
+Bulgaria,Europe,1.752
+Cambodia,Asia,1.625
+Cameroon,Africa,1.706
+Canada,North America,1.751
+Chile,South America,1.71
+China,Asia,1.67
+Colombia,South America,1.706
+Croatia,Europe,1.805
+Cuba,North America,1.68
+Czech Republic,Europe,1.803
+Denmark,Europe,1.826
+Ecuador,South America,1.635
+Egypt,Africa,1.703
+Estonia,Europe,1.791
+Finland,Europe,1.789
+France,Europe,1.756
+Gambia,Africa,1.68
+Germany,Europe,1.81
+Ghana,Africa,1.695
+Greece,Europe,1.783
+Hong Kong,Asia,1.734
+Hungary,Europe,1.765
+Iceland,Europe,1.81
+India,Asia,1.647
+Indonesia,Asia,1.58
+Iran,Asia,1.703
+Iraq,Asia,1.654
+Ireland,Europe,1.775
+Israel,Asia,1.77
+Italy,Europe,1.765
+Ivory Coast,Africa,1.701
+Jamaica,North America,1.718
+Japan,Asia,1.707
+Kazakhstan,Asia,1.69
+Korea North,Asia,1.656
+Korea South,Asia,1.735
+Lebanon,Asia,1.76
+Libya,Africa,1.713
+Lithuania,Europe,1.772
+Luxembourg,Europe,1.799
+Malawi,Africa,1.66
+Malaysia,Asia,1.663
+Mali,Africa,1.713
+Malta,Europe,1.699
+Mauritamia,Africa,1.72
+Mexico,North America,1.67
+Mongolia,Asia,1.684
+Montenegro,Europe,1.832
+Morocco,Africa,1.727
+Nepal,Asia,1.63
+Netherlands,Europe,1.838
+New Zealand,Oceania,1.77
+Nigeria,Africa,1.638
+Norway,Europe,1.824
+Pakistan,Asia,1.693
+Panama,North America,1.65
+Paraguay,South America,1.69
+Peru,South America,1.64
+Philippines,Asia,1.619
+Poland,Europe,1.787
+Portugal,Europe,1.737
+Qatar,Asia,1.708
+Romania,Europe,1.72
+Russia,Asia,1.772
+Saudi Arabia,Asia,1.689
+Senegal,Africa,1.75
+Serbia,Europe,1.82
+Singapore,Asia,1.706
+Slovakia,Europe,1.794
+Slovenia,Europe,1.803
+South Africa,Africa,1.68
+Spain,Europe,1.78
+Sri Lanka,Asia,1.636
+Sweden,Europe,1.779
+Switzerland,Europe,1.754
+Syria,Asia,1.73
+Taiwan,Asia,1.714
+Thailand,Asia,1.703
+Tonga,Oceania,1.761
+Tunisia,Africa,1.723
+Turkey,Euro/Asia,1.74
+Turkministan,Asia,1.72
+UAE,Asia,1.734
+Ukraine,Europe,1.765
+United Kingdom,Europe,1.77
+United States,North America,1.763
+Uruguay,South America,1.7
+Uzbekistan,Asia,1.754
+Venezuela,South America,1.69
+Vietnam,Asia,1.621
