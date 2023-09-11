@@ -23,7 +23,7 @@ public class PruebaLibreria {
    libreria.remLibro("Isaac Newton", "Arithmetica Universalis");
 
    System.out.println(libreria);
-
+   
   libreria.mostrarPrecioFinal("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?");
   libreria.mostrarPrecioFinal("isaac asimov", "fundación e imperio");
   libreria.mostrarPrecioFinal("Ray Bradbury", "Fahrenheit 451");

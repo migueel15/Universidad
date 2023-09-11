@@ -26,7 +26,7 @@ void guiones(int numeroFilas) {
 void addEspacios(int fila, int numeroFilas) {
   int ancho = fila;
 
-  // Añade los espacios correspondientes a la izquierda.
+  // AÃ±ade los espacios correspondientes a la izquierda.
   for (int i = numeroFilas; i > ancho; i--) {
     cout << " ";
   }

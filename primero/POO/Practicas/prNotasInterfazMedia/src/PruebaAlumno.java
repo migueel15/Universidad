@@ -21,5 +21,7 @@ public class PruebaAlumno {
     }catch (AlumnoException e){
       System.out.println(e.getMessage());
     }
+    //Show the number of students
+
   }
 }

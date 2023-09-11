@@ -1,15 +1,16 @@
 
 //--------------------------------------------------------------------------
+
+import gui.CtrRank;
+import gui.ViewRank;
 import org.junit.*;
 import org.junit.runner.*;
 import org.junit.runner.notification.*;
 import org.junit.runners.*;
+import rank.*;
+
 import static org.junit.Assert.*;
 import static org.junit.Assume.*;
-//----------------------------------------------------------------------
-
-import rank.*;
-import gui.*;
 
 //--------------------------------------------------------------------------
 
