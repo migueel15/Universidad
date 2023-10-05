@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0B285C0A-4386-E41A-1804-23254DF541CA" name="ACTO PUBLICO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>910D6E2E-9D46-6F10-F504-0009BF07747D</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="FECHA" id="65266929-77F1-C1FA-804A-A7C6D07671E5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>958719BA-C12D-9961-3889-C65A5A57C3B2</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DIRECCION" id="3C1C71AB-4955-ADFE-07EA-6020EBEB4E8C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>8E89A537-F1AF-9261-CEAC-49A99147A872</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESCRIPCION" id="404CA57C-B58D-605D-3FD4-378F7E33DFF1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>994BFC22-E3D8-BD52-EA13-24F69A05D18A</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PERSONA CONTACTO" id="D180CC9A-D18A-5B92-6E76-AC2F0FE3B0DF">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>6901F980-289A-1859-9651-67BBDF124B28</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NUMERO CONTACTO" id="1D84A8C1-2BB9-AA1A-AE2C-D9E13FD55F91">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>7B0DAC91-D2AE-E526-D681-ABA09D99B577</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2180C430-32B5-C4AC-B2D8-EB876FB09B1E" name="ACTO PUBLICO PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>F947E313-FD72-656C-2203-D6705431D415</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>65266929-77F1-C1FA-804A-A7C6D07671E5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

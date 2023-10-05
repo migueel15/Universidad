@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CIRCUITO" directorySegmentName="seg_0" id="39269DA5-4865-05F8-9C83-0793271451D2">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="tipo_carrera" id="11BEDE32-CA82-D200-AAD6-79F611A971B6">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="numero_curvas_izq" id="2B2331A0-B7E7-221B-0794-A20C5923CB28">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="posicion_parrilla" id="2DC125A5-1616-4325-258E-7D97AA620174">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="pais" id="42D23BCA-24BD-F3B1-D6FF-789DAC4B0604">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="numero_curvas_der" id="4598DADA-1EBF-1010-B2BF-128D325D5B98">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="año_inauguración" id="57C2BE8E-7DCC-A87C-5A6C-C15865C75EB4">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="fecha" id="8B604912-7A47-EAD6-74A0-50E3BC0577AE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="distancia_recta_mas_larga" id="8F9AEBB0-4BB9-E46C-5D69-C09E86E2DF33">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ciudad" id="CA5ED8B1-045B-26EF-2563-FCBC36F248F9">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="mapa" id="CA8F6D6A-4500-CEC8-F332-540037749139">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nombre" id="CD45BEFE-8644-272D-B17C-357B1B95549C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="longitud_total" id="D3F9899E-72FB-76F9-2D36-E716AC6D25DA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="numero_vueltas" id="F0796C80-C2A3-95A2-8C77-FAC39C078A26">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="anchura" id="FCAF919C-2060-D1ED-736C-EBD82D217B3B">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CARRERA_PK" id="C6AE55C5-65CF-3EDE-DAAA-7BFAE4EAB72E">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="CARRERA_fecha_UN" id="530E7AE7-AD61-DDEA-98F9-C2779B1A8CF8">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

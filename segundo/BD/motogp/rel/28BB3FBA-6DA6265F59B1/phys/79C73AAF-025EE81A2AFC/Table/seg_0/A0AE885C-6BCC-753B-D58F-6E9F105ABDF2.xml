@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="TIEMPOS" directorySegmentName="seg_0" id="A0AE885C-6BCC-753B-D58F-6E9F105ABDF2">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="vuelta" id="40EB22E5-A57E-75FF-76D2-CAC9D03EDCDF">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PILOTO_NOMBRE" id="5AFF81C9-1BCF-D2CD-8CB6-A08C9FECCB75">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="tiempo" id="A5232C34-5997-F553-D282-BD8F4EF47B56">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRAMO_codigo" id="E2859DF4-0B4C-284B-380C-51B7BB233B28">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Relation_6_TRAMO_FK" id="0695694A-2CA1-99EC-BBF8-E42345EE873E">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Relation_6_PILOTO_FK" id="7FB7609D-CA3C-9AC3-C93B-0563B38F9B0D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Relation_6_PK" id="786FCEC5-1333-65C2-9971-5E5ACCB12A00">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:14:25 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

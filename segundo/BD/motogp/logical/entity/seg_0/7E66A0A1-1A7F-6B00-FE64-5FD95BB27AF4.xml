@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7E66A0A1-1A7F-6B00-FE64-5FD95BB27AF4" name="TRAMO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:14:41 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="63715239-5C42-2BBF-F836-DD1F20A1799F">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:14:53 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="diferencia altura" id="A5EFCB06-9AFC-AFE8-4DD5-DF5111D49893">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:15:10 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo asfalto" id="C1792B84-1612-4DF1-8C63-583E1CA2DFC5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:15:24 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="velocidad meida" id="7AF1A482-133C-81C2-8343-8CD8DF99C287">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:15:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CIRCUITO nombre" id="35AF398E-3B18-753A-7F1F-543EC92CD4AA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:02:35 UTC</createdTime>
+<generatorID>B18EB659-A8A0-DA87-48DF-EEE5346FE506</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<referedAttribute>8388C90E-0AAB-BC74-6BE7-E9C2FC4ABD29</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8FE232D2-D5F7-D781-A5AB-30266D3F2D24" name="TRAMO PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:15:07 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>63715239-5C42-2BBF-F836-DD1F20A1799F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

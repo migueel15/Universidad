@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="EQUIPO_PILOTO" directorySegmentName="seg_0" id="0C9314F1-DB99-82C4-3D6F-5116905156DC">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:27:18 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<sourcePk>B5D597E6-5AD1-6475-9A55-B16A77553134</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>TIENE</nameOnSource>
+<nameOnTarget>ASOCIADO A</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5F39874A-0AF9-ADA8-0FD0-82ECAF3F5A96</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2F66B439-0E57-4EA4-2FDD-7908AD8DB9E7</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

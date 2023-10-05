@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="70D67989-EBBA-2DFF-B897-001A60425DC8" containerWithKeyObject="67A1E825-C44F-7781-340B-1BEEC9204EF9" localFKIndex="C4DEBE37-E732-3AF8-A794-E346671E0A92" name="ACTO_PILOTO_ACTO_PUBLICO_FK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ACTO_PILOTO_ACTO_PUBLICO_FK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<referredTableLongName>UBD4432.ACTO_PUBLICO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>910D6E2E-9D46-6F10-F504-0009BF07747D</referredTableID>
+<keyObject>F947E313-FD72-656C-2203-D6705431D415</keyObject>
+<referredKeyID>F947E313-FD72-656C-2203-D6705431D415</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>FECHA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

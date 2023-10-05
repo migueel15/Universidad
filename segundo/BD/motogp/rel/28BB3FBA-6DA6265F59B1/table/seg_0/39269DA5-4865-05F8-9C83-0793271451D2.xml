@@ -1,0 +1,209 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="39269DA5-4865-05F8-9C83-0793271451D2" name="CIRCUITO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>4B8C9CC6-B07D-9DBD-AD8F-34BCF32E460A</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nombre" id="CD45BEFE-8644-272D-B17C-357B1B95549C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>8388C90E-0AAB-BC74-6BE7-E9C2FC4ABD29</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="8B604912-7A47-EAD6-74A0-50E3BC0577AE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>157687BD-A72D-8ACB-BE4C-15C7286E2A23</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pais" id="42D23BCA-24BD-F3B1-D6FF-789DAC4B0604">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>0060EFEC-36AB-A432-070F-CA1EFDAD519D</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ciudad" id="CA5ED8B1-045B-26EF-2563-FCBC36F248F9">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>D091ABC0-C940-A98F-0756-79A6E84089A5</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="año_inauguración" id="57C2BE8E-7DCC-A87C-5A6C-C15865C75EB4">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>BC61A87C-F4CC-0AAA-2867-0EFB8277E528</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="anchura" id="FCAF919C-2060-D1ED-736C-EBD82D217B3B">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>AA96FD39-9892-7950-F95E-0A0B7E66201F</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="posicion_parrilla" id="2DC125A5-1616-4325-258E-7D97AA620174">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>B3559C21-8BCF-6A28-BB8B-408815CE127F</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="longitud_total" id="D3F9899E-72FB-76F9-2D36-E716AC6D25DA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>0CE46254-8F11-C437-17A5-193706E5328F</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="distancia_recta_mas_larga" id="8F9AEBB0-4BB9-E46C-5D69-C09E86E2DF33">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>AE5D8E44-1848-2017-CA3F-30A803A8535D</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numero_curvas_izq" id="2B2331A0-B7E7-221B-0794-A20C5923CB28">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>6CD77FA0-E9FE-78F0-7732-50E4352091A9</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numero_curvas_der" id="4598DADA-1EBF-1010-B2BF-128D325D5B98">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>17980B93-A61D-F62B-8BAE-871BA812461D</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mapa" id="CA8F6D6A-4500-CEC8-F332-540037749139">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>A36B07D5-5FE2-D296-9A5A-9E0922799DA2</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numero_vueltas" id="F0796C80-C2A3-95A2-8C77-FAC39C078A26">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>E285BB7E-1849-AAF2-90D1-96D6A8FADE0F</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_carrera" id="11BEDE32-CA82-D200-AAD6-79F611A971B6">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>6316E09D-C0A5-FE32-9037-B9BA089B6049</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C6AE55C5-65CF-3EDE-DAAA-7BFAE4EAB72E" name="CARRERA_PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>228FF97B-032E-EE5F-068E-E1E8C90CF699</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD45BEFE-8644-272D-B17C-357B1B95549C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="530E7AE7-AD61-DDEA-98F9-C2779B1A8CF8" name="CARRERA_fecha_UN">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>E669E059-2819-8A82-C870-4576D2582DAD</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B604912-7A47-EAD6-74A0-50E3BC0577AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

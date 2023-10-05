@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4E0CCF71-8EC5-652F-1FE9-C6E02458F396" name="EMPLEADO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:17:13 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="6DAE221C-D013-67AD-19D8-DDBB5B35C6A7">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:17:17 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pasaporte" id="F5C6D302-19DA-D428-1D3E-BB322054591D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:17:28 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nacionalidad" id="20FA1464-C3F6-C55B-9D93-EC24457F2330">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:17:43 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="989778F0-DDC9-B989-18F4-7158CB7F062D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:17:51 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha nacimiento" id="B7763F70-9998-2E2D-DC7B-C05340A4AE2A">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:17:56 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre1" id="E5F7AD63-6571-FC39-3E29-98ADFAD95583">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:28:32 UTC</createdTime>
+<generatorID>F20F23F6-3A44-0009-87C7-655B423A311F</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>22890893-A90A-BB28-B0F0-9C171F0959D4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre2" id="ED769D63-2818-A0A1-4723-8881E3F746D3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:28:42 UTC</createdTime>
+<generatorID>3FA70B27-F4A0-6789-8D9F-375CA1787A76</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<referedAttribute>22890893-A90A-BB28-B0F0-9C171F0959D4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="EC4DF77F-172F-B0C9-C580-298B18F2A2E6" name="EMPLEADO PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:18:13 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6DAE221C-D013-67AD-19D8-DDBB5B35C6A7</attributeRef>
+<attributeRef>ED769D63-2818-A0A1-4723-8881E3F746D3</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F323999E-9AA7-80B7-C4BA-E19FEA226BA2" name="PASAPORTU U">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:18:21 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<newElementsIDs>F5C6D302-19DA-D428-1D3E-BB322054591D</newElementsIDs>
+<usedAttributes>
+<attributeRef>F5C6D302-19DA-D428-1D3E-BB322054591D</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="DB4EC566-0B03-10B9-6C72-495315FAF137" name="NACIONALIDAD U">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:18:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<newElementsIDs>20FA1464-C3F6-C55B-9D93-EC24457F2330</newElementsIDs>
+<usedAttributes>
+<attributeRef>20FA1464-C3F6-C55B-9D93-EC24457F2330</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

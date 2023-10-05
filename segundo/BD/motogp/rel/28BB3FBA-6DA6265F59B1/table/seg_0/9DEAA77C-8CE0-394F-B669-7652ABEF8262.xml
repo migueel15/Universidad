@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9DEAA77C-8CE0-394F-B669-7652ABEF8262" name="OFICIAL">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>195EDF8B-3766-92CF-1EFC-3677EBD52286</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nombre" id="71DA05FB-01E1-3F51-FF8A-B1146D0F877B">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>22890893-A90A-BB28-B0F0-9C171F0959D4</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0CA36F31-2902-171C-F284-FB240077403F" referredColumn="9BEE49BD-638B-EAB5-5259-57DF3696CCC3"/>
+</associations>
+</Column>
+<Column name="presupuesto" id="5F08055C-2D40-92DB-D2BD-2BB7B3BB1D11">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>E453DE6D-73F2-3528-B53E-C0FF1C242CBC</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="año_creación" id="36D6881D-0E1B-BAF7-41C6-7FF5BE877F7A">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>1B53AB49-FC7F-F43D-0993-56A2EDFCA771</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion_fabrica" id="D2142B96-A312-5530-8B6D-C2A3BE52E338">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>3A3AEDCD-F068-688B-BD18-DCCE7C2C6B02</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="709D8CED-8D18-5906-9005-3F6A7F7EA51C" name="OFICIAL_PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>B5D597E6-5AD1-6475-9A55-B16A77553134</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71DA05FB-01E1-3F51-FF8A-B1146D0F877B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A4DD4451-6B71-A591-24E2-738DD12C0322" name="OFICIAL_EQUIPO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>A3C480BB-8E39-4F44-D2BA-6EC3DAC2782D</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71DA05FB-01E1-3F51-FF8A-B1146D0F877B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

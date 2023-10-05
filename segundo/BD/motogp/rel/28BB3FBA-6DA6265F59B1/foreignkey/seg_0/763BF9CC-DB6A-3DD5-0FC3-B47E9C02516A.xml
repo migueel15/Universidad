@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="763BF9CC-DB6A-3DD5-0FC3-B47E9C02516A" containerWithKeyObject="07E19DF4-CA1A-6941-EBCA-EB6E3B08BDF9" localFKIndex="E693F408-DB60-95AF-8F92-7E37FE2CAF48" name="TRAMO_CIRCUITO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>B18EB659-A8A0-DA87-48DF-EEE5346FE506</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<referredTableLongName>CIRCUITO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>39269DA5-4865-05F8-9C83-0793271451D2</referredTableID>
+<keyObject>C6AE55C5-65CF-3EDE-DAAA-7BFAE4EAB72E</keyObject>
+<referredKeyID>C6AE55C5-65CF-3EDE-DAAA-7BFAE4EAB72E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>nombre</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

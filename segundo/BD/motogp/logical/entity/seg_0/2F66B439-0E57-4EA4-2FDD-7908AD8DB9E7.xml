@@ -1,0 +1,167 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2F66B439-0E57-4EA4-2FDD-7908AD8DB9E7" name="PILOTO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>5B4368BD-8EDC-2EB6-9172-AF7FD62BC483</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NOMBRE" id="D7CD75FB-980A-F875-18AA-A0BE45A8CFDE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>0E9D7B1D-D1B4-B603-2105-208F789513A3</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DORSAL" id="D5D5820B-97A6-5B5E-9D8F-2EF99F3686BD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>00E55BF5-4838-AF73-2D0D-C58EF4841FA6</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PAIS" id="C78A5A11-A43F-501E-CFBE-5C9B16CB8372">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>99DE56C4-0A6B-B34F-5257-43A31DC833A1</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CIUDAD" id="D6968025-23F8-5AF8-6D04-B078FA359366">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>899B7949-65A4-C095-31D6-A14C4126601A</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PESO" id="FDDE051D-33F0-FEB7-7423-96F315E2803E">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>F671A006-3E6D-81AD-7F99-C894A696F7E1</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ALTURA" id="DC8AEB2A-535B-2820-4B55-D877DD5981DE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>1D6F5DA5-0FAC-2001-A032-A883547B0A23</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VIDEO" id="84D07531-B632-6382-780A-8FE9746BE710">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>9716D632-49B8-E01B-28F3-6D23573ECF87</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre1" id="27D84DA9-80E7-C5A2-6C8C-E2E938E2592D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:27:18 UTC</createdTime>
+<generatorID>0C9314F1-DB99-82C4-3D6F-5116905156DC</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="true"/>
+</engineerTo>
+<referedAttribute>22890893-A90A-BB28-B0F0-9C171F0959D4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="40B0B56E-1D6E-82E7-9229-35DC935ADE96" name="PILOTO DORSAL UN">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>5FF8791C-B69E-DA1B-D2C3-B29B0B7E2448</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>D5D5820B-97A6-5B5E-9D8F-2EF99F3686BD</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="DB7C7DD4-3D94-2EFD-9695-DEB8E33E0726" name="PILOTO PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:47 UTC</createdTime>
+<generatorID>8D0E2A90-C06C-465F-9AB8-5071B34D42DD</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="28BB3FBA-236C-88AA-8939-6DA6265F59B1" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D7CD75FB-980A-F875-18AA-A0BE45A8CFDE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

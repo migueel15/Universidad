@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PILOTO" directorySegmentName="seg_0" id="5B4368BD-8EDC-2EB6-9172-AF7FD62BC483">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<schemaObject>C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A058BF6F-3603-B6DC-C02C-FE8FD1F44AC6</segment>
+<tableSpace>5D5CFB4E-538B-2FC1-8F3A-CEDD774E2899</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DORSAL" id="00E55BF5-4838-AF73-2D0D-C58EF4841FA6">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOMBRE" id="0E9D7B1D-D1B4-B603-2105-208F789513A3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ALTURA" id="1D6F5DA5-0FAC-2001-A032-A883547B0A23">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EQUIPO_nombre" id="7E845276-6A7F-46BC-A902-2F0BD9E45476">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CIUDAD" id="899B7949-65A4-C095-31D6-A14C4126601A">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="VIDEO" id="9716D632-49B8-E01B-28F3-6D23573ECF87">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PAIS" id="99DE56C4-0A6B-B34F-5257-43A31DC833A1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PESO" id="F671A006-3E6D-81AD-7F99-C894A696F7E1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PILOTO_DORSAL_UN" id="07A5DB91-2493-E0A3-DCE5-33AF647254F7">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<schemaObject>C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2</schemaObject>
+<segment>CA135505-2D84-6092-FD4C-FB086BD35AC5</segment>
+<tableSpace>5D5CFB4E-538B-2FC1-8F3A-CEDD774E2899</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PILOTO_PK" id="2FD3A10A-CE47-C9F8-29F8-1A57F2D0E09C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<schemaObject>C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2</schemaObject>
+<segment>CA135505-2D84-6092-FD4C-FB086BD35AC5</segment>
+<tableSpace>5D5CFB4E-538B-2FC1-8F3A-CEDD774E2899</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PILOTO_EQUIPO_FK" id="18085DE7-36CF-129B-3D94-FE3F7EA8B454">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PILOTO_PK" id="8D0E2A90-C06C-465F-9AB8-5071B34D42DD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<segment>CA135505-2D84-6092-FD4C-FB086BD35AC5</segment>
+<tableSpace>5D5CFB4E-538B-2FC1-8F3A-CEDD774E2899</tableSpace>
+<existingIndex>2FD3A10A-CE47-C9F8-29F8-1A57F2D0E09C</existingIndex>
+<indexSegment>CA135505-2D84-6092-FD4C-FB086BD35AC5</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="PILOTO_DORSAL_UN" id="5FF8791C-B69E-DA1B-D2C3-B29B0B7E2448">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<segment>CA135505-2D84-6092-FD4C-FB086BD35AC5</segment>
+<tableSpace>5D5CFB4E-538B-2FC1-8F3A-CEDD774E2899</tableSpace>
+<existingIndex>07A5DB91-2493-E0A3-DCE5-33AF647254F7</existingIndex>
+<indexSegment>CA135505-2D84-6092-FD4C-FB086BD35AC5</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

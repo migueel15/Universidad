@@ -1,0 +1,199 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5B4368BD-8EDC-2EB6-9172-AF7FD62BC483" schemaObject="C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2" name="PILOTO">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PILOTO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOMBRE" id="0E9D7B1D-D1B4-B603-2105-208F789513A3">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>NOMBRE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DORSAL" id="00E55BF5-4838-AF73-2D0D-C58EF4841FA6">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>DORSAL</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PAIS" id="99DE56C4-0A6B-B34F-5257-43A31DC833A1">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>PAIS</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CIUDAD" id="899B7949-65A4-C095-31D6-A14C4126601A">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>CIUDAD</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PESO" id="F671A006-3E6D-81AD-7F99-C894A696F7E1">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>PESO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ALTURA" id="1D6F5DA5-0FAC-2001-A032-A883547B0A23">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>ALTURA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VIDEO" id="9716D632-49B8-E01B-28F3-6D23573ECF87">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PILOTO</sourceObjSchema>
+<sourceObjName>VIDEO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EQUIPO_nombre" id="7E845276-6A7F-46BC-A902-2F0BD9E45476">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>27D84DA9-80E7-C5A2-6C8C-E2E938E2592D</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3D14501F-DF23-C68F-A97D-DA4BF52BAE47" referredColumn="9BEE49BD-638B-EAB5-5259-57DF3696CCC3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8D0E2A90-C06C-465F-9AB8-5071B34D42DD" name="PILOTO_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PILOTO_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E9D7B1D-D1B4-B603-2105-208F789513A3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5FF8791C-B69E-DA1B-D2C3-B29B0B7E2448" name="PILOTO_DORSAL_UN">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PILOTO_DORSAL_UN</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00E55BF5-4838-AF73-2D0D-C58EF4841FA6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="07A5DB91-2493-E0A3-DCE5-33AF647254F7" schemaObject="C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2" name="PILOTO_DORSAL_UN">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PILOTO_DORSAL_UN</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00E55BF5-4838-AF73-2D0D-C58EF4841FA6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2FD3A10A-CE47-C9F8-29F8-1A57F2D0E09C" schemaObject="C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2" name="PILOTO_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PILOTO_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E9D7B1D-D1B4-B603-2105-208F789513A3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="18085DE7-36CF-129B-3D94-FE3F7EA8B454" name="PILOTO_EQUIPO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:30:45 UTC</createdTime>
+<generatorID>0C9314F1-DB99-82C4-3D6F-5116905156DC</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E845276-6A7F-46BC-A902-2F0BD9E45476"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

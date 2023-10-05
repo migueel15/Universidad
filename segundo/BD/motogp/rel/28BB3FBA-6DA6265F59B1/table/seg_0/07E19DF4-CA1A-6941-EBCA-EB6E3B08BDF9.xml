@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07E19DF4-CA1A-6941-EBCA-EB6E3B08BDF9" name="TRAMO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>7E66A0A1-1A7F-6B00-FE64-5FD95BB27AF4</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="DD09D7CB-EB1C-5ACD-3275-C11704AE0F29">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>63715239-5C42-2BBF-F836-DD1F20A1799F</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="diferencia_altura" id="4D0C20DC-3E65-5ADF-E274-96C78084A2E1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>A5EFCB06-9AFC-AFE8-4DD5-DF5111D49893</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_asfalto" id="5166965F-BF3D-9A28-7613-DF14AD50F704">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>C1792B84-1612-4DF1-8C63-583E1CA2DFC5</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="velocidad_meida" id="AC9E1440-1D62-0FCB-746E-885ECA368573">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>7AF1A482-133C-81C2-8343-8CD8DF99C287</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CIRCUITO_nombre" id="00C8A46C-CC72-856A-8E15-E3EE2B5E0B04">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>35AF398E-3B18-753A-7F1F-543EC92CD4AA</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="763BF9CC-DB6A-3DD5-0FC3-B47E9C02516A" referredColumn="CD45BEFE-8644-272D-B17C-357B1B95549C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="95E3BA77-F1E4-92AD-C3DE-6CE83BC82248" name="TRAMO_PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>8FE232D2-D5F7-D781-A5AB-30266D3F2D24</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD09D7CB-EB1C-5ACD-3275-C11704AE0F29"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E693F408-DB60-95AF-8F92-7E37FE2CAF48" name="TRAMO_CIRCUITO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 12:04:33 UTC</createdTime>
+<generatorID>B18EB659-A8A0-DA87-48DF-EEE5346FE506</generatorID>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00C8A46C-CC72-856A-8E15-E3EE2B5E0B04"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

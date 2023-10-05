@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="67A1E825-C44F-7781-340B-1BEEC9204EF9" schemaObject="C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2" name="ACTO_PILOTO">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ACTO_PILOTO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ACTO_PUBLICO_FECHA" id="CC62623F-EAAF-F767-5F36-1EB3671DB680">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ACTO_PILOTO</sourceObjSchema>
+<sourceObjName>ACTO_PUBLICO_FECHA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="70D67989-EBBA-2DFF-B897-001A60425DC8" referredColumn="958719BA-C12D-9961-3889-C65A5A57C3B2"/>
+</associations>
+</Column>
+<Column name="PILOTO_NOMBRE" id="E1F3A26F-9B2E-0612-E426-21AD8422D286">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ACTO_PILOTO</sourceObjSchema>
+<sourceObjName>PILOTO_NOMBRE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2FA4B892-3CD7-276D-4B13-2C7E22AB1FCA" referredColumn="0E9D7B1D-D1B4-B603-2105-208F789513A3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D8BC2D0-D1D6-ADD6-03C1-F5D0F2BADD6F" name="ACTO_PILOTO_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ACTO_PILOTO_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC62623F-EAAF-F767-5F36-1EB3671DB680"/>
+<colUsage columnID="E1F3A26F-9B2E-0612-E426-21AD8422D286"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="28142C0D-06C3-3B3C-B2D2-33BD0FAE8AAD" schemaObject="C65BAAFF-E1C0-89A5-9E39-3C8FD4C7CCA2" name="ACTO_PILOTO_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ACTO_PILOTO_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:36 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC62623F-EAAF-F767-5F36-1EB3671DB680"/>
+<colUsage columnID="E1F3A26F-9B2E-0612-E426-21AD8422D286"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C4DEBE37-E732-3AF8-A794-E346671E0A92" name="ACTO_PILOTO_ACTO_PUBLICO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC62623F-EAAF-F767-5F36-1EB3671DB680"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4FEF1C2B-36B8-EB02-8305-269FA4A31B48" name="ACTO_PILOTO_PILOTO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-04 10:08:37 UTC</createdTime>
+<ownerDesignName>motogp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1F3A26F-9B2E-0612-E426-21AD8422D286"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
