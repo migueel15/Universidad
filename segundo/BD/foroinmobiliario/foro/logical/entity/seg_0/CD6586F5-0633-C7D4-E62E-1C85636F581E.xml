@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CD6586F5-0633-C7D4-E62E-1C85636F581E" name="DEBATE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:39:53 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="EBCD79E8-D9F5-62E4-AEB9-40634C2055CE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:40:05 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_cierre" id="89C75386-F864-6665-D11F-78087C5E6C2B">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:45:17 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_creacion" id="B2BAA15E-C423-467A-69A0-FC2840D49A9C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:56:57 UTC</createdTime>
+<generatorID>943B7B4D-716B-6DFD-2E76-796229C5C7A3</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<referedAttribute>F2BE8E88-0538-81D5-F469-585EFCFD5F53</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo1" id="47A2C891-B235-E4A8-89AA-1C46D2C9A2DD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:56:57 UTC</createdTime>
+<generatorID>943B7B4D-716B-6DFD-2E76-796229C5C7A3</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<referedAttribute>2DDDA238-EB9C-E813-D2ED-8E15BE4087A4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo11" id="FAB34ACF-6856-786E-3739-1B82BC1F0985">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:56:57 UTC</createdTime>
+<generatorID>943B7B4D-716B-6DFD-2E76-796229C5C7A3</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<referedAttribute>FF19E6F6-A121-1F9D-8EED-C74DCE1C6C6E</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo2" id="4566F7A6-EC00-2E31-CC40-DE94E84CC5B3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:57:07 UTC</createdTime>
+<generatorID>9EAEB8DC-5672-0280-F2F5-723CA2CA47A1</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>EBCD79E8-D9F5-62E4-AEB9-40634C2055CE</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="A280933A-153B-038D-9ECE-3CA8CA3F7496">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:57:36 UTC</createdTime>
+<generatorID>E87653BC-D1A2-3A99-81DF-E602FFC79253</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>76F40705-4F76-6886-A620-3F1334534FC6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E41A8BA0-FB14-DE77-E429-AD7D99B2E4E6" name="DEBATE PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:45:29 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EBCD79E8-D9F5-62E4-AEB9-40634C2055CE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

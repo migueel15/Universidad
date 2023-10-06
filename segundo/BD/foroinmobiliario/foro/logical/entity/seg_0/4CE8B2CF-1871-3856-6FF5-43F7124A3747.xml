@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4CE8B2CF-1871-3856-6FF5-43F7124A3747" name="TEMA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:45:37 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="nombre" id="76F40705-4F76-6886-A620-3F1334534FC6">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:49:35 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="50188159-ECD9-BD98-7AB5-55C26E9C0357">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:49:46 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_asignatura" id="3657DA8B-4731-9D22-2135-A5F77ECFF42D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:50:02 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo" id="F08B514F-103A-D979-2499-7FA1E2755F65">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:57:44 UTC</createdTime>
+<generatorID>E87653BC-D1A2-3A99-81DF-E602FFC79253</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>EBCD79E8-D9F5-62E4-AEB9-40634C2055CE</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DB20D652-53BD-C125-3194-5C6748F400AB" name="TEMA PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:49:41 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>76F40705-4F76-6886-A620-3F1334534FC6</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

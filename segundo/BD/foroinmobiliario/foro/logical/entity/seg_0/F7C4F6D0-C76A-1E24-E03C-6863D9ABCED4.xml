@@ -1,0 +1,221 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F7C4F6D0-C76A-1E24-E03C-6863D9ABCED4" name="USUARIO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:12:37 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="373F5380-DA54-E956-8565-83923438895C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:13:34 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="C4147DDA-3D6E-57B0-A3BB-EE3F7EBF6CF5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:27:14 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="alias" id="1179CC06-4D3D-5CCC-CF98-838E75A65498">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:27:26 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="E2D25A39-B294-0205-AB6E-C7FBEFDE96FF">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:27:36 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ciudad" id="72C957B2-3D4B-AD30-2D86-C2DC4C50A52D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:27:46 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="firma" id="76ECACF9-9B1F-1B8E-4DA4-B425009F7986">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:27:55 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="avatar" id="BA257868-7B5D-5BFA-5295-51B0158C26DD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:28:07 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="activo" id="4BC3BD22-71EC-16D0-A780-FAF3B82712CE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:28:15 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado" id="54D6040B-3D1F-EA59-2950-3F745910B35F">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:33:07 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_alta" id="3BEABEC2-187C-D9B3-9694-B90E005ECDB5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:35:07 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="web_personal" id="CE936E4D-FFB2-9226-BB2D-5CD11A7688CA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:35:17 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ocupacion" id="B869B432-6FC7-9CB3-15CA-5DA30D9F8130">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:35:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B47E45DE-95AA-D5FA-569F-D237AAFDC970" name="USUARIO PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:13:40 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>373F5380-DA54-E956-8565-83923438895C</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="DB902BFE-CB94-C608-01DA-8354BF4D8DE4" name="EMAIL U">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:37:02 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<newElementsIDs>C4147DDA-3D6E-57B0-A3BB-EE3F7EBF6CF5</newElementsIDs>
+<usedAttributes>
+<attributeRef>C4147DDA-3D6E-57B0-A3BB-EE3F7EBF6CF5</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="16A83BC9-DE38-3FEC-54C1-DC269C6F8DC1" name="ALIAS U">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 14:37:19 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<engineerTo>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+</engineerTo>
+<newElementsIDs>1179CC06-4D3D-5CCC-CF98-838E75A65498</newElementsIDs>
+<usedAttributes>
+<attributeRef>1179CC06-4D3D-5CCC-CF98-838E75A65498</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
