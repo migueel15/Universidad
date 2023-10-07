@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="55BA86A2-FB0B-4B89-A452-21C32E001387" name="DEBATE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>B953A0E4-E55A-E7A1-E469-C8964A5F8DF7</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="2AB828A5-6FC9-A94B-CE70-604AAD0E87D9">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>35175744-6924-B373-0FF1-5E08C610F836</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_cierre" id="ECAF7599-4F0A-E9F9-329A-1698A545AFB5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>786D8865-8E62-4314-7F5A-C50F86989DFF</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MENSAJE_fecha_creacion" id="71057114-87D1-4683-9EDA-E7D72305A9AA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>BC0281F9-264E-9E0D-EDF8-AF2A440DDA70</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1343AEBD-3043-D121-7B6A-84C4D59AB8D1" referredColumn="206C7A0B-B0C5-02EA-454F-3920190657F9"/>
+</associations>
+</Column>
+<Column name="MENSAJE_USUARIO_codigo" id="ECE4EF8D-F9BF-DA17-91D6-32E96B4B282B">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>9CD3EC7B-F84F-E558-D67D-C77913D4AEA4</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1343AEBD-3043-D121-7B6A-84C4D59AB8D1" referredColumn="88E1F145-3170-BF10-9AA5-F011ECF7CFE1"/>
+</associations>
+</Column>
+<Column name="MENSAJE_DEBATE_codigo" id="5AC4FE21-FA14-4970-FE40-448AEA2C48E4">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>7C69A4EF-32BD-B219-272B-20D3C4B1D9EF</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1343AEBD-3043-D121-7B6A-84C4D59AB8D1" referredColumn="0E8A7058-FFA9-387F-EBE6-DF724523A715"/>
+</associations>
+</Column>
+<Column name="DEBATE_codigo" id="9DF08922-C931-B9D7-AAA8-DF6E3B0E27D7">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>9CCFA17B-1A16-A18C-3DB3-920CE3C42126</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="98374FDE-42D6-C56A-CEC6-4C23C404C1D2" referredColumn="2AB828A5-6FC9-A94B-CE70-604AAD0E87D9"/>
+</associations>
+</Column>
+<Column name="TEMA_nombre" id="47BEF697-6B9E-27A1-0741-F55CA0F2EFC0">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>5DCD6561-44EE-6EFC-2600-8A5C17F0913C</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CBDBD840-A512-1B99-A129-46754CF2FBB1" referredColumn="5C7F11B2-2D64-FF1B-6517-CA06ED9B81B8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5CB14DBD-7390-AF82-1A74-5DE698903D6B" name="DEBATE_PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>7BF00F22-F8AE-0711-3243-C4B03662E78B</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2AB828A5-6FC9-A94B-CE70-604AAD0E87D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75F2A5E6-BA80-CA82-D21E-6C417295ADC9" name="DEBATE__IDX">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>A9EAFCD1-A10C-DDA3-D967-A909736EFF32</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="71057114-87D1-4683-9EDA-E7D72305A9AA"/>
+<colUsage columnID="ECE4EF8D-F9BF-DA17-91D6-32E96B4B282B"/>
+<colUsage columnID="5AC4FE21-FA14-4970-FE40-448AEA2C48E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC65A671-E4EC-4A28-FBB5-5F5E89C9B036" name="DEBATE__IDXv1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>ACD39E29-66C8-1CE7-6127-45DE89A13CB4</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="9DF08922-C931-B9D7-AAA8-DF6E3B0E27D7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F006249C-F722-7131-388F-6ACBE1256706" name="DEBATE_MENSAJE_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>A9EAFCD1-A10C-DDA3-D967-A909736EFF32</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71057114-87D1-4683-9EDA-E7D72305A9AA"/>
+<colUsage columnID="ECE4EF8D-F9BF-DA17-91D6-32E96B4B282B"/>
+<colUsage columnID="5AC4FE21-FA14-4970-FE40-448AEA2C48E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3EF846D-6740-B94A-AAE1-C09ECBECDA2F" name="DEBATE_DEBATE_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>ACD39E29-66C8-1CE7-6127-45DE89A13CB4</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DF08922-C931-B9D7-AAA8-DF6E3B0E27D7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C914FCF5-57AB-0FAA-849B-88A2188AD1B9" name="DEBATE_TEMA_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>30DB5258-15BF-2ED8-1153-A81CDCAF0756</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47BEF697-6B9E-27A1-0741-F55CA0F2EFC0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

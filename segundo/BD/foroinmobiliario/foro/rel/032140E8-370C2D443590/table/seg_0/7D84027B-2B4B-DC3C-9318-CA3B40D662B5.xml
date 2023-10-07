@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7D84027B-2B4B-DC3C-9318-CA3B40D662B5" name="Relation_13">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USUARIO_codigo" id="464F4C31-3602-4832-23EC-6D16C01B12B8">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3107E9ED-20F3-6713-B1BA-E8570D523C04" referredColumn="D8BB189B-8B4B-17F2-F63B-49B6123EE80A"/>
+</associations>
+</Column>
+<Column name="DEBATE_codigo" id="D3F501EA-DEC1-64A1-F5C1-961F2825D586">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="87340548-5A11-7285-C8DF-8CD8C3642CC1" referredColumn="2AB828A5-6FC9-A94B-CE70-604AAD0E87D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="62D81025-27F7-96ED-7C38-FB38E289218C" name="Relation_13_PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<ownerDesignName>foro</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="464F4C31-3602-4832-23EC-6D16C01B12B8"/>
+<colUsage columnID="D3F501EA-DEC1-64A1-F5C1-961F2825D586"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FAB34A57-9DE6-AE01-DF79-2A88F4AA13D9" name="Relation_13_USUARIO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>29DAA55B-F329-C688-C8D9-67D528B873DC</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="464F4C31-3602-4832-23EC-6D16C01B12B8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="69B0A796-A710-5E22-99AE-8C75B9A321AF" name="Relation_13_DEBATE_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>29DAA55B-F329-C688-C8D9-67D528B873DC</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D3F501EA-DEC1-64A1-F5C1-961F2825D586"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

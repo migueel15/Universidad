@@ -55,10 +55,10 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="codigo" id="2DDDA238-EB9C-E813-D2ED-8E15BE4087A4">
+<Attribute name="codigo" id="25E1E4FA-C64C-4523-DDAB-C5F3DFC0B200">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:55:07 UTC</createdTime>
-<generatorID>7A6C6F14-2B72-24F4-01C7-B816B0A20E7A</generatorID>
+<createdTime>2023-10-06 15:14:45 UTC</createdTime>
+<generatorID>F6069ECF-85DB-2E5B-825D-4FE4F1FAB210</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
@@ -69,16 +69,18 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="codigo1" id="FF19E6F6-A121-1F9D-8EED-C74DCE1C6C6E">
+<Attribute name="codigo1" id="FC3D7827-C9D9-B328-EBD1-2FB7D0E8FCD8">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:56:10 UTC</createdTime>
-<generatorID>724D24D0-2F1A-CC08-7356-C6A55B326D39</generatorID>
+<createdTime>2023-10-06 15:15:00 UTC</createdTime>
+<generatorID>005066B5-A3CB-B2D5-4B12-C75F77A42745</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
 </engineerTo>
-<referedAttribute>EBCD79E8-D9F5-62E4-AEB9-40634C2055CE</referedAttribute>
-<use>0</use>
+<referedAttribute>35175744-6924-B373-0FF1-5E08C610F836</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
@@ -87,14 +89,15 @@
 <createdBy>miguel</createdBy>
 <createdTime>2023-10-06 14:39:35 UTC</createdTime>
 <ownerDesignName>foro</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>F2BE8E88-0538-81D5-F469-585EFCFD5F53</attributeRef>
-<attributeRef>2DDDA238-EB9C-E813-D2ED-8E15BE4087A4</attributeRef>
-<attributeRef>FF19E6F6-A121-1F9D-8EED-C74DCE1C6C6E</attributeRef>
+<attributeRef>25E1E4FA-C64C-4523-DDAB-C5F3DFC0B200</attributeRef>
+<attributeRef>FC3D7827-C9D9-B328-EBD1-2FB7D0E8FCD8</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

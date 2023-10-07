@@ -1,19 +1,19 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="DEBATE_MENSAJE" directorySegmentName="seg_0" id="724D24D0-2F1A-CC08-7356-C6A55B326D39">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_16" directorySegmentName="seg_0" id="005066B5-A3CB-B2D5-4B12-C75F77A42745">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:56:10 UTC</createdTime>
+<createdTime>2023-10-06 15:15:00 UTC</createdTime>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
 </engineerTo>
-<sourcePk>E41A8BA0-FB14-DE77-E429-AD7D99B2E4E6</sourcePk>
+<sourcePk>7BF00F22-F8AE-0711-3243-C4B03662E78B</sourcePk>
 <identifying>true</identifying>
 <nameOnSource>TIENE</nameOnSource>
 <nameOnTarget>PERTENECE</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>CD6586F5-0633-C7D4-E62E-1C85636F581E</sourceEntity>
+<sourceEntity>B953A0E4-E55A-E7A1-E469-C8964A5F8DF7</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>570358E7-CA72-FB8E-AD29-C94DBD600B26</targetEntity>
 <transferable>true</transferable>

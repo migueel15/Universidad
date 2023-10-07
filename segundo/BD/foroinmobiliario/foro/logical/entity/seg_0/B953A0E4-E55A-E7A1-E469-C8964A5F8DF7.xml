@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CD6586F5-0633-C7D4-E62E-1C85636F581E" name="DEBATE">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B953A0E4-E55A-E7A1-E469-C8964A5F8DF7" name="DEBATE">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:39:53 UTC</createdTime>
+<createdTime>2023-10-06 15:06:33 UTC</createdTime>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
@@ -15,19 +15,21 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="codigo" id="EBCD79E8-D9F5-62E4-AEB9-40634C2055CE">
+<Attribute name="codigo" id="35175744-6924-B373-0FF1-5E08C610F836">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:40:05 UTC</createdTime>
+<createdTime>2023-10-06 15:06:39 UTC</createdTime>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecha_cierre" id="89C75386-F864-6665-D11F-78087C5E6C2B">
+<Attribute name="fecha_cierre" id="786D8865-8E62-4314-7F5A-C50F86989DFF">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:45:17 UTC</createdTime>
+<createdTime>2023-10-06 15:07:03 UTC</createdTime>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
@@ -38,10 +40,10 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecha_creacion" id="B2BAA15E-C423-467A-69A0-FC2840D49A9C">
+<Attribute name="fecha_creacion" id="BC0281F9-264E-9E0D-EDF8-AF2A440DDA70">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:56:57 UTC</createdTime>
-<generatorID>943B7B4D-716B-6DFD-2E76-796229C5C7A3</generatorID>
+<createdTime>2023-10-06 15:15:27 UTC</createdTime>
+<generatorID>A9EAFCD1-A10C-DDA3-D967-A909736EFF32</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
@@ -52,49 +54,53 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="codigo1" id="47A2C891-B235-E4A8-89AA-1C46D2C9A2DD">
+<Attribute name="codigo1" id="9CD3EC7B-F84F-E558-D67D-C77913D4AEA4">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:56:57 UTC</createdTime>
-<generatorID>943B7B4D-716B-6DFD-2E76-796229C5C7A3</generatorID>
+<createdTime>2023-10-06 15:15:27 UTC</createdTime>
+<generatorID>A9EAFCD1-A10C-DDA3-D967-A909736EFF32</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
 </engineerTo>
-<referedAttribute>2DDDA238-EB9C-E813-D2ED-8E15BE4087A4</referedAttribute>
+<referedAttribute>25E1E4FA-C64C-4523-DDAB-C5F3DFC0B200</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="codigo11" id="FAB34ACF-6856-786E-3739-1B82BC1F0985">
+<Attribute name="codigo11" id="7C69A4EF-32BD-B219-272B-20D3C4B1D9EF">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:56:57 UTC</createdTime>
-<generatorID>943B7B4D-716B-6DFD-2E76-796229C5C7A3</generatorID>
+<createdTime>2023-10-06 15:15:27 UTC</createdTime>
+<generatorID>A9EAFCD1-A10C-DDA3-D967-A909736EFF32</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
 </engineerTo>
-<referedAttribute>FF19E6F6-A121-1F9D-8EED-C74DCE1C6C6E</referedAttribute>
-<use>0</use>
+<referedAttribute>FC3D7827-C9D9-B328-EBD1-2FB7D0E8FCD8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="codigo2" id="4566F7A6-EC00-2E31-CC40-DE94E84CC5B3">
+<Attribute name="codigo2" id="9CCFA17B-1A16-A18C-3DB3-920CE3C42126">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:57:07 UTC</createdTime>
-<generatorID>9EAEB8DC-5672-0280-F2F5-723CA2CA47A1</generatorID>
+<createdTime>2023-10-06 15:16:51 UTC</createdTime>
+<generatorID>ACD39E29-66C8-1CE7-6127-45DE89A13CB4</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
-<referedAttribute>EBCD79E8-D9F5-62E4-AEB9-40634C2055CE</referedAttribute>
-<use>0</use>
+<referedAttribute>35175744-6924-B373-0FF1-5E08C610F836</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="nombre" id="A280933A-153B-038D-9ECE-3CA8CA3F7496">
+<Attribute name="nombre" id="5DCD6561-44EE-6EFC-2600-8A5C17F0913C">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:57:36 UTC</createdTime>
-<generatorID>E87653BC-D1A2-3A99-81DF-E602FFC79253</generatorID>
+<createdTime>2023-10-06 15:17:42 UTC</createdTime>
+<generatorID>30DB5258-15BF-2ED8-1153-A81CDCAF0756</generatorID>
 <ownerDesignName>foro</ownerDesignName>
 <engineerTo>
 <item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
@@ -109,16 +115,17 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="E41A8BA0-FB14-DE77-E429-AD7D99B2E4E6" name="DEBATE PK">
+<identifier id="7BF00F22-F8AE-0711-3243-C4B03662E78B" name="DEBATE PK">
 <createdBy>miguel</createdBy>
-<createdTime>2023-10-06 14:45:29 UTC</createdTime>
+<createdTime>2023-10-06 15:06:47 UTC</createdTime>
 <ownerDesignName>foro</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="true"/>
+<item key="032140E8-DAB0-9218-DBAE-370C2D443590" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>EBCD79E8-D9F5-62E4-AEB9-40634C2055CE</attributeRef>
+<attributeRef>35175744-6924-B373-0FF1-5E08C610F836</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B1956B3A-352C-E80F-CB52-2D8F3D73D18F" name="MENSAJE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>570358E7-CA72-FB8E-AD29-C94DBD600B26</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fecha_creacion" id="206C7A0B-B0C5-02EA-454F-3920190657F9">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>F2BE8E88-0538-81D5-F469-585EFCFD5F53</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contenido" id="FBCEF0FA-14E5-420E-B2D3-192D3C85F95C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>A26A1FBE-D0FE-4FCE-75F2-0F185193AD15</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titulo" id="615633CB-30E8-5376-E29C-D0808C33CAD7">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>88D56235-2120-2382-35D1-4F670EC5ECAF</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USUARIO_codigo" id="88E1F145-3170-BF10-9AA5-F011ECF7CFE1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>25E1E4FA-C64C-4523-DDAB-C5F3DFC0B200</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2678E6EF-9EAB-55D0-ECC6-256E26339922" referredColumn="D8BB189B-8B4B-17F2-F63B-49B6123EE80A"/>
+</associations>
+</Column>
+<Column name="DEBATE_codigo" id="0E8A7058-FFA9-387F-EBE6-DF724523A715">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>FC3D7827-C9D9-B328-EBD1-2FB7D0E8FCD8</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E70C4D04-5AFD-A3FF-8344-E67CB90BF0C4" referredColumn="2AB828A5-6FC9-A94B-CE70-604AAD0E87D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="81C3AE52-10F2-B9D2-40C4-7A77CAAED3D3" name="MENSAJE_PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>542AD642-13DA-945F-83B4-410E6664ED91</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="206C7A0B-B0C5-02EA-454F-3920190657F9"/>
+<colUsage columnID="88E1F145-3170-BF10-9AA5-F011ECF7CFE1"/>
+<colUsage columnID="0E8A7058-FFA9-387F-EBE6-DF724523A715"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="05E64892-DFB3-6A8C-A0FC-0AB7BC27BC6B" name="MENSAJE_USUARIO_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>F6069ECF-85DB-2E5B-825D-4FE4F1FAB210</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88E1F145-3170-BF10-9AA5-F011ECF7CFE1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8E07DAEB-C14C-0FA6-F1DC-BDADD4D5AD20" name="MENSAJE_DEBATE_FK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-06 15:18:33 UTC</createdTime>
+<generatorID>005066B5-A3CB-B2D5-4B12-C75F77A42745</generatorID>
+<ownerDesignName>foro</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E8A7058-FFA9-387F-EBE6-DF724523A715"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
