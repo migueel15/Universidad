@@ -9,9 +9,12 @@ public class FabricaMetodos {
 		case LOGN:
 			m = new OrdenLogIter();
 			break;
+			/*
 		case N:
 			m = new OrdenLinealRec();
 			break;
+			*/
+
 		case NLOGN:
 			m = new OrdenNLogIter();
 			break;
@@ -21,9 +24,12 @@ public class FabricaMetodos {
 		case N3:
 			m = new OrdenCubicoIter();
 			break;
+			/*
 		case EXP2:
 			m = new OrdenExponencial2Rec();
 			break;
+
+			 */
 		}
 		return m;
 	}

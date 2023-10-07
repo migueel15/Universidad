@@ -29,8 +29,16 @@ public class ProcesaLista extends Metodo{
 	}
 	
 	private void procesaLista(List<Integer> lista) {
-		//Completar la implementación del método
+		List<Integer> elUnicos = new ArrayList<>();
+		if(lista.size() > 0) {
+			elUnicos.add(lista.get(0));
+			for (int i = 1; i < lista.size(); i++) {
+				if (lista.get(i) != lista.get(i - 1)) {
+					elUnicos.add(lista.get(i));
+				}
+			}
+			lista.clear();
+			lista.addAll(elUnicos);
+		}
 	}
-	
-
 }

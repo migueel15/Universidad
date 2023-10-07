@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ComparaMetodos {
-
+/*
 	public static void main(String[] args) {
 		int [] tam = //Selecciona tamaños de entrada
 		int numPruebas = //Selecciona número de pruebas por tamaño
@@ -22,7 +22,7 @@ public class ComparaMetodos {
 			}
 		}
 	}
-	
+	*/
 	private static long[] medirTiemposLista(ProcesaLista m, int[]tam, int pruebasPorTam) {
 		long [] tiempos = new long[tam.length];
 		
