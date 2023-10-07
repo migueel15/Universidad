@@ -1,10 +1,4 @@
-	.set GPBASE,  0x3F200000
-	.set GPFSEL0, 0x00
-	.set GPSET0,  0x1c
-	.set GPCLR0,  0x28
-	.set GPLEV0,  0x34
-	.set STBASE,  0x3F300000
-	.set STCLO,   0x04
+.include "inter.inc"
 
 .text
 	ldr r0, =GPBASE
@@ -12,7 +6,7 @@
 	
 	@Configuración puertos
 	ldr r1, =0b00000000000000000001000000000000 @salida altavoz, entrada btn1 y btn2
-	str r1, [r0, #GPSEL0]
+	str r1, [r0, #GPFSEL0]
 
 	ldr r2, =0b00000000000000000000000000000100 @btn1 pulsado
 	ldr r3, =0b00000000000000000000000000001000 @btn2 pulsado
@@ -28,10 +22,10 @@ bucle:
 
 sonido1:
 	ldr r1, =3816 @sleep fecuencia Do
+	bl espera
 	str r6, [r0, #GPSET0]
 	bl espera
 	str r6, [r0, #GPCLR0]
-	bl espera
 
 sonido2:
 	ldr r1, =2557 @sleep fecuencia Sol
