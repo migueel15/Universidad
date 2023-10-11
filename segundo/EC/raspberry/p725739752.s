@@ -1,16 +1,19 @@
 .include "inter.inc"
 
 .text
+	ldr r0, =0b11010011
+	msr cpsr_c, r0
+	ldr sp, =0x08000000
+	
 	ldr r0, =GPBASE
 	ldr r7, =STBASE
 	
-	@Configuración puertos
-	ldr r1, =0b00000000000000000001000000000000 @salida altavoz, entrada btn1 y btn2
+	ldr r1, =0b00000000000000000001000000000000
 	str r1, [r0, #GPFSEL0]
 
-	ldr r2, =0b00000000000000000000000000000100 @btn1 pulsado
-	ldr r3, =0b00000000000000000000000000001000 @btn2 pulsado
-	ldr r6, =0b00000000000000000000000000010000 @posicion altavoz
+	ldr r2, =0b00000000000000000000000000000100
+	ldr r3, =0b00000000000000000000000000001000
+	ldr r6, =0b00000000000000000000000000010000
 
 bucle: 
 	ldr r1, [r0, #GPLEV0]
@@ -21,18 +24,20 @@ bucle:
 	b bucle
 
 sonido1:
-	ldr r1, =3816 @sleep fecuencia Do
+	ldr r1, =1908
 	bl espera
 	str r6, [r0, #GPSET0]
 	bl espera
 	str r6, [r0, #GPCLR0]
+	b bucle
 
 sonido2:
-	ldr r1, =2557 @sleep fecuencia Sol
+	ldr r1, =1279
 	str r6, [r0, #GPSET0]
 	bl espera
 	str r6, [r0, #GPCLR0]
 	bl espera
+	b bucle
 
 espera:
 	push {r4, r5}

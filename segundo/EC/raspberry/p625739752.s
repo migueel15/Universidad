@@ -1,23 +1,36 @@
 	.set GPBASE,  0x3F200000
 	.set GPFSEL0, 0x00
+	.set GPFSEL2, 0x08
 	.set GPSET0,  0x1c
 	.set GPCLR0,  0x28
-	.set STBASE,  0x3F300000
+	.set STBASE,  0x3F003000
 	.set STCLO,   0x04
 
 .text
 	ldr r0, =GPBASE
-	ldr r1, =0b00000000000000000001000000000000 @salida sonido
-	str r1, [r0, #GPFSEL0]
-	ldr r1, =0b00000000000000000000000000010000 @valor sonido
+	ldr r1, =0b00000000000000000000000001000000
+	str r1, [r0, #GPFSEL2]
+	ldr r1, =0b00000000010000000000000000000000
 	
-	ldr r2, =1706 @293HZ -> 1/293 = 3.41ms -> 3.41ms/2 = 1.706484ms -> 1706 microsegundos
 	ldr r3, =STBASE
 bucle:
-	bl espera
+	ldr r2, =1000000
 	str r1, [r0, #GPSET0]
 	bl espera
 	str r1, [r0, #GPCLR0]
+	bl espera
+
+	ldr r2, =500000
+	str r1, [r0, #GPSET0]
+	bl espera
+	str r1, [r0, #GPCLR0]
+	bl espera
+
+	ldr r2, =250000
+	str r1, [r0, #GPSET0]
+	bl espera
+	str r1, [r0, #GPCLR0]
+	bl espera
 	b bucle
 
 espera:
