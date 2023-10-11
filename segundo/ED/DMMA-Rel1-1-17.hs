@@ -10,7 +10,6 @@
 -------------------------------------------------------------------------------
 
 import Data.Bifunctor (Bifunctor (first))
-import GHC.Driver.CmdLine (Err (errMsg))
 import Test.QuickCheck
 
 -- 1
@@ -181,4 +180,44 @@ esBisiesto x
 -- 14
 -- 14 a
 potencia :: Integer -> Integer -> Integer
-potencia x y = x * potencia x (y - 1)
+potencia _ 0 = 1
+potencia x y = x * potencia x (y-1)
+
+-- 14 b
+potencia' :: Integer -> Integer -> Integer
+potencia' b n
+  | n == 0 = 1
+  | n == 2 = b * b
+  | even n == True = potencia' (potencia' b (div n 2)) 2
+  | otherwise = b * potencia' (potencia' b (div (n-1) 2)) 2
+
+-- 14 c
+p_pot b n = n >= 0 ==> potencia b n == sol && potencia' b n == sol where sol = b^n
+
+-- 14 d
+-- n / 2 - 1
+
+-- 15
+factorial :: Integer -> Integer
+factorial 0 = 1
+factorial x = x * factorial (x - 1)
+
+-- 16
+-- 16 a
+divideA :: Integer -> Integer -> Bool
+divideA x y = mod y x == 0
+
+-- 16 b
+p1_divideA x y = y /= 0 && y `divideA` x ==> div x y * y == x
+
+-- 16 c
+p2_divideA x y z = x /= 0 && x `divideA` y && x `divideA` z ==> x `divideA` (y + z)
+
+-- 17
+mediana :: Ord a => (a,a,a,a,a) -> a
+mediana (x, y, z, t, u)
+  | x > z = mediana (z,y,x,t,u)
+  | y > z = mediana (x,z,y,t,u)
+  | t < z = mediana (x,y,t,z,u)
+  | u < z = mediana (x,y,u,t,z)
+  | otherwise = z
