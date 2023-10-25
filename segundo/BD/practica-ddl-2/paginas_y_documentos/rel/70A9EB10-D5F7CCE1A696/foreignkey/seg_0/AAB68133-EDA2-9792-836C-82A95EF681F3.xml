@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AAB68133-EDA2-9792-836C-82A95EF681F3" containerWithKeyObject="F05679B7-270F-1F00-5E91-F4526DB89381" localFKIndex="630B9AF4-FF77-2B19-60AE-980A69452735" name="APL">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>APL</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<referredTableLongName>UBD4432.APLICACIONES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>FAD74045-20CE-ACBB-621A-71080C2B483C</referredTableID>
+<keyObject>8D2BAA46-22C6-D284-8018-141EE93921DC</keyObject>
+<referredKeyID>8D2BAA46-22C6-D284-8018-141EE93921DC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>NOMBRE_APLIC</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

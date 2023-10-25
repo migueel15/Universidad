@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FAD74045-20CE-ACBB-621A-71080C2B483C" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="APLICACIONES">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>APLICACIONES</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOMBRE_APLIC" id="39ADEBE0-55D2-D645-1596-D2844FB1F89C">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>APLICACIONES</sourceObjSchema>
+<sourceObjName>NOMBRE_APLIC</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMPANIA" id="0C460799-8AB6-666D-F84F-8A93501988C3">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>APLICACIONES</sourceObjSchema>
+<sourceObjName>COMPANIA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRECIO" id="22E67485-4B9A-B9DB-5126-0B5B6DD7668D">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>APLICACIONES</sourceObjSchema>
+<sourceObjName>PRECIO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WEB_APLICACION" id="B95B5FE1-9E86-D041-8323-11060D7A3B97">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>APLICACIONES</sourceObjSchema>
+<sourceObjName>WEB_APLICACION</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8D2BAA46-22C6-D284-8018-141EE93921DC" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="APLICACIONES_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>SYS_C00675691</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39ADEBE0-55D2-D645-1596-D2844FB1F89C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0F74BAFB-9278-6DDB-D2CA-D6E78D51BE85" name="WEB_UNICA">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>WEB_UNICA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B95B5FE1-9E86-D041-8323-11060D7A3B97"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1174A873-B4AF-7EF0-F94C-712F6547313F" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="WEB_UNICA">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>WEB_UNICA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B95B5FE1-9E86-D041-8323-11060D7A3B97"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

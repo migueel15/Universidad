@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EAE0019D-BF68-BC02-4DAB-B09CF2B184BC" name="APLICACIONES">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>FAD74045-20CE-ACBB-621A-71080C2B483C</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NOMBRE APLIC" id="961AFEE0-DBDA-9351-2FE7-C5C0C381625A">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>39ADEBE0-55D2-D645-1596-D2844FB1F89C</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="COMPANIA" id="3ABC26DE-6450-6753-CC57-4B55BAE812EF">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>0C460799-8AB6-666D-F84F-8A93501988C3</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRECIO" id="406EBDC0-B91B-2C02-3FF4-C39C4288E9A7">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>22E67485-4B9A-B9DB-5126-0B5B6DD7668D</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="WEB APLICACION" id="45E3A0AF-324C-7739-FA43-150D352A62DD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>B95B5FE1-9E86-D041-8323-11060D7A3B97</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F6832351-54EA-8E57-C837-B810D3FB41E6" name="APLICACIONES PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>8D2BAA46-22C6-D284-8018-141EE93921DC</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>961AFEE0-DBDA-9351-2FE7-C5C0C381625A</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="9B42D00C-994B-51F4-42C7-70EA83312299" name="WEB UNICA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>0F74BAFB-9278-6DDB-D2CA-D6E78D51BE85</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>45E3A0AF-324C-7739-FA43-150D352A62DD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

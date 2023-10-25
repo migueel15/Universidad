@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="66C4A0FE-E3EF-8957-F127-A6FB92EAA570" containerWithKeyObject="B1B213C0-30CC-08A1-6C05-0B0849E25CDE" localFKIndex="2F1FED0C-D61C-7D78-0843-6116DFA0884B" name="DOC_TEXTO_FK1">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>DOC_TEXTO_FK1</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<referredTableLongName>UBD4432.DOCUMENTO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>14294204-A240-08A8-03D7-80B1E060F599</referredTableID>
+<keyObject>8898D29D-4385-810A-4C9A-08ACEDD1FA64</keyObject>
+<referredKeyID>8898D29D-4385-810A-4C9A-08ACEDD1FA64</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>NOMBRE,DIRECTORIO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

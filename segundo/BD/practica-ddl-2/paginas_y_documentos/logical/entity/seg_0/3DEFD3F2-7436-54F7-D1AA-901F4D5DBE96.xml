@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3DEFD3F2-7436-54F7-D1AA-901F4D5DBE96" name="DOC TEXTO">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>B1B213C0-30CC-08A1-6C05-0B0849E25CDE</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ASCII" id="9E212F79-69C3-2A2D-EDED-D5B3BB332158">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>2AD1BF9C-DC3A-3643-14A3-CDF113410D30</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NUM LINEAS" id="7FD3C19C-F8EC-F6BE-14DB-8B1FDBB6E2DD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>8B8DE781-5C1B-12CB-D972-B79825A54BB0</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NUM CARACTERES" id="AEE0B0E1-479C-4CDF-29C1-36E18E4D6A2F">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>6F3F49B4-AE73-81B6-15F6-11E85E431F70</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TIPO" id="0E475499-254F-5158-1C03-3F17D2A7725C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>32E94DB2-50AA-81DA-9D27-08CE8A051BF2</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DIRECTORIO" id="3BB38FF2-BF54-7F10-9F04-277E02E70FCF">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>B7F818BC-9AB6-6453-6D9D-82A367502730</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<referedAttribute>FC81B851-CE5B-EED8-C475-9593D49F8407</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE" id="D6F6A31D-32B7-F0A2-B56B-0054A6D75EF0">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>B7F818BC-9AB6-6453-6D9D-82A367502730</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<referedAttribute>E0C52BD5-25B8-86D7-05AD-B9055EF05880</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="718D7A24-9B97-248A-4D69-2AB1A2BE335F" name="DOC TEXTO PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:26 UTC</createdTime>
+<generatorID>EACDB038-2924-36AA-135A-322E52175E96</generatorID>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<engineerTo>
+<item key="70A9EB10-D09A-5FD3-5D9F-D5F7CCE1A696" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3BB38FF2-BF54-7F10-9F04-277E02E70FCF</attributeRef>
+<attributeRef>D6F6A31D-32B7-F0A2-B56B-0054A6D75EF0</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

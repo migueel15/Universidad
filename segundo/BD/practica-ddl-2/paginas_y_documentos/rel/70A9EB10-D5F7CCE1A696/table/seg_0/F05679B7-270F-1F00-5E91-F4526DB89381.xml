@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F05679B7-270F-1F00-5E91-F4526DB89381" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="COMPATIBLE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>COMPATIBLE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOMBRE_DOCUMENTO" id="15104EEF-EAB7-78A7-D658-EF4C2B19905A">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>COMPATIBLE</sourceObjSchema>
+<sourceObjName>NOMBRE_DOCUMENTO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F5C505B7-1BAB-BFCC-A4BF-1D2D38ADF059" referredColumn="F6F2FA7F-7014-7A85-D683-C8F3C5B15B0B"/>
+</associations>
+</Column>
+<Column name="DIRECTORIO" id="C826CB76-9A03-0B1F-6167-3B1613917B25">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>COMPATIBLE</sourceObjSchema>
+<sourceObjName>DIRECTORIO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F5C505B7-1BAB-BFCC-A4BF-1D2D38ADF059" referredColumn="4998D3E1-351F-2D55-3BC8-227FFA203948"/>
+</associations>
+</Column>
+<Column name="NOMBRE_APLICACION" id="CBCD66B6-95B9-871A-A003-183D02315C43">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>COMPATIBLE</sourceObjSchema>
+<sourceObjName>NOMBRE_APLICACION</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AAB68133-EDA2-9792-836C-82A95EF681F3" referredColumn="39ADEBE0-55D2-D645-1596-D2844FB1F89C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AC92B6D6-BE7C-E6BE-DA91-6811B22DB487" name="COMPATIBLE_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>COMPATIBLE_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15104EEF-EAB7-78A7-D658-EF4C2B19905A"/>
+<colUsage columnID="C826CB76-9A03-0B1F-6167-3B1613917B25"/>
+<colUsage columnID="CBCD66B6-95B9-871A-A003-183D02315C43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4586AAE4-9C21-118D-2E2F-A6E7FE9501BD" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="COMPATIBLE_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>COMPATIBLE_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15104EEF-EAB7-78A7-D658-EF4C2B19905A"/>
+<colUsage columnID="C826CB76-9A03-0B1F-6167-3B1613917B25"/>
+<colUsage columnID="CBCD66B6-95B9-871A-A003-183D02315C43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="630B9AF4-FF77-2B19-60AE-980A69452735" name="APL">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CBCD66B6-95B9-871A-A003-183D02315C43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="830BE9A7-8F8B-5C39-DC2C-63182D3024D0" name="DOC">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15104EEF-EAB7-78A7-D658-EF4C2B19905A"/>
+<colUsage columnID="C826CB76-9A03-0B1F-6167-3B1613917B25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

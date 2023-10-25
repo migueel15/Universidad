@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="DOC_TEXTO" directorySegmentName="seg_0" id="B1B213C0-30CC-08A1-6C05-0B0849E25CDE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<schemaObject>A1B82651-5333-701C-F92A-43F90D3D7046</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>5C1D1CB4-14EF-FC27-5059-B8CB60BCAF33</segment>
+<tableSpace>09DC0155-1E9E-9114-28E2-17CB49C943FB</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NOMBRE" id="00CF7100-11C4-7186-43A4-EEC8313ED582">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ASCII" id="2AD1BF9C-DC3A-3643-14A3-CDF113410D30">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPO" id="32E94DB2-50AA-81DA-9D27-08CE8A051BF2">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NUM_CARACTERES" id="6F3F49B4-AE73-81B6-15F6-11E85E431F70">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NUM_LINEAS" id="8B8DE781-5C1B-12CB-D972-B79825A54BB0">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIRECTORIO" id="B657F617-CEE4-BE2D-3072-6065002355FE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DOC_TEXTO_PK" id="03ADBC23-AA51-BAAD-33E5-7FF1709448F5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<schemaObject>A1B82651-5333-701C-F92A-43F90D3D7046</schemaObject>
+<segment>5EB140A3-4F16-1F17-65A6-23505D0C696B</segment>
+<tableSpace>09DC0155-1E9E-9114-28E2-17CB49C943FB</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DOC_TEXTO_FK1" id="2F1FED0C-D61C-7D78-0843-6116DFA0884B">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DOC_TEXTO_PK" id="EACDB038-2924-36AA-135A-322E52175E96">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<segment>5EB140A3-4F16-1F17-65A6-23505D0C696B</segment>
+<tableSpace>09DC0155-1E9E-9114-28E2-17CB49C943FB</tableSpace>
+<existingIndex>03ADBC23-AA51-BAAD-33E5-7FF1709448F5</existingIndex>
+<indexSegment>5EB140A3-4F16-1F17-65A6-23505D0C696B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

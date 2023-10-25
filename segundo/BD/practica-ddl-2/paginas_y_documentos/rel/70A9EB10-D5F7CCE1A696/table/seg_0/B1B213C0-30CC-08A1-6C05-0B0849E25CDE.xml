@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B1B213C0-30CC-08A1-6C05-0B0849E25CDE" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="DOC_TEXTO">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>DOC_TEXTO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ASCII" id="2AD1BF9C-DC3A-3643-14A3-CDF113410D30">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>DOC_TEXTO</sourceObjSchema>
+<sourceObjName>ASCII</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUM_LINEAS" id="8B8DE781-5C1B-12CB-D972-B79825A54BB0">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>DOC_TEXTO</sourceObjSchema>
+<sourceObjName>NUM_LINEAS</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUM_CARACTERES" id="6F3F49B4-AE73-81B6-15F6-11E85E431F70">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>DOC_TEXTO</sourceObjSchema>
+<sourceObjName>NUM_CARACTERES</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO" id="32E94DB2-50AA-81DA-9D27-08CE8A051BF2">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>DOC_TEXTO</sourceObjSchema>
+<sourceObjName>TIPO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIRECTORIO" id="B657F617-CEE4-BE2D-3072-6065002355FE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>DOC_TEXTO</sourceObjSchema>
+<sourceObjName>DIRECTORIO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="66C4A0FE-E3EF-8957-F127-A6FB92EAA570" referredColumn="4998D3E1-351F-2D55-3BC8-227FFA203948"/>
+</associations>
+</Column>
+<Column name="NOMBRE" id="00CF7100-11C4-7186-43A4-EEC8313ED582">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>DOC_TEXTO</sourceObjSchema>
+<sourceObjName>NOMBRE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="66C4A0FE-E3EF-8957-F127-A6FB92EAA570" referredColumn="F6F2FA7F-7014-7A85-D683-C8F3C5B15B0B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EACDB038-2924-36AA-135A-322E52175E96" name="DOC_TEXTO_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>DOC_TEXTO_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00CF7100-11C4-7186-43A4-EEC8313ED582"/>
+<colUsage columnID="B657F617-CEE4-BE2D-3072-6065002355FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="03ADBC23-AA51-BAAD-33E5-7FF1709448F5" schemaObject="A1B82651-5333-701C-F92A-43F90D3D7046" name="DOC_TEXTO_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>DOC_TEXTO_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:05 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00CF7100-11C4-7186-43A4-EEC8313ED582"/>
+<colUsage columnID="B657F617-CEE4-BE2D-3072-6065002355FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F1FED0C-D61C-7D78-0843-6116DFA0884B" name="DOC_TEXTO_FK1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-25 09:38:06 UTC</createdTime>
+<ownerDesignName>paginas_y_documentos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00CF7100-11C4-7186-43A4-EEC8313ED582"/>
+<colUsage columnID="B657F617-CEE4-BE2D-3072-6065002355FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
