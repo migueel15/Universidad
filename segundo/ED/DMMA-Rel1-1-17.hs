@@ -3,9 +3,9 @@
 --
 -- Titulación: Grado en Ingeniería del Software.
 -- Alumno: DORADO MALDONADO, MIGUEL ÁNGEL
--- Fecha de entrega: DIA | MES | AÑO
+-- Fecha de entrega: 11 | 10 | 2023
 --
--- Relación de Ejercicios 1. Ejercicios resueltos: ..........
+-- Relación de Ejercicios 1. Ejercicios resueltos: todos
 --
 -------------------------------------------------------------------------------
 

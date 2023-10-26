@@ -1,4 +1,5 @@
-import Lib qualified
+import qualified Library.Lib as L
+import qualified DataStructures.Stack.LinearStack as DS
 
 data Stack a = Empty | Node a (Stack a) deriving (Show)
 

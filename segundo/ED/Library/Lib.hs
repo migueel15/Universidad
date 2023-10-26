@@ -1,4 +1,4 @@
-module Lib (f1, f3) where
+module Library.Lib (f1, f3) where
 
 import Data.Char
 
