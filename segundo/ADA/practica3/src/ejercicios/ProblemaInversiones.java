@@ -9,5 +9,5 @@ public class ProblemaInversiones {
 	private static int numInv(int[] a, int prim, int ult) {
 		//Completar la implementación de este método
 	}
-	
+
 }

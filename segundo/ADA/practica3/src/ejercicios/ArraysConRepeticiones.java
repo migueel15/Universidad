@@ -1,5 +1,5 @@
 package ejercicios;
-
+/*
 public class ArraysConRepeticiones {
 
 	//Precondición: hay un elemento repetido=> v.length >= 2
@@ -11,3 +11,4 @@ public class ArraysConRepeticiones {
 		//Completar la implementación del método
 	}
 }
+*/

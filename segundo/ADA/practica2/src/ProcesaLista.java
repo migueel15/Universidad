@@ -33,9 +33,17 @@ public class ProcesaLista extends Metodo{
 		if(lista.size() > 0) {
 			elUnicos.add(lista.get(0));
 			for (int i = 1; i < lista.size(); i++) {
-				if (lista.get(i) != lista.get(i - 1)) {
-					elUnicos.add(lista.get(i));
+				if(lista.get(i) % 2 != 0){
+					if (lista.get(i) != lista.get(i - 1)) {
+						elUnicos.add(lista.get(i));
+					}
+				}else {
+					if (lista.get(i) != lista.get(i - 1)) {
+						elUnicos.add(lista.get(i));
+						elUnicos.add(lista.get(i));
+					}
 				}
+
 			}
 			lista.clear();
 			lista.addAll(elUnicos);
