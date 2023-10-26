@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CA689843-742C-0E6E-F79C-AFB93DB1B347" containerWithKeyObject="262A04FC-E411-B2EF-86F5-99366A86160A" localFKIndex="F734E5C3-36BB-B4EC-582D-0D4CC5FA7C24" name="COD_ESPECIE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>COD_ESPECIE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<referredTableLongName>UBD4432.ESPECIE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E763EE7E-4785-EB84-E0EE-1A1C5D2232C6</referredTableID>
+<keyObject>9F88E06D-4099-B967-C3EB-4F7933AEA394</keyObject>
+<referredKeyID>9F88E06D-4099-B967-C3EB-4F7933AEA394</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>CODIGO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

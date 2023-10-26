@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DDCBAFC3-CA84-2DC3-B79A-7FA96FF99D9C" containerWithKeyObject="28025B3E-9C48-9834-B2AF-97D29D0C2411" localFKIndex="334F7977-2B27-BCA8-E231-CBA6803BE773" name="PROVIENE_DE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PROVIENE_DE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<referredTableLongName>UBD4432.PLANETA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D6AB032F-1D6B-F985-0C36-297D0DB8BAED</referredTableID>
+<keyObject>4C058A18-83B9-2862-4792-048A16D88E21</keyObject>
+<referredKeyID>4C058A18-83B9-2862-4792-048A16D88E21</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>CODIGO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

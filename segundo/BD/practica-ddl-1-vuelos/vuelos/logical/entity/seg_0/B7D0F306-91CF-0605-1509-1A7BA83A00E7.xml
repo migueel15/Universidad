@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B7D0F306-91CF-0605-1509-1A7BA83A00E7" name="VUELOS">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>CFB744EC-79FF-4534-F98F-D84669D88CB2</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CODIGO" id="434694BC-43C9-1955-0BFB-8401464CF9E6">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>A33A97B4-1DB9-B2B1-CFB7-45E996331A2A</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TIPO NAVE" id="AB189A6C-97A7-5F5C-F457-F2B69D132283">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>6D05C0EE-99AB-DDF4-6B43-779287DDED33</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FECHA LANZAMIENTO" id="1EA509A8-405E-6EE2-901F-C7A37A693CF4">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>F5399DAF-173A-3103-0CCD-4498096AAD16</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FECHA LLEGADA PREVISTA" id="BF0DCE97-C14F-0CB2-5CDF-FA61C4AF38DE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>1EA89198-7810-9ACC-82CD-B6FEF96C171F</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NUMERO PASAJEROS" id="4A9C2451-3C40-B9F1-5F7A-7CCC2BD8A4DE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>CB92DD39-3738-F445-2E03-48E0697402DC</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PLANETA ORIGEN" id="8087BBF5-7F7C-8BEF-95A8-9AED8B801885">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>1ED11B4C-F2C7-A75B-3342-E2ABC5A7F2BD</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>F026BD68-F79A-F4EF-C345-80396D0740BA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="499A4A77-A74E-6EE2-96AD-3EEE1E229A3E" name="VUELOS PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>FB23786C-F77A-87B4-9337-FCCAE22743A9</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>434694BC-43C9-1955-0BFB-8401464CF9E6</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,143 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FC15DE6A-2D0D-A35F-7CA4-920678D22875" name="INTELIGENTES">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>28025B3E-9C48-9834-B2AF-97D29D0C2411</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="LENGUA" id="31C154DB-FBDF-E212-2E64-25253A429D48">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>20360C86-3FBE-3DE9-892C-8E925494F04C</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ESCRITURA" id="67BAF5B1-0BFD-5FB1-4C90-A8FF039F4290">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>CD15341B-C8AF-A15A-1E6E-76B36334671D</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PINTURA" id="DE2FC2AC-DEFD-CCC1-6BD0-E9D13399D5E9">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>9332AC96-B852-0A71-AF98-62FB171DA5EE</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ORDEN SOCIAL" id="BC6B7A92-2D70-E3B7-3D38-AAB586E823A8">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>7A860F12-02F7-BF29-F3A8-8E16B0A7EA39</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ESPECIE" id="86FBB53A-5CCE-6FA6-6BB3-32FC58850038">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>2E593F01-83DF-2C19-A1C3-4C0D14392A12</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<referedAttribute>7EEDF170-F681-BEFE-E537-230861CE6B67</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PROVIENE DE" id="F8652CEB-25F4-41F5-BF21-64BCFE622C6E">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>878C00DB-A0C6-A300-41B6-120DCB203CD3</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<referedAttribute>F026BD68-F79A-F4EF-C345-80396D0740BA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DOMINA EN" id="188ED5AA-F23D-E0A7-66F0-8E92DBB29EE2">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>44CEF7CD-1B9D-A4A0-D01C-321527616BCE</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="003ABE82-DBE4-7DA3-1897-B16A972BD757" name="INTELIGENTES PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>AF437BFB-ED6C-938F-C945-55A815A60958</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>86FBB53A-5CCE-6FA6-6BB3-32FC58850038</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

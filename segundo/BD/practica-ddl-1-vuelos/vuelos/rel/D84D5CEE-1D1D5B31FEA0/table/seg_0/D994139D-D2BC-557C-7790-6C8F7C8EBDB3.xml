@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D994139D-D2BC-557C-7790-6C8F7C8EBDB3" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="ESCALAS">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ESCALAS</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="VUELO" id="C9B39159-A025-E583-45E0-781F63A55E66">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESCALAS</sourceObjSchema>
+<sourceObjName>VUELO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FB0399DB-5D50-B1D6-D803-F213A6CE30F6" referredColumn="A33A97B4-1DB9-B2B1-CFB7-45E996331A2A"/>
+</associations>
+</Column>
+<Column name="NUM_PARADA" id="145BFD18-C45E-942E-811A-5AC3C5080F82">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESCALAS</sourceObjSchema>
+<sourceObjName>NUM_PARADA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PLANETA_PARADA" id="16E32D3A-9745-0911-E14B-56A7AED1C5A2">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESCALAS</sourceObjSchema>
+<sourceObjName>PLANETA_PARADA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1C89082B-8756-773F-6247-C6DCEAE042C7" referredColumn="948DD256-8668-8CC9-38F2-BC75190EFF82"/>
+</associations>
+</Column>
+<Column name="DURACION_PARADA" id="ECBEB9EC-59F0-3569-1C15-2818E2E64E4E">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESCALAS</sourceObjSchema>
+<sourceObjName>DURACION_PARADA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="42369F0E-D533-6856-ECE3-3C65EF072A72" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="ESCALAS_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>SYS_C00667520</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9B39159-A025-E583-45E0-781F63A55E66"/>
+<colUsage columnID="145BFD18-C45E-942E-811A-5AC3C5080F82"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="96B238B6-D018-3E02-4C37-BBA5CA54B918" name="SYS_C00667521">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9B39159-A025-E583-45E0-781F63A55E66"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C80863E2-1F82-3D64-4DE5-67FDF7B52C8A" name="SYS_C00667522">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="16E32D3A-9745-0911-E14B-56A7AED1C5A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

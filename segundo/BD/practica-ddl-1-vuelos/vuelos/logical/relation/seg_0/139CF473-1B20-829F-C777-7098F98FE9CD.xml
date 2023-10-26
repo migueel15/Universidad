@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="DOMINADA_POR" directorySegmentName="seg_0" id="139CF473-1B20-829F-C777-7098F98FE9CD">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>4A2BA87E-DF2A-2C1A-5543-868843225F96</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<sourcePk>003ABE82-DBE4-7DA3-1897-B16A972BD757</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FC15DE6A-2D0D-A35F-7CA4-920678D22875</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>59390197-885E-F342-7866-E639FAA74958</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

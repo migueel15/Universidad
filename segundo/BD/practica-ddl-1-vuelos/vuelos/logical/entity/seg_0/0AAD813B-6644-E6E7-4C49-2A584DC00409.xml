@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0AAD813B-6644-E6E7-4C49-2A584DC00409" name="ESCALAS">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>D994139D-D2BC-557C-7790-6C8F7C8EBDB3</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="VUELO" id="3EA8A4C4-5F49-0CA0-29C8-011CB0F4DB0A">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>43173E9A-F16F-1ECD-13DE-4F49C8AE83CB</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<referedAttribute>434694BC-43C9-1955-0BFB-8401464CF9E6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NUM PARADA" id="6DDF5E08-AE86-D4C5-4EA8-E4ED70FE77BA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>145BFD18-C45E-942E-811A-5AC3C5080F82</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PLANETA PARADA" id="95B3EECE-999D-918B-72A5-5BED4E926E3F">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>4F323810-8B29-F653-657B-F279CAD95F81</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>F026BD68-F79A-F4EF-C345-80396D0740BA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DURACION PARADA" id="A7B03772-7023-993B-ECB0-746A2E20176C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>ECBEB9EC-59F0-3569-1C15-2818E2E64E4E</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D6ECAF0F-D003-EFB7-16C6-E7E20B16704A" name="ESCALAS PK">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>42369F0E-D533-6856-ECE3-3C65EF072A72</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3EA8A4C4-5F49-0CA0-29C8-011CB0F4DB0A</attributeRef>
+<attributeRef>6DDF5E08-AE86-D4C5-4EA8-E4ED70FE77BA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

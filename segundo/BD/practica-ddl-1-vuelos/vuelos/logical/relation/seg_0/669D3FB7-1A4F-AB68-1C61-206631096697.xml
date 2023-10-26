@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="COD_ESPECIE" directorySegmentName="seg_0" id="669D3FB7-1A4F-AB68-1C61-206631096697">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>CA689843-742C-0E6E-F79C-AFB93DB1B347</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<sourcePk>3B605A33-4B87-53B4-ADFD-07785C42034E</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>59390197-885E-F342-7866-E639FAA74958</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F3EA8A24-B181-F5B7-D574-AA9FC0E886FB</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

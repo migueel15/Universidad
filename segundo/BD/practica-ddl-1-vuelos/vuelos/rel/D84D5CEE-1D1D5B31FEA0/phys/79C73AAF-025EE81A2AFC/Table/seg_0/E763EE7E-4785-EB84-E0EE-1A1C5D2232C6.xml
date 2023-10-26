@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="ESPECIE" directorySegmentName="seg_0" id="E763EE7E-4785-EB84-E0EE-1A1C5D2232C6">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<schemaObject>32D4ADDF-0667-287D-C6E9-58B94602981C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>589CFD07-B917-7EE0-8F66-E97019CF81C9</segment>
+<tableSpace>B7A7F391-E758-E68D-88E8-E40D3BCF5161</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CARACTER" id="185680FB-C128-6A6B-4A5F-02EA9C99EE3F">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ALTURA_MEDIA" id="40A54C18-F7D0-AB8A-1DD6-E2372CE3675C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPO" id="6DA18E15-286D-1366-095E-8804F265F172">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<defaultValue>&apos;SEDENTARIO&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="DOMINADA_POR" id="AF573997-FCB1-751C-C006-FB624B7033F5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PESO_MEDIO" id="B537A372-2C22-D2C2-7046-BEA22993B381">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CODIGO" id="D3F4C67C-2EC5-EB34-3DCA-8D2155F63746">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DOMINADA_POR" id="9A492214-1C78-0045-A2A5-F7CA84B9726F">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ESPECIE_PK" id="9F88E06D-4099-B967-C3EB-4F7933AEA394">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<schemaObject>32D4ADDF-0667-287D-C6E9-58B94602981C</schemaObject>
+<segment>0F35CE34-1B7A-2B31-B23F-9B6A227968E0</segment>
+<tableSpace>B7A7F391-E758-E68D-88E8-E40D3BCF5161</tableSpace>
+<indexSegment>0F35CE34-1B7A-2B31-B23F-9B6A227968E0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="ESPECIE_CHK1" id="7825655C-C3A1-B31A-06F2-4F0869B934F5">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev12c>

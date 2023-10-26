@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PLANETA" directorySegmentName="seg_0" id="D6AB032F-1D6B-F985-0C36-297D0DB8BAED">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<schemaObject>32D4ADDF-0667-287D-C6E9-58B94602981C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>589CFD07-B917-7EE0-8F66-E97019CF81C9</segment>
+<tableSpace>B7A7F391-E758-E68D-88E8-E40D3BCF5161</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DIAMETRO" id="81093EC9-7415-D6B0-8D34-0FF217FE396D">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CODIGO" id="948DD256-8668-8CC9-38F2-BC75190EFF82">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIO_ORIGEN" id="CC923C22-23EB-2783-6C8A-ECDA055575B3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOMBRE" id="DF2ECCCE-AE1D-02DC-1FD0-A273F4E744FB">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GALAXIA" id="EEFBD691-0334-E417-5C67-06172E28F4F3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DIO_ORIGEN" id="9A5EF9A2-CB90-5AEE-2D48-9CE18A72027C">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PLANETA_PK" id="4C058A18-83B9-2862-4792-048A16D88E21">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<schemaObject>32D4ADDF-0667-287D-C6E9-58B94602981C</schemaObject>
+<segment>0F35CE34-1B7A-2B31-B23F-9B6A227968E0</segment>
+<tableSpace>B7A7F391-E758-E68D-88E8-E40D3BCF5161</tableSpace>
+<indexSegment>0F35CE34-1B7A-2B31-B23F-9B6A227968E0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

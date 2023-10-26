@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="COD_PLANETA" directorySegmentName="seg_0" id="D2741C94-3E2C-304D-84FB-5C01043DE532">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>DF9FFB89-C0A2-9A9F-5385-663A59E8E6DE</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<sourcePk>DC15B7A5-A1FF-7904-AACB-08AE20BF4B41</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F7296A7D-2342-CDE4-7888-D22233812788</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F3EA8A24-B181-F5B7-D574-AA9FC0E886FB</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

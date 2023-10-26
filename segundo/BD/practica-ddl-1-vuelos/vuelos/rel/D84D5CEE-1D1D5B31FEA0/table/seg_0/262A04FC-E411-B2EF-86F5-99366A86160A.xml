@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="262A04FC-E411-B2EF-86F5-99366A86160A" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="HABITA">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>HABITA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODIGO_ESPECIE" id="E7433CC6-6A07-660D-3B7C-55843ADC41D8">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>HABITA</sourceObjSchema>
+<sourceObjName>CODIGO_ESPECIE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CA689843-742C-0E6E-F79C-AFB93DB1B347" referredColumn="D3F4C67C-2EC5-EB34-3DCA-8D2155F63746"/>
+</associations>
+</Column>
+<Column name="CODIGO_PLANETA" id="661DE94E-6877-4872-830D-A0D5441DC7E0">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>HABITA</sourceObjSchema>
+<sourceObjName>CODIGO_PLANETA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DF9FFB89-C0A2-9A9F-5385-663A59E8E6DE" referredColumn="948DD256-8668-8CC9-38F2-BC75190EFF82"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="07D90B4A-E8A7-50E8-F3B9-F9C134A65A25" name="HABITA_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>HABITA_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7433CC6-6A07-660D-3B7C-55843ADC41D8"/>
+<colUsage columnID="661DE94E-6877-4872-830D-A0D5441DC7E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A8B6FC7-284C-0DCD-7C16-289BA0D286B3" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="HABITA_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>HABITA_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7433CC6-6A07-660D-3B7C-55843ADC41D8"/>
+<colUsage columnID="661DE94E-6877-4872-830D-A0D5441DC7E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F734E5C3-36BB-B4EC-582D-0D4CC5FA7C24" name="COD_ESPECIE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7433CC6-6A07-660D-3B7C-55843ADC41D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F1AE78F-474F-3E05-A092-264AD88289D3" name="COD_PLANETA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="661DE94E-6877-4872-830D-A0D5441DC7E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

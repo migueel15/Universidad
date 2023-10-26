@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PROVIENE_DE" directorySegmentName="seg_0" id="878C00DB-A0C6-A300-41B6-120DCB203CD3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:18 UTC</createdTime>
+<generatorID>DDCBAFC3-CA84-2DC3-B79A-7FA96FF99D9C</generatorID>
+<ownerDesignName>vuelos</ownerDesignName>
+<engineerTo>
+<item key="D84D5CEE-579D-672D-4963-1D1D5B31FEA0" value="true"/>
+</engineerTo>
+<sourcePk>DC15B7A5-A1FF-7904-AACB-08AE20BF4B41</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F7296A7D-2342-CDE4-7888-D22233812788</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>FC15DE6A-2D0D-A35F-7CA4-920678D22875</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

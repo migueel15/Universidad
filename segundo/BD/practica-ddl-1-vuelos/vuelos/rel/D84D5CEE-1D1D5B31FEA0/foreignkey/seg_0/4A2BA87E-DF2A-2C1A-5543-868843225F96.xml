@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4A2BA87E-DF2A-2C1A-5543-868843225F96" containerWithKeyObject="E763EE7E-4785-EB84-E0EE-1A1C5D2232C6" localFKIndex="9A492214-1C78-0045-A2A5-F7CA84B9726F" name="DOMINADA_POR">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>DOMINADA_POR</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<referredTableLongName>UBD4432.INTELIGENTES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>28025B3E-9C48-9834-B2AF-97D29D0C2411</referredTableID>
+<keyObject>AF437BFB-ED6C-938F-C945-55A815A60958</keyObject>
+<referredKeyID>AF437BFB-ED6C-938F-C945-55A815A60958</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ESPECIE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

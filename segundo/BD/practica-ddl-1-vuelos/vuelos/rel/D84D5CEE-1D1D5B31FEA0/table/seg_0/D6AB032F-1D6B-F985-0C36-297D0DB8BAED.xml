@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D6AB032F-1D6B-F985-0C36-297D0DB8BAED" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="PLANETA">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>PLANETA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODIGO" id="948DD256-8668-8CC9-38F2-BC75190EFF82">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PLANETA</sourceObjSchema>
+<sourceObjName>CODIGO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="DF2ECCCE-AE1D-02DC-1FD0-A273F4E744FB">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PLANETA</sourceObjSchema>
+<sourceObjName>NOMBRE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIAMETRO" id="81093EC9-7415-D6B0-8D34-0FF217FE396D">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PLANETA</sourceObjSchema>
+<sourceObjName>DIAMETRO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,9,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GALAXIA" id="EEFBD691-0334-E417-5C67-06172E28F4F3">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PLANETA</sourceObjSchema>
+<sourceObjName>GALAXIA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIO_ORIGEN" id="CC923C22-23EB-2783-6C8A-ECDA055575B3">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>PLANETA</sourceObjSchema>
+<sourceObjName>DIO_ORIGEN</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B413CBFE-E622-FA12-F5A8-59D8E5179593" referredColumn="BE72E56A-C472-386F-88A3-F5EF3C7595E0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4C058A18-83B9-2862-4792-048A16D88E21" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="PLANETA_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>SYS_C00667516</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="948DD256-8668-8CC9-38F2-BC75190EFF82"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A5EF9A2-CB90-5AEE-2D48-9CE18A72027C" name="DIO_ORIGEN">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC923C22-23EB-2783-6C8A-ECDA055575B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

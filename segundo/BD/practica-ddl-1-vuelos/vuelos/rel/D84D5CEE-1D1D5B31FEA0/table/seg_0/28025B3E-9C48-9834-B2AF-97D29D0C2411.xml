@@ -1,0 +1,175 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="28025B3E-9C48-9834-B2AF-97D29D0C2411" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="INTELIGENTES">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>INTELIGENTES</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LENGUA" id="20360C86-3FBE-3DE9-892C-8E925494F04C">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>LENGUA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESCRITURA" id="CD15341B-C8AF-A15A-1E6E-76B36334671D">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>ESCRITURA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PINTURA" id="9332AC96-B852-0A71-AF98-62FB171DA5EE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>PINTURA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDEN_SOCIAL" id="7A860F12-02F7-BF29-F3A8-8E16B0A7EA39">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>ORDEN_SOCIAL</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESPECIE" id="BE72E56A-C472-386F-88A3-F5EF3C7595E0">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>ESPECIE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C221FE04-5E3E-AD9A-E9CB-EE7E6095FDA5" referredColumn="D3F4C67C-2EC5-EB34-3DCA-8D2155F63746"/>
+</associations>
+</Column>
+<Column name="PROVIENE_DE" id="1F783596-A872-2B4E-2C3E-8C4F889E5A76">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>PROVIENE_DE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DDCBAFC3-CA84-2DC3-B79A-7FA96FF99D9C" referredColumn="948DD256-8668-8CC9-38F2-BC75190EFF82"/>
+</associations>
+</Column>
+<Column name="DOMINA_EN" id="44CEF7CD-1B9D-A4A0-D01C-321527616BCE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>INTELIGENTES</sourceObjSchema>
+<sourceObjName>DOMINA_EN</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AF437BFB-ED6C-938F-C945-55A815A60958" name="INTELIGENTES_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>INTELIGENTES_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE72E56A-C472-386F-88A3-F5EF3C7595E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="65FDC023-72D5-0A76-F37B-2667B4B0E406" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="INTELIGENTES_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>INTELIGENTES_PK</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE72E56A-C472-386F-88A3-F5EF3C7595E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D131241C-2186-0CA9-6222-DFCAB2547D17" name="ESPECIE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE72E56A-C472-386F-88A3-F5EF3C7595E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="334F7977-2B27-BCA8-E231-CBA6803BE773" name="PROVIENE_DE">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F783596-A872-2B4E-2C3E-8C4F889E5A76"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

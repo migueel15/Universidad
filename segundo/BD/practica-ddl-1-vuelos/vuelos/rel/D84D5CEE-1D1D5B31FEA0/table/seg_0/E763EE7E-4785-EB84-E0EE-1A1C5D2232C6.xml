@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E763EE7E-4785-EB84-E0EE-1A1C5D2232C6" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="ESPECIE">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ESPECIE</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODIGO" id="D3F4C67C-2EC5-EB34-3DCA-8D2155F63746">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESPECIE</sourceObjSchema>
+<sourceObjName>CODIGO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ALTURA_MEDIA" id="40A54C18-F7D0-AB8A-1DD6-E2372CE3675C">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESPECIE</sourceObjSchema>
+<sourceObjName>ALTURA_MEDIA</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,4,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PESO_MEDIO" id="B537A372-2C22-D2C2-7046-BEA22993B381">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESPECIE</sourceObjSchema>
+<sourceObjName>PESO_MEDIO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO" id="6DA18E15-286D-1366-095E-8804F265F172">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESPECIE</sourceObjSchema>
+<sourceObjName>TIPO</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<constraintName>ESPECIE_CHK2</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;NOMADA&apos;" description=""/>
+<valueDef value="&apos;SEDENTARIO&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;SEDENTARIO&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CARACTER" id="185680FB-C128-6A6B-4A5F-02EA9C99EE3F">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESPECIE</sourceObjSchema>
+<sourceObjName>CARACTER</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DOMINADA_POR" id="AF573997-FCB1-751C-C006-FB624B7033F5">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>ESPECIE</sourceObjSchema>
+<sourceObjName>DOMINADA_POR</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4A2BA87E-DF2A-2C1A-5543-868843225F96" referredColumn="BE72E56A-C472-386F-88A3-F5EF3C7595E0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9F88E06D-4099-B967-C3EB-4F7933AEA394" schemaObject="32D4ADDF-0667-287D-C6E9-58B94602981C" name="ESPECIE_PK">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>SYS_C00667523</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:12 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D3F4C67C-2EC5-EB34-3DCA-8D2155F63746"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A492214-1C78-0045-A2A5-F7CA84B9726F" name="DOMINADA_POR">
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AF573997-FCB1-751C-C006-FB624B7033F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="ESPECIE_CHK1" directorySegmentName="seg_0" id="7825655C-C3A1-B31A-06F2-4F0869B934F5">
+<sourceConnName>afrodita</sourceConnName>
+<sourceObjSchema>UBD4432</sourceObjSchema>
+<sourceObjName>ESPECIE_CHK1</sourceObjName>
+<createdBy>miguel</createdBy>
+<createdTime>2023-10-22 17:14:13 UTC</createdTime>
+<ownerDesignName>vuelos</ownerDesignName>
+<rule><![CDATA[((TIPO='SEDENTARIO' AND CARACTER is NULL) OR (TIPO='NOMADA' and CARACTER in ('GUERRERO','PACIFICO')))]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>
