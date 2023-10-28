@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01ebb881-c345-422c-9262-3f7449175446" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacion3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/src/OperacionesListasEnteros.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test1/test1.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="01ebb881-c345-422c-9262-3f7449175446" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +46,7 @@
       <workItem from="1698424683692" duration="1754000" />
       <workItem from="1698448201581" duration="6000" />
       <workItem from="1698456537321" duration="91000" />
+      <workItem from="1698457426985" duration="10000" />
     </task>
     <servers />
   </component>
