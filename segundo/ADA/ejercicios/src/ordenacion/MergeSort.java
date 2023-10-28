@@ -1,7 +1,7 @@
 package ordenacion;
 
 public class MergeSort {
-  private void mezclar(int[] a, int inf, int medio, int sup){
+  private static void mezclar(int[] a, int inf, int medio, int sup){
     int i = inf;
     int j = medio+1;
     int[] b = new int[sup-inf+1];
@@ -34,11 +34,16 @@ public class MergeSort {
     }
   }
 
-  public void ordenar(int[] a, int inf, int sup){
+  public static void ordenar(int[] a, int inf, int sup){
     if(inf < sup){
       ordenar(a,inf,(inf+sup)/2);
       ordenar(a,(inf+sup)/2+1,sup);
       mezclar(a, inf, (inf+sup)/2, sup);
     }
+  }
+
+  public static void main(String[] args) {
+    int[] lista = {5,2,7,9,1,3,6,4};
+    ordenar(lista,0, lista.length-1);
   }
 }
