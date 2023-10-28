@@ -1,4 +1,4 @@
-package ej11t3;
+package tema3;
 
 public class Kasparoviana {
 

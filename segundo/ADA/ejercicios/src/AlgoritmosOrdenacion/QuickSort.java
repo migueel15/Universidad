@@ -1,8 +1,4 @@
-package ordenacion;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package AlgoritmosOrdenacion;
 
 public class QuickSort {
   private void intercambia(int[] a, int i , int j){

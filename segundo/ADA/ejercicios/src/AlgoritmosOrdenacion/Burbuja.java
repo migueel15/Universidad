@@ -1,4 +1,4 @@
-package ordenacion;
+package AlgoritmosOrdenacion;
 
 public class Burbuja {
   public void ordenar(int[] a){

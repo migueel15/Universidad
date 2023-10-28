@@ -1,4 +1,4 @@
-package ordenacion;
+package AlgoritmosOrdenacion;
 
 public class MergeSort {
   private static void mezclar(int[] a, int inf, int medio, int sup){
