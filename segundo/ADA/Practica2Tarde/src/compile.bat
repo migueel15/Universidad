@@ -1,0 +1,1 @@
+javac -cp "towerdefense.jar" *.java
