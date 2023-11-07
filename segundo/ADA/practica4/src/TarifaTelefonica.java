@@ -15,6 +15,10 @@ public class TarifaTelefonica {
 	}
 
 	public int resolverBottomUp() {
+		// n meses
+		// dos tipos de tarifa (p, m) / si p -> permanencia
+
+		int[][] matriz= new int[estimacion.length][2];
 		
 		//***Completar Implementación***
 	}

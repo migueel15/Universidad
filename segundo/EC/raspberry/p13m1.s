@@ -48,34 +48,29 @@ onoff: .word 0
 		moveq r5, #0
 		
 		cmp r5, #0
-		ldr r1, =0b00001000000000000000000000000000
+		ldr r1, =0b00001000010000100000111000000000
 		streq r1, [r0, #GPSET0]
-		strne r1, [r0, #GPCLR0]
+		
 		
 		cmp r5, #1
-		ldr r1, =0b00000000010000000000000000000000
-		streq r1, [r0, #GPSET0]
-		strne r1, [r0, #GPCLR0]
+		ldr r1, =0b00001000000000000000000000000000
+		streq r1, [r0, #GPCLR0]
 
 		cmp r5, #2
-		ldr r1, =0b00000000000000100000000000000000
-		streq r1, [r0, #GPSET0]
-		strne r1, [r0, #GPCLR0]
+		ldr r1, =0b00000000010000000000000000000000
+		streq r1, [r0, #GPCLR0]
 		
 		cmp r5, #3
-		ldr r1, =0b00000000000000000000100000000000
-		streq r1, [r0, #GPSET0]
-		strne r1, [r0, #GPCLR0]
+		ldr r1, =0b00000000000000100000000000000000
+		streq r1, [r0, #GPCLR0]
 		
 		cmp r5, #4
-		ldr r1, =0b00000000000000000000010000000000
-		streq r1, [r0, #GPSET0]
-		strne r1, [r0, #GPCLR0]
+		ldr r1, =0b00000000000000000000100000000000
+		streq r1, [r0, #GPCLR0]
 		
 		cmp r5, #5
-		ldr r1, =0b00000000000000000000001000000000
-		streq r1, [r0, #GPSET0]
-		strne r1, [r0, #GPCLR0]
+		ldr r1, =0b00000000000000000000010000000000
+		streq r1, [r0, #GPCLR0]
 		
 		ldr r0, =STBASE
 		ldr r1, =0b0010

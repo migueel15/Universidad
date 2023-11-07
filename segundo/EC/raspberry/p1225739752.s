@@ -29,37 +29,39 @@ onoff: .word 0
 	ldr r1, =0b00001000010000000000000000000000
 	str r1, [r0, #GPSET0]
 	
-	ldr r3, =0b00000000000000000000000000001000
-	ldr r4, =0b00000000000000000000000000000100
-	
 	bucle: 
 		b bucle
 	
 	irq_handler:
-		push {r0, r1, r2}
+		push {r0, r1, r2, r3, r4}
 		
 		ldr r1, [r0, #GPEDS0]
 		ands r1, #0b00000000000000000000000000000100
-		beq boton1
+		bne boton1
+		
+		ldr r1, [r0, #GPEDS0]
+		ands r1, #0b00000000000000000000000000001000
 		bne boton2
 
 		boton1:
-		ldr r1, =0b00001000000000000000000000000000
-		ldr r2, =0b00000000010000000000000000000000
-		streq r1, [r0, #GPSET0]
-		streq r2, [r0, #GPCLR0]
-		str r4, [r0, #GPEDS0]
+		ldr r1, =0b00000000010000000000000000000000
+		ldr r2, =0b00001000000000000000000000000000
+		str r1, [r0, #GPSET0]
+		str r2, [r0, #GPCLR0]
+		ldr r1, =0b00000000000000000000000000000100
+		str r1, [r0, #GPEDS0]
 		b fin
 
 		
 		boton2:
-		ldr r1, =0b00000000010000000000000000000000
-		ldr r2, =0b00001000000000000000000000000000
-		streq r1, [r0, #GPSET0]
-		streq r2, [r0, #GPCLR0]
-		str r3, [r0, #GPEDS0]
+		ldr r1, =0b00001000000000000000000000000000
+		ldr r2, =0b00000000010000000000000000000000
+		str r1, [r0, #GPSET0]
+		str r2, [r0, #GPCLR0]
+		ldr r1, =0b00000000000000000000000000001000
+		str r1, [r0, #GPEDS0]
 		b fin
 
 		fin:
-		pop {r0, r1, r2}
+		pop {r0, r1, r2, r3, r4}
 		subs pc, lr, #4

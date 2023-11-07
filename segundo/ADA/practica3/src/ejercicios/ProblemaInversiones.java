@@ -60,7 +60,7 @@ public class ProblemaInversiones {
   public static void main(String[] args) {
     int[] lista =  {-2,8,4,7,3}; // -2 3 4 7 8
     int inversions = numInversiones(lista);
-    System.out.println("Number of inversions: " + inversions);
+    System.out.println("Numero de inversiones: " + inversions);
   }
 }
 

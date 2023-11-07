@@ -18,7 +18,7 @@ public class Main {
 
         Chronometer chronometer = new Chronometer();
         int ok = 0;
-        //for (String className : new String[]{"MinMax"}) { // uncomment this line and comment the next one to test a single algorithm
+        //for (String className : new String[]{"Cubic"}) { // uncomment this line and comment the next one to test a single algorithm
         for (String className : getAlgorithmsClasses()) {
             try {
                 if(Algorithm.class.isAssignableFrom(Class.forName("algorithms." + className))) {
@@ -47,7 +47,7 @@ public class Main {
                         }
 
                         if (verbose) {
-                            System.out.println(className + "\t" + complexity + "\t" + isOk + "\t" + chronometer.getElapsedTime());
+                            //System.out.println(className + "\t" + complexity + "\t" + isOk + "\t" + chronometer.getElapsedTime());
                         }
                     }
                     chronometer.start();

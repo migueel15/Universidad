@@ -27,7 +27,7 @@ public class ArraysConRepeticiones {
 	}
 
   public static void main(String[] args) {
-    int[] lista = {0,0};
+    int[] lista = {0,1,2,3,4,4,5,6};
     int valor = encuentraElem(lista);
     System.out.println(valor);
   }

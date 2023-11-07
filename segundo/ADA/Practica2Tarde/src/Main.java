@@ -1,6 +1,7 @@
 import net.agsh.towerdefense.*;
+import net.agsh.towerdefense.Map;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -147,70 +148,128 @@ public class Main {
     }
 
     private static ArrayList<MapNode> selectBestNodesNoSort(ArrayList<MapNode> nodesList, int count) {
-        // TODO: Return "count" nodes with the lowest value in the index 0 WITHOUT ORDERING the list. Given a node
-        // in the list, the value of the node is accessed with node.getValue(0). For example, the following snippet
-        // prints all the values of the nodes:
-        //
-        // for(MapNode node : nodesList) {
-        //     System.out.println(node.getValue(0));
-        // }
-        //
-        // Replace all the code in this method with your own code.
+        ArrayList<MapNode> aux = new ArrayList<>(nodesList);
+        ArrayList<MapNode> minimos = new ArrayList<>();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        for(int c = 0; c < count; c++){
+            MapNode minNode = aux.get(0);
+            for (int k = 0; k < aux.size(); k++) {
+                if(aux.get(k).getValue(0) < minNode.getValue(0)){
+                    minNode = aux.get(k);
+                }
+            }
+            minimos.add(minNode);
+            aux.remove(minNode);
         }
-
-        return nodesList;
+        return minimos;
     }
 
     private static ArrayList<MapNode> selectBestNodesInsertionSort(ArrayList<MapNode> nodesList, int count) {
-        // TODO: Implement insertion sort according to the values of nodes in the index 0. Given a node in the list, the value
-        // of the node is accessed with node.getValue(0). The list is sorted in ascending order.
-        // Return the "count" first nodes in the list.
-        //
-        // Replace all the code in this method with your own code.
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        ArrayList<MapNode> resultado = new ArrayList<>();
+        for(int i = 0; i < nodesList.size(); i++){
+            MapNode nodoActual = nodesList.get(i);
+            int pos = -1;
+            for(int j = i; j>=0; j--){
+                if(nodoActual.getValue(0) < nodesList.get(j).getValue(0)){
+                    pos = j;
+                }
+            }
+            if(pos != -1){
+                nodesList.remove(nodoActual);
+                nodesList.add(pos,nodoActual);
+            }
         }
+        for(int i = 0; i < count; i++){
+            resultado.add(nodesList.get(i));
+        }
+        return resultado;
+    }
+    private static float getValue(ArrayList<MapNode> list, int index){
+        return list.get(index).getValue(0);
+    }
+    private static void mezclar(ArrayList<MapNode> a, int inf, int medio, int sup){
 
-        return nodesList;
+        int i = inf;
+        int j = medio+1;
+        //int[] b = new int[][sup-inf+1];
+        ArrayList<MapNode> b = new ArrayList<>();
+        int k = 0;
+
+        while(i <= medio && j <= sup) {
+            if (getValue(a,i) <= getValue(a,j)) {
+                b.add(k, a.get(i));
+                i++;
+            } else {
+                b.add(k, a.get(j));
+                j++;
+            }
+            k++;
+        }
+        while(i <= medio){
+            b.add(k, a.get(i));
+            i++;
+            k++;
+        }
+        while(j <= sup){
+            b.add(k, a.get(j));
+            j++;
+            k++;
+        }
+        k = 0;
+        for(int f = inf; f <= sup; f++){
+            a.set(f, b.get(k));
+            k++;
+        }
     }
 
+    private static void ordenar(ArrayList<MapNode> a, int inf, int sup){
+        if(inf < sup){
+            ordenar(a,inf,(inf+sup)/2);
+            ordenar(a,(inf+sup)/2+1,sup);
+            mezclar(a, inf, (inf+sup)/2, sup);
+        }
+    }
     private static ArrayList<MapNode> selectBestNodesMergeSort(ArrayList<MapNode> nodesList, int count) {
-        // TODO: Implement merge sort according to the values of nodes in the index 0. Given a node in the list, the value
-        // of the node is accessed with node.getValue(0). The list is sorted in ascending order.
-        // Return the "count" first nodes in the list.
-        //
-        // Replace all the code in this method with your own code.
+        ordenar(nodesList,0, nodesList.size()-1);
+        ArrayList<MapNode> resultado = new ArrayList<>();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        for(int i = 0; i < count; i++){
+            resultado.add(nodesList.get(i));
         }
-
-        return nodesList;
+        return resultado;
     }
+    private static void intercambia(ArrayList<MapNode> a, int i , int j){
+        MapNode aux = a.get(i);
+        a.set(i,a.get(j));
+        a.set(j, aux);
+    }
+    private static int partir(ArrayList<MapNode> a, int inf, int sup){
+        float pivote = a.get(inf).getValue(0);
+        int i = inf+1;
+        int j = sup;
 
-    private static ArrayList<MapNode> selectBestNodesQuickSort(ArrayList<MapNode> nodesList, int count) {
-        // TODO: Implement quick sort according to the values of nodes in the index 0. Given a node in the list, the value
-        // of the node is accessed with node.getValue(0). The list is sorted in ascending order.
-        // Return the "count" first nodes in the list.
-        //
-        // Replace all the code in this method with your own code.
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        do{
+            while (i <= j && a.get(i).getValue(0) <= pivote){i++;}
+            while (i <= j && a.get(j).getValue(0) > pivote){j--;}
+            if(i<j){intercambia(a,i,j);}
+        }while (i <= j);
+        intercambia(a,inf,j);
+        return j;
+    }
+    public static void ordenarQuick(ArrayList<MapNode> a, int inf, int sup){
+        if(inf < sup){
+            int p = partir(a, inf, sup);
+            ordenarQuick(a, inf, p-1);
+            ordenarQuick(a, p+1, sup);
         }
+    }
+    private static ArrayList<MapNode> selectBestNodesQuickSort(ArrayList<MapNode> nodesList, int count) {
+        ArrayList<MapNode> minimos = new ArrayList<>();
+        ordenarQuick(nodesList,0, nodesList.size()-1);
 
-        return nodesList;
+        for(int i = 0; i < count; i++){
+            minimos.add(nodesList.get(i));
+        }
+        return minimos;
     }
 }

@@ -1,5 +1,6 @@
 .include "inter.inc"
 onoff: .word 0
+volumen: .word 0
 .text
 	mov r0, #0
 	ADDEXC 0x18, irq_handler
@@ -29,6 +30,9 @@ onoff: .word 0
 	ldr r1, =0b1010
 	str r1, [r0, #INTENIRQ1]
 	
+	ldr r1, =0b00000000000100000000000000000000
+	str r1, [r0, #INTENIRQ2]
+	
 	ldr r0, =0b01010011
 	msr cpsr_c, r0
 	ldr r5, =0
@@ -40,10 +44,24 @@ onoff: .word 0
 		push {r0, r1, r2, r3, r4, r6, r7}
 		ldr r0, =GPBASE
 		ldr r2, =STBASE
+		
+		ldr r1, [r0, #GPEDS0]
+		ands r1, #0b00000000000000000000000000000100
+		bne boton1
+
+		ldr r1, [r0, #GPEDS0]
+		ands r1, #0b00000000000000000000000000001000
+		bne boton2
+
 		ldr r1, [r2, #STCS]
 		cmp r1, #0b1000
 		beq sonido
-
+		
+		ldr r1, [r2, #STCS]
+		cmp r1, #0b0010
+		beq luces
+		
+		luces:
 		cmp r5, #6
 		moveq r5, #0
 		
@@ -89,6 +107,16 @@ onoff: .word 0
 		b fin
 		
 		sonido:
+		ldr r4, =volumen
+		ldr r6, [r4]
+		cmp r6, #1
+		beq sonar
+		ldrne r6, =onoff
+		ldrne r1, =1
+		strne r1, [r6]	
+		
+		
+		sonar:
 		ldr r0, =GPBASE
 		ldr r1, =0b00000000000000000000000000010000
 		ldr r6, =onoff
@@ -101,13 +129,32 @@ onoff: .word 0
 		eors r7, #1
 		str r7, [r6]
 
+		nosonar:
 		ldr r0, =STBASE
 		ldr r1, =0b1000
 		str r1, [r0, #STCS]
+		
+		
 		ldr r1, [r0, #STCLO]
 		ldr r2, =1136
 		add r1, r2
 		str r1, [r0, #STC3]
+		b fin
+		
+		boton1:
+		ldr r4, =volumen
+		ldr r7, =1
+		str r7, [r4]
+		ldr r1, =0b00000000000000000000000000001000
+		str r1, [r0, #GPEDS0]
+		b fin
+		
+		boton2:
+		ldr r4, =volumen
+		ldr r7, =0
+		str r7, [r4]
+		ldr r1, =0b00000000000000000000000000000100
+		str r1, [r0, #GPEDS0]
 		b fin
 
 		fin:

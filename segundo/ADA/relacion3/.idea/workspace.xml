@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01ebb881-c345-422c-9262-3f7449175446" name="Changes" comment="" />
+    <list default="true" id="01ebb881-c345-422c-9262-3f7449175446" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ejercicios/src/AlgoritmosOrdenacion/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicios/src/AlgoritmosOrdenacion/QuickSort.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +49,7 @@
       <workItem from="1698448201581" duration="6000" />
       <workItem from="1698456537321" duration="91000" />
       <workItem from="1698457426985" duration="10000" />
+      <workItem from="1698934872498" duration="9000" />
     </task>
     <servers />
   </component>
