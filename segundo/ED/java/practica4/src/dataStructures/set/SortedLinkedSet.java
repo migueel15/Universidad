@@ -56,6 +56,17 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
       //  should be a reference to the node storing elem
       //  and previous should be a reference to node
       //  before current (or null if elem was found at first node).
+      current = first;
+      previous = null;
+      found = false;
+      while (current != null && !found && current.elem.compareTo(elem) <= 0){
+        if(current.elem.compareTo(elem) == 0){
+          found = true;
+        }else{
+          previous = current;
+          current = current.next;
+        }
+      }
     }
   }
 
@@ -65,15 +76,27 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //  insert should add a new node for elem
     //  to this class sorted linked structure
     //  if elem is not yet in this set.
+    Finder finder = new Finder(elem);
+    Node<T> actual = finder.current;
+    if(!finder.found){
+      if(first == null){
+        first = new Node<>(elem, finder.current);
+      }
+      else if(finder.previous == null){
+        first = new Node<>(elem, first);
+      }else{
+        finder.previous.next = new Node<>(elem, finder.previous.next);
+      }
+    }
   }
 
   public boolean isElem(T elem) {
     // todo
     //  Implement isElem by using Finder.
-    //  isElem should return true is elem
+    //  isElem should return true if elem
     //  is in this class sorted linked structure
     //  or false otherwise.
-    return false;
+    return new Finder(elem).found;
   }
 
   public void delete(T elem) {
@@ -82,6 +105,10 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //  delete should remove the node containing elem
     //  from this class sorted linked structure
     //  if elem is in this set.
+    Finder finder = new Finder(elem);
+    if(finder.found){
+      finder.previous.next = finder.current.next;
+    }
   }
 
   public String toString() {
