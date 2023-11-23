@@ -15,6 +15,7 @@ public class RecorridoTablero {
 		solucion = null;
 	}
 
+
 	public int resolverMemo() {
 		// Creamos la tabla auxiliar
 		solucion = new int[n][m]; // -1 representará que la celda está vacía.
@@ -28,8 +29,25 @@ public class RecorridoTablero {
 	}
 
 	private int resuelve(int i, int j) {
-		
-		//***Completar Implementación****
+		if(i == n-1 || i == 0){
+			solucion[i][j] = tablero[i][j];
+		}
+		if(i>0 && j>0 && j<m-1){
+			int va = tablero[i][j];
+			solucion[i][j] = maximo3(va+resuelve(i-1,j-1),va+resuelve(i-1,j),va+resuelve(i-1,j+1));
+		}
+
+		if(i>0 && j==0){
+			int va = tablero[i][j];
+			solucion[i][j] = maximo3(-1,va+resuelve(i-1,j),va+resuelve(i-1,j+1));
+		}
+
+		if(i>0 && j==m-1){
+			int va = tablero[i][j];
+			solucion[i][j] = maximo3(va+resuelve(i-1,j-1),va+resuelve(i-1,j),-1);
+		}
+
+		return solucion[i][j];
 	}
 
 	private int maximo3(int a, int b, int c) {
@@ -47,8 +65,31 @@ public class RecorridoTablero {
 		if (solucion == null) {
 			throw new RuntimeException("Se debe resolver el problema primero");
 		}
-		
-		//***Completar Implementación***
+		Recorrido r = new Recorrido();
+		int anti = -1;
+		int antj = -1;
+		// BASE
+		for(int j = 0; j < m; j++){
+			if(solucion[n-1][j] != -1){
+				r.add(n-1,j);
+				anti = n-1;
+				antj = j;
+			}
+		}
+		for(int i = n-2; i >= 0; i--){
+			boolean encontrado =false;
+			for(int j = antj-1; j <= antj+1; j++){
+				try {
+					if(solucion[i][j] == solucion[anti][antj] - tablero[anti][antj] && !encontrado){
+						encontrado = true;
+						anti = i;
+						antj = j;
+						r.add(i,j);
+					}
+				}catch (IndexOutOfBoundsException e){/*pasa a la siguiente fila*/};
+			}
+		}
+		return r;
 	}
 
 	public void imprimeMatrizSolucion() {
@@ -59,5 +100,4 @@ public class RecorridoTablero {
 			System.out.println(" ");
 		}
 	}
-	
 }
