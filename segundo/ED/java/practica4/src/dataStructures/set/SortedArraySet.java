@@ -57,24 +57,52 @@ public class SortedArraySet<T extends Comparable<? super T>> implements SortedSe
     //   where elem should be stored.
     Finder(T elem) {
       // todo
+      found = false;
+      int min = 0, max = size-1; int mid = 0;
+      while(!found && min <= max){
+        mid = (min+max)/2;
+        if(elem.compareTo(elements[mid]) == 0){
+          found = true;
+        }else if(elem.compareTo(elements[mid]) < 0){
+          max = mid-1;
+        }else{
+          min = mid+1;
+        }
+        index = found ? mid : min;
+      }
     }
   }
 
   public void insert(T elem) {
     // todo
     //  Implement insert by using Finder
-
+    Finder finder =  new Finder(elem);
+    if(!finder.found){
+      ensureCapacity();
+      for(int i = size; i > finder.index; i--){
+        elements[i] = elements[i-1];
+      }
+      elements[finder.index] = elem;
+      size++;
+    }
   }
 
   public boolean isElem(T elem) {
     // todo
     //  Implement isElem by using Finder
-    return false;
+    return new Finder(elem).found;
   }
 
   public void delete(T elem) {
     // todo
     //  Implement delete by using Finder
+    Finder finder = new Finder(elem);
+    if(finder.found){
+      for(int i = finder.index; i < size; i++){
+        elements[i] = elements[i+1];
+      }
+      size--;
+    }
   }
 
   // An iterator for this class
@@ -83,16 +111,18 @@ public class SortedArraySet<T extends Comparable<? super T>> implements SortedSe
 
     public SortedArraySetIterator() {
       // todo
+      index = -1;
     }
 
     public boolean hasNext() {
       // todo
-      return false;
+      return size >= index+1;
     }
 
     public T next() {
       // todo
-      return null;
+      index++;
+      return elements[index];
     }
   }
 
@@ -115,12 +145,23 @@ public class SortedArraySet<T extends Comparable<? super T>> implements SortedSe
   private void append(T elem) {
     assert size == 0 || elem.compareTo(elements[size - 1]) > 0 : "append: precondition failed";
     // todo
+    ensureCapacity();
+    if(elem != null){
+      elements[size] = elem;
+      size++;
+    }
   }
 
   // Copy constructor: builds a new SortedLinkedSet with the same
   // elements as parameter sortedSet
+  @SuppressWarnings("unchecked")
   public SortedArraySet(SortedSet<T> sortedSet) {
     // todo
+    elements = (T[]) new Comparable[INITIAL_CAPACITY];
+    size = 0;
+    for(T ele : sortedSet){
+      append(ele);
+    }
   }
 
   public static <T extends Comparable<? super T>>
@@ -130,7 +171,33 @@ public class SortedArraySet<T extends Comparable<? super T>> implements SortedSe
     //      Neither set1 nor set2 should be modified.
 
     // todo
-    return null;
+    SortedArraySet<T> as = new SortedArraySet<>();
+    T elem;
+    int in1 = 0;
+    int in2 = 0;
+
+    while (in1 < set1.size() || in2 < set2.size()) {
+      if(in1 >= set1.size) {
+        elem = set2.elements[in2];
+        in2++;
+      } else if(in2 >= set1.size){
+          elem = set1.elements[in1];
+          in1++;
+      } else if (set1.elements[in1].compareTo(set2.elements[in2]) < 0) {
+        elem = set1.elements[in1];
+        in1++;
+      } else if (set1.elements[in1].compareTo(set2.elements[in2]) > 0) {
+        elem = set2.elements[in2];
+        in2++;
+      } else{
+        elem = set1.elements[in1];
+        in1++;
+        in2++;
+      }
+      as.append(elem);
+    }
+
+    return as;
   }
 
   public static <T extends Comparable<? super T>>
@@ -140,7 +207,17 @@ public class SortedArraySet<T extends Comparable<? super T>> implements SortedSe
     //      Neither set1 nor set2 should be modified.
 
     // todo
-    return null;
+    SortedArraySet<T> sa = new SortedArraySet<>();
+    int indice = 0;
+    for(T ele : set1.elements){
+      if(ele != null && set2.elements[indice].compareTo(ele) <= 0){
+        if(ele.compareTo(set2.elements[indice]) == 0){
+          sa.append(ele);
+        }
+        indice++;
+      }
+    }
+    return sa;
   }
 
   public static <T extends Comparable<? super T>>
@@ -150,6 +227,13 @@ public class SortedArraySet<T extends Comparable<? super T>> implements SortedSe
     //      Neither set1 nor set2 should be modified.
 
     // todo
-    return null;
+    SortedArraySet<T> sa = new SortedArraySet<>();
+    SortedArraySet<T> inter = intersection(set1,set2);
+    for(T ele : set1){
+      if(ele != null && !inter.isElem(ele)){
+        sa.append(ele);
+      }
+    }
+    return sa;
   }
 }

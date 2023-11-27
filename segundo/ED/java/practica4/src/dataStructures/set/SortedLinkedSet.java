@@ -56,8 +56,8 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
       //  should be a reference to the node storing elem
       //  and previous should be a reference to node
       //  before current (or null if elem was found at first node).
-      current = first;
       previous = null;
+      current = first;
       found = false;
       while (current != null && !found && current.elem.compareTo(elem) <= 0){
         if(current.elem.compareTo(elem) == 0){
@@ -77,7 +77,6 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //  to this class sorted linked structure
     //  if elem is not yet in this set.
     Finder finder = new Finder(elem);
-    Node<T> actual = finder.current;
     if(!finder.found){
       if(first == null){
         first = new Node<>(elem, finder.current);
@@ -87,6 +86,7 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
       }else{
         finder.previous.next = new Node<>(elem, finder.previous.next);
       }
+      size++;
     }
   }
 
@@ -109,6 +109,7 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     if(finder.found){
       finder.previous.next = finder.current.next;
     }
+    size--;
   }
 
   public String toString() {
@@ -137,12 +138,13 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     public LinkedSetIterator() {
       // todo
       //   Initialize iterator by making current a reference to first node
+      current = new Node<>(null, first);
     }
 
     public boolean hasNext() {
       // todo
       //  Check if all elements have already been returned by this iterator
-      return false;
+      return current.next != null;
     }
 
     public T next() {
@@ -150,7 +152,12 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
       //  Check if there are still more elements to be returned (raise
       //  NoSuchElementException otherwise), return next element and
       //  advance iterator to next node for next iteration.
-      return null;
+      if(hasNext()){
+        current = current.next;
+        return current.elem;
+      }else{
+        throw new NoSuchElementException();
+      }
     }
   }
 
@@ -201,6 +208,13 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
   public SortedLinkedSet(SortedSet<T> sortedSet) {
     // todo
     //  Implement this copy constructor using a SortedLinkedSetBuffer
+    SortedLinkedSetBuffer<T> lb = new SortedLinkedSetBuffer<>();
+    for(T val : sortedSet){
+      lb.append(val);
+    }
+    SortedLinkedSet<T> newLSet = lb.toSortedLinkedSet();
+    first = newLSet.first;
+    size = newLSet.size;
   }
 
   public static <T extends Comparable<? super T>>
@@ -209,7 +223,33 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //      in set1 or in set2.
     //      Neither set1 nor set2 should be modified.
     //      Implement this method by using a SortedLinkedSetBuffer.
-    return null;
+    SortedLinkedSetBuffer<T> lb =  new SortedLinkedSetBuffer<>();
+    T elem;
+    Node<T> n1 = set1.first;
+    Node<T> n2 = set2.first;
+
+    while(n1 != null || n2 != null){
+      if(n1 == null){
+        elem = n2.elem;
+        n2 = n2.next;
+      }else if(n2 == null){
+        elem = n1.elem;
+        n1 = n1.next;
+      }else if(n1.elem.compareTo(n2.elem) < 0){
+        elem = n1.elem;
+        n1 = n1.next;
+      }else if(n1.elem.compareTo(n2.elem) > 0){
+        elem = n2.elem;
+        n2 = n2.next;
+      }else {
+        elem = n1.elem;
+        n1 = n1.next;
+        n2 = n2.next;
+      }
+      lb.append(elem);
+    }
+
+    return lb.toSortedLinkedSet();
   }
 
   public static <T extends Comparable<? super T>>
@@ -218,7 +258,17 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //      set1 and in set2.
     //      Neither set1 nor set2 should be modified.
     //      Implement this method by using a SortedLinkedSetBuffer.
-    return null;
+    SortedLinkedSetBuffer<T> lb = new SortedLinkedSetBuffer<>();
+    Node<T> n2 = set2.first;
+    for (T node : set1){
+      while (n2.elem.compareTo(node) <= 0){
+        if(node.compareTo(n2.elem) == 0){
+          lb.append(node);
+        }
+        n2 = n2.next;
+      }
+    }
+    return lb.toSortedLinkedSet();
   }
 
   public static <T extends Comparable<? super T>>
@@ -227,7 +277,14 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //      set1 which are not in set2.
     //      Neither set1 nor set2 should be modified.
     //      Implement this method by using a SortedLinkedSetBuffer.
-    return null;
+    SortedLinkedSetBuffer<T> lb = new SortedLinkedSetBuffer<>();
+    SortedLinkedSet<T> inter = intersection(set1,set2);
+    for(T node : set1){
+      if(!inter.isElem(node)){
+        lb.append(node);
+      }
+    }
+    return lb.toSortedLinkedSet();
   }
 
   public void union(SortedSet<T> sortedSet) {
@@ -236,6 +293,9 @@ public class SortedLinkedSet<T extends Comparable<? super T>> implements SortedS
     //  Parameter sortedSet should not be modified.
     //  Should reuse current nodes in this set and should create new nodes for
     //  elements copied from sortedSet.
+    for(T node : sortedSet){
+      this.insert(node);
+    }
   }
 }
 

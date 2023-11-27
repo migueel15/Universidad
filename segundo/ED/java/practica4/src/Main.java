@@ -61,14 +61,14 @@ public class Main {
     SortedArraySet<Integer> s1Copy = new SortedArraySet<>(s1);
     System.out.println("s1Copy: "+s1Copy);
 
-    // s1Copy.union(s2);
-    // System.out.println("s1Copy after union: "+s1Copy);
+    System.out.println("s1Copy after union: "+s1Copy);
 
     SortedArraySet<Integer> s4 = SortedArraySet.intersection(s1, s2);
     System.out.println("s4: "+s4);
 
     SortedArraySet<Integer> s5 = SortedArraySet.difference(s1, s2);
     System.out.println("s5: "+s5);
+
 
     System.out.println();  }
 }
