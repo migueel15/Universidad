@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a61c6982-3f35-4604-a2ac-117bc97b4500" name="Changes" comment="" />
+    <list default="true" id="a61c6982-3f35-4604-a2ac-117bc97b4500" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../ADA/practicas/practica6/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ADA/practicas/practica6/.idea/workspace.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +86,7 @@
       <workItem from="1701764536119" duration="7978000" />
       <workItem from="1701789553882" duration="8000" />
       <workItem from="1701790717777" duration="4000" />
+      <workItem from="1701791018460" duration="30000" />
     </task>
     <servers />
   </component>
