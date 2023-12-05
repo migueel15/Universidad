@@ -28,6 +28,7 @@ public class RecorridoTablero {
 		return resuelve(fila, col);
 	}
 
+	/*
 	private int resuelve(int i, int j) {
 		if(i == n-1 || i == 0){
 			solucion[i][j] = tablero[i][j];
@@ -45,6 +46,29 @@ public class RecorridoTablero {
 		if(i>0 && j==m-1){
 			int va = tablero[i][j];
 			solucion[i][j] = maximo3(va+resuelve(i-1,j-1),va+resuelve(i-1,j),-1);
+		}
+
+		return solucion[i][j];
+	}
+	*/
+
+	private int resuelve(int i, int j) {
+		if(i == n-1 || i == 0){
+			solucion[i][j] = tablero[i][j];
+		}
+		if(i<n-1 && j>0 && j<m-1){
+			int va = tablero[i][j];
+			solucion[i][j] = maximo3(va+resuelve(i+1,j-1),va+resuelve(i+1,j),va+resuelve(i+1,j+1));
+		}
+
+		if(i<n-1 && j==0){
+			int va = tablero[i][j];
+			solucion[i][j] = maximo3(-1,va+resuelve(i+1,j),va+resuelve(i+1,j+1));
+		}
+
+		if(i<n-1 && j==m-1){
+			int va = tablero[i][j];
+			solucion[i][j] = maximo3(va+resuelve(i+1,j-1),va+resuelve(i+1,j),-1);
 		}
 
 		return solucion[i][j];
@@ -70,13 +94,13 @@ public class RecorridoTablero {
 		int antj = -1;
 		// BASE
 		for(int j = 0; j < m; j++){
-			if(solucion[n-1][j] != -1){
-				r.add(n-1,j);
-				anti = n-1;
+			if(solucion[0][j] != -1){
+				r.add(0,j);
+				anti = 0;
 				antj = j;
 			}
 		}
-		for(int i = n-2; i >= 0; i--){
+		for(int i = 1; i <= n-1; i++){
 			boolean encontrado =false;
 			for(int j = antj-1; j <= antj+1; j++){
 				try {

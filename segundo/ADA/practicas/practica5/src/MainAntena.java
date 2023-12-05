@@ -1,13 +1,16 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainAntena {
 
 	public static void main(String[] args) {
-		Integer[] p1 = { 13, 25, 35, 43, 45};
-		int c1 = 7;
+		Integer[] p1 = {5, 9, 23, 35, 44};
+		List<Integer> elegidas = new ArrayList<>(Arrays.asList(1,2));
+		int c1 = 4;
 
 		Antenas a1 = new Antenas(p1, c1);
-		List<Integer> s1 = a1.situarAntenas();
+		List<Integer> s1 = a1.situarAntenas(elegidas);
 		mostrarSolucion(s1);
 
 	}

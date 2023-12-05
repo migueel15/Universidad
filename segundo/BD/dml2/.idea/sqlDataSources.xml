@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="7b5a5c00-4206-47b0-bf1f-ff542848f26b" name="@afrodita.lcc.uma.es Mapping">
+      <data-sources db="42f64ab6-90fe-43d8-9f31-b333828fa021" />
+      <scope>
+        <node negative="1">
+          <node kind="schema" qname="DOCENCIA" />
+          <node kind="database" qname="@" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>

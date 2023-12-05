@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="towerdefense.jar.src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/towerdefense.jar.src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
