@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e1eb566a-b95c-469f-98b5-74b8494714c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../PracticaTarde3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PracticaTarde3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PracticaTarde3/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PracticaTarde3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/practica6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/src/ColaPrioridad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/src/Estado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/src/Laberinto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practica6/src/Posicion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/dml2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/sqlDataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../BD/dml2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/practica6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/src/HeapSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/src/dataStructures/heap/BinaryHeap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/src/dataStructures/heap/EmptyHeapException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/src/dataStructures/heap/Heap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../ED/java/practica6/src/dataStructures/heap/MaxiphobicHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practica4/src/MainTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practica4/src/MainTablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practica4/src/RecorridoTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practica4/src/RecorridoTablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practica5/src/Antenas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practica5/src/Antenas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practica5/src/MainAntena.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practica5/src/MainAntena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ED/DataStructures/Stack/LinearStack.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ED/DataStructures/Stack/LinearStack.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ED/t3.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ED/t3.hs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="i62vkcbn" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2YzamQXKRHGnYFlyAgwLXHzXHnr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/miguel/Universidad/segundo/ADA/practicas/grupoTarde/decompiled",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1eb566a-b95c-469f-98b5-74b8494714c6" name="Changes" comment="" />
+      <created>1701531019921</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701531019921</updated>
+      <workItem from="1701531020895" duration="137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
