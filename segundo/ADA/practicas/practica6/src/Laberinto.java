@@ -189,12 +189,9 @@ public class Laberinto {
 		//***Completar la implementación****
 		List<List<Posicion>> todas = new ArrayList<>();
 		encontrarCaminos(sol,todas);
-		if(!todas.isEmpty()){
-			mejor = todas.get(0);
-			for(List<Posicion> actual : todas){
-				if(actual.size() > mejor.size()){
-					mejor = actual;
-				}
+		for(List<Posicion> actual : todas){
+			if(calidad(actual) < calidad(mejor)){
+				mejor = actual;
 			}
 		}
 		return mejor;
@@ -205,7 +202,9 @@ public class Laberinto {
 	 */
 	private int calidad(List<Posicion> sol) {
 		//***Completar la implementación****
-		return 0;
+		if(sol == null){
+			return Integer.MAX_VALUE;
+		}else return sol.size();
 	}
 
 	public List<Posicion> encontrarCaminoMasCortoBB() {
@@ -214,12 +213,33 @@ public class Laberinto {
 		List<Posicion> solInicial = new ArrayList<>();
 		solInicial.add(entrada);
 		Estado inicial = new Estado(solInicial, funcionCota(solInicial)); // Creamos el estado inicial
+		c.insertar(inicial);
 
 		List<Posicion> mejor = null;	//
 		int cotaMejor = Integer.MAX_VALUE; // infinito
 
-		//***Completar la implementación****
-		
+		while(!c.estaVacia()){
+			Estado act = c.extraer();
+			if(esCompleta(act.getCamino())){
+				if(act.cota() < cotaMejor){
+					cotaMejor = act.cota();
+					mejor = act.getCamino();
+					c.eliminar(act.cota());
+				}
+			}else{
+				List<Posicion> hijosCandidatos =
+						posicionesCandidatas(act.getCamino().get(act.getCamino().size()-1),act.getCamino());
+				for (Posicion hijo : hijosCandidatos){
+					List<Posicion> aux = new ArrayList<>(act.getCamino());
+					aux.add(hijo);
+					if(funcionCota(aux) < cotaMejor){
+						c.insertar(new Estado(aux,funcionCota(aux)));
+					}
+				}
+			}
+
+		}
+
 		return mejor;
 	}
 
@@ -227,7 +247,7 @@ public class Laberinto {
 	 *  Devuelve el valor de cota de la solución indicada. 
 	 */
 	private int funcionCota(List<Posicion> sol) {
-		//***Completar la implementación****
-		return 0;
+		return Math.abs(salida.getX()-sol.get(sol.size()-1).getX()) +
+		Math.abs(salida.getY()-sol.get(sol.size()-1).getY()) + sol.size()-1;
 	}
 }
