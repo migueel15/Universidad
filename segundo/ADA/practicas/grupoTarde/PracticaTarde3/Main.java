@@ -15,15 +15,24 @@ public class Main {
     Random r = new Random();
 
     g.setParam(Parameter.W_DAM,
-        Math.round(r.nextFloat(80.0f,120.0f) * 1000.0f)/1000.0f);
+        Math.round(r.nextFloat(95.0f,110.0f) * 1000.0f)/1000.0f);
     g.setParam(Parameter.W_CODW,
-        Math.round(r.nextFloat(-1.0f,0.0f)*1000.0f)/1000.0f);
+        Math.round(r.nextFloat(0.0f,1.0f)*1000.0f)/1000.0f);
     g.setParam(Parameter.W_DISP,
-        Math.round(r.nextFloat(-50.0f,-10.0f) *1000.0f)/1000.0f);
+        Math.round(r.nextFloat(-50.0f,-30.0f) *1000.0f)/1000.0f);
     g.setParam(Parameter.W_RAN,
-        Math.round(r.nextFloat(0.0f,0.0f)*1000.0f)/1000.0f);
+        Math.round(r.nextFloat(-12.0f,-5.0f)*1000.0f)/1000.0f);
 
-
+    /*
+    g.setParam(Parameter.W_DAM,
+        88.16152f);
+    g.setParam(Parameter.W_CODW,
+        3.37554f);
+    g.setParam(Parameter.W_DISP,
+        -22.38162f);
+    g.setParam(Parameter.W_RAN,
+        3.60804f);
+     */
 
     for(String arg : args) {
       String[] split = arg.split("=");
@@ -43,15 +52,13 @@ public class Main {
 
       try{
         String linea =
-            "SCORE: " + g.getScore() +
-                " -> DAM:" + g.getParam(Parameter.W_DAM) + ";CODW:" + g.getParam(Parameter.W_CODW) + ";DISP:" + g.getParam(Parameter.W_DISP) +
-                ";RAN:" + g.getParam(Parameter.W_RAN) +
+            g.getScore() +
+                "," + g.getParam(Parameter.W_DAM) + "," + g.getParam(Parameter.W_CODW) + "," + g.getParam(Parameter.W_DISP) +
+                "," + g.getParam(Parameter.W_RAN) +
                 "\n";
-        if(g.getScore() < 21){
           FileWriter fw = new FileWriter("resultados.txt", true);
           fw.write(linea);
           fw.close();
-        }
         System.out.println(linea);
       }catch (IOException e){
     }
