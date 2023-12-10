@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="motogp" id="C97BF3CC-76E1-F89F-D158-19D79BBB5112" version="3.5">
-<createdBy>miguel</createdBy>
-<createdTime>2023-10-04 10:07:22 UTC</createdTime>
-<ownerDesignName>motoentrega</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>C97BF3CC-76E1-F89F-D158-19D79BBB5112</designId>
-</OSDM_Design>
