@@ -5,14 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc9b1b9-100b-4554-a1b9-22300b458627" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/dataSources/591eef5a-cd99-4c89-beb1-dda315a7cead.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/dataSources/591eef5a-cd99-4c89-beb1-dda315a7cead/storage_v2/_src_/schema/DOCENCIA.OrUhYQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/dataSources/591eef5a-cd99-4c89-beb1-dda315a7cead/storage_v2/_src_/schema/DOCENCIA.OrUhYQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/dataSources/591eef5a-cd99-4c89-beb1-dda315a7cead/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/dataSources/591eef5a-cd99-4c89-beb1-dda315a7cead/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grupoTarde/PracticaTarde3/out/production/p3/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/dictionary/AVLDictionary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/dictionary/Dictionary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/dictionary/SortedLinkedDictionary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/either/Either.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/either/Left.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/either/Right.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/BinaryHeap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/EmptyHeapException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/Heap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/WBLeftistHeap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/ArrayList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/LinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/ListException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/BinaryHeapPriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/EmptyPriorityQueueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/LinkedPriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/PriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/WBLeftistHeapPriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/ArrayQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/EmptyQueueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/LinkedListQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/LinkedQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/Queue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/AVL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/EmptySearchTreeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/SearchTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/AVLSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/BSTSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/LinkedListSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/Set.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/SortedLinkedSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/ArrayStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/EmptyStackException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/LinkedListStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/LinkedStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/Stack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/tuple/Tuple2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/ej1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/tema4-arboles.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ColaPrioridad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ColaPrioridad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ED/java/SparseVector/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ED/java/SparseVector/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +87,31 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/miguel/Universidad/segundo/ADA/practicas/grupoTarde/p3",
+    "last_opened_file_path": "/home/miguel/Universidad/segundo/ADA/practicas/practica6/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -85,6 +130,8 @@
       <workItem from="1701791067797" duration="10324000" />
       <workItem from="1701802795566" duration="4843000" />
       <workItem from="1701942755108" duration="43000" />
+      <workItem from="1702289847602" duration="154000" />
+      <workItem from="1702327741594" duration="49000" />
     </task>
     <servers />
   </component>
