@@ -5,50 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc9b1b9-100b-4554-a1b9-22300b458627" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/dictionary/AVLDictionary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/dictionary/Dictionary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/dictionary/SortedLinkedDictionary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/either/Either.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/either/Left.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/either/Right.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/BinaryHeap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/EmptyHeapException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/Heap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/heap/WBLeftistHeap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/ArrayList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/LinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/list/ListException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/BinaryHeapPriorityQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/EmptyPriorityQueueException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/LinkedPriorityQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/PriorityQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/priorityQueue/WBLeftistHeapPriorityQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/ArrayQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/EmptyQueueException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/LinkedListQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/LinkedQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/queue/Queue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/AVL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/BST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/EmptySearchTreeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/searchTree/SearchTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/AVLSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/BSTSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/LinkedListSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/Set.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/set/SortedLinkedSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/ArrayStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/EmptyStackException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/LinkedListStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/LinkedStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/stack/Stack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/dataStructures/tuple/Tuple2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/src/ej1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ED/java/tema4-arboles/tema4-arboles.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ColaPrioridad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ColaPrioridad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ED/java/SparseVector/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ED/java/SparseVector/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +89,8 @@
       <workItem from="1701942755108" duration="43000" />
       <workItem from="1702289847602" duration="154000" />
       <workItem from="1702327741594" duration="49000" />
+      <workItem from="1702330186974" duration="16000" />
+      <workItem from="1702330211474" duration="239000" />
     </task>
     <servers />
   </component>
