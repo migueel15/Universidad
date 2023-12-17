@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2C64AEB6-C84E-2285-AC7B-ADBD1DB5274C" name="ENTRENADOR">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 11:55:24 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>572CAC0E-0258-1EEB-4722-69DC398E618A</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Horario" id="FF8BAA84-A51B-A839-B216-8DF0F2EE54C3">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 11:55:32 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Especialidad" id="6297C100-B6D8-B9E2-779F-38F334C60BB0">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 11:56:00 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="2D7F4792-27BC-BF52-B137-E09EA828D725">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:19:20 UTC</createdTime>
+<generatorID>01B862F6-A6A0-FB01-6ED8-15697B61CC84</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>C7CFDF13-4F1D-50B6-00C7-D1F4B3F5544A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono" id="6B778391-F1FC-F765-C661-B61678A3B161">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:50:50 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

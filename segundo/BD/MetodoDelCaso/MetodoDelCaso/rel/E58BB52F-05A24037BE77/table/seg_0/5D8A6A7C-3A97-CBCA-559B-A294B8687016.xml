@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D8A6A7C-3A97-CBCA-559B-A294B8687016" name="SESION">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>F4E686A9-643C-13E9-82F4-82F067DACBD6</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USUARIO_Codigo" id="E614AED9-3969-13C7-091B-CFBFEBA36023">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>5BAA1D03-A41C-02D3-09C4-F2440327C806</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0FA69187-4BF6-E912-D234-BE88C1EA3034" referredColumn="DDE75361-079D-B12D-BD91-90B212118EF8"/>
+</associations>
+</Column>
+<Column name="CLASE_Nombre" id="6858E1D2-72F2-F8E5-5C3D-D9B196027C47">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>42A49980-6191-2CC6-E6BF-554249B66006</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D4F0D732-5329-2CE2-E0CA-68F9472198F6" referredColumn="1063D07B-BC50-C740-3D54-45ECB81EC3DF"/>
+</associations>
+</Column>
+<Column name="Marca" id="7716BD20-B2BC-7405-5FB3-29BC86E5F1A6">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Tiempo empleado, repeticiones realizadas...]]></commentInRDBMS>
+<generatorID>698C8564-608E-C137-275B-BF0E9B89A1E2</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pulsaciones" id="EFDB4FFF-A00A-7FE8-E132-5261B10957F1">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>7E487921-143C-E317-BEA0-AF0D753CC154</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cansancio" id="89C43ABD-8451-3A5A-EABE-F711944FBEEB">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>168BEB2C-5D2B-26C9-839C-541BFA0E04D1</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Autoevaluacion" id="469726AC-A505-90DB-540F-DF6DAD8A400A">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C1445FE0-012C-A871-42AA-9C2C120FBA3B</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Objetivos_Mejorar" id="ED2B2CD7-718D-CF53-7DCB-414D2C534E1C">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>55A4F568-67B4-1E17-8A29-B72459A9881D</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="65A9E8CD-C81E-D8C7-EA94-A0A155164280" name="SESION_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>F44459BB-3C3F-4D2A-D38F-ADC1913596A3</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E614AED9-3969-13C7-091B-CFBFEBA36023"/>
+<colUsage columnID="6858E1D2-72F2-F8E5-5C3D-D9B196027C47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3BE55425-B266-C637-D149-3C5F38E87AF8" name="SESION_USUARIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>424ED72E-DFCE-00EB-FB3F-436EF4B570B6</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E614AED9-3969-13C7-091B-CFBFEBA36023"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0C992799-D65F-0A14-8036-4EDE6B02448E" name="SESION_CLASE_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C75BE7F4-ECCD-850D-CB48-43A67CB2BD10</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6858E1D2-72F2-F8E5-5C3D-D9B196027C47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

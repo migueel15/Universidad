@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DCC344C2-E265-4317-00AE-F24FCD2A3429" name="DIETA">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>F0382FF3-7141-5C7F-F906-07A209557A34</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ENTRENADOR_Codigo" id="C9649FB4-12E7-C65D-A922-5BF98F893B7A">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>AF26DE2F-980E-91F2-1FAE-47E60C46340C</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AE9A83CD-A9D5-F3A4-D90B-092B1CC19BB3" referredColumn="FE471064-FB3A-4971-E39C-81F3587A804B"/>
+</associations>
+</Column>
+<Column name="USUARIO_Codigo" id="BEFA98BA-863E-4A1E-C582-253AD609DC62">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>61C113EF-3CA1-A7DA-476A-1B07694C2992</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D3FDBF29-D299-EFC8-64BE-26EBD25E7D8D" referredColumn="DDE75361-079D-B12D-BD91-90B212118EF8"/>
+</associations>
+</Column>
+<Column name="ID" id="C3307C2B-F913-FD76-07BD-D08AF348B09B">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>AF734729-DDE5-CFAB-A01F-576335460923</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Objetivo" id="9EE1E79B-A6B3-60BF-D285-993332FB766F">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>4A75BCAE-3A9D-F235-8081-1DAB8A2073CA</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Informacion_Nutricional" id="67F630B5-D3BC-D935-0272-39F9E4E1AE89">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Que tipo de personas pueden o no consumir la dieta; (veganos, vegetarianos, celiacos,...)]]></commentInRDBMS>
+<generatorID>0251C3BA-5F5B-8826-B7CE-9D2D54BB1129</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tabla_Comidas" id="957A1A3C-7A62-3B17-51E0-18EED952F2F1">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>EE158388-7FD9-C149-D69B-3660594BEC15</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2B672DE3-BCBC-497E-AEC7-04F9FB2C768D" name="DIETA_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>B806BE33-EEBD-5584-8B80-54D9DB448F31</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C3307C2B-F913-FD76-07BD-D08AF348B09B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3FFEE6E5-D704-9B7B-27FC-19406F0BF1C3" name="DIETA__IDX">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>8DBEDE19-1A1D-6527-29AA-4A46A15A8031</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="BEFA98BA-863E-4A1E-C582-253AD609DC62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5720EB9A-417A-1F61-4ED2-6C5797F9102F" name="DIETA_ENTRENADOR_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>641D5BB4-CE88-81EB-3D1F-DF807578DAA3</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9649FB4-12E7-C65D-A922-5BF98F893B7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="60C4C84F-0E3A-5522-0177-8F848FF601D8" name="DIETA_USUARIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:46:34 UTC</createdTime>
+<generatorID>8DBEDE19-1A1D-6527-29AA-4A46A15A8031</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEFA98BA-863E-4A1E-C582-253AD609DC62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

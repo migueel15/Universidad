@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="42134C07-E16A-2A5C-694A-D0400D28FFA6" name="TARIFA">
+<createdBy>miguel</createdBy>
+<createdTime>2023-12-16 15:27:24 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Nombre" id="970FF23F-8E2A-4D53-F09D-138030044BB3">
+<createdBy>miguel</createdBy>
+<createdTime>2023-12-16 15:27:32 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Precio" id="9C2CCD20-1D13-EE77-D080-964F41801FB1">
+<createdBy>miguel</createdBy>
+<createdTime>2023-12-16 15:27:34 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

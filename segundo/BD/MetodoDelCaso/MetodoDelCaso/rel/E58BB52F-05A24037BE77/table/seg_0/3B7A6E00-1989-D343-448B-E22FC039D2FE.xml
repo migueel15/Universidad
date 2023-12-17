@@ -1,0 +1,181 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3B7A6E00-1989-D343-448B-E22FC039D2FE" name="RUTINA">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>8696A471-3582-58E7-7EFD-FF4786CFDDB8</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Num_Repeticiones" id="9B305BE7-F060-6222-F8E2-C7B25FE1FE5D">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>281A0EAE-98D4-B027-48EE-54C458BE5288</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Num_Series" id="8750808B-0F4B-FC55-EF1D-CEA85D6C55B1">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>592CDF9C-B8D9-DCC6-4CCF-F68D47B494FC</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tiempo_Descanso_Series" id="2C0B146F-C884-58C3-B2DD-676E6B9DE982">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>7C8D6ABA-7C7D-31C7-4F02-1904B0A966D2</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tiempo_Descanso_Ejercicios" id="E7D73FCB-CE4F-4E49-DD0C-3FB956F10643">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>258D3A38-67AA-139C-8C1C-C370A718FC64</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EJERCICIO_Nombre" id="1ED21D66-A8F1-BA08-0DD9-EF618AD940C0">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>5BDC3430-F3BF-BCAB-9CC7-ED9D16DA4405</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="16C40A6C-59D6-24CD-7160-56314B72A244" referredColumn="831F9528-7687-EF7E-CE7A-00DD048C842B"/>
+</associations>
+</Column>
+<Column name="Dificultad" id="719B41DD-2B1D-D6B4-3046-FACC09E36E0C">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>B142CFFE-2B49-3194-3E76-FD954A5E438F</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Objetivo" id="75DD28B9-5819-6CA1-C3E4-73A34C0EA89B">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>72D3EE79-7563-AFA2-DBB2-9E4A5C173A06</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENTRENADOR_Codigo" id="4A9DAEF5-2E9C-7DC2-039B-864C4BF339DC">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C6177B38-1D79-DDDB-36E0-00E753933919</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E1BC288A-4232-0EC0-44AA-E51324F7A3DF" referredColumn="FE471064-FB3A-4971-E39C-81F3587A804B"/>
+</associations>
+</Column>
+<Column name="USUARIO_Codigo" id="20A7EBE6-63FB-035B-D632-C8575438842F">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>E87AADDB-F052-3309-CF23-DD5A9AF0838C</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D087886E-4A90-36D1-3DF4-BC77E01E99CF" referredColumn="DDE75361-079D-B12D-BD91-90B212118EF8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="706F5BFE-87B1-BBCC-8F7E-2CF429047AA3" name="RUTINA_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>9DD0BFB0-A0FD-0C33-D657-4E24F6450ABD</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1ED21D66-A8F1-BA08-0DD9-EF618AD940C0"/>
+<colUsage columnID="4A9DAEF5-2E9C-7DC2-039B-864C4BF339DC"/>
+<colUsage columnID="20A7EBE6-63FB-035B-D632-C8575438842F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5DC37F66-8571-C8B9-D95D-D2DE2E0DB88B" name="RUTINA_EJERCICIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>75C3A219-55D9-CC79-538B-996254165D24</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1ED21D66-A8F1-BA08-0DD9-EF618AD940C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2CB482A9-6BA1-9670-1B92-6F2D2DFDD27A" name="RUTINA_ENTRENADOR_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>29769178-9926-0AF7-F434-341E5887D509</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4A9DAEF5-2E9C-7DC2-039B-864C4BF339DC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="374E361A-4D4B-263D-D396-87DC3A263581" name="RUTINA_USUARIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>A42B008C-D433-E22C-4594-70F5D38A0A89</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20A7EBE6-63FB-035B-D632-C8575438842F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

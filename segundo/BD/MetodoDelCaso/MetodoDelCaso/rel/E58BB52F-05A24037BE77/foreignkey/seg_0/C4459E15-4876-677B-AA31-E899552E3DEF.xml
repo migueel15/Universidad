@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C4459E15-4876-677B-AA31-E899552E3DEF" containerWithKeyObject="47E21EA1-C22B-A017-4255-D4898AAF73F6" localFKIndex="64056D01-58A5-8B08-E852-74D3B0152DF4" name="GRUPO_MUSCULAR_EJERCICIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>A9967D8D-2FEB-7A65-8B75-5E4491AD6752</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<referredTableLongName>EJERCICIO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A3E05DF9-070E-E0B3-9246-01D8AE1DF1D8</referredTableID>
+<keyObject>9AFD5209-E473-BB28-3C8E-B370C948658C</keyObject>
+<referredKeyID>9AFD5209-E473-BB28-3C8E-B370C948658C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Nombre</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

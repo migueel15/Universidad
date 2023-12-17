@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F1EA212-D39E-4E3D-028C-AF1214D24FCF" name="ENTRENADOR">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>2C64AEB6-C84E-2285-AC7B-ADBD1DB5274C</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="FE471064-FB3A-4971-E39C-81F3587A804B">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>930E0CBB-0A18-1BC9-1F54-5B834F407B51</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5CF928A5-D351-C272-5CDD-80BD72441FA5" referredColumn="DDE75361-079D-B12D-BD91-90B212118EF8"/>
+</associations>
+</Column>
+<Column name="Horario" id="114F3B17-3830-3D57-E105-DB82FDA6882D">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>FF8BAA84-A51B-A839-B216-8DF0F2EE54C3</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Especialidad" id="9A7EE131-0F07-DBB0-6A7A-3A7001319097">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>6297C100-B6D8-B9E2-779F-38F334C60BB0</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GIMNASIO_Codigo" id="55270427-E9FE-9288-C8AE-1A6EFB15B407">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>2D7F4792-27BC-BF52-B137-E09EA828D725</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A87C2187-77C0-D949-B5C0-DE10988F8B15" referredColumn="A377903F-9D10-D367-C0A2-C5AB1FB29F25"/>
+</associations>
+</Column>
+<Column name="Telefono" id="F84B2E11-A411-BB29-D0F8-878BE11C9102">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>6B778391-F1FC-F765-C661-B61678A3B161</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0A41CDE0-E358-856A-5303-7B9008BFFD72" name="ENTRENADOR_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>3FBA0543-2A0D-9CDC-7A50-55FA25A2881B</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE471064-FB3A-4971-E39C-81F3587A804B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED7FDADE-DCC6-BBCC-3A55-63F45D61B532" name="ENTRENADOR_USUARIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>089CA9DC-0218-846B-21B9-D01054AA18E4</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE471064-FB3A-4971-E39C-81F3587A804B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AB309A5B-CCE5-47C2-5E46-199B038CAC7D" name="ENTRENADOR_GIMNASIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:46:34 UTC</createdTime>
+<generatorID>01B862F6-A6A0-FB01-6ED8-15697B61CC84</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55270427-E9FE-9288-C8AE-1A6EFB15B407"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

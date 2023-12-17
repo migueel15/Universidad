@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8FB0D020-2513-4D8A-3E58-A036B31A7C87" name="GIMNASIO">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>0CDE2956-7C48-199B-BB54-9BE0C685BDE5</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="A377903F-9D10-D367-C0A2-C5AB1FB29F25">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C7CFDF13-4F1D-50B6-00C7-D1F4B3F5544A</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ubicacion" id="D5C124B4-8364-531B-B40F-C852E7933D7C">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>EEC4C885-6F43-3B63-B686-A91FD4DBE89A</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="B64DAF96-D0F0-7C20-E2F1-3589440A7227">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>947A0762-1710-41FC-6CDB-61FA8C290651</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Patrocinadores" id="F2423CCA-FA30-482B-7353-435E59279B66">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>191F2329-5B95-92C9-E585-EA65E70B6F50</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Idioma" id="ABC4188D-C9DE-8D43-29BF-CA02A57D665A">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C3B45009-824C-BD01-00F1-F857D0D7A092</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pagina_Web" id="E94F82EA-ECA9-82DA-C5E4-36A42A45A615">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>D669203C-F41C-889F-BA56-777F6553A394</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="DAAE2F32-8DF8-A9B9-7464-675CCBD3255C">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>70401061-AB5E-0737-6374-94DEA72A0BA8</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="488A0846-72A7-ACAA-F895-39EE44BC077A" name="GIMNASIO_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>951D359E-3CC2-3C1C-8EFC-8CD7F3ED7143</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A377903F-9D10-D367-C0A2-C5AB1FB29F25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74F1B786-9D88-E7A7-8788-BB22C826CCA5" name="GIMNASIO_Ubicacion_UN">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>8D7E1C89-86F1-FCFE-3D6B-A298187B74E4</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5C124B4-8364-531B-B40F-C852E7933D7C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

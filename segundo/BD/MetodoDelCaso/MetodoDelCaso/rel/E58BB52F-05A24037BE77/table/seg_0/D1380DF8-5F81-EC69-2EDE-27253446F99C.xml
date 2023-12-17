@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D1380DF8-5F81-EC69-2EDE-27253446F99C" name="Relation_3">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ENTRENADOR_Codigo" id="3D5E47BF-A9DE-42CB-0E86-E6C4CB390AB7">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="007FFB7C-78A0-82A8-723B-3D1559E28F03" referredColumn="FE471064-FB3A-4971-E39C-81F3587A804B"/>
+</associations>
+</Column>
+<Column name="CLASE_Nombre" id="8CC9B994-AE43-A3A4-9E5B-E089B33B71A4">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1E5C29F6-1D7F-D100-A4FA-2F04C55974CD" referredColumn="1063D07B-BC50-C740-3D54-45ECB81EC3DF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AC9457BD-485B-5228-BFF8-A9C5B17BEB02" name="Relation_3_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D5E47BF-A9DE-42CB-0E86-E6C4CB390AB7"/>
+<colUsage columnID="8CC9B994-AE43-A3A4-9E5B-E089B33B71A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="134F8A3A-0B02-31C4-6250-4B8101A31631" name="Relation_3_ENTRENADOR_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>1CFD6E5C-E286-24C4-B96C-69F4E7C5DA7C</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D5E47BF-A9DE-42CB-0E86-E6C4CB390AB7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8A91C382-065D-5A6F-96E8-8C5FC5DA336E" name="Relation_3_CLASE_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>1CFD6E5C-E286-24C4-B96C-69F4E7C5DA7C</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8CC9B994-AE43-A3A4-9E5B-E089B33B71A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

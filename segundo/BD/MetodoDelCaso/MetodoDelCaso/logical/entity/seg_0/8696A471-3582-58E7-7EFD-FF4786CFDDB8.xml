@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8696A471-3582-58E7-7EFD-FF4786CFDDB8" name="RUTINA">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:03:50 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Num_Repeticiones" id="281A0EAE-98D4-B027-48EE-54C458BE5288">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:05:30 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Num_Series" id="592CDF9C-B8D9-DCC6-4CCF-F68D47B494FC">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:05:45 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tiempo_Descanso_Series" id="7C8D6ABA-7C7D-31C7-4F02-1904B0A966D2">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:42:33 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tiempo_Descanso_Ejercicios" id="258D3A38-67AA-139C-8C1C-C370A718FC64">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:43:25 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="5BDC3430-F3BF-BCAB-9CC7-ED9D16DA4405">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:30:47 UTC</createdTime>
+<generatorID>75C3A219-55D9-CC79-538B-996254165D24</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>13EC7709-093A-D85C-2A82-1BEFD25A46DB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Dificultad" id="B142CFFE-2B49-3194-3E76-FD954A5E438F">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:46:41 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Objetivo" id="72D3EE79-7563-AFA2-DBB2-9E4A5C173A06">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:47:10 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="C6177B38-1D79-DDDB-36E0-00E753933919">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:56:45 UTC</createdTime>
+<generatorID>29769178-9926-0AF7-F434-341E5887D509</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>930E0CBB-0A18-1BC9-1F54-5B834F407B51</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo1" id="E87AADDB-F052-3309-CF23-DD5A9AF0838C">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:57:11 UTC</createdTime>
+<generatorID>A42B008C-D433-E22C-4594-70F5D38A0A89</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>930E0CBB-0A18-1BC9-1F54-5B834F407B51</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9DD0BFB0-A0FD-0C33-D657-4E24F6450ABD" name="RUTINA PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-04 12:30:47 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5BDC3430-F3BF-BCAB-9CC7-ED9D16DA4405</attributeRef>
+<attributeRef>C6177B38-1D79-DDDB-36E0-00E753933919</attributeRef>
+<attributeRef>E87AADDB-F052-3309-CF23-DD5A9AF0838C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

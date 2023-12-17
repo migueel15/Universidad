@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F0382FF3-7141-5C7F-F906-07A209557A34" name="DIETA">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:50:27 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo" id="AF26DE2F-980E-91F2-1FAE-47E60C46340C">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:51:18 UTC</createdTime>
+<generatorID>641D5BB4-CE88-81EB-3D1F-DF807578DAA3</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>930E0CBB-0A18-1BC9-1F54-5B834F407B51</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo1" id="61C113EF-3CA1-A7DA-476A-1B07694C2992">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:52:50 UTC</createdTime>
+<generatorID>8DBEDE19-1A1D-6527-29AA-4A46A15A8031</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>930E0CBB-0A18-1BC9-1F54-5B834F407B51</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID" id="AF734729-DDE5-CFAB-A01F-576335460923">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:53:18 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Objetivo" id="4A75BCAE-3A9D-F235-8081-1DAB8A2073CA">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:53:47 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Informacion_Nutricional" id="0251C3BA-5F5B-8826-B7CE-9D2D54BB1129">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:54:24 UTC</createdTime>
+<commentInRDBMS><![CDATA[Que tipo de personas pueden o no consumir la dieta; (veganos, vegetarianos, celiacos,...)]]></commentInRDBMS>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tabla_Comidas" id="EE158388-7FD9-C149-D69B-3660594BEC15">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:57:43 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B806BE33-EEBD-5584-8B80-54D9DB448F31" name="Dieta PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:53:30 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AF734729-DDE5-CFAB-A01F-576335460923</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

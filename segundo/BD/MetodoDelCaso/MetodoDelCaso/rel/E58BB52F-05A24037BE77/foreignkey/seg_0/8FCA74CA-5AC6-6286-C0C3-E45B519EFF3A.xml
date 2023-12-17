@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8FCA74CA-5AC6-6286-C0C3-E45B519EFF3A" containerWithKeyObject="51E2B7DC-5C9B-E88F-46EF-4EC92ABDF715" localFKIndex="A70708C9-1C78-A8F3-8A03-544F80C0303A" name="Relation_32_TARIFA_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>2FED274A-9183-61E6-7C56-EA35269D7A2A</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<referredTableLongName>TARIFA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C0579E29-E470-C943-1E2D-5592AA4CE59B</referredTableID>
+<keyObject>C240B695-C0EE-9255-B8CA-86C55003E8B8</keyObject>
+<referredKeyID>C240B695-C0EE-9255-B8CA-86C55003E8B8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>TARIFA_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

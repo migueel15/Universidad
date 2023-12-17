@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F4E686A9-643C-13E9-82F4-82F067DACBD6" name="SESION">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:59:16 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo" id="5BAA1D03-A41C-02D3-09C4-F2440327C806">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:00:38 UTC</createdTime>
+<generatorID>424ED72E-DFCE-00EB-FB3F-436EF4B570B6</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>930E0CBB-0A18-1BC9-1F54-5B834F407B51</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="42A49980-6191-2CC6-E6BF-554249B66006">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:01:02 UTC</createdTime>
+<generatorID>C75BE7F4-ECCD-850D-CB48-43A67CB2BD10</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>B576D678-6236-1D38-C06B-6BC4341A728E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Marca" id="698C8564-608E-C137-275B-BF0E9B89A1E2">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:04:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Tiempo empleado, repeticiones realizadas...]]></commentInRDBMS>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Pulsaciones" id="7E487921-143C-E317-BEA0-AF0D753CC154">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:01:13 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cansancio" id="168BEB2C-5D2B-26C9-839C-541BFA0E04D1">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:01:51 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Autoevaluacion" id="C1445FE0-012C-A871-42AA-9C2C120FBA3B">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:02:38 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Objetivos_Mejorar" id="55A4F568-67B4-1E17-8A29-B72459A9881D">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:03:44 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F44459BB-3C3F-4D2A-D38F-ADC1913596A3" name="SESION PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 10:00:38 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5BAA1D03-A41C-02D3-09C4-F2440327C806</attributeRef>
+<attributeRef>42A49980-6191-2CC6-E6BF-554249B66006</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

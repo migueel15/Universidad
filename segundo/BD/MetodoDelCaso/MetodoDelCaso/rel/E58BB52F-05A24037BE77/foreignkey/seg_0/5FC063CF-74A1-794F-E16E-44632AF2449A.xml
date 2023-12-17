@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5FC063CF-74A1-794F-E16E-44632AF2449A" containerWithKeyObject="47E21EA1-C22B-A017-4255-D4898AAF73F6" localFKIndex="B40C67FC-F275-D02D-26C0-BF9D5E471D5E" name="GRUPO_MUSCULAR_MATERIAL_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C1A42EB0-F996-F3F6-EA33-15177A1FC6F6</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<referredTableLongName>MATERIAL</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7E30B121-FFC3-8E2E-B1BE-708C125C24E3</referredTableID>
+<keyObject>6A25AEAD-D0F4-4081-0DE9-A6F5D212E5C9</keyObject>
+<referredKeyID>6A25AEAD-D0F4-4081-0DE9-A6F5D212E5C9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Codigo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

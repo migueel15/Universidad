@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="29BEF8D7-3A66-8528-8F1E-5F92E752F1A1" name="GRUPO_MUSCULAR">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-05 10:02:43 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo" id="283D9D70-4B79-9345-F53E-5432095C47C8">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-05 10:03:34 UTC</createdTime>
+<generatorID>C1A42EB0-F996-F3F6-EA33-15177A1FC6F6</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>27EFD9D1-4FB4-C0F0-6AAF-38E81C56E39E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="45899B01-FDF9-D638-5CC0-121A0BE4BEAF">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-05 10:03:49 UTC</createdTime>
+<generatorID>A9967D8D-2FEB-7A65-8B75-5E4491AD6752</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<referedAttribute>13EC7709-093A-D85C-2A82-1BEFD25A46DB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="GrupoMuscular" id="15E632A8-9249-1AC6-509F-F36CA3FFA757">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-16 09:42:28 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BA1D1E1F-6475-53F6-9CE6-B9CDF3B17DE4" name="GRUPO_MUSCULAR PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-11-05 10:03:34 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="E58BB52F-0132-47E0-3D33-05A24037BE77" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>283D9D70-4B79-9345-F53E-5432095C47C8</attributeRef>
+<attributeRef>45899B01-FDF9-D638-5CC0-121A0BE4BEAF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

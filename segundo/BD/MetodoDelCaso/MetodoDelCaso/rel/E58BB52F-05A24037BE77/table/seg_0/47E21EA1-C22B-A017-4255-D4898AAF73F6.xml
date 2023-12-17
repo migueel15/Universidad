@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="47E21EA1-C22B-A017-4255-D4898AAF73F6" name="GRUPO_MUSCULAR">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>29BEF8D7-3A66-8528-8F1E-5F92E752F1A1</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MATERIAL_Codigo" id="DE64B5B4-9E42-2089-519E-B1CB29D96B20">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>283D9D70-4B79-9345-F53E-5432095C47C8</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5FC063CF-74A1-794F-E16E-44632AF2449A" referredColumn="951878B2-B775-DAC0-6E32-BEB3BEC206E2"/>
+</associations>
+</Column>
+<Column name="EJERCICIO_Nombre" id="2CCA2E17-87A9-29E0-74AF-4DF123762D8E">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>45899B01-FDF9-D638-5CC0-121A0BE4BEAF</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4459E15-4876-677B-AA31-E899552E3DEF" referredColumn="831F9528-7687-EF7E-CE7A-00DD048C842B"/>
+</associations>
+</Column>
+<Column name="GrupoMuscular" id="EF5E7751-949A-AF27-1B58-C5E7AA647D93">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>15E632A8-9249-1AC6-509F-F36CA3FFA757</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="61D825EA-D0F5-AE4D-7AF1-F45B39A8A160" name="GRUPO_MUSCULAR_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>BA1D1E1F-6475-53F6-9CE6-B9CDF3B17DE4</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE64B5B4-9E42-2089-519E-B1CB29D96B20"/>
+<colUsage columnID="2CCA2E17-87A9-29E0-74AF-4DF123762D8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B40C67FC-F275-D02D-26C0-BF9D5E471D5E" name="GRUPO_MUSCULAR_MATERIAL_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>C1A42EB0-F996-F3F6-EA33-15177A1FC6F6</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE64B5B4-9E42-2089-519E-B1CB29D96B20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="64056D01-58A5-8B08-E852-74D3B0152DF4" name="GRUPO_MUSCULAR_EJERCICIO_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>A9967D8D-2FEB-7A65-8B75-5E4491AD6752</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CCA2E17-87A9-29E0-74AF-4DF123762D8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

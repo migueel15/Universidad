@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A34A7216-5F47-3C7E-4E4D-AA86FD8D21F8" name="Relation_34">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TARIFA_TARIFA_ID" id="6809C31F-14DE-1B03-B250-63095FE60697">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="73D997E9-C9D1-D64C-D1E4-6BAC323D0AFA" referredColumn="2E97A6BB-6B0C-A3DB-9A4B-900099ABFACC"/>
+</associations>
+</Column>
+<Column name="FUNCIONALIDADES_ID" id="0B1BD3D9-3D1B-7AAC-134A-CD3F5DF4D1E4">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="152BF1D6-81B7-136C-62E4-2E0B08934915" referredColumn="C93A9BBB-0065-01A7-C0CA-9DC620A85430"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B13E7D90-6A59-2992-0714-9C5F64B951F5" name="Relation_34_PK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6809C31F-14DE-1B03-B250-63095FE60697"/>
+<colUsage columnID="0B1BD3D9-3D1B-7AAC-134A-CD3F5DF4D1E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="06FC40AB-5602-D436-9146-113443B93BFD" name="Relation_34_TARIFA_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>5F9D057E-8BDF-FF3D-4A76-2E79C62996BD</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6809C31F-14DE-1B03-B250-63095FE60697"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB740F82-687C-CAE3-95F3-F0AEBC1CB6E5" name="Relation_34_FUNCIONALIDADES_FK">
+<createdBy>diego</createdBy>
+<createdTime>2023-12-17 13:28:19 UTC</createdTime>
+<generatorID>5F9D057E-8BDF-FF3D-4A76-2E79C62996BD</generatorID>
+<ownerDesignName>MetodoDelCaso1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B1BD3D9-3D1B-7AAC-134A-CD3F5DF4D1E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
