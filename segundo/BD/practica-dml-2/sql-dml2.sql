@@ -112,34 +112,90 @@ select profesor "PROFESOR" from impartir
 where carga_creditos < 6.5
 and curso = '21/22'
 group by profesor
-having count(carga_creditos) >= 2
+having count(carga_creditos) >= 2;
 
-;
-select * from sol_3_16;
+--17
+select A.nombre from asignaturas A
+where A.codigo not in (
+select asignatura from matricular
+where calificacion in ('AP','MH','NT','SB')
+group by asignatura
+);
 
+--18
+select nombre from departamentos
+where codigo not in
+(
+select departamento from asignaturas
+where creditos > 6
+group by departamento
+);
 
+--19
+select nombre, apellido1, apellido2 from profesores
+where id in
+(
+    select I.profesor from impartir I,asignaturas A
+    where I.asignatura = A.codigo
+    and A.caracter = 'OP'
+    and
+    (I.asignatura,I.grupo)
+    not in
+        (
+        select M.asignatura,M.grupo from matricular M, asignaturas A
+        where M.asignatura = A.codigo
+        and A.caracter = 'OP'
+        group by M.asignatura,M.grupo
+        )
+)
+order by nombre asc;
 
+--20
+select P1.nombre || ' ' || P1.apellido1 "PROFESOR1", P2.nombre || ' ' || P2.apellido2 "PROFESOR2" from profesores P1, profesores P2
+where P1.id < P2.id
+and (P1.id,P2.id) not in
+(
+    select A.profesor "P1", B.profesor "P2" from
+    (
+        select M.alumno,I.profesor from matricular M, impartir I
+        where M.asignatura = I.asignatura
+        and M.grupo = I.grupo
+    )A,
+    (
+        select M.alumno,I.profesor from matricular M, impartir I
+        where M.asignatura = I.asignatura
+        and M.grupo = I.grupo
+    )B
+    where A.profesor != B.profesor
+    and A.alumno = B.alumno
+);
 
+--21
+select P1.nombre || ' ' || P1.apellido1 "PROFESOR1", P2.nombre || ' ' || P2.apellido2 "PROFESOR2" from profesores P1, profesores P2
+where
+P1.id < P2.id and
+(P1.id, P2.id) not in
+(
+    select I1.profesor, I2.profesor from impartir I1, impartir I2
+    where I1.profesor < I2.profesor
+    and I1.asignatura = I2.asignatura
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--22
+select nombre from asignaturas
+where
+codigo not in
+( 
+    select A.asignatura from
+    (
+        select A.dni, M.asignatura, A.cmun from matricular M, alumnos A
+        where M.alumno = A.dni
+    )A,
+    (
+        select A.dni, M.asignatura, A.cmun from matricular M, alumnos A
+        where M.alumno = A.dni
+    )B
+    where A.dni < B.dni
+    and A.asignatura = B.asignatura
+    and A.cmun = B.cmun
+);
