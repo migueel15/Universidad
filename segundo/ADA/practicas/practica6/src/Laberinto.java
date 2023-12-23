@@ -86,12 +86,8 @@ public class Laberinto {
 	 * Comprueba si una solución es completa.
 	 */
 	private boolean esCompleta(List<Posicion> sol) {
-		//TODO
-		boolean esCompleta = true;
-		if(!sol.contains(entrada) || !sol.contains(salida)){
-			esCompleta = false;
-		}
-		return esCompleta;
+		// si tiene que pasar por una posicion sol tiene que contener esa pos.
+    return sol.contains(entrada) && sol.contains(salida);
 	}
 
 	/**
@@ -239,7 +235,6 @@ public class Laberinto {
 			}
 
 		}
-
 		return mejor;
 	}
 
