@@ -199,3 +199,114 @@ codigo not in
     and A.asignatura = B.asignatura
     and A.cmun = B.cmun
 );
+
+
+
+
+-- de cada departamento coge el profesor mas viejo pero no cuenta los profesores 
+-- que le den clase a alumnos que hayan nacido antes de los 90
+
+select P.departamento, P.nombre, P.apellido1,P.apellido2 from profesores P,
+(
+    select departamento, min(fecha_nacimiento) EDAD from 
+    (
+        select * from profesores
+        where id not in
+        
+        ( -- Profesores que no me valen
+            select I.profesor from
+            ( -- alumnos mayores de 23 con su asignatura
+                select * from
+                (
+                    select dni from alumnos
+                    where months_between(sysdate,fecha_nacimiento)/12 > 30
+                ) A,
+                
+                matricular M
+                where A.dni = M.alumno
+            ) A,
+            impartir I
+            where A.asignatura = I.asignatura
+            and A.grupo = I.grupo
+        )
+    )
+    group by departamento
+) F
+where p.fecha_nacimiento = F.edad
+and p.departamento = F.departamento
+;
+
+
+select A1.nombre, A2.nombre from asignaturas A1, asignaturas A2
+where A1.codigo < A2.codigo
+and A1.caracter = A2.caracter
+;
+
+
+
+
+
+-- 3 asig aprobadas, media > 2
+/*
+( -- media
+    select avg(decode(M.calificacion,'NP',0,'SP',1,'AP',2,'NT',3,'SB',4,'MH',5)) MEDIA from matricular M
+)
+*/
+
+
+select dni, round(avg(decode(M.calificacion,'NP',0,'SP',1,'AP',2,'NT',3,'SB',4,'MH',5)),2) "MEDIA" from alumnos A, matricular M,
+( -- alumnos con mas de 2 aprobadas
+    select alumno from 
+    (
+        select * from matricular
+        where calificacion in ('AP','NT','SB','MH')
+    )
+    group by alumno
+    having count(*) > 2
+) V
+where A.dni = V.alumno
+and M.alumno = A.dni
+group by dni
+having round(avg(decode(M.calificacion,'NP',0,'SP',1,'AP',2,'NT',3,'SB',4,'MH',5)),2) > 2
+
+;
+
+
+
+select * from
+(
+    select alumno, avg(decode(calificacion,'NP',0,'SP',1,'AP',2,'NT',3,'SB',4,'MH',5)) MEDIA from matricular
+    group by alumno having avg(decode(calificacion,'NP',0,'SP',1,'AP',2,'NT',3,'SB',4,'MH',5)) > 2
+)
+
+
+
+;
+
+
+
+
+
+
+
+
+
+select * from profesores P, departamentos D
+where P.departamento = D.codigo;
+
+
+select count(*), P.id from profesores P, departamentos D
+where P.departamento = D.codigo;
+
+
+select to_char(fecha_prim_matricula,'DAY') from alumnos
+where to_char(fecha_prim_matricula,'DAY') like 'LUNES%'
+
+
+
+
+
+
+
+
+
