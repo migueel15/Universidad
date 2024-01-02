@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc9b1b9-100b-4554-a1b9-22300b458627" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/LaberintoSumergido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PruebaLaberintoSumergido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Laberinto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Laberinto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../BD/practica-dml-2/sql-dml2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../BD/practica-dml-2/sql-dml2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LaberintoSumergido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaberintoSumergido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ED/PrimerParcial/QueueRoulette/QueueRoulette_1.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ED/PrimerParcial/QueueRoulette/QueueRoulette_1.hs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,31 +46,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Application.PruebaLaberintoSumergido.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/miguel/Universidad/segundo/ADA/practicas/practica6/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PruebaLaberintoSumergido.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/miguel/Universidad/segundo/ADA/practicas/practica6/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -112,6 +114,10 @@
       <workItem from="1702330211474" duration="239000" />
       <workItem from="1703185008186" duration="1298000" />
       <workItem from="1703231954580" duration="3499000" />
+      <workItem from="1703520627685" duration="56000" />
+      <workItem from="1703603501691" duration="4576000" />
+      <workItem from="1703736512837" duration="112000" />
+      <workItem from="1703791487441" duration="22000" />
     </task>
     <servers />
   </component>

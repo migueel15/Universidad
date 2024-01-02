@@ -5,8 +5,7 @@ public class LaberintoSumergido {
   private int[][] laberinto;
   private Posicion entrada, salida;
   private int n;
-  private int cantidadAire; //Cantidad de aire que tiene el buzo.
-
+  private int cantidadAire; // Cantidad de aire que tiene el buzo.
 
   public LaberintoSumergido(int[][] lab, Posicion ent, Posicion sal, int c) {
     this.laberinto = lab;
@@ -24,19 +23,21 @@ public class LaberintoSumergido {
     return n;
   }
 
-  public int [][] getLaberinto(){
+  public int[][] getLaberinto() {
     return laberinto;
   }
+
   public Posicion getEntrada() {
     return entrada;
   }
+
   public Posicion getSalida() {
     return salida;
   }
-  public int cantidadAire () {
+
+  public int cantidadAire() {
     return cantidadAire;
   }
-
 
   /**
    * Dada una posición cartesiana devuelve la siguiente posición en el sentido
@@ -67,12 +68,13 @@ public class LaberintoSumergido {
   }
 
   private boolean esMuro(Posicion p) {
-    if(estaEnLaberinto(p)){
+    if (estaEnLaberinto(p)) {
       return laberinto[p.getX()][p.getY()] == -1;
-    }else return false;
+    } else
+      return false;
   }
 
-  private boolean quedaOxigeno(Posicion p){
+  private boolean quedaOxigeno(Posicion p) {
     return laberinto[p.getX()][p.getY()] < cantidadAire;
   }
 
@@ -89,7 +91,7 @@ public class LaberintoSumergido {
     List<List<Posicion>> todosCaminos = new ArrayList<List<Posicion>>();
     List<Posicion> sol = new ArrayList<Posicion>();
     sol.add(entrada);
-    encontrarCaminos(sol, todosCaminos,cantidadAire);
+    encontrarCaminos(sol, todosCaminos, cantidadAire);
     return todosCaminos;
   }
 
@@ -97,39 +99,40 @@ public class LaberintoSumergido {
    * Algoritmo de Vuelta Atrás para encontrar todas las soluciones
    */
   private void encontrarCaminos(List<Posicion> sol,
-                                List<List<Posicion>> todas, int oxigeno) {
-    if(esCompleta(sol)){
+      List<List<Posicion>> todas, int oxigeno) {
+    if (esCompleta(sol)) {
       todas.add(sol);
-    }else{
-      for(int i = 1;i <= 4;i++){
-        if(valida(siguiente(sol.get(sol.size()-1),i),sol)){
+    } else {
+      for (int i = 1; i <= 4; i++) {
+        if (valida(siguiente(sol.get(sol.size() - 1), i), sol)) {
           ArrayList<Posicion> aux = new ArrayList<>(sol);
-          Posicion pos = siguiente(sol.get(sol.size()-1),i);
+          Posicion pos = siguiente(sol.get(sol.size() - 1), i);
           int auxOxigeno = oxigeno - laberinto[pos.getX()][pos.getY()];
           aux.add(pos);
-          encontrarCaminos(aux,todas,auxOxigeno);
+          encontrarCaminos(aux, todas, auxOxigeno);
         }
       }
     }
   }
 
   private int calidad(List<Posicion> sol) {
-    //***Completar la implementación****
-    if(sol == null){
+    // ***Completar la implementación****
+    if (sol == null) {
       return Integer.MAX_VALUE;
-    }else return sol.size();
+    } else
+      return sol.size();
   }
 
-  public List<Posicion> encontrarCaminoOptimo(){
+  public List<Posicion> encontrarCaminoOptimo() {
     List<Posicion> sol = new ArrayList<Posicion>();
     sol.add(entrada);
     return encontrarCaminoOptimo(sol, null);
   }
 
-  private List<Posicion> encontrarCaminoOptimo(List<Posicion> sol, List<Posicion> mejor){
+  private List<Posicion> encontrarCaminoOptimo(List<Posicion> sol, List<Posicion> mejor) {
     List<List<Posicion>> resultados = encontrarCaminos();
-    for(List<Posicion> l : resultados){
-      if (calidad(l) < calidad(mejor)){
+    for (List<Posicion> l : resultados) {
+      if (calidad(l) < calidad(mejor)) {
         mejor = l;
       }
     }
