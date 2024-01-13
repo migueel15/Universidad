@@ -5,17 +5,17 @@
 --
 -- Examen 4 de febrero de 2019
 --
--- ALUMNO/NAME:
--- GRADO/STUDIES:
--- NÚM. MÁQUINA/MACHINE NUMBER:
+-- ALUMNO/NAME: Miguel Angel Dorado Maldonado
+-- GRADO/STUDIES: Software A
+-- NÚM. MÁQUINA/MACHINE NUMBER: xxx
 --
 ----------------------------------------------
 
-module Kruskal(kruskal, kruskals) where
+module Kruskal (kruskal, kruskals) where
 
-import qualified DataStructures.Dictionary.AVLDictionary as D
-import qualified DataStructures.PriorityQueue.LinearPriorityQueue as Q
+import DataStructures.Dictionary.AVLDictionary qualified as D
 import DataStructures.Graph.DictionaryWeightedGraph
+import DataStructures.PriorityQueue.LinearPriorityQueue qualified as Q
 
 kruskal :: (Ord a, Ord w) => WeightedGraph a w -> [WeightedEdge a w]
 kruskal = undefined
