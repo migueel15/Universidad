@@ -18,31 +18,29 @@ public class HashBiDictionary<K,V> implements BiDictionary<K,V>{
 	private Dictionary<V,K> bValues;
 	
 	public HashBiDictionary() {
-		// TODO 
+    bKeys = new HashDictionary<K,V>();
+    bValues = new HashDictionary<V,K>();
 	}
 	
 	public boolean isEmpty() {
-		// TODO
-		return false;
+    return bKeys.isEmpty() && bValues.isEmpty();
 	}
 	
 	public int size() {
-		// TODO
-		return 0;
+    return bKeys.size();
 	}
 	
 	public void insert(K k, V v) {
-		// TODO
+    bKeys.insert(k, v);
+    bValues.insert(v,k);
 	}
 	
 	public V valueOf(K k) {
-		// TODO
-		return null;
+    return bKeys.isDefinedAt(k) ? bKeys.valueOf(k) : null;
 	}
 	
 	public K keyOf(V v) {
-		// TODO
-		return null;
+    return bValues.isDefinedAt(v) ? bValues.valueOf(v) : null;
 	}
 	
 	public boolean isDefinedKeyAt(K k) {
@@ -54,11 +52,23 @@ public class HashBiDictionary<K,V> implements BiDictionary<K,V>{
 	}
 	
 	public void deleteByKey(K k) {
-		// TODO
+    if(isDefinedKeyAt(k)){
+      V value = bKeys.valueOf(k);
+      if(isDefinedValueAt(value)){
+        bValues.delete(value);
+      }
+      bKeys.delete(k);
+    }
 	}
 	
 	public void deleteByValue(V v) {
-		// TODO
+    if(isDefinedValueAt(v)){
+      K key = bValues.valueOf(v);
+      if(isDefinedKeyAt(key)){
+        bKeys.delete(key);
+      }
+      bValues.delete(v);
+    }
 	}
 	
 	public Iterable<K> keys() {
@@ -75,21 +85,59 @@ public class HashBiDictionary<K,V> implements BiDictionary<K,V>{
 	
 		
 	public static <K,V extends Comparable<? super V>> BiDictionary<K, V> toBiDictionary(Dictionary<K,V> dict) {
-		// TODO
-		return null;
+    BiDictionary<K,V> biDictionary = new HashBiDictionary<>();
+    // TODO check size for runtime error
+    
+    for(Tuple2<K,V> tupla : dict.keysValues()){
+      biDictionary.insert(tupla._1(), tupla._2());
+    }
+    return biDictionary;
 	}
 	
 	public <W> BiDictionary<K, W> compose(BiDictionary<V,W> bdic) {
-		// TODO
-		return null;
+    BiDictionary<K,W> biDictionary = new HashBiDictionary<>();
+    for(Tuple2<K,V> c_tupla : bKeys.keysValues()){
+      for(Tuple2<V,W> new_tupla : bdic.keysValues()){
+        if(c_tupla._2().equals(new_tupla._1())){
+          biDictionary.insert(c_tupla._1(), new_tupla._2());
+        }
+      }
+    }
+    return biDictionary;
 	}
 		
 	public static <K extends Comparable<? super K>> boolean isPermutation(BiDictionary<K,K> bd) {
-		// TODO
-		return false;
+    boolean perm = true;
+    List<K> keys = new ArrayList<>();
+    List<K> values = new ArrayList<>();
+
+    for(Tuple2<K,K> current : bd.keysValues()){
+      keys.append(current._1());
+      values.append(current._2());
+    }
+
+    if(keys.size() == values.size()){
+      while(!keys.isEmpty() && !values.isEmpty() && perm){
+        K k = keys.get(keys.size()-1);
+        keys.remove(keys.size()-1);
+        boolean exist = false;
+        for(int i = 0; i<values.size() && !exist; i++){
+          if(k.equals(values.get(i))){
+            exist = true;
+          }
+        }
+
+        if(!exist){
+          perm = false;
+        }
+      }
+    }else{
+      perm = false;
+    }
+    return perm;
 	}
 	
-	// Solo alumnos con evaluación por examen final.
+	// Solo alumnos con evaluacion por examen final.
     // =====================================
 	
 	public static <K extends Comparable<? super K>> List<K> orbitOf(K k, BiDictionary<K,K> bd) {

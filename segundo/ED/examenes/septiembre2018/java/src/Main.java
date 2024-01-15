@@ -29,13 +29,13 @@ public class Main {
         System.out.println();
         
         // apartado e
-        System.out.println("Se borra la asociación con clave \"one\"");
+        System.out.println("Se borra la asociacion con clave \"one\"");
         bdict.deleteByKey("one");
         System.out.println(bdict);
         System.out.println();
         
         // apartado f
-        System.out.println("Se borra la asociación con valor 3");
+        System.out.println("Se borra la asociacion con valor 3");
         bdict.deleteByValue(3);
         System.out.println(bdict);
         System.out.println();
@@ -45,7 +45,7 @@ public class Main {
         for (int i=0; i < palabras.length; i++) {
             dict.insert(palabras[i], numeros[i]);
         }
-        BiDictionary<String, Integer> bdictTest = HashBiDictionary.toBDictionary(dict);
+        BiDictionary<String, Integer> bdictTest = HashBiDictionary.toBiDictionary(dict);
         System.out.println("A partir de " + dict + " se genera " + bdictTest);
         System.out.println();
         
@@ -53,7 +53,7 @@ public class Main {
         dict.insert("threeduplicate", 3);
         try {
         	@SuppressWarnings("unused")
-			BiDictionary<String, Integer> bdictTest2 = HashBiDictionary.toBDictionary(dict);
+			BiDictionary<String, Integer> bdictTest2 = HashBiDictionary.toBiDictionary(dict);
         }catch( IllegalArgumentException e) {
         	System.out.println("Debe entrar por aqui ya que el diccionario no es inyectivo");
         	System.out.println();
@@ -87,14 +87,14 @@ public class Main {
         System.out.println();
         
         
-        // Solo alumnos con evaluación por examen final.
+        // Solo alumnos con evaluacion por examen final.
         // =====================================
         // Quitar comentarios a las lineas siguientes
         // para probar orbitOf y cyclesOf
 
         // debe dar [1,4,5,7]
         // List<Integer> orbit = HashBDictionary.orbitOf(1, permutationDict);
-        // System.out.println("Órbita de 1 " + orbit);
+        // System.out.println("orbita de 1 " + orbit);Main
         
         // debe dar [ [1,4,5,7], [2,3] ] (el orden puede variar)
         // List<List<Integer>> cycles = HashBDictionary.cyclesOf(permutationDict);
