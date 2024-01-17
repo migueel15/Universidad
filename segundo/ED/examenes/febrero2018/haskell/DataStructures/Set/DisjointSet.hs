@@ -86,9 +86,9 @@ kind c (DS dict) = [x | x <- D.keys dict, areConnected x c (DS dict)]
 -- | Exercise 9. union
 
 union :: Ord a => a -> a -> DisjointSet a -> DisjointSet a
-union x y (DS dict)
+union x y ds@(DS dict)
   | not(D.isDefinedAt x dict && D.isDefinedAt y dict)= error "missing element(s)"
-  | x > y = DS(foldr (\ c ac -> D.insert c y ac) dict (kind x (DS dict)))
+  | fromJust(root x ds) > fromJust(root y ds) = DS (D.insert (fromJust(root x ds)) (fromJust(root y ds)) dict)
   | otherwise = union y x (DS dict)
 
 -- |------------------------------------------------------------------------
