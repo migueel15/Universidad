@@ -21,7 +21,7 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      * Inicializa las estructuras necesarias.
      */
     public DisjointSetDictionary() {
-        // TODO
+      dic = new AVLDictionary<>();
     }
 
     /**
@@ -29,8 +29,7 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      */
     @Override
     public boolean isEmpty() {
-        // TODO
-        return false;
+      return dic.isEmpty();
     }
 
     /**
@@ -38,8 +37,7 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      */
     @Override
     public boolean isElem(T elem) {
-        // TODO
-        return false;
+      return dic.isDefinedAt(elem);
     }
 
     /**
@@ -48,8 +46,7 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
 
     @Override
     public int numElements() {
-        // TODO
-        return 0;
+      return dic.size();
     }
 
     /**
@@ -59,7 +56,9 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      */
     @Override
     public void add(T elem) {
-        // TODO
+      if (!dic.isDefinedAt(elem)){
+        dic.insert(elem,elem);
+      }
     }
 
     /**
@@ -68,8 +67,15 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      * devuelve {@code null}.
      */
     private T root(T elem) {
-        // TODO
+      if(dic.isDefinedAt(elem)){
+        if(elem.equals(dic.valueOf(elem))){
+          return elem;
+        }else{
+          return root(dic.valueOf(elem));
+        }
+      }else{
         return null;
+      }
     }
 
     /**
@@ -77,8 +83,7 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      * de la clase de equivalencia a la que pertenece.
      */
     private boolean isRoot(T elem) {
-        // TODO
-        return false;
+      return elem.equals(root(elem));
     }
 
     /**
@@ -87,8 +92,11 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      */
     @Override
     public boolean areConnected(T elem1, T elem2) {
-        // TODO
-        return false;
+      if(dic.isDefinedAt(elem1) && dic.isDefinedAt(elem2)){
+        return root(elem1).equals(root(elem2));
+      }else{
+        throw new RuntimeException("elemento(s) no encontrado(s)");
+      }
     }
 
     /**
@@ -98,8 +106,13 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      */
     @Override
     public List<T> kind(T elem) {
-        // TODO
-        return null;
+      List<T> elementos = new ArrayList<>();
+      for(T el : dic.keys()){
+        if(root(el).equals(root(elem))){
+          elementos.append(el);
+        }
+      }
+      return elementos;
     }
 
     /**
@@ -109,7 +122,14 @@ public class DisjointSetDictionary<T extends Comparable<? super T>> implements D
      */
     @Override
     public void union(T elem1, T elem2) {
-        // TODO
+      if(dic.isDefinedAt(elem1) && dic.isDefinedAt(elem2)){
+        T mayor = root(elem1).compareTo(root(elem2)) > 0? root(elem1) : root(elem2);
+        T menor = root(elem1).compareTo(root(elem2)) > 0? root(elem2) : root(elem1);
+        dic.insert(mayor, menor);
+
+      }else{
+        throw new RuntimeException("elemento(s) no definido(s)");
+      }
     }
 
     // ====================================================
