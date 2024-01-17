@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
--- Student's name:
--- Student's group:
+-- Student's name: Miguel Angel Dorado Maldonado
+-- Student's group: Software A
 --
 -- Data Structures. February 2018. BSc. Computer Science. UMA.
 -------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ module DataStructures.Set.DisjointSet
                   ) where
 
 import           Data.List                               (intercalate)
-import           Data.Maybe                              (fromJust)
+import           Data.Maybe                              (fromJust, isNothing)
 import qualified DataStructures.Dictionary.AVLDictionary as D
 
 data DisjointSet a = DS (D.Dictionary a a)
@@ -28,52 +28,68 @@ data DisjointSet a = DS (D.Dictionary a a)
 -- | Exercise 1. empty
 
 empty :: DisjointSet a
-empty = undefined
+empty = DS D.empty
 
 -- | Exercise 2.a isEmpty
 
 isEmpty :: DisjointSet a -> Bool
-isEmpty = undefined
+isEmpty (DS dict) = D.isEmpty dict
 
 -- | Exercise 2.b isElem
 
 isElem :: (Ord a) => a -> DisjointSet a -> Bool
-isElem = undefined
+isElem x (DS dict) = D.isDefinedAt x dict
 
 -- | Exercise 3. numElements
 
 numElements :: DisjointSet a -> Int
-numElements = undefined
+numElements (DS dict) = D.size dict
 
 -- | Exercise 4. add
 
 add :: Ord a => a -> DisjointSet a -> DisjointSet a
-add = undefined
+add x (DS dict) 
+  | D.isDefinedAt x dict = DS dict
+  | otherwise = DS (D.insert x x dict)
 
 -- | Exercise 5. root
 
 root :: Ord a => a -> DisjointSet a -> Maybe a
-root = undefined
+root x (DS dict)
+  | not(D.isDefinedAt x dict) = Nothing
+  | otherwise = getClass x (DS dict)
 
+getClass :: Ord a => a -> DisjointSet a -> Maybe a
+getClass x (DS dict)
+  | D.valueOf x dict == Just x = Just x
+  | isNothing (D.valueOf x dict) = Nothing
+  | otherwise = getClass (fromJust (D.valueOf x dict)) (DS dict)
 -- | Exercise 6. isRoot
 
 isRoot :: Ord a => a -> DisjointSet a -> Bool
-isRoot = undefined
+isRoot x (DS dict)
+  | root x (DS dict) == Just x = True
+  | otherwise = False
 
 -- | Exercise 7. areConnected
 
 areConnected :: Ord a => a -> a -> DisjointSet a -> Bool
-areConnected = undefined
+areConnected x y (DS dict)
+  | root x (DS dict) == root y (DS dict) = True
+  | otherwise = False
 
 -- | Exercise 8. kind
 
 kind :: Ord a => a -> DisjointSet a -> [a]
-kind = undefined
+kind c (DS dict) = [x | x <- D.keys dict, areConnected x c (DS dict)]
 
 -- | Exercise 9. union
 
 union :: Ord a => a -> a -> DisjointSet a -> DisjointSet a
-union = undefined
+union x y (DS dict)
+  | not(D.isDefinedAt x dict && D.isDefinedAt y dict)= error "missing element(s)"
+  | x > y = DS(foldr (\ c ac -> D.insert c y ac) dict (kind x (DS dict)))
+  | otherwise = union y x (DS dict)
 
 -- |------------------------------------------------------------------------
 
@@ -88,6 +104,9 @@ kinds = undefined
 instance (Ord a, Show a) => Show (DisjointSet a) where
   show (DS d)  = "DictionaryDisjointSet(" ++ intercalate "," (map show (D.keysValues d)) ++ ")"
 
+d = add 4 empty
+d1 = add 5 d
+d2 = add 3 d1
 
 {-
 
