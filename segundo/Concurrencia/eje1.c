@@ -1,6 +1,5 @@
 #include <stdio.h>
-int main()
-{
+int main() {
   struct Punto {
     int x;
     int y;
