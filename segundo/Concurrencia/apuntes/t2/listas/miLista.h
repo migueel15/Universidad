@@ -16,7 +16,7 @@ struct TNode {
 // Operaciones de creacion de la lista
 
 // Operaciones para insertar elementos en la lista
-
+void insertarAlPrincipio(TLista *ptr, int valor);
 // Operaciones para borrar elementos de la lista
 
 // Operaciones de busqueda sobre la lista
