@@ -52,4 +52,25 @@ void obtener(T_Manejador *manejador, unsigned tam, unsigned *dir,
   }
 }
 
-void mostrar(T_Manejador manejador) {}
+void mostrar(T_Manejador manejador) {
+  T_Manejador ptr = manejador;
+  while (ptr != NULL) {
+    printf("Desde %d a %d: Libre\n", ptr->inicio, ptr->fin);
+    ptr = ptr->sig;
+  }
+}
+
+void devolver(T_Manejador *manejador, unsigned tam, unsigned dir) {
+  T_Manejador ant = NULL;
+  T_Manejador ptr = *manejador;
+
+  while (ptr != NULL) {
+    if (dir <= ptr->inicio) {
+      // añadir aqui
+      T_Manejador p_nodo = malloc(sizeof(struct T_Nodo));
+
+    } else {
+      // rotar
+    }
+  }
+}
