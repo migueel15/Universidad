@@ -54,8 +54,8 @@ void obtener(T_Manejador *manejador, unsigned tam, unsigned *dir,
 
 void mostrar(T_Manejador manejador) {
   T_Manejador ptr = manejador;
+  printf("--------------------\n");
   while (ptr != NULL) {
-    printf("--------------------\n");
     printf("Desde %d a %d: Libre\n", ptr->inicio, ptr->fin);
     ptr = ptr->sig;
   }
