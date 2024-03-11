@@ -110,8 +110,8 @@ void devolver(T_Manejador *manejador, unsigned tam, unsigned dir) {
     // SE INSERTA ENTRE NODOS
     if (ant->fin + 1 == dir && ptr->inicio != (dir + tam)) {
       // ampliar anterior
-      ant->fin = ant->fin + tam - 1;
-    } else if (ant->fin != dir) {
+      ant->fin = ant->fin + tam;
+    } else if (ant->fin + 1 != dir) {
       // crear un nuevo nodo
       T_Manejador nuevo = crearNodo(dir, tam, ptr);
       if (nuevo != NULL) {
