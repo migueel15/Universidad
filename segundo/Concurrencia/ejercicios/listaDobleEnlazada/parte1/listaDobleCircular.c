@@ -29,7 +29,7 @@ void crearDesdeFicheroTexto(char *nomFic, TListaDoble *l) {
   char nombre[20];
   FILE *file = fopen(nomFic, "rt");
   if (file == NULL) {
-    printf("Error: La lectura del fichero falló");
+    perror("Error: La lectura del fichero falló");
   }
 
   while (fscanf(file, "%s", nombre) != EOF) {
