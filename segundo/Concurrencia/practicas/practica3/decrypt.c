@@ -39,7 +39,7 @@ void decrypt(unsigned int *v, unsigned int *k) {
  */
 int main(int argc, char *argv[]) {
   if (argc < 3) {
-    printf("./decrypt [entrada] [salida]\n");
+    printf("%s [entrada] [salida]\n", argv[0]);
     return -1;
   }
   char *nombreEntrada = argv[1];
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
    * reserva memoria dinámica */
   FILE *entrada, *salida;
   unsigned int v[2], k[4] = {128, 129, 130, 131};
-  unsigned int fileSize, aux;
+  unsigned int virtualSize, realSize;
 
   /*Abrir fichero encriptado fent en modo lectura binario
    * nota: comprobar que se ha abierto correctamente*/
@@ -71,11 +71,11 @@ int main(int argc, char *argv[]) {
 
   /*Al comienzo del fichero cifrado esta almacenado el tamaño en bytes que
    * tendrá el fichero descifrado. Leer este valor (imgSize)*/
-  fread(&aux, sizeof(unsigned int), 1, entrada);
-  if (aux % 8 != 0) {
-    fileSize = aux + (8 - (aux % 8));
+  fread(&realSize, sizeof(unsigned int), 1, entrada);
+  if (realSize % 8 != 0) {
+    virtualSize = realSize + (8 - (realSize % 8));
   } else {
-    fileSize = aux;
+    virtualSize = realSize;
   }
 
   /*Reservar memoria dinámica para el buffer que almacenara el contenido del
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
    * múltiplo de 8 bytes, el fichero cifrado tiene además un bloque de 8 bytes
    * incompleto, por lo que puede que no coincida con imgSize nota2: al reservar
    * memoria dinámica comprobar que se realizó de forma correcta */
-  unsigned int *buffer = malloc(sizeof(char) * fileSize);
+  unsigned int *buffer = malloc(sizeof(char) * virtualSize);
   if (buffer == NULL) {
     printf("No se ha podido reservar memoria\n");
     return -1;
@@ -91,13 +91,35 @@ int main(int argc, char *argv[]) {
 
   /*Leer la información del fichero cifrado, almacenando el contenido en el
    * buffer*/
-  fread(buffer, sizeof(char), fileSize, entrada);
+  unsigned int readed = fread(buffer, sizeof(char), virtualSize, entrada);
+  if (readed != virtualSize) {
+    printf("Error al pasar datos de %s al buffer", nombreEntrada);
+    return -1;
+  }
 
   /*Para cada bloque de 64 bits (8 bytes o dos unsigned int) del buffer,
    * ejecutar el algoritmo de desencriptado*/
+  for (int i = 0; i < virtualSize - 1; i += 2) {
+    v[0] = buffer[i];
+    v[1] = buffer[i + 1];
+    decrypt(v, k);
+    if (i == virtualSize - 2) {
+      if (realSize % 8 != 0) {
+        fwrite(v, sizeof(char), realSize % 8, salida);
+
+      } else {
+        fwrite(v, sizeof(char), 8, salida);
+      }
+    } else {
+      fwrite(v, sizeof(char), 8, salida);
+    }
+  }
+  free(buffer);
 
   /*Guardar el contenido del buffer en el fichero fsal
    * nota: en fsal solo se almacenan tantos bytes como diga imgSize */
 
   /*Cerrar los ficheros*/
+  fclose(entrada);
+  fclose(salida);
 }
