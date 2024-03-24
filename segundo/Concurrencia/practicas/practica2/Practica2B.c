@@ -22,7 +22,7 @@
  */
 void creafichero(char *nfichero) {
   int TAM;
-  printf("Cuantos numeros quieres:");
+  printf("Cuantos numeros quieres: ");
   fflush(stdout);
   scanf("%d", &TAM);
 
@@ -66,41 +66,19 @@ void muestrafichero(char *nfichero) {
  * "nfichero"
  */
 
-void cargaFichero(char *nfichero, T_Arbol *miarbol) {}
+void cargaFichero(char *nfichero, T_Arbol *miarbol) {
+  FILE *file = fopen(nfichero, "rb");
+  if (file == NULL) {
+    perror("Error al leer el archivo");
+  }
+  unsigned int valor;
+  while (fread(&valor, sizeof(unsigned int), 1, file) == 1) {
+    Insertar(miarbol, valor);
+  }
+  fclose(file);
+}
 
-// int main(void) {
-//   // setvbuf(stdout,NULL,_IONBF,0);
-//
-//   char nfichero[50];
-//   printf("Introduce el nombre del fichero binario:\n");
-//   fflush(stdout);
-//   scanf("%s", nfichero);
-//   fflush(stdin);
-//   creafichero(nfichero);
-//   printf("\nAhora lo leemos y mostramos:\n");
-//   muestrafichero(nfichero);
-//   fflush(stdout);
-//
-//   printf("\nAhora lo cargamos en el arbol\n");
-//   T_Arbol miarbol;
-//   Crear(&miarbol);
-//   cargaFichero(nfichero, &miarbol);
-//   printf("\nY lo mostramos ordenado\n");
-//   Mostrar(miarbol);
-//   fflush(stdout);
-//   printf("\nAhora lo guardamos ordenado\n");
-//   FILE *fich;
-//   fich = fopen(nfichero, "wb");
-//   Salvar(miarbol, fich);
-//   fclose(fich);
-//   printf("\nY lo mostramos ordenado\n");
-//   muestrafichero(nfichero);
-//   Destruir(&miarbol);
-//
-//   return EXIT_SUCCESS;
-// }
-
-int main() {
+int main(void) {
   // setvbuf(stdout,NULL,_IONBF,0);
 
   char nfichero[50];
@@ -112,4 +90,22 @@ int main() {
   printf("\nAhora lo leemos y mostramos:\n");
   muestrafichero(nfichero);
   fflush(stdout);
+
+  printf("\nAhora lo cargamos en el arbol\n");
+  T_Arbol miarbol;
+  Crear(&miarbol);
+  cargaFichero(nfichero, &miarbol);
+  printf("\nY lo mostramos ordenado\n");
+  Mostrar(miarbol);
+  fflush(stdout);
+  printf("\nAhora lo guardamos ordenado\n");
+  FILE *fich;
+  fich = fopen(nfichero, "wb");
+  Salvar(miarbol, fich);
+  fclose(fich);
+  printf("\nY lo mostramos ordenado\n");
+  muestrafichero(nfichero);
+  Destruir(&miarbol);
+
+  return EXIT_SUCCESS;
 }
