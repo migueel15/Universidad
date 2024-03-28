@@ -7,7 +7,8 @@
 void metodo(int sig) {
   printf("El padre quiere matar al hijo\n");
   sleep(2);
-  exit(10);
+  kill(getppid(), SIGKILL);
+  signal(SIGINT, SIG_DFL);
 }
 
 int main() {
