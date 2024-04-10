@@ -5,7 +5,7 @@ public class Variable<T> {
     private boolean hayDato = false;
 
     public void almacena(T dato){
-    	while (hayDato) Thread.yield(); //Condición de sincronización. Espera activa
+    	while (hayDato) Thread.yield(); //Condici?n de sincronizaci?n. Espera activa
     	//System.out.println("Productor "+dato);
         var = dato;
         hayDato=true;

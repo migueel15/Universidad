@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/_3ProdConSincronizados/Variable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/_5JardinesPetersonV2/Jardines.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/_5JardinesPetersonV3/Jardines.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/_5JardinesPetersonV3/Puerta.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/_7PanaderiaLamport/Cliente.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/_8PanaderiaLamportAtomic/Cliente.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/_8PanaderiaLamportAtomic/Panaderia.java" charset="ISO-8859-1" />
+  </component>
+</project>

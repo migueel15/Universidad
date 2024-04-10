@@ -17,7 +17,7 @@ class Cliente extends Thread {
 		// el cliente id es atendido por el dependiente
 		System.out.println("Cliente " + id + ": es atendido");// el cliente id es atendido por el dependiente
 		pan.salePanaderia(id);
-		// el cliente id sale de la panadería
+		// el cliente id sale de la panader?a
 		System.out.println("Cliente " + id + ": sale de la panaderia");// el cliente id es atendido por el dependiente
 	}
 }

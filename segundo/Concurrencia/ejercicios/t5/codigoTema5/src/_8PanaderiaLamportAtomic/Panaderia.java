@@ -3,10 +3,10 @@ package _8PanaderiaLamportAtomic;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class Panaderia {
-	/** ¿Podemos hacer las variables turno y pidiendoTurno "volatile"?
-	 *    - La respuesta es sí, pero hay un "pero..."
+	/** ?Podemos hacer las variables turno y pidiendoTurno "volatile"?
+	 *    - La respuesta es s?, pero hay un "pero..."
 	 *    
-	 *    Pero lo que se notifica al resto de hebras es una modificación
+	 *    Pero lo que se notifica al resto de hebras es una modificaci?n
 	 *    en la referencia al array.
 	 *    
 	 *    Por ejemplo, si hacemos: turno = new int[N]; 
@@ -17,16 +17,16 @@ public class Panaderia {
 	 *    array.
 	 *    
 	 *    Por ejemplo, si hacemos turno[2] = 3; 
-	 *    no hay notificación del cambio al resto de las hebras 
+	 *    no hay notificaci?n del cambio al resto de las hebras 
 	 *    
 	 *    ESO SIGNIFICA QUE EN ALGUNAS IMPLEMENTACIONES DE JAVA ESTA
-	 *    IMPLEMENTACIÓN DEL ALGORITMO DE LAMPORT PODRÍA NO FUNCIONAR BIEN
+	 *    IMPLEMENTACI?N DEL ALGORITMO DE LAMPORT PODR?A NO FUNCIONAR BIEN
 	 *    
 	 *    LAS HEBRAS CONSULTAN EL VALOR DE LOS COMPONENTES DE LOS ARRAYS 
 	 *    turno Y pidiendoTurno MODIFICADOS POR OTRAS HEBRAS
 	 *    
-	 *    Posible solución -> Utilizar clases Java que aseguran un acceso
-	 *    atómico a los elementos del array
+	 *    Posible soluci?n -> Utilizar clases Java que aseguran un acceso
+	 *    at?mico a los elementos del array
 	 *    
 	 *    - array de enteros --> AtomicIntegerArray
 	 *    - array de booleanos --> No hay un AtomicBooleanArray

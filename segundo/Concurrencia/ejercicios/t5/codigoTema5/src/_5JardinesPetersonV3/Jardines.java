@@ -1,9 +1,9 @@
 package _5JardinesPetersonV3;
 
-/** Sincronización con algoritmo de Peterson
+/** Sincronizaci?n con algoritmo de Peterson
  * 
- *   - Sincronización fuera de la variable compartida
- *   - Métodos adicionales en la clase Peterson para no distinguir en la hebra
+ *   - Sincronizaci?n fuera de la variable compartida
+ *   - M?todos adicionales en la clase Peterson para no distinguir en la hebra
  */
 public class Jardines {
 	private static int VISITANTES = 100000;
