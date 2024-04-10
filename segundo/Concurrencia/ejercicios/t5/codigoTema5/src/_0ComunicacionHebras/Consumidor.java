@@ -14,7 +14,6 @@ public class Consumidor extends Thread {
     for (int i = 0; i < numIter; i++) {
       // Acceso al recurso compartido
       nDato = var.extrae();
-      System.out.println("Consumidor " + nDato);
     }
   }
 }

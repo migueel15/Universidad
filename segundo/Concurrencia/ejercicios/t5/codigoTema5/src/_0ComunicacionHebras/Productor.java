@@ -14,7 +14,6 @@ public class Productor extends Thread {
     int nDato = 0;
     for (int i = 0; i < numIter; i++) {
       nDato = r.nextInt(100);
-      System.out.println("Productor " + nDato);
       // Acceso al recurso compartido
       var.almacena(nDato);
     }

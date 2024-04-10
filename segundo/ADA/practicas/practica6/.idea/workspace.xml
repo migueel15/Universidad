@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc9b1b9-100b-4554-a1b9-22300b458627" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Laberinto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Laberinto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LaberintoSumergido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaberintoSumergido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ED/PrimerParcial/QueueRoulette/QueueRoulette_1.hs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ED/PrimerParcial/QueueRoulette/QueueRoulette_1.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/codigoTema5/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/codigoTema5/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Contador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Contador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Jardines.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Jardines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Peterson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Peterson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Puerta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Concurrencia/ejercicios/t5/esqueletosPeterson/_4JardinesPetersonV1_clase/Puerta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +117,7 @@
       <workItem from="1703603501691" duration="4576000" />
       <workItem from="1703736512837" duration="112000" />
       <workItem from="1703791487441" duration="22000" />
+      <workItem from="1712740473230" duration="21000" />
     </task>
     <servers />
   </component>
