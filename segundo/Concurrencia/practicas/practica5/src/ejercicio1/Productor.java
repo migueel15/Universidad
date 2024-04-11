@@ -1,3 +1,4 @@
+package ejercicio1;
 public class Productor extends Thread{
   private static java.util.Random r = new java.util.Random();
   private int iteraciones;

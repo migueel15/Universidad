@@ -1,3 +1,4 @@
+package ejercicio1;
 public class Consumidor extends Thread {
   private int iteraciones;
   private Buffer buffer;

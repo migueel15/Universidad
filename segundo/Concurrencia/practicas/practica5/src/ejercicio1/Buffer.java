@@ -1,3 +1,4 @@
+package ejercicio1;
 public class Buffer {
 	private int[] elem; //array de elementos
 	private int nelem;  //n�mero de elementos en el buffer
