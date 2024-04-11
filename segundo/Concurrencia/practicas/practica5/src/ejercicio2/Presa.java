@@ -1,7 +1,16 @@
-package ejercicio2Peterson_esqueleto;
+package ejercicio2;
 
-public class Presa {
+public class Presa extends Thread{
 	private static int MAX_PRESA;
+	Lago lago;
 
-	//COMPLETAR
+	public Presa(Lago lago){
+		this.lago = lago;
+	}
+
+	public void run(){
+		for(int i = 0; i < 1000; i++){
+			lago.decrementa(i, i);
+		}
+	}
 }

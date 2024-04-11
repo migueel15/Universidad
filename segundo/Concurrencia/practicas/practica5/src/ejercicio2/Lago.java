@@ -1,4 +1,4 @@
-package ejercicio2Peterson_esqueleto;
+package ejercicio2;
 
 //Recurso compartido
 public class Lago {
@@ -6,7 +6,6 @@ public class Lago {
 	
 	public Lago(){
 		nivel = 0;
-		
 	}
 	
 	public int get(){
