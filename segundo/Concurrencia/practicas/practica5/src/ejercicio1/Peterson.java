@@ -1,3 +1,4 @@
+package ejercicio1;
 public class Peterson {
   private volatile int turno = 0;
   private volatile boolean f0 = false;
