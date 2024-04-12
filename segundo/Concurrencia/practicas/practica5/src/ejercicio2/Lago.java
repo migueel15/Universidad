@@ -20,7 +20,10 @@ public class Lago {
 	}
 	
 	
-	public void decrementa(int id, int iter){ 
+	public void decrementa(int id, int iter){
+		while(nivel == 0){
+			Thread.yield();
+		}
 		nivel--;
 		System.out.println(iter+":Presa " + id + " ha decrementado el nivel: " +nivel);
 	}
