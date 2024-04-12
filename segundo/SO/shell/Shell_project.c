@@ -15,6 +15,8 @@ To compile and run the program:
 **/
 
 #include "job_control.h" // remember to compile with module job_control.c
+#include <stdio.h>
+#include <unistd.h>
 
 #define MAX_LINE 256 /* 256 chars per line, per command, should be enough. */
 
@@ -51,6 +53,30 @@ int main(void) {
              (4) Shell shows a status message for processed command
              (5) loop returns to get_commnad() function
     */
+
+    pid_fork = fork();
+
+    if (pid_fork == -1) {
+      perror("Error al crear el proceso hijo");
+    }
+
+    if (pid_fork == 0) {
+      setpgid(getpid(), getpid());
+      tcsetpgrp(STDIN_FILENO, getpid());
+      execvp(args[0], args);
+      perror("Error al ejecutar el comando");
+      exit(1);
+    } else {
+      if (background == 0) {
+        pid_wait = waitpid(pid_fork, &status, WUNTRACED);
+        status_res = analyze_status(status, &info);
+        printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
+               args[0], status_strings[status_res], info);
+      } else {
+        printf("Background job runing... pid: %d, command: %s\n", pid_fork,
+               args[0]);
+      }
+    }
 
   } // end while
 }
