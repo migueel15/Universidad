@@ -33,6 +33,8 @@ int main(void) {
   int info;               /* info processed by analyze_status() */
 
   /* Program terminates normally inside get_command() after ^D is typed*/
+
+  terminal_signals(SIG_IGN);
   while (1) {
     printf("COMMAND->");
     fflush(stdout);
