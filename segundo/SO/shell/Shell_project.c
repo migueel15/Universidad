@@ -14,11 +14,13 @@ To compile and run the program:
 
 **/
 
+#include "commands.h"
 #include "job_control.h" // remember to compile with module job_control.c
 #include <stdio.h>
 #include <unistd.h>
 
-#define MAX_LINE 256 /* 256 chars per line, per command, should be enough. */
+#define MAX_LINE                                                               \
+  256 /*erto 256 chars per line, per command, should be enough. */
 
 // -----------------------------------------------------------------------
 //                            MAIN
@@ -27,6 +29,7 @@ To compile and run the program:
 int main(void) {
   char inputBuffer[MAX_LINE]; /* buffer to hold the command entered */
   int background;             /* equals 1 if a command is followed by '&' */
+  int internal_command;
   char *args[MAX_LINE / 2]; /* command line (of 256) has max of 128 arguments */
   // probably useful variables:
   int pid_fork, pid_wait; /* pid for created and waited process */
@@ -43,38 +46,40 @@ int main(void) {
     get_command(inputBuffer, MAX_LINE, args,
                 &background); /* get next command */
 
-    if (args[0] == NULL)
-      continue; // if empty command
-
-    /* the steps are:
-             (1) fork a child process using fork()
-             (2) the child process will invoke execvp()
-             (3) if background == 0, the parent will wait, otherwise continue
-             (4) Shell shows a status message for processed command
-             (5) loop returns to get_commnad() function
-    */
-
-    pid_fork = fork();
-
-    if (pid_fork == -1) {
-      perror("Error al crear el proceso hijo");
+    if (args[0] == NULL) {
+      continue;
     }
 
-    if (pid_fork == 0) {
-      setpgid(getpid(), getpid());
-      tcsetpgrp(STDIN_FILENO, getpid());
-      execvp(args[0], args);
-      perror("Error al ejecutar el comando");
-      exit(1);
+    enum Internal_Command_Enum COMMAND = check_if_builtin(args[0]);
+    if (COMMAND != -1) {
+      run_builtin_command(COMMAND, args);
     } else {
-      if (background == 0) {
-        pid_wait = waitpid(pid_fork, &status, WUNTRACED);
-        status_res = analyze_status(status, &info);
-        printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
-               args[0], status_strings[status_res], info);
+      pid_fork = fork();
+
+      if (pid_fork == -1) {
+        perror("Error al crear el proceso hijo");
+      }
+
+      if (pid_fork == 0) {
+        setpgid(getpid(), getpid());
+        if (background == 0) {
+          tcsetpgrp(STDIN_FILENO, getpid());
+        }
+        terminal_signals(SIG_DFL);
+        execvp(args[0], args);
+        perror("Error al ejecutar el comando");
+        exit(1);
       } else {
-        printf("Background job runing... pid: %d, command: %s\n", pid_fork,
-               args[0]);
+        if (background == 0) {
+          pid_wait = waitpid(pid_fork, &status, WUNTRACED);
+          tcsetpgrp(STDIN_FILENO, getpid());
+          status_res = analyze_status(status, &info);
+          printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
+                 args[0], status_strings[status_res], info);
+        } else {
+          printf("Background job runing... pid: %d, command: %s\n", pid_fork,
+                 args[0]);
+        }
       }
     }
 
