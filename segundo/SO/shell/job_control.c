@@ -74,8 +74,8 @@ void get_command(char *inputBuffer, int size, char *args[], int *background) {
       } else if (start == -1) {
         start = i; // start of new argument
       }
-    }              // end switch
-  }                // end for
+    } // end switch
+  } // end for
   args[ct] = NULL; /* just in case the input line was > MAXLINE */
 }
 
