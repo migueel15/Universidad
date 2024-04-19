@@ -27,6 +27,10 @@ void run_builtin_command(enum Internal_Command_Enum COMMAND, char *args[]) {
 }
 
 void change_directory(char *args[]) {
+  if (args[1] == NULL) {
+    chdir(getenv("HOME"));
+    return;
+  }
   if (chdir(args[1]) != 0) {
     perror("cd");
   };
