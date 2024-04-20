@@ -17,6 +17,7 @@ To compile and run the program:
 #include "commands.h"
 #include "job_control.h" // remember to compile with module job_control.c
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 
 #define MAX_LINE                                                               \
@@ -39,7 +40,7 @@ int main(void) {
 
   /* Program terminates normally inside get_command() after ^D is typed*/
 
-  job *lista_procesos = NULL;
+  job *lista_procesos = new_list("Lista de procesos");
 
   terminal_signals(SIG_IGN);
   while (1) {
@@ -51,9 +52,6 @@ int main(void) {
     if (args[0] == NULL) {
       continue;
     }
-
-    job *item = new_job(getpid(), args[0], background);
-    // add_job(lista_procesos, item);
 
     enum Internal_Command_Enum COMMAND = check_if_builtin(args[0]);
     if (COMMAND != -1) {
