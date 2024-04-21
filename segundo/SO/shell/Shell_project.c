@@ -25,33 +25,37 @@ To compile and run the program:
 job *job_list;
 
 void manejador(int sig) {
+  block_SIGCHLD();
   int pid_wait;
   int status;
   int info;
   enum status status_analyzed;
   job *current;
 
-  for (int i = 0; i < list_size(job_list); i++) {
+  for (int i = 1; i <= list_size(job_list); i++) {
     current = get_item_bypos(job_list, i);
-    pid_wait = waitpid(current->pgid, &status, WNOHANG);
-    if (pid_wait == current->pgid) { // este proceso ha cambiado
-      status_analyzed = analyze_status(status, &info);
+    if (current->state != FOREGROUND) {
+      pid_wait = waitpid(current->pgid, &status, WNOHANG);
+      if (pid_wait == current->pgid) { // este proceso ha cambiado
+        status_analyzed = analyze_status(status, &info);
 
-      if (status_analyzed == SUSPENDED) {
-        printf("Background pid: %d, command: %s, Suspended, info: %d", pid_wait,
-               current->command, info);
-        current->state = STOPPED;
-      } else if (status_analyzed == CONTINUED) {
-        printf("Background pid: %d, command: %s, Continued, info: %d", pid_wait,
-               current->command, info);
-        current->state = BACKGROUND;
-      } else if (status_analyzed == SIGNALED || status_analyzed == EXITED) {
-        printf("Background pid: %d, command: %s, Exited, info: %d", pid_wait,
-               current->command, info);
-        delete_job(job_list, current);
+        if (status_analyzed == SUSPENDED) {
+          printf("Background pid: %d, command: %s, Suspended, info: %d\n",
+                 pid_wait, current->command, info);
+          current->state = STOPPED;
+        } else if (status_analyzed == CONTINUED) {
+          printf("Background pid: %d, command: %s, Continued, info: %d\n",
+                 pid_wait, current->command, info);
+          current->state = BACKGROUND;
+        } else if (status_analyzed == SIGNALED || status_analyzed == EXITED) {
+          printf("Background pid: %d, command: %s, Exited, info: %d\n",
+                 pid_wait, current->command, info);
+          delete_job(job_list, current);
+        }
       }
     }
   }
+  unblock_SIGCHLD();
 }
 
 // -----------------------------------------------------------------------
@@ -90,7 +94,7 @@ int main(void) {
     // returns -1 if not a builtin command
     e_Builtin COMMAND = check_if_builtin(args[0]);
     if (COMMAND != -1) {
-      run_builtin_command(COMMAND, args);
+      run_builtin_command(COMMAND, args, job_list);
       continue;
     }
 
@@ -113,13 +117,24 @@ int main(void) {
         pid_wait = waitpid(pid_fork, &status, WUNTRACED);
         tcsetpgrp(STDIN_FILENO, getpid());
         status_res = analyze_status(status, &info);
-        printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
-               args[0], status_strings[status_res], info);
+        if (status_res == SUSPENDED) {
+          block_SIGCHLD();
+          job *newjob = new_job(pid_fork, args[0], STOPPED);
+          add_job(job_list, newjob);
+          printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
+                 args[0], status_strings[status_res], info);
+          unblock_SIGCHLD();
+        } else if (status_res == EXITED || status_res == SIGNALED) {
+          printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
+                 args[0], status_strings[status_res], info);
+        }
       } else {
+        block_SIGCHLD();
         job *newjob = new_job(pid_fork, args[0], BACKGROUND);
         add_job(job_list, newjob);
         printf("Background job runing... pid: %d, command: %s\n", pid_fork,
                args[0]);
+        unblock_SIGCHLD();
       }
     }
 

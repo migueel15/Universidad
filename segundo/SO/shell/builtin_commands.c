@@ -4,7 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 
-s_Command builtin_commands[] = {{CD, "cd"}, {EXIT, "exit"}};
+s_Command builtin_commands[] = {{CD, "cd"}, {EXIT, "exit"}, {JOBS, "jobs"}};
 
 e_Builtin check_if_builtin(char *command) {
   for (int i = 0; i < sizeof(builtin_commands) / sizeof(s_Command); i++) {
@@ -15,13 +15,18 @@ e_Builtin check_if_builtin(char *command) {
   return -1;
 }
 
-void run_builtin_command(e_Builtin COMMAND, char *args[]) {
+void run_builtin_command(e_Builtin COMMAND, char *args[], job *job_list) {
   switch (COMMAND) {
   case CD:
     change_directory(args);
     break;
   case EXIT:
     exit(1);
+    break;
+  case JOBS:
+    block_SIGCHLD();
+    print_job_list(job_list);
+    unblock_SIGCHLD();
     break;
   }
 }

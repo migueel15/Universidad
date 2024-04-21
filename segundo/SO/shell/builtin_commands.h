@@ -1,9 +1,12 @@
 #ifndef BUILTIN_COMMANDS_H
 #define BUILTIN_COMMANDS_H
 
+#include "job_control.h"
+
 typedef enum BuiltinCommand {
   CD,
   EXIT,
+  JOBS,
   // ....
 } e_Builtin;
 
@@ -18,7 +21,7 @@ typedef struct Command {
  */
 e_Builtin check_if_builtin(char *command);
 
-void run_builtin_command(e_Builtin COMMAND, char *args[]);
+void run_builtin_command(e_Builtin COMMAND, char *args[], job *jobs);
 
 void change_directory(char *args[]);
 
