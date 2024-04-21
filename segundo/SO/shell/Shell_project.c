@@ -25,7 +25,7 @@ To compile and run the program:
 job *job_list;
 
 void manejador(int sig) {
-  block_SIGCHLD();
+  mask_signal(SIGCHLD, SIG_BLOCK);
   int pid_wait;
   int status;
   int info;
@@ -35,7 +35,8 @@ void manejador(int sig) {
   for (int i = 1; i <= list_size(job_list); i++) {
     current = get_item_bypos(job_list, i);
     if (current->state != FOREGROUND) {
-      pid_wait = waitpid(current->pgid, &status, WNOHANG);
+      pid_wait =
+          waitpid(current->pgid, &status, WNOHANG | WUNTRACED | WCONTINUED);
       if (pid_wait == current->pgid) { // este proceso ha cambiado
         status_analyzed = analyze_status(status, &info);
 
@@ -55,7 +56,7 @@ void manejador(int sig) {
       }
     }
   }
-  unblock_SIGCHLD();
+  mask_signal(SIGCHLD, SIG_UNBLOCK);
 }
 
 // -----------------------------------------------------------------------
@@ -77,7 +78,6 @@ int main(void) {
   /* Program terminates normally inside get_command() after ^D is typed*/
 
   job_list = new_list("Lista de procesos");
-
   terminal_signals(SIG_IGN);
   signal(SIGCHLD, manejador);
 
@@ -101,6 +101,7 @@ int main(void) {
     pid_fork = fork();
     if (pid_fork == -1) {
       perror("Error al crear el proceso hijo");
+      continue;
     }
 
     if (pid_fork == 0) { // hijo
@@ -118,23 +119,23 @@ int main(void) {
         tcsetpgrp(STDIN_FILENO, getpid());
         status_res = analyze_status(status, &info);
         if (status_res == SUSPENDED) {
-          block_SIGCHLD();
+          mask_signal(SIGCHLD, SIG_BLOCK);
           job *newjob = new_job(pid_fork, args[0], STOPPED);
           add_job(job_list, newjob);
           printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
                  args[0], status_strings[status_res], info);
-          unblock_SIGCHLD();
+          mask_signal(SIGCHLD, SIG_UNBLOCK);
         } else if (status_res == EXITED || status_res == SIGNALED) {
           printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
                  args[0], status_strings[status_res], info);
         }
       } else {
-        block_SIGCHLD();
+        mask_signal(SIGCHLD, SIG_BLOCK);
         job *newjob = new_job(pid_fork, args[0], BACKGROUND);
         add_job(job_list, newjob);
         printf("Background job runing... pid: %d, command: %s\n", pid_fork,
                args[0]);
-        unblock_SIGCHLD();
+        mask_signal(SIGCHLD, SIG_UNBLOCK);
       }
     }
 
