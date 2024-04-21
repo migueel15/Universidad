@@ -91,12 +91,14 @@ int main(void) {
       continue;
     }
 
+    // -------- BUILTIN COMMANDS -------- //
     // returns -1 if not a builtin command
     e_Builtin COMMAND = check_if_builtin(args[0]);
     if (COMMAND != -1) {
       run_builtin_command(COMMAND, args, job_list);
       continue;
     }
+    // --------------------------------- //
 
     pid_fork = fork();
     if (pid_fork == -1) {

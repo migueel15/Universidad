@@ -7,6 +7,8 @@ typedef enum BuiltinCommand {
   CD,
   EXIT,
   JOBS,
+  FG,
+  BG,
   // ....
 } e_Builtin;
 
@@ -20,9 +22,10 @@ typedef struct Command {
  * reconoce como builtin. En otro caso devuelve -1.
  */
 e_Builtin check_if_builtin(char *command);
-
 void run_builtin_command(e_Builtin COMMAND, char *args[], job *jobs);
-
 void change_directory(char *args[]);
+void show_jobs(job *job_list);
+void send_fg(char *args[], job *job_list);
+void send_bg(char *args[], job *job_list);
 
 #endif
