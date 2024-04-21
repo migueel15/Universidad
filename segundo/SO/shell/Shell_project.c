@@ -14,7 +14,7 @@ To compile and run the program:
 
 **/
 
-#include "commands.h"
+#include "builtin_commands.h"
 #include "job_control.h" // remember to compile with module job_control.c
 #include <stdio.h>
 #include <string.h>
@@ -22,10 +22,42 @@ To compile and run the program:
 
 #define MAX_LINE                                                               \
   256 /*erto 256 chars per line, per command, should be enough. */
+job *job_list;
+
+void manejador(int sig) {
+  int pid_wait;
+  int status;
+  int info;
+  enum status status_analyzed;
+  job *current;
+
+  for (int i = 0; i < list_size(job_list); i++) {
+    current = get_item_bypos(job_list, i);
+    pid_wait = waitpid(current->pgid, &status, WNOHANG);
+    if (pid_wait == current->pgid) { // este proceso ha cambiado
+      status_analyzed = analyze_status(status, &info);
+
+      if (status_analyzed == SUSPENDED) {
+        printf("Background pid: %d, command: %s, Suspended, info: %d", pid_wait,
+               current->command, info);
+        current->state = STOPPED;
+      } else if (status_analyzed == CONTINUED) {
+        printf("Background pid: %d, command: %s, Continued, info: %d", pid_wait,
+               current->command, info);
+        current->state = BACKGROUND;
+      } else if (status_analyzed == SIGNALED || status_analyzed == EXITED) {
+        printf("Background pid: %d, command: %s, Exited, info: %d", pid_wait,
+               current->command, info);
+        delete_job(job_list, current);
+      }
+    }
+  }
+}
 
 // -----------------------------------------------------------------------
 //                            MAIN
 // -----------------------------------------------------------------------
+//
 
 int main(void) {
   char inputBuffer[MAX_LINE]; /* buffer to hold the command entered */
@@ -40,9 +72,11 @@ int main(void) {
 
   /* Program terminates normally inside get_command() after ^D is typed*/
 
-  job *lista_procesos = new_list("Lista de procesos");
+  job_list = new_list("Lista de procesos");
 
   terminal_signals(SIG_IGN);
+  signal(SIGCHLD, manejador);
+
   while (1) {
     printf("COMMAND->");
     fflush(stdout);
@@ -53,36 +87,39 @@ int main(void) {
       continue;
     }
 
-    enum Internal_Command_Enum COMMAND = check_if_builtin(args[0]);
+    // returns -1 if not a builtin command
+    e_Builtin COMMAND = check_if_builtin(args[0]);
     if (COMMAND != -1) {
       run_builtin_command(COMMAND, args);
-    } else {
-      pid_fork = fork();
+      continue;
+    }
 
-      if (pid_fork == -1) {
-        perror("Error al crear el proceso hijo");
+    pid_fork = fork();
+    if (pid_fork == -1) {
+      perror("Error al crear el proceso hijo");
+    }
+
+    if (pid_fork == 0) { // hijo
+      setpgid(getpid(), getpid());
+      if (background == 0) {
+        tcsetpgrp(STDIN_FILENO, getpid());
       }
-
-      if (pid_fork == 0) {
-        setpgid(getpid(), getpid());
-        if (background == 0) {
-          tcsetpgrp(STDIN_FILENO, getpid());
-        }
-        terminal_signals(SIG_DFL);
-        execvp(args[0], args);
-        perror("Error al ejecutar el comando");
-        exit(1);
+      terminal_signals(SIG_DFL);
+      execvp(args[0], args);
+      perror("Error al ejecutar el comando");
+      exit(1);
+    } else { // padre
+      if (background == 0) {
+        pid_wait = waitpid(pid_fork, &status, WUNTRACED);
+        tcsetpgrp(STDIN_FILENO, getpid());
+        status_res = analyze_status(status, &info);
+        printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
+               args[0], status_strings[status_res], info);
       } else {
-        if (background == 0) {
-          pid_wait = waitpid(pid_fork, &status, WUNTRACED);
-          tcsetpgrp(STDIN_FILENO, getpid());
-          status_res = analyze_status(status, &info);
-          printf("Foreground pid: %d, command: %s, %s, info: %d\n", pid_wait,
-                 args[0], status_strings[status_res], info);
-        } else {
-          printf("Background job runing... pid: %d, command: %s\n", pid_fork,
-                 args[0]);
-        }
+        job *newjob = new_job(pid_fork, args[0], BACKGROUND);
+        add_job(job_list, newjob);
+        printf("Background job runing... pid: %d, command: %s\n", pid_fork,
+               args[0]);
       }
     }
 
