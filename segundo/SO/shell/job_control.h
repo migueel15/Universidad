@@ -54,6 +54,7 @@ void print_item(job *item);
 void print_list(job *list, void (*print)(job *));
 void terminal_signals(void (*func)(int));
 void block_signal(int signal, int block);
+void mask_signal(int signal, int block);
 
 // -----------------------------------------------------------------------
 //      PUBLIC MACROS
