@@ -16,6 +16,7 @@ To compile and run the program:
 
 #include "builtin_commands.h"
 #include "job_control.h" // remember to compile with module job_control.c
+#include "parse_redir.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -74,6 +75,8 @@ int main(void) {
   int status;             /* status returned by wait */
   enum status status_res; /* status processed by analyze_status() */
   int info;               /* info processed by analyze_status() */
+  char *file_in;
+  char *file_out;
 
   /* Program terminates normally inside get_command() after ^D is typed*/
 
@@ -84,8 +87,8 @@ int main(void) {
   while (1) {
     printf("COMMAND->");
     fflush(stdout);
-    get_command(inputBuffer, MAX_LINE, args,
-                &background); /* get next command */
+    get_command(inputBuffer, MAX_LINE, args, &background);
+    parse_redirections(args, &file_in, &file_out);
 
     if (args[0] == NULL) {
       continue;
@@ -108,6 +111,7 @@ int main(void) {
 
     if (pid_fork == 0) { // hijo
       setpgid(getpid(), getpid());
+
       if (background == 0) {
         tcsetpgrp(STDIN_FILENO, getpid());
       }
