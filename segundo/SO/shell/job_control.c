@@ -26,7 +26,6 @@ void get_command(char *inputBuffer, int size, char *args[], int *background) {
   int i;      /* loop index for accessing inputBuffer array */
   int start;  /* index where beginning of next command parameter is */
   int ct = 0; /* index of where to place the next parameter into args[] */
-
   *background = 0;
 
   /* read what the user enters on the command line */
