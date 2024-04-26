@@ -1,9 +1,8 @@
 package fumadores_1_esqueleto;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Semaphore;
-
-import dataStructures.list.ArrayList;
-import dataStructures.list.List;
 
 public class Mesa {
 	// 0 (Papel) /1 (Tabaco) /2 (Cerillas);
