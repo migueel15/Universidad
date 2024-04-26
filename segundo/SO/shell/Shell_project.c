@@ -34,28 +34,22 @@ void manejador(int sig) {
   enum status status_analyzed;
   job *current;
 
-  for (int i = 1; i <= list_size(job_list); i++) {
-    current = get_item_bypos(job_list, i);
-    if (current->state != FOREGROUND) {
-      pid_wait =
-          waitpid(current->pgid, &status, WNOHANG | WUNTRACED | WCONTINUED);
-      if (pid_wait == current->pgid) { // este proceso ha cambiado
-        status_analyzed = analyze_status(status, &info);
-
-        if (status_analyzed == SUSPENDED) {
-          printf("Background pid: %d, command: %s, Suspended, info: %d\n",
-                 pid_wait, current->command, info);
-          current->state = STOPPED;
-        } else if (status_analyzed == CONTINUED) {
-          printf("Background pid: %d, command: %s, Continued, info: %d\n",
-                 pid_wait, current->command, info);
-          current->state = BACKGROUND;
-        } else if (status_analyzed == SIGNALED || status_analyzed == EXITED) {
-          printf("Background pid: %d, command: %s, Exited, info: %d\n",
-                 pid_wait, current->command, info);
-          delete_job(job_list, current);
-        }
-      }
+  while ((pid_wait = waitpid(-1, &status, WNOHANG | WUNTRACED | WCONTINUED)) >
+         0) {
+    current = get_item_bypid(job_list, pid_wait);
+    status_analyzed = analyze_status(status, &info);
+    if (status_analyzed == SUSPENDED) {
+      printf("Background pid: %d, command: %s, Suspended, info: %d\n", pid_wait,
+             current->command, info);
+      current->state = STOPPED;
+    } else if (status_analyzed == CONTINUED) {
+      printf("Background pid: %d, command: %s, Continued, info: %d\n", pid_wait,
+             current->command, info);
+      current->state = BACKGROUND;
+    } else if (status_analyzed == SIGNALED || status_analyzed == EXITED) {
+      printf("Background pid: %d, command: %s, Exited, info: %d\n", pid_wait,
+             current->command, info);
+      delete_job(job_list, current);
     }
   }
   mask_signal(SIGCHLD, SIG_UNBLOCK);
