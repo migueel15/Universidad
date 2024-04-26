@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <string.h>
+#include <stdio.h>
+#include <string.h>
 // -----------------------------------------------------------------------
 // Parse redirections operators '<' '>' once args structure has been built.
 // Include this file and call the function immediately after get_commad():

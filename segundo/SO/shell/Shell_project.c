@@ -17,6 +17,7 @@ To compile and run the program:
 #include "builtin_commands.h"
 #include "job_control.h" // remember to compile with module job_control.c
 #include "parse_redir.h"
+#include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -84,16 +85,51 @@ int main(void) {
   terminal_signals(SIG_IGN);
   signal(SIGCHLD, manejador);
 
+  // store the original descriptors to restore them later
+  int original_stdin = dup(STDIN_FILENO);
+  int original_stdout = dup(STDOUT_FILENO);
+
   while (1) {
+
+    // reset redirections
+    file_in = NULL;
+    file_out = NULL;
+
+    // restore original descriptors
+    dup2(original_stdin, STDIN_FILENO);
+    dup2(original_stdout, STDOUT_FILENO);
+
     printf("COMMAND->");
     fflush(stdout);
     get_command(inputBuffer, MAX_LINE, args, &background);
     parse_redirections(args, &file_in, &file_out);
+    int in_fd, out_fd;
+
+    if (file_in != NULL) {
+      in_fd = open(file_in, O_RDONLY); // read only
+      if (in_fd == -1) {
+        perror("Error opening input file");
+        continue;
+      }
+      dup2(in_fd, STDIN_FILENO);
+      close(in_fd);
+    }
+
+    if (file_out != NULL) {
+      // write only, create if not exists, delete contenct, if exists,
+      // privileges
+      out_fd = open(file_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+      if (out_fd == -1) {
+        perror("Error opening output file");
+        continue;
+      }
+      dup2(out_fd, STDOUT_FILENO);
+      close(out_fd);
+    }
 
     if (args[0] == NULL) {
       continue;
     }
-
     // -------- BUILTIN COMMANDS -------- //
     // returns -1 if not a builtin command
     e_Builtin COMMAND = check_if_builtin(args[0]);
