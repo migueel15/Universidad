@@ -13,7 +13,6 @@ public class Mediciones {
 
 	public Mediciones() {
 		mediciones = new int[3];
-
 	}
 
 	public void nuevaMedicion(int id, int valor) throws InterruptedException {
