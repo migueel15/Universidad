@@ -1,5 +1,6 @@
 package fumadores_1_esqueleto;
 
+
 public class Principal {
 
 	public static void main(String[] args) {
