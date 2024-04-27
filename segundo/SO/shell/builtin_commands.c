@@ -19,7 +19,7 @@ e_Builtin check_if_builtin(char *command) {
 void run_builtin_command(e_Builtin COMMAND, char *args[], job *job_list) {
   switch (COMMAND) {
   case EXIT:
-    exit(1);
+    exit(0);
     break;
   case CD:
     change_directory(args);
