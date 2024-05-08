@@ -4,8 +4,6 @@ import java.util.concurrent.Semaphore;
 
 public class SupermercadoSemaforos implements Supermercado {
 
-	
-	
 	private Cajero permanente;
 	private int numClientes;
 
@@ -14,12 +12,9 @@ public class SupermercadoSemaforos implements Supermercado {
 	private Semaphore controlSupermercado = new Semaphore(1);
 	private boolean supermercadoAbierto = true;
 
-	
-	
 	public SupermercadoSemaforos() throws InterruptedException {
-		permanente = new Cajero(this, true); //crea el primer cajero, el permanente
-		permanente.start();		
-		//TODO
+		permanente = new Cajero(this, true); // crea el primer cajero, el permanente
+		permanente.start();
 	}
 
 	@Override
@@ -34,7 +29,7 @@ public class SupermercadoSemaforos implements Supermercado {
 		mutex.acquire();
 		numClientes++;
 		System.out.println("Llega cliente " + id + ". Hay " + numClientes);
-		if(numClientes > 3* Cajero.numCajeros()){
+		if (numClientes > 3 * Cajero.numCajeros()) {
 			new Cajero(this, false).start();
 			System.out.println("El nuevo cajero " + Cajero.numCajeros() + " " +
 					"comienza a servir a un cliente.");
@@ -47,7 +42,7 @@ public class SupermercadoSemaforos implements Supermercado {
 	public boolean permanenteAtiendeCliente(int id) throws InterruptedException {
 		int clientesActuales = 0;
 		mutex.acquire();
-		if(numClientes > 0){
+		if (numClientes > 0) {
 			numClientes--;
 			clientesActuales = numClientes;
 			System.out.println("Cajero permanente atiende a cliente " + id + ". " +
@@ -55,14 +50,13 @@ public class SupermercadoSemaforos implements Supermercado {
 		}
 		mutex.release();
 
-    return supermercadoAbierto || clientesActuales != 0;
+		return supermercadoAbierto || clientesActuales != 0;
 	}
-		
-	
+
 	@Override
 	public boolean ocasionalAtiendeCliente(int id) throws InterruptedException {
 		mutex.acquire();
-		if(numClientes > 0){
+		if (numClientes > 0) {
 			numClientes--;
 		}
 		System.out.println("Cajero ocasional atiende a cliente " + id + ". " +
