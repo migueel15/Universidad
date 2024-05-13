@@ -1,2 +1,0 @@
-#!/bin/bash
-gcc -o shell Shell_project.c job_control.c builtin_commands.c
