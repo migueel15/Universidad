@@ -13,23 +13,22 @@ public class ClienteTCP {
 	int port;
 	Socket cliente;
 
-	public ClienteTCP(String ip, int port){
+	public ClienteTCP(String ip, int port) {
 		this.ip_destino = ip;
 		this.port = port;
 	}
 
 	public void startClient() throws IOException {
-		cliente = new Socket(ip_destino,port);
+		cliente = new Socket(ip_destino, port);
 		System.out.println("Cliente conectado a: " + ip_destino + ":" + port);
 
-		BufferedReader in =
-				new BufferedReader(new InputStreamReader(cliente.getInputStream(),
-						StandardCharsets.UTF_8));
-		PrintWriter out = new PrintWriter(cliente.getOutputStream(),true, StandardCharsets.UTF_8);
+		BufferedReader in = new BufferedReader(new InputStreamReader(cliente.getInputStream(),
+				StandardCharsets.UTF_8));
+		PrintWriter out = new PrintWriter(cliente.getOutputStream(), true, StandardCharsets.UTF_8);
 
 		Scanner entrada = new Scanner(System.in);
 		String linea = "";
-		while(!linea.equals("FINISH")){
+		while (!linea.equals("FINISH")) {
 			linea = entrada.nextLine();
 			out.println(linea);
 
@@ -37,8 +36,6 @@ public class ClienteTCP {
 			System.out.println(respuesta);
 		}
 		entrada.close();
-
-
 
 		cliente.close();
 		in.close();

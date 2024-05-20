@@ -11,24 +11,23 @@ public class ServidorTCP {
 	ServerSocket servidor;
 	Socket cliente;
 
-	public ServidorTCP(int port){
+	public ServidorTCP(int port) {
 		puerto = port;
 	}
 
 	public void startServer() throws IOException {
 		servidor = new ServerSocket(puerto);
-		while(true){
+		while (true) {
 			cliente = servidor.accept();
-			BufferedReader in =
-					new BufferedReader(new InputStreamReader(cliente.getInputStream(), StandardCharsets.UTF_8));
+			BufferedReader in = new BufferedReader(new InputStreamReader(cliente.getInputStream(), StandardCharsets.UTF_8));
 			PrintWriter out = new PrintWriter(cliente.getOutputStream(), true, StandardCharsets.UTF_8);
 
 			boolean cerrado = false;
-			while(!cerrado){
+			while (!cerrado) {
 				String texto = in.readLine();
 				System.out.println("Recibido: " + texto);
 				String respuesta = texto;
-				if(texto.equals("FINISH")){
+				if (texto.equals("FINISH")) {
 					System.out.println("Termino");
 					cerrado = true;
 					respuesta = "OK";
