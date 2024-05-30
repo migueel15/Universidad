@@ -1,3 +1,7 @@
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class DatoCompartido {
 	private int dato; // Dato a procesar
 	private int nProcesadores; // Numero de procesadores totales
@@ -7,8 +11,23 @@ public class DatoCompartido {
 	 * Recibe como parametro el numero de procesadores que tienen que manipular
 	 * cada dato generado. Debe ser un numero mayor que 0.
 	 */
-	public DatoCompartido(int nProcesadores) {
 
+	Lock l = new ReentrantLock();
+
+	private boolean esperaGenerador = true;
+	Condition cEsperaGenerador = l.newCondition();
+
+	private boolean esperaGeneracion = true;
+	Condition cEsperaGeneracion = l.newCondition();
+
+	private boolean esperaLibre = false;
+	Condition cEsperaLibre = l.newCondition();
+
+	public DatoCompartido(int nProcesadores) {
+		if (nProcesadores > 0) {
+			this.nProcesadores = nProcesadores;
+			procPend = nProcesadores;
+		}
 	}
 
 	/*
@@ -25,14 +44,26 @@ public class DatoCompartido {
 	 * procesadores
 	 * terminen antes de generar el siguiente dato
 	 */
-	public int generaDato(int d) {
+	public int generaDato(int d) throws InterruptedException {
 		// COMPLETAR y colocar los mensajes en el lugar apropiado dentro del codigo
+		l.lock();
+		try {
+			dato = d;
+			procPend = nProcesadores;
+			System.out.println("Dato a procesar: " + dato);
+			System.out.println("Numero de procesadores pendientes: " + procPend);
 
-		System.out.println("Dato a procesar: " + dato);
+			esperaGenerador = true;
+			esperaGeneracion = false;
+			cEsperaGeneracion.signalAll();
 
-		System.out.println("Numero de procesadores pendientes: " + procPend);
-
-		return dato;
+			while (esperaGenerador) {
+				cEsperaGenerador.await();
+			}
+			return dato;
+		} finally {
+			l.unlock();
+		}
 	}
 
 	/*
@@ -49,10 +80,23 @@ public class DatoCompartido {
 	 * CS2_Procesador: Espera a que el dato este disponible para poder procesarlo
 	 * (es decir, no hay otro Procesador procesando al dato)
 	 */
-	public int leeDato(int id) {
-		// COMPLETAR
+	public int leeDato(int id) throws InterruptedException {
+		l.lock();
+		try {
+			while (esperaGeneracion) {
+				cEsperaGeneracion.await();
+			}
 
-		return dato;
+			while (esperaLibre) {
+				cEsperaLibre.await();
+			}
+			esperaLibre = true;
+
+			return dato;
+		} finally {
+			l.unlock();
+		}
+
 	}
 
 	/*
@@ -65,12 +109,25 @@ public class DatoCompartido {
 	 * (2) Si el era el ultimo procesador avisara al Generador de que han terminado.
 	 * 
 	 */
-	public void actualizaDato(int id, int datoActualizado) {
-		// COMPLETAR y colocar los mensajes en el lugar apropiado dentro del codigo
+	public void actualizaDato(int id, int datoActualizado) throws InterruptedException {
+		l.lock();
+		try {
+			dato = datoActualizado;
+			procPend--;
+			System.out.println("	Procesador " + id + " ha procesado el dato. Nuevo dato: " + dato);
 
-		System.out.println("	Procesador " + id + " ha procesado el dato. Nuevo dato: " + dato);
+			esperaLibre = false;
 
-		System.out.println("Numero de procesadores pendientes: " + procPend);
+			if (procPend == 0) {
+				esperaGenerador = false;
+				cEsperaGenerador.signal();
+			} else {
+				cEsperaLibre.signal();
+			}
+
+		} finally {
+			l.unlock();
+		}
 
 	}
 }
