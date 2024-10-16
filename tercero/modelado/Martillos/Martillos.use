@@ -1,0 +1,100 @@
+model CadenaDeMontaje
+
+abstract class Elemento
+  attributes
+    x:Integer
+    y:Integer
+end
+abstract class Maquina < Elemento
+  attributes
+    tiempoProcesado:Integer
+  operations
+    start()
+    stop()
+end
+abstract class GeneradorPiezas < Maquina
+end
+class GeneradorMangos < GeneradorPiezas
+  attributes
+    contador:Integer
+end
+
+class GeneradorCabezas < GeneradorPiezas
+  attributes
+    contador:Integer
+  
+end
+class Ensamblador < Maquina
+  
+end
+class Pulidora < Maquina
+ 
+end
+
+class Bandeja < Elemento
+  attributes
+    capacidad:Integer
+
+end
+abstract class Pieza
+end
+class Cabezal < Pieza
+end
+class Mango < Pieza
+end
+class Martillo < Pieza
+  attributes
+    estaPulido:Boolean
+end
+
+-- associations
+association Output between
+  Maquina [1..*] role entrada
+  Bandeja [1] role salida
+end
+
+association Input between
+  Bandeja [*] role entrada
+  Maquina [*] role salida
+end
+
+aggregation Contenido between
+  Bandeja [1] role bandeja 
+  Pieza [*] role piezas ordered
+end 
+
+constraints
+
+context Bandeja inv AtLeastOneCell:
+  self.capacidad > 0
+
+context Bandeja inv PiezasDelMismoTipo:
+-- self.piezas->forAll(p1,p2|p1.oclType()=p2.oclType()) 
+-- no oclType() in USE. Alternative spec:
+  self.piezas->forAll(p|p.oclIsTypeOf(Martillo)) or
+  self.piezas->forAll(p|p.oclIsTypeOf(Mango)) or
+  self.piezas->forAll(p|p.oclIsTypeOf(Cabezal))
+
+context Ensamblador inv UnaEntradaDeMangos:
+  self.entrada->exists(b|b.piezas->forAll(p|p.oclIsTypeOf(Mango)))
+
+context Ensamblador inv UnaEntradaDeCabezales:
+  self.entrada->exists(b|b.piezas->forAll(p|p.oclIsTypeOf(Cabezal)))
+  
+context Pulidora inv EntranMartillos:
+  self.entrada->forAll(b|b.piezas->forAll(p|p.oclIsTypeOf(Martillo)))
+
+context GeneradorCabezas inv SalenCabezas:
+  self.salida.piezas->forAll(p|p.oclIsTypeOf(Cabezal))
+
+context GeneradorMangos inv SalenMangos:
+  self.salida.piezas->forAll(p|p.oclIsTypeOf(Mango))
+
+context Ensamblador inv SalenMartillos:
+  self.salida.piezas->forAll(p|p.oclIsTypeOf(Martillo))
+
+context Pulidora inv SalenMartillos:
+  self.salida.piezas->forAll(p|p.oclIsTypeOf(Martillo))
+  
+context GeneradorPiezas inv SinEntrada:
+  self.entrada->size()=0

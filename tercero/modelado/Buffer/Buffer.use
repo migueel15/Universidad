@@ -1,0 +1,59 @@
+model Buffers
+
+class Element
+  attributes
+    content:Integer
+end
+
+class Buffer 
+  attributes 
+    capacity:Integer
+	operations
+		put(p:Element)
+			begin
+				insert(self, p) into Containment;
+			end
+			pre notFull: self.size() < self.capacity and not self.elements->includes(p)
+			post elementAdded: self.elements = self.elements@pre->append(p)
+		size(): Integer = self.elements->size()
+
+		get():Element
+			begin
+				result := self.elements->at(1);
+				delete(self,result) from Containment
+			end
+			pre notEmpty: self.size() > 0
+			post FirstElementRemoved:
+				result = self.elements@pre->at(1) and
+				self.elements@pre = self.elements->prepend(result)
+
+	statemachines
+		psm SMBuffer
+			states
+				s: initial
+				Empty [self.elements->size()=0]
+				Normal
+				Full [self.elements->size() = self.capacity]
+			transitions
+				s -> Empty
+				Empty->Normal{[self.capacity>1] put()}
+				Empty->Full{[self.capacity=1] put()}
+				Normal->Normal{[self.elements->size()<self.capacity-1] put()}
+				Normal->Normal{[self.capacity>1 and self.elements->size()=1] get()}
+				Normal->Full{[self.capacity>1 and self.elements->size()=self.capacity-1] put()}
+				Normal->Empty{[self.elements->size()=1] get()}
+		end
+end  
+
+
+aggregation Containment between
+  Buffer [0..1] role buffer 
+  Element [*] role elements ordered
+end 
+
+
+
+constraints
+
+context Buffer inv AtLeastOneCell:
+  self.capacity>0

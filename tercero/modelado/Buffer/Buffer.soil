@@ -1,0 +1,7 @@
+reset
+!new Buffer('b')
+!b.capacity:=3
+!new Element('e1')
+!new Element('e2')
+!new Element('e3')
+check

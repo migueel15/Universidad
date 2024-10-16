@@ -1,0 +1,30 @@
+reset
+!new GeneradorMangos('gm')
+!new GeneradorCabezas('gc')
+!new Bandeja('bgm')
+!bgm.capacidad:=10
+!new Bandeja('bgc')
+!bgc.capacidad:=10
+!new Ensamblador('e')
+!new Bandeja('be')
+!be.capacidad:=10
+!new Pulidora('p')
+!new Bandeja('bp')
+!bp.capacidad:=10
+
+-- Conexiones entre los generadores y las bandejas de salida
+!insert(gm,bgm) into Output
+!insert(gc,bgc) into Output 
+
+-- Conexiones entre el ensamblador y las bandejas de entrada
+!insert(bgm,e) into Input
+!insert(bgc,e) into Input
+-- Conexión entre el ensamblador y la bandeja de salida
+!insert(e,be) into Output
+
+-- Conexión entre la pulidora y la bandeja de entrada
+!insert(be,p) into Input
+-- Conexión entre la pulidora y la bandeja de salida
+!insert(p,bp) into Output
+
+check
