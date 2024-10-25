@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"nombre": "Inbox"
+	},
+	{
+		"id": 2,
+		"nombre": "Drafts"
+	},
+	{
+		"id": 3,
+		"nombre": "Sent"
+	},
+	{
+		"id": 4,
+		"nombre": "Junk"
+	},
+	{
+		"id": 5,
+		"nombre": "Trash"
+	},
+	{
+		"id": 6,
+		"nombre": "Spam"
+	}
+]

@@ -1,0 +1,30 @@
+[
+	{
+		"id": 1,
+		"nombre": "user1",
+		"apellido": "apellido1",
+		"correo": "user1@uma.es",
+		"type": "Personal"
+	},
+	{
+		"id": 2,
+		"nombre": "user2",
+		"apellido": "apellido2",
+		"correo": "user2@uma.es",
+		"type": "Collected"
+	},
+	{
+		"id": 3,
+		"nombre": "user3",
+		"apellido": "apellido3",
+		"correo": "user3@uma.es",
+		"type": "Trusted"
+	},
+	{
+		"id": 4,
+		"nombre": "user4",
+		"apellido": "apellido4",
+		"correo": "user4@uma.es",
+		"type": "Personal"
+	}
+]

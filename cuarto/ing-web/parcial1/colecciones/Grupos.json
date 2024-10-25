@@ -1,0 +1,14 @@
+[
+	{
+		"id": 1,
+		"type": "Personal"
+	},
+	{
+		"id": 2,
+		"type": "Collected"
+	},
+	{
+		"id": 3,
+		"type": "Trusted"
+	}
+]

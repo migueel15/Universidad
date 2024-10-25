@@ -1,0 +1,92 @@
+[
+	{
+		"id": 1,
+		"content": "Estimado usuario, su suscripción ha sido actualizada con éxito.",
+		"date": "2024-10-24",
+		"folder": "Inbox",
+		"from": "user2@uma.es",
+		"subject": "Actualización de suscripción",
+		"to": "user1@uma.es"
+	},
+	{
+		"id": 2,
+		"content": "Hola, revisa el documento adjunto para completar el reporte mensual.",
+		"date": "2024-10-23",
+		"folder": "Draft",
+		"from": "user3@uma.es",
+		"subject": "Reporte mensual",
+		"to": "user2@uma.es"
+	},
+	{
+		"id": 3,
+		"content": "Su cuenta ha sido suspendida por actividad sospechosa.",
+		"date": "2024-10-22",
+		"folder": "Junk",
+		"from": "user4@uma.es",
+		"subject": "Cuenta suspendida",
+		"to": "user3@uma.es"
+	},
+	{
+		"id": 4,
+		"content": "Estimado usuario, tu factura de octubre está lista para su revisión.",
+		"date": "2024-10-21",
+		"folder": "Sent",
+		"from": "user5@uma.es",
+		"subject": "Factura Octubre",
+		"to": "user4@uma.es"
+	},
+	{
+		"id": 5,
+		"content": "Por favor, verifica tu cuenta para continuar usando nuestros servicios.",
+		"date": "2024-10-20",
+		"folder": "Spam",
+		"from": "user6@uma.es",
+		"subject": "Verificación de cuenta requerida",
+		"to": "user5@uma.es"
+	},
+	{
+		"id": 6,
+		"content": "Tu paquete ha sido entregado. Gracias por elegirnos.",
+		"date": "2024-10-19",
+		"folder": "Inbox",
+		"from": "user7@uma.es",
+		"subject": "Confirmación de entrega",
+		"to": "user6@uma.es"
+	},
+	{
+		"id": 7,
+		"content": "Tu solicitud de reembolso ha sido aprobada.",
+		"date": "2024-10-18",
+		"folder": "Trash",
+		"from": "user8@uma.es",
+		"subject": "Aprobación de reembolso",
+		"to": "user7@uma.es"
+	},
+	{
+		"id": 8,
+		"content": "Estimado usuario, aprovecha las ofertas especiales solo por hoy.",
+		"date": "2024-10-17",
+		"folder": "Spam",
+		"from": "user9@uma.es",
+		"subject": "Ofertas exclusivas",
+		"to": "user8@uma.es"
+	},
+	{
+		"id": 9,
+		"content": "Revisa la propuesta de trabajo en el archivo adjunto.",
+		"date": "2024-10-16",
+		"folder": "Sent",
+		"from": "user10@uma.es",
+		"subject": "Propuesta de colaboración",
+		"to": "user9@uma.es"
+	},
+	{
+		"id": 10,
+		"content": "Actualización de la política de privacidad.",
+		"date": "2024-10-15",
+		"folder": "Inbox",
+		"from": "user11@uma.es",
+		"subject": "Política de privacidad",
+		"to": "user10@uma.es"
+	}
+]
