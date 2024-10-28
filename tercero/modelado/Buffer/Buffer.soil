@@ -4,4 +4,3 @@ reset
 !new Element('e1')
 !new Element('e2')
 !new Element('e3')
-check

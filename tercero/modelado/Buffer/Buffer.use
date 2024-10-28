@@ -38,10 +38,12 @@ class Buffer
 				s -> Empty
 				Empty->Normal{[self.capacity>1] put()}
 				Empty->Full{[self.capacity=1] put()}
-				Normal->Normal{[self.elements->size()<self.capacity-1] put()}
-				Normal->Normal{[self.capacity>1 and self.elements->size()=1] get()}
+				Normal->Normal{[self.size()<self.capacity-1] put()}
+				Normal->Normal{[self.capacity>1 and self.size()>1] get()}
 				Normal->Full{[self.capacity>1 and self.elements->size()=self.capacity-1] put()}
 				Normal->Empty{[self.elements->size()=1] get()}
+				Full->Empty{[self.size()=1] get()}
+				Full->Normal{[self.capacity = self.size() and self.capacity > 1] get()}
 		end
 end  
 
