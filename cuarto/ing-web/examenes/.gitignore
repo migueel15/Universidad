@@ -1,1 +1,4 @@
 archivos_base.zip
+.env
+__pycache__
+venv
