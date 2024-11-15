@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "f172b9a6-d6f1-4f53-a7e2-8a8e87869e63",
+		"name": "Parcial2-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19329901"
+	},
+	"item": [
+		{
+			"name": "tareas",
+			"item": [
+				{
+					"name": "participantes",
+					"item": [
+						{
+							"name": "get all participantes de una tarea",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/tareas/67377e0bdf7c082a9ea22572/participantes",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"tareas",
+										"67377e0bdf7c082a9ea22572",
+										"participantes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post participantes de una tarea",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idColaborador\":\"673780b8df7c082a9ea22575\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/tareas/67377e0bdf7c082a9ea22572/participantes",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"tareas",
+										"67377e0bdf7c082a9ea22572",
+										"participantes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "borrar participantes de una tarea",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idColaborador\":\"673780b8df7c082a9ea22575\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/tareas/67377e0bdf7c082a9ea22572/participantes/673780b8df7c082a9ea22575",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"tareas",
+										"67377e0bdf7c082a9ea22572",
+										"participantes",
+										"673780b8df7c082a9ea22575"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "candidatos",
+					"item": [
+						{
+							"name": "get posibles candidatos a tarea con id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/tareas/67377e0bdf7c082a9ea22572/candidatos",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"tareas",
+										"67377e0bdf7c082a9ea22572",
+										"candidatos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "obtener todos las tareas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/tareas",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tareas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener todas las tareas ?habilidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/tareas?habilidad=flask",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tareas"
+							],
+							"query": [
+								{
+									"key": "habilidad",
+									"value": "flask"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener todas las tareas ?completa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/tareas?completa=true",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tareas"
+							],
+							"query": [
+								{
+									"key": "completa",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener tareas por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/tareas/67377e0bdf7c082a9ea22572",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tareas",
+								"67377e0bdf7c082a9ea22572"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar tarea por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"responsable\":\"blose@uma.es\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/tareas/67377e0bdf7c082a9ea22572",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tareas",
+								"67377e0bdf7c082a9ea22572"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear tarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"responsable\":\"miguel@uma.es\",\n    \"descripcion\":\"tarea que esta totalmente asignada\",\n    \"habilidades\": [\"flask\",\"python\"],\n    \"segmentos\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/tareas",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tareas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "colaboradores",
+			"item": [
+				{
+					"name": "habilidades",
+					"item": [
+						{
+							"name": "get all habilidades del colaborador con id Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/colaboradores/673780b8df7c082a9ea22575/habilidades",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"673780b8df7c082a9ea22575",
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "añade una habilidad al colaborador con id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"habilidad\":\"photoshop\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/colaboradores/673780b8df7c082a9ea22575/habilidades",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"673780b8df7c082a9ea22575",
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "borra una habilidad al colaborador con id Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"habilidad\":\"photoshop\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/colaboradores/673780b8df7c082a9ea22575/habilidades",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"673780b8df7c082a9ea22575",
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tareas",
+					"item": [
+						{
+							"name": "get tareas asignadas del colaborador con id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/colaboradores/67378bfed37d1c023825bb31/tareas",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"67378bfed37d1c023825bb31",
+										"tareas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "asignar tarea al colaborador con id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idTarea\":\"67378e33c122e47eb8eab4fa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/colaboradores/673781cc42818ec7e239dfba/tareas",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"673781cc42818ec7e239dfba",
+										"tareas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "desasignar tarea al colaborador con id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idTarea\":\"67377e0bdf7c082a9ea22572\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/colaboradores/673781cc42818ec7e239dfba/tareas",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"673781cc42818ec7e239dfba",
+										"tareas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "relaciones",
+					"item": [
+						{
+							"name": "get colaboradores que han trabajado para responsable id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/colaboradores/673781cc42818ec7e239dfba/relaciones",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"colaboradores",
+										"673781cc42818ec7e239dfba",
+										"relaciones"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "obtener todos los colaboradores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/colaboradores",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"colaboradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener colaborador por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/colaboradores/673780b8df7c082a9ea22575",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"colaboradores",
+								"673780b8df7c082a9ea22575"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar colaborador por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Miguel Angel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/colaboradores/673780b8df7c082a9ea22575",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"colaboradores",
+								"673780b8df7c082a9ea22575"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear colaborador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Pablo\",\n    \"email\":\"pablo@uma.es\",\n    \"habilidades\": [\"javascript\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/colaboradores",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"colaboradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar colaborador por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Miguel Angel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/colaboradores/673783ab925a498518f759fc",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"colaboradores",
+								"673783ab925a498518f759fc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

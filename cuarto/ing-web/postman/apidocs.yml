@@ -1,0 +1,686 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "API Examen Parcial 2"
+  description: "Especificación API del segundo parcial de Ing. Web"
+paths:
+  /tareas:
+    get:
+      summary: Lista todas las tareas
+      description: Obtiene una lista de todas las tareas registradas.
+      responses:
+        "200":
+          description: Lista de tareas obtenida exitosamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: ID de la tarea.
+                    responsable:
+                      type: string
+                      description: Email del responsable.
+                    descripcion:
+                      type: string
+                      description: Breve descripción de la tarea.
+                    habilidades:
+                      type: array
+                      items:
+                        type: string
+                      description: Habilidades requeridas.
+                    segmentos:
+                      type: integer
+                      description: Duración estimada en segmentos de 1 hora.
+    post:
+      summary: Crea una nueva tarea
+      description: Permite crear una nueva tarea proporcionando los datos necesarios.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - responsable
+                - descripcion
+                - habilidades
+                - segmentos
+              properties:
+                responsable:
+                  type: string
+                  description: Email del responsable.
+                descripcion:
+                  type: string
+                  description: Breve descripción de la tarea.
+                habilidades:
+                  type: array
+                  items:
+                    type: string
+                  description: Lista de habilidades requeridas.
+                segmentos:
+                  type: integer
+                  description: Duración estimada en segmentos de 1 hora.
+      responses:
+        "201":
+          description: Tarea creada exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Tarea creada exitosamente.
+
+  /tareas/{id}:
+    get:
+      summary: Obtiene una tarea por ID
+      description: Recupera la información de una tarea específica.
+      parameters:
+        - name: id
+          in: path
+          description: ID único de la tarea.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Tarea obtenida exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: ID de la tarea.
+                  responsable:
+                    type: string
+                    description: Email del responsable.
+                  descripcion:
+                    type: string
+                    description: Breve descripción de la tarea.
+                  habilidades:
+                    type: array
+                    items:
+                      type: string
+                    description: Habilidades requeridas.
+                  segmentos:
+                    type: integer
+                    description: Duración estimada.
+    put:
+      summary: Actualiza una tarea existente
+      description: Modifica los datos de una tarea específica mediante su ID.
+      parameters:
+        - name: id
+          in: path
+          description: ID único de la tarea.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                responsable:
+                  type: string
+                  description: Email del responsable.
+                descripcion:
+                  type: string
+                  description: Breve descripción de la tarea.
+                habilidades:
+                  type: array
+                  items:
+                    type: string
+                  description: Lista de habilidades requeridas.
+                segmentos:
+                  type: integer
+                  description: Duración estimada.
+      responses:
+        "200":
+          description: Tarea actualizada exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Tarea actualizada exitosamente.
+    delete:
+      summary: Elimina una tarea
+      description: Borra una tarea específica de la base de datos.
+      parameters:
+        - name: id
+          in: path
+          description: ID único de la tarea.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Tarea eliminada exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Tarea eliminada exitosamente.
+
+  /tareas/{id}/participantes:
+    get:
+      summary: Lista los participantes de una tarea
+      description: Recupera los participantes asociados a una tarea específica.
+      parameters:
+        - name: id
+          in: path
+          description: ID único de la tarea.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Lista de participantes obtenida exitosamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    idColaborador:
+                      type: string
+                      description: ID del colaborador.
+                    nombreColaborador:
+                      type: string
+                      description: Nombre del colaborador.
+    post:
+      summary: Añade un participante a una tarea
+      description: Crea una relación entre un colaborador y una tarea existente.
+      parameters:
+        - name: id
+          in: path
+          description: ID único de la tarea.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - idColaborador
+              properties:
+                idColaborador:
+                  type: string
+                  description: ID del colaborador.
+      responses:
+        "201":
+          description: Participante añadido exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Participante creado exitosamente.
+
+  /tareas/{id}/participantes/{idColaborador}:
+    delete:
+      summary: Elimina un participante de una tarea
+      description: Desasocia un colaborador de una tarea específica.
+      parameters:
+        - name: id
+          in: path
+          description: ID único de la tarea.
+          required: true
+          schema:
+            type: string
+        - name: idColaborador
+          in: path
+          description: ID único del colaborador.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Participante eliminado exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Participante eliminado exitosamente.
+
+    paths:
+  /colaboradores:
+    get:
+      summary: Obtener todos los colaboradores
+      operationId: getColaboradores
+      tags:
+        - Colaboradores
+      responses:
+        "200":
+          description: Lista de colaboradores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Colaborador"
+        "404":
+          description: No se encontraron colaboradores
+        "500":
+          description: Error en el servidor
+
+    post:
+      summary: Crear un nuevo colaborador
+      operationId: createColaborador
+      tags:
+        - Colaboradores
+      requestBody:
+        description: Datos del nuevo colaborador
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Colaborador"
+      responses:
+        "201":
+          description: Colaborador creado exitosamente
+        "400":
+          description: Datos incorrectos o faltantes
+        "500":
+          description: Error en el servidor
+
+  /colaboradores/{id}:
+    get:
+      summary: Obtener un colaborador específico por ID
+      operationId: getColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Colaborador encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Colaborador"
+        "404":
+          description: No se encontró el colaborador
+        "500":
+          description: Error en el servidor
+
+    put:
+      summary: Actualizar un colaborador específico por ID
+      operationId: updateColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      requestBody:
+        description: Datos actualizados del colaborador
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Colaborador"
+      responses:
+        "200":
+          description: Colaborador actualizado exitosamente
+        "400":
+          description: Datos incorrectos o faltantes
+        "404":
+          description: No se encontró el colaborador
+        "500":
+          description: Error en el servidor
+
+    delete:
+      summary: Eliminar un colaborador específico por ID
+      operationId: deleteColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Colaborador eliminado exitosamente
+        "404":
+          description: No se encontró el colaborador
+        "500":
+          description: Error en el servidor
+
+  /colaboradores/{id}/habilidades:
+    get:
+      summary: Obtener las habilidades de un colaborador
+      operationId: getHabilidadesColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Habilidades del colaborador
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  habilidades:
+                    type: array
+                    items:
+                      type: string
+        "404":
+          description: No se encontró el colaborador
+        "500":
+          description: Error en el servidor
+
+    post:
+      summary: Agregar una habilidad a un colaborador
+      operationId: addHabilidadColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      requestBody:
+        description: Datos de la nueva habilidad
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - habilidad
+              properties:
+                habilidad:
+                  type: string
+                  description: Nombre de la habilidad
+      responses:
+        "200":
+          description: Habilidad agregada
+        "400":
+          description: Habilidad ya existente o datos incorrectos
+        "404":
+          description: No se encontró el colaborador
+        "500":
+          description: Error en el servidor
+
+    delete:
+      summary: Eliminar una habilidad de un colaborador
+      operationId: deleteHabilidadColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      requestBody:
+        description: Datos de la habilidad a eliminar
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - habilidad
+              properties:
+                habilidad:
+                  type: string
+                  description: Nombre de la habilidad
+      responses:
+        "200":
+          description: Habilidad eliminada
+        "400":
+          description: Habilidad no encontrada o datos incorrectos
+        "404":
+          description: No se encontró el colaborador
+        "500":
+          description: Error en el servidor
+
+  /colaboradores/{id}/tareas:
+    get:
+      summary: Obtener las tareas de un colaborador
+      operationId: getTareasColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Lista de tareas asignadas al colaborador
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Tarea"
+        "404":
+          description: No se encontraron tareas asignadas
+        "500":
+          description: Error en el servidor
+
+    post:
+      summary: Asignar una tarea a un colaborador
+      operationId: addTareaColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+      requestBody:
+        description: Datos de la tarea a asignar
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - idTarea
+              properties:
+                idTarea:
+                  type: string
+                  description: ID de la tarea a asignar
+      responses:
+        "200":
+          description: Tarea asignada exitosamente
+        "400":
+          description: El colaborador no tiene las habilidades necesarias o la tarea ya está asignada
+        "404":
+          description: No se encontró la tarea o el colaborador
+        "500":
+          description: Error en el servidor
+
+  /colaboradores/{id}/tareas/{idTarea}:
+    delete:
+      summary: Desasignar una tarea de un colaborador
+      operationId: deleteTareaColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: El ID del colaborador
+          schema:
+            type: string
+        - name: idTarea
+          in: path
+          required: true
+          description: El ID de la tarea a desasignar
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Tarea desasignada exitosamente
+        "404":
+          description: No se encontró la tarea asignada o el colaborador
+        "500":
+          description: Error en el servidor
+
+  /colaboradores/{idResponsable}/relaciones:
+    get:
+      summary: Obtener las relaciones de un colaborador (responsable)
+      operationId: getRelacionesColaborador
+      tags:
+        - Colaboradores
+      parameters:
+        - name: idResponsable
+          in: path
+          required: true
+          description: El ID del colaborador responsable
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Lista de colaboradores relacionados con el responsable
+          content:
+            application/json:
+              type: array
+              items:
+                type: string
+        "404":
+          description: No se encontraron relaciones
+        "500":
+          description: Error en el servidor
+
+components:
+  schemas:
+    Colaborador:
+      type: object
+      required:
+        - id
+        - nombre
+        - correo
+        - habilidades
+        - tareas
+      properties:
+        id:
+          type: string
+          description: El ID único del colaborador
+        nombre:
+          type: string
+          description: Nombre completo del colaborador
+        correo:
+          type: string
+          description: Correo electrónico del colaborador
+        habilidades:
+          type: array
+          items:
+            type: string
+          description: Lista de habilidades del colaborador
+        tareas:
+          type: array
+          items:
+            type: string
+          description: Lista de tareas asignadas al colaborador
+        responsableDe:
+          type: array
+          items:
+            type: string
+          description: Lista de IDs de los colaboradores que están bajo su responsabilidad
+    Habilidad:
+      type: object
+      required:
+        - nombre
+      properties:
+        nombre:
+          type: string
+          description: El nombre de la habilidad
+    Tarea:
+      type: object
+      required:
+        - id
+        - nombre
+        - descripcion
+      properties:
+        id:
+          type: string
+          description: ID único de la tarea
+        nombre:
+          type: string
+          description: Nombre de la tarea
+        descripcion:
+          type: string
+          description: Descripción de la tarea
+        fechaCreacion:
+          type: string
+          format: date-time
+          description: Fecha en que se creó la tarea
+        estado:
+          type: string
+          enum:
+            - pendiente
+            - en_progreso
+            - completada
+          description: Estado de la tarea
+    Relacion:
+      type: object
+      required:
+        - idResponsable
+        - colaboradoresRelacionados
+      properties:
+        idResponsable:
+          type: string
+          description: El ID del colaborador responsable
+        colaboradoresRelacionados:
+          type: array
+          items:
+            type: string
+          description: Lista de IDs de colaboradores relacionados con el responsable
+
+    Error:
+      type: "object"
+      required:
+        - message
+      properties:
+        message:
+          description: "Mensaje de error devuelto"
+          type: "string"
