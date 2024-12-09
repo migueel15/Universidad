@@ -1,0 +1,28 @@
+<form [formGroup]="ubicacion">
+  <div class="flex flex-col items-center gap-4 p-4">
+    @if (mostrarBusqueda) {
+      <div class="w-full max-w-md">
+        <div class="flex rounded-md shadow-sm">
+          <input
+            #searchInput
+            type="text"
+            placeholder="Buscar ubicación"
+            class="flex-grow rounded-l-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            (keyup.enter)="buscar(searchInput.value)"
+          />
+          <button
+            type="button"
+            class="rounded-r-md bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            (click)="buscar(searchInput.value)"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    }
+    <div
+      id="map"
+      class="h-96 w-full rounded-md border border-gray-300 shadow-md"
+    ></div>
+  </div>
+</form>

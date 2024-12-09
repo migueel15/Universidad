@@ -1,0 +1,89 @@
+name: lawiki
+
+x-backend: &backend
+  env_file:
+    - ../backend/.env
+    - TZ=Europe/Madrid
+
+services:
+  frontend:
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+      TZ: Europe/Madrid
+    container_name: frontend
+    ports:
+      - 4200:4200
+
+  gateway:
+    <<: *backend
+    build:
+      context: ../backend
+    container_name: gateway
+    ports:
+      - 8000:8000
+    depends_on:
+      - wikis
+      - entradas-versiones
+      - comentarios-valoraciones
+      - usuarios
+      - archivos
+      - notificaciones
+      - mapas
+
+  wikis:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/wikis
+    container_name: wikis
+
+  entradas-versiones:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/entradas_versiones
+    container_name: entradas_versiones
+
+  comentarios-valoraciones:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/comentarios_valoraciones
+    container_name: comentarios_valoraciones
+
+  usuarios:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/usuarios
+    container_name: usuarios
+
+  archivos:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/archivos
+    container_name: archivos
+
+  notificaciones:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/notificaciones
+    container_name: notificaciones
+
+  mapas:
+    <<: *backend
+    build:
+      context: ../backend
+      args:
+        SERVICE_PATH: services/mapas
+    container_name: mapas
