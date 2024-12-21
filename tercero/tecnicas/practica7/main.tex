@@ -24,9 +24,9 @@
 \institute{\email{miguelangeldorado10@uma.es} \\
 TCIS. Universidad de Málaga.}
 
-\maketitle 
+\maketitle
 
-\vspace{1cm} 
+\vspace{1cm}
 
 \section{Un proyecto viene especificado por el siguiente orden de precedencia de sus actividades:}
 
@@ -57,7 +57,7 @@ H &\longrightarrow I \\
 		\node[state] (7) [right of=6] {7};
 		\node[state] (8) [right of=7] {8};
 
-		\path 
+		\path
 		(1) edge node[above] {B} (2)
 				edge node[below] {A} (3)
 		(2) edge node[above] {C} (4)
@@ -99,7 +99,7 @@ H &\longrightarrow I \\
 							\node[state] (7) [right of=6] {7};
 							\node[state] (8) [right of=7] {8};
 
-							\path 
+							\path
 							(1) edge node[above] {B(1)} (2)
 									edge node[below] {A(3)} (3)
 							(2) edge node[above] {C(2)} (4)
@@ -169,7 +169,7 @@ H &\longrightarrow I \\
     bar height=0.6,
     x unit=0.5cm,
     y unit chart=0.8cm
-]{1}{28} 
+]{1}{28}
     \gantttitle{Semana 1}{7}
     \gantttitle{Semana 2}{7}
     \gantttitle{Semana 3}{7}
@@ -219,7 +219,7 @@ H &\longrightarrow I \\
 		\node[state] (4) [below right of=2] {4};
 		\node[state] (5) [right of=4] {5};
 
-		\path 
+		\path
 		(1) edge node[above] {A} (2)
 				edge node[below] {C} (3)
 		(2) edge node[below] {B} (4)
@@ -258,7 +258,7 @@ H &\longrightarrow I \\
 			\node[state] (4) [below right of=2] {4};
 			\node[state] (5) [right of=4] {5};
 
-			\path 
+			\path
 			(1) edge node[above] {A(3)} (2)
 					edge node[below] {C(2)} (3)
 			(2) edge node[below] {B(4)} (4)
@@ -283,11 +283,26 @@ H &\longrightarrow I \\
 			4 & 8 & 8 \\
 			5 & 11 & 11 \\
 			\hline
-
 		\end{tabular}
-		
 	\end{center}
 
+	Una vez sabemos los tiempos de inicio early y late de cada actividad, calculamos los tiempos de holgura para encontrar el camino crítico.
+
+
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Tarea & $R_{ij}$ & $D_{ij}$ & $E_i$ & $L_j$ & $H_{ij}$ & Crítico\\
+			A & $1\longrightarrow 2$ & 3 & 0 & 4 & 1 & \\
+			B & $2\longrightarrow 4$ & 4 & 3 & 8 & 1 & \\
+			C & $1\longrightarrow 3$ & 2 & 0 & 2 & 0 & X \\
+			D & $3\longrightarrow 4$ & 6 & 2 & 8 & 0 & X \\
+			E & $4\longrightarrow 5$ & 3 & 8 & 11 & 0 & X \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	Por lo tanto se establece que el camino crítico es C$\longrightarrow$ D$\longrightarrow$ E y la duración del proyecto es de 11 días.\\
 
 	\item[b)] Suponga que no se conoce la duración de las actividades de forma determinista pero se estiman los siguientes tiempos optimista ($t_o$), más probable ($t_m$) y pesimista ($t_p$).
 
@@ -306,7 +321,53 @@ H &\longrightarrow I \\
 			\end{tabular}
 	\end{center}
 
-	Determine la duración estimada del proyecto y su varianza, así como su camino crítico.
+	Determine la duración estimada del proyecto y su varianza, así como su camino crítico.\\
+
+	Como en este caso no se conoce la duración de las actividades de forma determinista, se usará el método PERT para calcular la duración estimada del proyecto y su varianza. Una vez calculados los tiempos de duración de cada actividad, se calcula el camino crítico y la duración del proyecto por el método CPM. Para ello se calculan los tiempos de inicio early ($E_i$) y late ($L_i$) de cada actividad.
+
+	Fórmula de la duración estimada:
+	\begin{align*}
+		C_e = \frac{t_o + 4t_m + t_p}{6} \\ \\
+	\end{align*}
+
+	Fórmula de la varianza:
+	\begin{align*}
+		\sigma^2 = \frac{(t_p - t_o)^2}{36}
+	\end{align*}
+
+	Con estos datos se calcula la duración estimada y la varianza de cada actividad creando la nueva tabla de duraciones que se usará con el método CPM.
+
+	\begin{center}
+		\begin{tabular}{|c|c@{\hspace{0.3cm}}c|}
+
+				\hline
+				$Actividad$ & $D_e$ & $\sigma^2$ \\
+				\hline
+				A & 5 & 1 \\
+				B & 3.83 & 0.69 \\
+				C & 2.17 & 0.03 \\
+				D & 6.17 & 0.69 \\
+				E & 5 & 0.44 \\
+				\hline
+		\end{tabular}
+	\end{center}
+
+	Con estos nuevos datos se calcula la holgura de cada actividad y se obtiene el camino crítico y la duración del proyecto.
+
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Tarea & $R_{ij}$ & $D_{ij}$ & $E_i$ & $L_j$ & $H_{ij}$ & Crítico\\
+			A & $1\longrightarrow 2$ & 5 & 0 & 5 & 0 & X \\
+			B & $2\longrightarrow 4$ & 3.83 & 5 & 8.83 & 0 & X \\
+			C & $1\longrightarrow 3$ & 2.17 & 0 & 2.66 & 0.49 & \\
+			D & $3\longrightarrow 4$ & 6.17 & 2.17 & 8.83 & 0.49 & \\
+			E & $4\longrightarrow 5$ & 5 & 8.83 & 13.83 & 0 & X \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	Por lo tanto se establece que el camino crítico es A$\longrightarrow$ B$\longrightarrow$ E y se estima que la duración del proyecto sea de 13.83 días con una varianza de 2.13 días para el camino crítico.
 
 \end{enumerate}
 
@@ -333,7 +394,6 @@ La duración de las actividades no se conoce de forma determinista pero se estim
 		\hline
 	\end{tabular}
 \end{center}
-	
+
 
 \end{document}
-
