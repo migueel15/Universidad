@@ -227,6 +227,7 @@ H &\longrightarrow I \\
 		(4) edge node[below] {E} (5);
 
 		\end{tikzpicture}
+		\caption{Diagrama de precedencia de actividades}
 	\end{center}
 \end{figure}
 
@@ -244,11 +245,55 @@ H &\longrightarrow I \\
 			\end{tabular}
 		\end{center}
 
+		Determine la duración del proyecto y su camino crítico.
+
+
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[->, >=stealth, node distance=2cm, state/.style={circle, draw, minimum size=1cm}]
+
+			\node[state] (1) {1};
+			\node[state] (2) [above right of=1] {2};
+			\node[state] (3) [below right of=1] {3};
+			\node[state] (4) [below right of=2] {4};
+			\node[state] (5) [right of=4] {5};
+
+			\path 
+			(1) edge node[above] {A(3)} (2)
+					edge node[below] {C(2)} (3)
+			(2) edge node[below] {B(4)} (4)
+			(3) edge node[above] {D(6)} (4)
+			(4) edge node[below] {E(3)} (5);
+
+			\end{tikzpicture}
+			\caption{Diagrama de precedencia de actividades con duración}
+		\end{center}
+	\end{figure}
+
+	Se calcula la tabla de tiempos de inicio early ($E_i$) y late ($L_i$) de cada actividad.
+
+	\begin{center}
+		\begin{tabular}{|@{\hspace{0.3cm}}c@{\hspace{0.3cm}}|@{\hspace{0.3cm}}c@{\hspace{0.3cm}}|@{\hspace{0.3cm}}c@{\hspace{0.3cm}}|}
+			\hline
+			$t$ & $E_i$ & $L_i$ \\
+			\hline
+			1 & 0 & 0 \\
+			2 & 3 & 4 \\
+			3 & 2 & 2 \\
+			4 & 8 & 8 \\
+			5 & 11 & 11 \\
+			\hline
+
+		\end{tabular}
+		
+	\end{center}
+
 
 	\item[b)] Suponga que no se conoce la duración de las actividades de forma determinista pero se estiman los siguientes tiempos optimista ($t_o$), más probable ($t_m$) y pesimista ($t_p$).
 
 		\begin{center}
 			\begin{tabular}{|c|c@{\hspace{0.3cm}}c@{\hspace{0.3cm}}c|}
+
 					\hline
 					$Actividad$ & $t_o$ & $t_m$ & $t_p$ \\
 					\hline
