@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.12.21)  21 DEC 2024 16:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.12.21)  21 DEC 2024 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -633,105 +633,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-./main.tex:123: Missing $ inserted.
-<inserted text> 
-                $
-l.123 						t & E_
-                  i & L_i \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./main.tex:123: Missing $ inserted.
-<inserted text> 
-                $
-l.123 						t & E_i &
-                      L_i \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./main.tex:123: Missing $ inserted.
-<inserted text> 
-                $
-l.123 						t & E_i & L_
-                        i \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./main.tex:124: Missing $ inserted.
-<inserted text> 
-                $
-l.124 						\hline
-                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 Missing character: There is no ) in font nullfont!
 Missing character: There is no ) in font nullfont!
-./main.tex:253: Missing $ inserted.
-<inserted text> 
-                $
-l.253 					Actividad & t_
-                         o & t_m & t_p \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./main.tex:253: Missing $ inserted.
-<inserted text> 
-                $
-l.253 					Actividad & t_o &
-                             t_m & t_p \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./main.tex:253: Missing $ inserted.
-<inserted text> 
-                $
-l.253 					Actividad & t_o & t_
-                               m & t_p \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./main.tex:253: Missing $ inserted.
-<inserted text> 
-                $
-l.253 					Actividad & t_o & t_m &
-                                   t_p \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./main.tex:253: Missing $ inserted.
-<inserted text> 
-                $
-l.253 					Actividad & t_o & t_m & t_
-                                     p \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./main.tex:254: Missing $ inserted.
-<inserted text> 
-                $
-l.254 					\hline
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 [3] [4] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -748,7 +652,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  102i,12n,107p,460b,1005s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on main.pdf (4 pages, 113930 bytes).
+Output written on main.pdf (4 pages, 114927 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
