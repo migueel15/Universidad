@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.12.20)  20 DEC 2024 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.12.21)  21 DEC 2024 16:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,8 +7,8 @@ entering extended mode
 (./main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
-(/usr/share/texmf-dist/tex/latex/llncs/llncs.cls
-Document Class: llncs 2024/01/29 v2.24 
+(./llncs.cls
+Document Class: llncs 2014/03/31 v2.19 
  LaTeX document class for Lecture Notes in Computer Science
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
@@ -99,18 +99,17 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
 )
 \c@chapter=\count272
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 382.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 383.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 384.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 385.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 386.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
-LaTeX Info: Redefining \vec on input line 394.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 362.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 363.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 364.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 365.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 366.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 367.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 368.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 369.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 370.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 371.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \tocchpnum=\dimen150
 \tocsecnum=\dimen151
 \tocsectotal=\dimen152
@@ -409,10 +408,6 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen273
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-
-
-Package amsmath Warning: Unable to redefine math accent \vec.
-
 \macc@depth=\count319
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
@@ -462,6 +457,54 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \extratabsurround=\skip57
 \backup@length=\skip58
 \ar@cellbox=\box116
+) (/usr/share/texmf-dist/tex/latex/pgfgantt/pgfgantt.sty
+Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
+ (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box117
+\pgf@layerboxsaved@background=\box118
+) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.tex
+File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfcalendarcurrentjulian=\count328
+\pgf@cal@easter@Y=\count329
+\pgf@cal@easter@G=\count330
+\pgf@cal@easter@C=\count331
+\pgf@cal@easter@X=\count332
+\pgf@cal@easter@Z=\count333
+\pgf@cal@easter@D=\count334
+\pgf@cal@easter@E=\count335
+\pgf@cal@easter@N=\count336
+\pgf@cal@easter@M=\count337
+\pgf@cal@easter@julianday=\count338
+))
+\gtt@currentline=\count339
+\gtt@lasttitleline=\count340
+\gtt@currgrid=\count341
+\gtt@chartwidth=\count342
+\gtt@lasttitleslot=\count343
+\gtt@elementid=\count344
+\gtt@today@slot=\count345
+\gtt@startjulian=\count346
+\gtt@endjulian=\count347
+\gtt@chartid=\count348
+\gtt@vrule@slot=\count349
+\gtt@calendar@slots=\count350
+\gtt@calendar@weeknumber=\count351
+\gtt@calendar@startofweek=\count352
+\gtt@left@slot=\count353
+\gtt@right@slot=\count354
 ) (/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen284
@@ -474,12 +517,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen291
 \cmidrulekern=\dimen292
 \defaultaddspace=\dimen293
-\@cmidla=\count328
-\@cmidlb=\count329
+\@cmidla=\count355
+\@cmidlb=\count356
 \@aboverulesep=\dimen294
 \@belowrulesep=\dimen295
-\@thisruleclass=\count330
-\@lastruleclass=\count331
+\@thisruleclass=\count357
+\@lastruleclass=\count358
 \@thisrulewidth=\dimen296
 ) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
@@ -487,7 +530,7 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@posthook=\toks44
 ) (/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box117
+\ttl@box=\box119
 \beforetitleunit=\skip59
 \aftertitleunit=\skip60
 \ttl@plus=\dimen297
@@ -551,63 +594,99 @@ My plan is to forget the whole thing and hope for the best.
 
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count332
-\l__pdf_internal_box=\box118
+\l__color_backend_stack_int=\count359
+\l__pdf_internal_box=\box120
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
+\scratchcounter=\count360
 \scratchdimen=\dimen302
-\scratchbox=\box119
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\scratchbox=\box121
+\nofMPsegments=\count361
+\nofMParguments=\count362
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count336
+\MPscratchCnt=\count363
 \MPscratchDim=\dimen303
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPnumerator=\count364
+\makeMPintoPDFobject=\count365
 \everyMPtoPDFconversion=\toks47
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
-
- []
-
-[1
+)) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-./main.tex:135: Missing $ inserted.
+./main.tex:123: Missing $ inserted.
 <inserted text> 
                 $
-l.135 					Actividad & t_
+l.123 						t & E_
+                  i & L_i \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./main.tex:123: Missing $ inserted.
+<inserted text> 
+                $
+l.123 						t & E_i &
+                      L_i \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./main.tex:123: Missing $ inserted.
+<inserted text> 
+                $
+l.123 						t & E_i & L_
+                        i \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./main.tex:124: Missing $ inserted.
+<inserted text> 
+                $
+l.124 						\hline
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[2]
+Missing character: There is no ) in font nullfont!
+Missing character: There is no ) in font nullfont!
+./main.tex:253: Missing $ inserted.
+<inserted text> 
+                $
+l.253 					Actividad & t_
                          o & t_m & t_p \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./main.tex:135: Missing $ inserted.
+./main.tex:253: Missing $ inserted.
 <inserted text> 
                 $
-l.135 					Actividad & t_o &
+l.253 					Actividad & t_o &
                              t_m & t_p \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -615,18 +694,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./main.tex:135: Missing $ inserted.
+./main.tex:253: Missing $ inserted.
 <inserted text> 
                 $
-l.135 					Actividad & t_o & t_
+l.253 					Actividad & t_o & t_
                                m & t_p \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./main.tex:135: Missing $ inserted.
+./main.tex:253: Missing $ inserted.
 <inserted text> 
                 $
-l.135 					Actividad & t_o & t_m &
+l.253 					Actividad & t_o & t_m &
                                    t_p \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -634,18 +713,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./main.tex:135: Missing $ inserted.
+./main.tex:253: Missing $ inserted.
 <inserted text> 
                 $
-l.135 					Actividad & t_o & t_m & t_
+l.253 					Actividad & t_o & t_m & t_
                                      p \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./main.tex:136: Missing $ inserted.
+./main.tex:254: Missing $ inserted.
 <inserted text> 
                 $
-l.136 					\hline
+l.254 					\hline
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -653,26 +732,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[2] (./main.aux)
+[3] [4] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  )
-(\end occurred when \ifx on line 16 was incomplete) 
+(\end occurred when \ifx on line 17 was incomplete) 
 Here is how much of TeX's memory you used:
- 14439 strings out of 476076
- 290269 string characters out of 5793774
- 1944187 words of memory out of 5000000
- 36317 multiletter control sequences out of 15000+600000
- 560507 words of font info for 45 fonts, out of 8000000 for 9000
+ 16198 strings out of 476076
+ 335477 string characters out of 5793774
+ 1950187 words of memory out of 5000000
+ 38044 multiletter control sequences out of 15000+600000
+ 560815 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 102i,12n,107p,405b,1000s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,12n,107p,460b,1005s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on main.pdf (2 pages, 100303 bytes).
+Output written on main.pdf (4 pages, 113930 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
