@@ -3,7 +3,7 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{amsmath}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows, automata, positioning}
 
 \usepackage{enumitem}
 \usepackage{graphicx}
@@ -48,20 +48,20 @@ H &\longrightarrow I \\
 		\centering
 		\begin{tikzpicture}[->, >=stealth, node distance=2cm, state/.style={circle, draw, minimum size=1cm}]
 
-		\node[state] (1) {1};
+		\node[state, initial] (1) {1};
 		\node[state] (2) [above right of=1] {2};
 		\node[state] (3) [below right of=1] {3};
 		\node[state] (4) [right of=2] {4};
 		\node[state] (5) [right of=3] {5};
 		\node[state] (6) [right of=5] {6};
 		\node[state] (7) [right of=6] {7};
-		\node[state] (8) [right of=7] {8};
+		\node[state, accepting] (8) [right of=7] {8};
 
 		\path
 		(1) edge node[above] {B} (2)
 				edge node[below] {A} (3)
 		(2) edge node[above] {C} (4)
-				edge node[right] {F1} (3)
+				edge[dashed] node[right] {F1} (3)
 		(3) edge node[below] {F} (5)
 		 		edge node[right] {D} (4)
 		(4)	edge node[above] {E} (6)
@@ -90,20 +90,20 @@ H &\longrightarrow I \\
 					\centering
 						\begin{tikzpicture}[->, >=stealth, node distance=2cm, state/.style={circle, draw, minimum size=1cm}]
 
-							\node[state] (1) {1};
+							\node[state, initial] (1) {1};
 							\node[state] (2) [above right of=1] {2};
 							\node[state] (3) [below right of=1] {3};
 							\node[state] (4) [right of=2] {4};
 							\node[state] (5) [right of=3] {5};
 							\node[state] (6) [right of=5] {6};
 							\node[state] (7) [right of=6] {7};
-							\node[state] (8) [right of=7] {8};
+							\node[state, accepting] (8) [right of=7] {8};
 
 							\path
 							(1) edge node[above] {B(1)} (2)
 									edge node[below] {A(3)} (3)
 							(2) edge node[above] {C(2)} (4)
-									edge node[right] {F1(0)} (3)
+									edge[dashed] node[right] {F1(0)} (3)
 							(3) edge node[below] {F(2)} (5)
 									edge node[right] {D(1)} (4)
 							(4)	edge node[above] {E(10)} (6)
@@ -213,11 +213,11 @@ H &\longrightarrow I \\
 	\begin{center}
 		\begin{tikzpicture}[->, >=stealth, node distance=2cm, state/.style={circle, draw, minimum size=1cm}]
 
-		\node[state] (1) {1};
+		\node[state, initial] (1) {1};
 		\node[state] (2) [above right of=1] {2};
 		\node[state] (3) [below right of=1] {3};
 		\node[state] (4) [below right of=2] {4};
-		\node[state] (5) [right of=4] {5};
+		\node[state, accepting] (5) [right of=4] {5};
 
 		\path
 		(1) edge node[above] {A} (2)
@@ -252,11 +252,11 @@ H &\longrightarrow I \\
 		\begin{center}
 			\begin{tikzpicture}[->, >=stealth, node distance=2cm, state/.style={circle, draw, minimum size=1cm}]
 
-			\node[state] (1) {1};
+			\node[state, initial] (1) {1};
 			\node[state] (2) [above right of=1] {2};
 			\node[state] (3) [below right of=1] {3};
 			\node[state] (4) [below right of=2] {4};
-			\node[state] (5) [right of=4] {5};
+			\node[state, accepting] (5) [right of=4] {5};
 
 			\path
 			(1) edge node[above] {A(3)} (2)
@@ -327,7 +327,7 @@ H &\longrightarrow I \\
 
 	Fórmula de la duración estimada:
 	\begin{align*}
-		C_e = \frac{t_o + 4t_m + t_p}{6} \\ \\
+		D_e = \frac{t_o + 4t_m + t_p}{6} \\ \\
 	\end{align*}
 
 	Fórmula de la varianza:
@@ -378,22 +378,97 @@ H &\longrightarrow I \\
 		B, C &\longrightarrow E \\
 		D &\longrightarrow F \\
 	\end{align*}
-La duración de las actividades no se conoce de forma determinista pero se estiman los siguientes tiempos optimista, medio y pesimista. Determine la duración estimada del proyecto y su varianza.
+	La duración de las actividades no se conoce de forma determinista pero se estiman los siguientes tiempos optimista, medio y pesimista. Determine la duración estimada del proyecto y su varianza.
 
-\begin{center}
-	\begin{tabular}{|c|c@{\hspace{0.3cm}}c@{\hspace{0.3cm}}c|}
-		\hline
-		$Actividad$ & $t_o$ & $t_m$ & $t_p$ \\
-		\hline
-		A & 3 & 5 & 10 \\
-		B & 2 & 4 & 6 \\
-		C & 2 & 2 & 2 \\
-		D & 4 & 7 & 9 \\
-		E & 4 & 5 & 7 \\
-		F & 3 & 6 & 10 \\
-		\hline
-	\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c@{\hspace{0.3cm}}c@{\hspace{0.3cm}}c|}
+			\hline
+			$Actividad$ & $t_o$ & $t_m$ & $t_p$ \\
+			\hline
+			A & 3 & 5 & 10 \\
+			B & 2 & 4 & 6 \\
+			C & 2 & 2 & 2 \\
+			D & 4 & 7 & 9 \\
+			E & 4 & 5 & 7 \\
+			F & 3 & 6 & 10 \\
+			\hline
+		\end{tabular}
+	\end{center}
+Primeramente vamos a generar el diagrama de precedencia de actividades.
+
+	\begin{center}
+		\begin{tikzpicture}[->, >=stealth, node distance=2cm, state/.style={circle, draw, minimum size=1cm}]
+
+		\node[state, initial] (1) {1};
+		\node[state] (2) [above right of=1] {2};
+		\node[state] (3) [below right of=2] {3};
+		\node[state] (4) [below of=3] {4};
+		\node[state, accepting] (5) [right of=3] {5};
+
+		\path
+		(1) edge node[above] {A} (2)
+				edge node[below] {B} (3)
+				edge node[below] {D} (4)
+		(2) edge node[above] {C} (3)
+		(3) edge node[above] {E} (5)
+		(4) edge node[above] {F} (5)
+
+		\end{tikzpicture}
+	\end{center}
 
 
+De igual forma que en el ejercicio anterior, se calcula la duración estimada y la varianza de cada actividad creando la nueva tabla de duraciones que se usará con el método CPM.
+
+	\begin{center}
+		\begin{tabular}{|c|c@{\hspace{0.3cm}}c|}
+
+				\hline
+				$Actividad$ & $D_e$ & $\sigma^2$ \\
+				\hline
+				A & 5.5 & 1.36 \\
+				B & 4 & 0.44 \\
+				C & 2 & 0 \\
+				D & 6.83 & 0.69 \\
+				E & 5.17 & 0.25 \\
+				F & 6.17 & 1.36 \\
+				\hline
+		\end{tabular}
+	\end{center}
+
+	Calculamos los tiempos de inicio early ($E_i$) y late ($L_i$) de cada actividad.
+	\begin{center}
+		\begin{tabular}
+			{|@{\hspace{0.3cm}}c@{\hspace{0.3cm}}|@{\hspace{0.3cm}}c@{\hspace{0.3cm}}|@{\hspace{0.3cm}}c@{\hspace{0.3cm}}|}
+			\hline
+			$t$ & $E_i$ & $L_i$ \\
+			\hline
+			1 & 0 & 0 \\
+			2 & 5.5 & 5.83 \\
+			3 & 7.5 & 7.83 \\
+			4 & 6.83 & 6.83 \\
+			5 & 13 & 13 \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	Con estos nuevos datos se calcula la holgura de cada actividad y se obtiene el camino crítico y la duración del proyecto.
+
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Tarea & $R_{ij}$ & $D_{ij}$ & $E_i$ & $L_j$ & $H_{ij}$ & Crítico\\
+			A & $1\longrightarrow 2$ & 5.5 & 0 & 5.83 & 0.33 & \\
+			B & $1\longrightarrow 3$ & 4 & 0 & 7.83 & 3.83 & \\
+			C & $2\longrightarrow 3$ & 2 & 5.5 & 7.83 & 0.33 & \\
+			D & $1\longrightarrow 4$ & 6.83 & 0 & 6.83 & 0 & X \\
+			E & $3\longrightarrow 5$ & 5.17 & 7.5 & 13 & 0.33 & \\
+			F & $4\longrightarrow 5$ & 6.17 & 6.83 & 13 & 0 & X \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	El camino crítico en este caso es D$\longrightarrow$ F y la duración estimada del proyecto es de 13 días con una varianza de 2.05 días.
+
+\newpage
+Yo, Miguel Ángel Dorado Maldonado, a día 22 de diciembre de 2024, declaro bajo mi palabra de honor que el trabajo aquí entregado es de mi autoría y originalidad. Asimismo, confirmo que no he utilizado recursos externos que no hayan sido debidamente citados ni recibido ayuda no autorizada en su realización.
 \end{document}
