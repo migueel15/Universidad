@@ -1,0 +1,130 @@
+model septiembre2020
+
+enum EstadoBrazo {
+	idle,
+	movingUp,
+	movingDown,
+	movingLeft,
+	movingRight,
+	movingFwd,
+	movingBwd
+}
+
+class Clock
+	attributes
+		resolution : Real init: 0.1 -- resolution: 0.1 second
+		NOW : Integer init : 0
+	operations
+		tick(n: Integer)
+			begin
+				for i in Sequence{1..n} do
+					self.NOW := self.NOW + 1;
+					for o in self.activeObject do
+						o.action();
+					end
+				end
+			end
+		pre NoPastTime: n>=0
+		post TimePasses: self.NOW = self.NOW@pre + n
+end
+
+association Time between
+	Clock [1] role clock
+	ActiveObject [0..*] role activeObject
+end
+
+abstract class ActiveObject
+	operations
+	action() begin end
+end
+
+
+abstract class ObjectPosition
+	attributes
+		x: Real init: 0.0
+		y: Real init: 0.0
+		z: Real init: 0.0
+	operations
+		setPos(x:Real, y:Real, z:Real): Boolean
+			begin
+				self.x:=x;self.y:=y;self.z:=z
+			end	
+			post valoresAsignados: (self.x = x) and (self.y = y) and (self.z = z)
+		isAtPos(x:Real,y:Real,z:Real):Boolean = (self.x = x) and (self.y = y) and (self.z = z)
+		distanceTo(p:ObjectPosition): Real = ((self.x-p.x).abs() + (self.y-p.y).abs() + (self.z-p.z).abs())
+
+end
+
+class Brazo < ObjectPosition, ActiveObject
+	attributes
+		velocidad: Real
+		estado: EstadoBrazo init: #idle
+		targetPosition: TargetPosition
+		agarrando: Boolean
+			derive: not self.item.oclIsUndefined()
+	operations
+		grasp(): Boolean
+		drop()
+		stop()
+		moveSideways(x:Real): Integer
+		moveForward(y:Real): Integer
+		moveUp(z:Real): Integer
+
+end
+
+class Gancho < ObjectPosition
+end
+
+class Item < ObjectPosition
+end
+
+class TargetPosition < ObjectPosition
+	attributes
+		timeStarted: Integer
+		timeReached: Integer
+end
+
+class RangoBrazo
+	attributes
+		maxX: Real init: 10.0
+		maxY: Real init: 10.0
+		maxZ: Real init: 10.0
+end
+
+
+aggregation Rangos between
+	Brazo[*] role brazo
+	RangoBrazo[1] role rangos
+end
+
+aggregation Agarrado between
+	Brazo[0..1] role brazo
+	Item[0..1] role item
+end
+
+aggregation GanchoDelBrazo between
+	Brazo[0..1] role brazo
+	Gancho[1] role gancho
+end
+
+constraints
+
+context Brazo
+inv ganchoEnRangoValido:
+	let xMax: Real = self.rangos.maxX in
+	let yMax: Real = self.rangos.maxY in
+	let zMax: Real = self.rangos.maxZ in
+
+	(self.gancho.x-self.x).abs() <= xMax and 
+	(self.gancho.y-self.y).abs() <= yMax and 
+	(self.gancho.z-self.z).abs() <= zMax
+
+inv laPosicionDelBrazoEsUnica:
+	Brazo.allInstances()->excluding(self)->forAll(b2 | self.distanceTo(b2) > 0.0)
+
+inv brazoQuietoSinPosicionObjetivo:
+	self.estado = #idle implies self.targetPosition = null
+
+context Item
+inv noPuedenTenerLaMismaPosicionVariosItems:
+	Item.allInstances()->forAll(i1,i2 | i1<>i2 implies (i1.distanceTo(i2) <> 0.0))
