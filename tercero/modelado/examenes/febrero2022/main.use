@@ -1,0 +1,70 @@
+model febrero2022
+
+class Banco
+end
+
+class Ciudad
+end
+
+abstract class Cuenta
+	attributes
+		saldo: Real init: 0.0
+end
+
+class CuentaCredito < Cuenta
+end
+
+class CuentaCorriente < Cuenta
+end
+
+abstract class Cliente
+end
+
+class Persona < Cliente
+end
+
+class Empresa < Cliente
+end
+
+class Sucursal < Empresa
+end
+
+
+association SucursalesCiudad between
+	Sucursal[0..3] role sucursales
+	Ciudad[1] role cuidad
+end
+
+association CuentasCliente between
+	Cuenta[1..*] role cuenta
+	Cliente[1] role cliente
+end
+
+association CuentaDeSucursal between
+	Sucursal[0..1] role deLaSucursal
+	Cuenta[1] role cuentaSucursal
+end
+
+association CuentasEnPropiedad between
+	Sucursal[1] role sucursal
+	Cuenta[1..*] role cuentas
+end
+
+composition SucursalDeBanco between
+	Banco[1] role banco
+	Sucursal[1..*] role sucursales
+end
+
+association Subordinadas between
+	Sucursal[0..1] role principal
+	Sucursal[*] role subordinada
+end
+
+association Vip between
+	Banco[*] role bancoVIP
+	Empresa[*] role empresaVIP derive =
+		Empresa.allInstances()->select(e | e.cuenta->exists(c|c.saldo>=1000000 and c.sucursal.banco = self))
+end
+
+constraints
+
