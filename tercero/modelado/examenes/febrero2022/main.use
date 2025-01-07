@@ -9,9 +9,16 @@ end
 abstract class Cuenta
 	attributes
 		saldo: Real init: 0.0
+	operations
+		pedirSaldo():Real
+		ingresarDinero(cantidad:Real)
+		sacarDinero(cantidad:Real)
+		transferirDinero(cantidad:Real, destino:Cuenta)
 end
 
 class CuentaCredito < Cuenta
+	attributes
+		limite: Real init: 10.0
 end
 
 class CuentaCorriente < Cuenta
@@ -27,6 +34,44 @@ class Empresa < Cliente
 end
 
 class Sucursal < Empresa
+	operations
+	abrirCuentaDeCredito(p:Cliente): CuentaCredito
+		begin
+			declare c:CuentaCredito;
+			c:=new CuentaCredito();
+			insert(c,p) into CuentasCliente;
+			insert(self,c) into CuentasEnPropiedad;
+			result:=c;
+		end
+
+	abrirCuentaCorriente(p:Cliente): CuentaCorriente
+		begin
+			declare c:CuentaCorriente;
+			c:= new CuentaCorriente();
+			insert(c,p) into CuentasCliente;
+			insert(self,c) into CuentasEnPropiedad;
+			result:=c;
+		end
+
+	cambioLimite(c:CuentaCredito, nuevoLimite: Real): Boolean
+		begin
+			declare aprobado: Boolean;
+			result:=false;
+			aprobado:=
+				if self.principal->isEmpty() then
+					self.autorizarCambioLimite(c, nuevoLimite)
+				else
+					self.principal.autorizarCambioLimite(c,nuevoLimite)
+				endif;
+			if aprobado then
+				c.limite:= nuevoLimite;
+				result:=true;
+			end
+		end
+		pre CuentaPerteniciente: c.sucursal = self
+
+	autorizarCambioLimite(c:CuentaCredito, nuevoLimite: Real): Boolean = 
+			(nuevoLimite<c.limite) or ((c.limite*1.1 <= nuevoLimite) and (c.saldo >= nuevoLimite))
 end
 
 
