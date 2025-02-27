@@ -1,0 +1,40 @@
+div#wrapper {
+	width: 800px;
+	margin: auto;
+}
+
+* {
+	font-family: Arial, Verdana, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+header {
+	text-align: center;
+	background-image: url('../images/cloud_sea.jpg');
+	background-repeat: repeat-x;
+}
+
+nav ul li {
+	list-style: none;
+	display: inline;
+}
+
+nav ul {
+	border-bottom: 1px solid #778;
+	margin: 10px 0;
+	padding: 3px 0;
+}
+
+nav ul li a {
+	padding: 3.25px 0.5em;
+	border: 1px solid #669;
+	border-bottom: 0px;
+	margin-left: 3px;
+	background-color: #ccf;
+	text-decoration: none;
+}
+
+nav ul li a.active {
+	background-color: white;
+}

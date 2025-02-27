@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Timetable</title>
+	<link rel="stylesheet" type="text/css" href="./styles/stylesTimetable.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/commonStyles.css" />
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<h1>My personal website</h1>
+			<h2>Weekly timetable</h2>
+		</header>
+		<!-- Navigation menu -->
+		<nav>
+			<ul>
+				<li><a href="index.html">Welcome</a></li>
+				<li><a href="cv.html">My CV</a></li>
+				<li><a class="active" href="timetable.html">Weekly Timetable</a></li>
+				<li><a href="photos.html">Photos</a></li>
+			</ul>
+		</nav>
+		<!-- Contetn of the page -->
+		<section id="content">
+			<table id="timetable">
+				<thead>
+					<tr>
+						<th>Time</th>
+						<th>Monday</th>
+						<th>Tuesday</th>
+						<th>Wednesday</th>
+						<th>Thursday</th>
+						<th>Friday</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>8h-10h</td>
+						<td>English</td>
+						<td></td>
+						<td>Databases</td>
+						<td rowspan="2">Web technologies</td>
+						<td rowspan="2">Programming</td>
+					</tr>
+					<tr>
+						<td>10h-12h</td>
+						<td>Networking</td>
+						<td>Algorithmics</td>
+						<td>Software Engineering</td>
+					</tr>
+					<tr id="separator">
+						<td colspan="6"></td>
+					</tr>
+					<tr>
+						<td>13h-15h</td>
+						<td rowspan="2">Databases</td>
+						<td rowspan="2">Programming</td>
+						<td>Computer Systems</td>
+						<td rowspan="2">Sport</td>
+						<td>English</td>
+					</tr>
+					<tr>
+						<td>15h-17h</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<table id="legend">
+				<tbody>
+					<tr>
+						<td></td>
+						<td>Algorithmics</td>
+						<td></td>
+						<td>Software Engineering</td>
+						<td></td>
+						<td>Sport</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>English</td>
+						<td></td>
+						<td>Programming</td>
+						<td></td>
+						<td>Computer Systems</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Databases</td>
+						<td></td>
+						<td>Networking</td>
+						<td></td>
+						<td>Web Technologies</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+</body>
+
+</html>
