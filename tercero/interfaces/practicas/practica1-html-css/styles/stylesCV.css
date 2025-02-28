@@ -1,0 +1,14 @@
+section h2 {
+  background-color: cyan;
+  margin: 10px 0px;
+}
+
+section#personalInfo img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+section#education {
+  clear: both;
+}
