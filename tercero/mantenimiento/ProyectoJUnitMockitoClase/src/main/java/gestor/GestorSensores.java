@@ -32,5 +32,4 @@ public class GestorSensores {
 	private boolean containsSensor(String sensor) {
 		return sensores.contains(sensor);
 	}
-
 }
