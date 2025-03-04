@@ -26,4 +26,11 @@ class GestorSensoresTest {
 		assertThrows(IllegalArgumentException.class, () -> gestorSensores.agregarSensor("sensor1"));
 	}
 
+	@Test
+	@DisplayName("Borrar sensor")
+	public void borrarSenserIfExists() {
+		gestorSensores.agregarSensor("sensor1");
+		assertTrue(gestorSensores.borrarSensor("sensor1"));
+	}
+
 }
