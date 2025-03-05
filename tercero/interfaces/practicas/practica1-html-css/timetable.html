@@ -5,7 +5,6 @@
 	<meta charset="utf-8" />
 	<title>Timetable</title>
 	<link rel="stylesheet" type="text/css" href="./styles/stylesTimetable.css" />
-	<link rel="stylesheet" type="text/css" href="./styles/commonStyles.css" />
 </head>
 
 <body>
@@ -39,28 +38,28 @@
 				<tbody>
 					<tr>
 						<td>8h-10h</td>
-						<td>English</td>
+						<td class="eng">English</td>
 						<td></td>
-						<td>Databases</td>
-						<td rowspan="2">Web technologies</td>
-						<td rowspan="2">Programming</td>
+						<td class="db">Databases</td>
+						<td class="web" rowspan="2">Web technologies</td>
+						<td class="pro" rowspan="2">Programming</td>
 					</tr>
 					<tr>
 						<td>10h-12h</td>
-						<td>Networking</td>
-						<td>Algorithmics</td>
-						<td>Software Engineering</td>
+						<td class="net">Networking</td>
+						<td class="alg">Algorithmics</td>
+						<td class="soft">Software Engineering</td>
 					</tr>
 					<tr id="separator">
 						<td colspan="6"></td>
 					</tr>
 					<tr>
 						<td>13h-15h</td>
-						<td rowspan="2">Databases</td>
-						<td rowspan="2">Programming</td>
-						<td>Computer Systems</td>
-						<td rowspan="2">Sport</td>
-						<td>English</td>
+						<td class="db" rowspan="2">Databases</td>
+						<td class="pro" rowspan="2">Programming</td>
+						<td class="cs">Computer Systems</td>
+						<td class="sport" rowspan="2">Sport</td>
+						<td class="eng">English</td>
 					</tr>
 					<tr>
 						<td>15h-17h</td>
@@ -72,27 +71,27 @@
 			<table id="legend">
 				<tbody>
 					<tr>
-						<td></td>
+						<td class="alg"></td>
 						<td>Algorithmics</td>
-						<td></td>
+						<td class="soft"></td>
 						<td>Software Engineering</td>
-						<td></td>
+						<td class="sport"></td>
 						<td>Sport</td>
 					</tr>
 					<tr>
-						<td></td>
+						<td class="eng"></td>
 						<td>English</td>
-						<td></td>
+						<td class="pro"></td>
 						<td>Programming</td>
-						<td></td>
+						<td class="cs"></td>
 						<td>Computer Systems</td>
 					</tr>
 					<tr>
-						<td></td>
+						<td class="db"></td>
 						<td>Databases</td>
-						<td></td>
+						<td class="net"></td>
 						<td>Networking</td>
-						<td></td>
+						<td class="web"></td>
 						<td>Web Technologies</td>
 					</tr>
 				</tbody>

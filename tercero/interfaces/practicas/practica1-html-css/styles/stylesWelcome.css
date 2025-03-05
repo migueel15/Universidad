@@ -1,1 +1,43 @@
+@import url("commonStyles.css");
 
+h2 {
+	text-align: center;
+}
+
+#menu {
+	background-image: url("../images/menu.png");
+	width: 518px;
+	height: 302px;
+	margin: 20px auto;
+	position: relative;
+}
+
+#menu .logo {
+	position: absolute;
+	border-radius: 12px;
+}
+
+#menu .logo:hover {
+	border: 2px solid black;
+}
+
+a#logoCV {
+	top: 67px;
+	left: 75px;
+	width: 92px;
+	height: 120px;
+}
+
+a#logoETSII {
+	top: 55px;
+	right: 50px;
+	width: 250px;
+	height: 100px;
+}
+
+a#logoUMA {
+	bottom: 20px;
+	left: 150px;
+	width: 230px;
+	height: 100px;
+}

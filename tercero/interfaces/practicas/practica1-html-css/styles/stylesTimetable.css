@@ -1,0 +1,76 @@
+@import url("commonStyles.css");
+
+#timetable {
+	border-collapse: collapse;
+}
+
+#timetable thead {
+	background-color: #3399FF;
+}
+
+#timetable tbody {
+	background-color: #CCFFFF;
+}
+
+#timetable th {
+	color: white;
+	width: 16.66%;
+	/* Son 6 columnas 100/6*/
+	border: 1px solid black;
+}
+
+#timetable td {
+	text-align: center;
+	height: 45px;
+	border: 1px solid black;
+}
+
+.eng {
+	background-color: #FF9966;
+}
+
+.web {
+	background-color: #009900;
+}
+
+.pro {
+	background-color: #99FF99;
+}
+
+.net {
+	background-color: #6666FF;
+}
+
+.alg {
+	background-color: #FFFF66;
+}
+
+.soft {
+	background-color: #FF66CC;
+}
+
+.db {
+	background-color: #FFCCFF;
+}
+
+.cs {
+	background-color: #D14719;
+}
+
+.sport {
+	background-color: #33CC33;
+}
+
+#separator {
+	background-color: #E6E6E6;
+}
+
+#legend {
+	margin-top: 5px;
+}
+
+#legend td:nth-child(odd) {
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
