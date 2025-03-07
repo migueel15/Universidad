@@ -46,9 +46,9 @@
 			</div>
 		</div>
 	</header>
-	<div class="container">
+	<div class="container table-responsive">
 		<section id="content">
-			<table id="timetable">
+			<table id="timetable" class="table table-bordered">
 				<thead>
 					<tr>
 						<th>Time</th>
@@ -62,28 +62,28 @@
 				<tbody>
 					<tr>
 						<td>8h-10h</td>
-						<td>English</td>
+						<td class="table-danger">English</td>
 						<td></td>
-						<td>Databases</td>
+						<td class="table-light">Databases</td>
 						<td rowspan="2">Web technologies</td>
-						<td rowspan="2">Programming</td>
+						<td rowspan="2" class="table-warning">Programming</td>
 					</tr>
 					<tr>
 						<td>10h-12h</td>
-						<td>Networking</td>
-						<td>Algorithmics</td>
-						<td>Software Engineering</td>
+						<td class="table-dark">Networking</td>
+						<td class="table-primary">Algorithmics</td>
+						<td class="table-secondary">Software Engineering</td>
 					</tr>
 					<tr id="separator">
 						<td colspan="6"></td>
 					</tr>
 					<tr>
 						<td>13h-15h</td>
-						<td rowspan="2">Databases</td>
-						<td rowspan="2">Programming</td>
-						<td>Computer Systems</td>
-						<td rowspan="2">Sport</td>
-						<td>English</td>
+						<td rowspan="2" class="table-light">Databases</td>
+						<td rowspan="2" class="table-warning">Programming</td>
+						<td class="table-info">Computer Systems</td>
+						<td rowspan="2" class="table-success">Sport</td>
+						<td class="table-danger">English</td>
 					</tr>
 					<tr>
 						<td>15h-17h</td>
@@ -92,35 +92,19 @@
 					</tr>
 				</tbody>
 			</table>
-			<table id="legend">
-				<tbody>
-					<tr>
-						<td></td>
-						<td>Algorithmics</td>
-						<td></td>
-						<td>Software Engineering</td>
-						<td></td>
-						<td>Sport</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>English</td>
-						<td></td>
-						<td>Programming</td>
-						<td></td>
-						<td>Computer Systems</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>Databases</td>
-						<td></td>
-						<td>Networking</td>
-						<td></td>
-						<td>Web Technologies</td>
-					</tr>
-				</tbody>
-			</table>
 		</section>
+
+		<div id="legend">
+			<span class="badge rounded-pill text-bg-primary">Algorithmics</span>
+			<span class="badge rounded-pill text-bg-secondary">Software Engineering</span>
+			<span class="badge rounded-pill text-bg-success">Sport</span>
+			<span class="badge rounded-pill text-bg-danger">English</span>
+			<span class="badge rounded-pill text-bg-warning text-dark">Programming</span>
+			<span class="badge rounded-pill text-bg-info text-dark">Computer Systems</span>
+			<span class="badge rounded-pill text-bg-light text-dark">Databases</span>
+			<span class="badge rounded-pill text-bg-dark">Networking</span>
+			<span class="badge rounded-pill text-black">Web Technologies</span>
+		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
