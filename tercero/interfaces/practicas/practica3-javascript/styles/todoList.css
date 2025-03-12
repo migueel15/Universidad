@@ -1,0 +1,8 @@
+.taskName ~ img {
+  width: 20px;
+  height: 20px;
+}
+
+#todoList img {
+  margin-right: 5px;
+}
