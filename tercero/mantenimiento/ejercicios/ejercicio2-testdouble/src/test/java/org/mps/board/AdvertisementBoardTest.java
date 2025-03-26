@@ -1,8 +1,5 @@
 package org.mps.board;
 
-import java.awt.DisplayMode;
-import java.awt.List;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -123,6 +120,11 @@ public class AdvertisementBoardTest {
 		verify(paymentGateway).chargeAdvertiser(advertiser);
 	}
 
+	// En este caso no es necesario el uso de un spy ya que solo estamos comprobando
+	// que se lanza una excepción al llegar al maximo del board. En este caso
+	// estamos simulando completamente las interfaces para hacer el bypass y no es
+	// necesario modificar unicamente algunos metodos. Se trata de una accion simple
+	// que no requiere simular distintas funciones.
 	@Test
 	@DisplayName("Publish post on full board")
 	public void publishPostOnFullBoardExpectsException() {
