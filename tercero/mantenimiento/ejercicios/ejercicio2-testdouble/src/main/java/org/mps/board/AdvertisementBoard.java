@@ -49,16 +49,31 @@ public class AdvertisementBoard {
 	 */
 	public void publish(Advertisement advertisement,
 			AdvertiserDatabase advertiserDatabase,
-			PaymentGateway paymentGateway) {
-		if (advertisement.advertiser.equals(BOARD_OWNER))
-			advertisementList.add(advertisement);
-		else {
-			if (advertiserDatabase.advertiserIsRegistered(advertisement.advertiser) &&
-					paymentGateway.advertiserHasFunds(advertisement.advertiser)) {
+			PaymentGateway paymentGateway) throws AdvertisementBoardException {
+		// if board is full, throw exception (ej 7)
+		if (this.numberOfPublishedAdvertisements() >= MAX_BOARD_SIZE) {
+			throw new AdvertisementBoardException("Board is full");
+		}
+
+		// if advertisement is not already in the board, add it (ej 6)
+		if (!this.findByTitleAndAdvertiser(advertisement.title, advertisement.advertiser).isPresent()) {
+			if (advertisement.advertiser.equals(BOARD_OWNER))
 				advertisementList.add(advertisement);
-				paymentGateway.chargeAdvertiser(advertisement.advertiser);
+			else {
+				if (advertiserDatabase.advertiserIsRegistered(advertisement.advertiser) &&
+						paymentGateway.advertiserHasFunds(advertisement.advertiser)) {
+					advertisementList.add(advertisement);
+					paymentGateway.chargeAdvertiser(advertisement.advertiser);
+				}
 			}
 		}
+
+	}
+
+	// metodo creado para ejercicio 6
+	private Optional<Advertisement> findByTitleAndAdvertiser(String title, String advertiser) {
+		return advertisementList.stream().filter(ad -> ad.title.equals(title) && ad.advertiser.equals(advertiser))
+				.findFirst();
 	}
 
 	/**
