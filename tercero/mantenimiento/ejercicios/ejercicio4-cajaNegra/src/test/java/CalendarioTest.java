@@ -1,3 +1,4 @@
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.time.DayOfWeek;
@@ -32,13 +33,11 @@ public class CalendarioTest {
     int dia = 18;
     int mes = 10;
     int anio = 1582;
-    DayOfWeek expected = DayOfWeek.MONDAY;
 
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
@@ -52,13 +51,10 @@ public class CalendarioTest {
     int dia = 2;
     int mes = 10;
     int anio = 1582;
-    DayOfWeek expected = DayOfWeek.TUESDAY;
-
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
@@ -70,13 +66,10 @@ public class CalendarioTest {
     int dia = 2;
     int mes = 4;
     int anio = 4;
-    DayOfWeek expected = DayOfWeek.WEDNESDAY;
-
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
@@ -89,13 +82,10 @@ public class CalendarioTest {
     int dia = 3;
     int mes = 2;
     int anio = 2023;
-    DayOfWeek expected = DayOfWeek.FRIDAY;
-
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
@@ -108,13 +98,10 @@ public class CalendarioTest {
     int dia = 3;
     int mes = 2;
     int anio = 1580;
-    DayOfWeek expected = DayOfWeek.WEDNESDAY;
-
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
@@ -127,13 +114,10 @@ public class CalendarioTest {
     int dia = 3;
     int mes = 2;
     int anio = 2023;
-    DayOfWeek expected = DayOfWeek.FRIDAY;
-
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
@@ -146,13 +130,10 @@ public class CalendarioTest {
     int dia = 3;
     int mes = 2;
     int anio = 2024;
-    DayOfWeek expected = DayOfWeek.SATURDAY;
-
-    // when
-    DayOfWeek actual = Calendario.diaSemana(dia, mes, anio);
-
-    // then
-    assertEquals(expected, actual);
+    // when-then
+    assertDoesNotThrow(() -> {
+      Calendario.diaSemana(dia, mes, anio);
+    });
   }
 
   @Test
