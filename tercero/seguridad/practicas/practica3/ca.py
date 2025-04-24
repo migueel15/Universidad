@@ -27,6 +27,8 @@ key = crear_RSAKey()
 guardarClavePublica("./ficheros/pubAlice.key", key)
 guardarClavePrivada("./ficheros/privAlice.key", key, "alice")
 
+key = crear_RSAKey()
+
 # Generar claves de Bob
 guardarClavePublica("./ficheros/pubBob.key", key)
 guardarClavePrivada("./ficheros/privBob.key", key, "bob")
