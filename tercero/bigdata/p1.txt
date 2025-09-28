@@ -1,0 +1,36 @@
+Gestion de una tienda online con Redis
+
+1. Diseño de la base de datos.
+
+- Producto -> (producto:id) Hash. Se asociará un id de producto a una lista de propiedades.
+- Usuario -> (usuario:id) Hash. Se asociará un id de usuario a una lista de propiedades.
+- Carrito -> (carrito:id) List. Se asociará un id usuario a una lista de ids de productos
+- Oferta especial -> String y TTL. Se asociará un id de oferta a un string y tiempo de vida.
+
+2. Inserta los siguientes datos:
+
+a. hset producto:1 nombre "Camiseta" precio 19.99 stock 100
+b. hset usuario:1 nombre "Ana García" email ana@email.es
+c. lpush carrito:1 1
+d. setex oferta:1 120 "50% DESCUENTO - VALIDO 2 MIN"
+
+3. Realiza las siguientes consultas:
+
+a. hget producto:1 nombre
+b. hincrby producto:1 stock 50; hget producto:1 stock
+c. exists usuario:1 (1); exists usuario:999 (0)
+d. hexpire producto:1 300 fields 1 stock; httl producto:1 FIELDS 1 stock
+e. hset producto:2 nombre "Libro Redis" precio 29.99 stock 25; hmget producto:2 nombre precio
+f. hdel producto:1 precio; hexists producto:1 precio
+g. llen carrito:1; lrange carrito:1 0 -1
+h. lindex carrito:1 0; hset producto:3 nombre "Libro Mongo" precio 49.99 stock 10; rpush carrito:1 3
+i. lpop carrito:1
+j. rpop carrito:1
+k. hget usuario:1 email
+l. hgetall usuario:1
+m. hset usuario:1 telefono "555-1234"
+n. hincrby usuario:1 puntos 25
+o. lpush carrito:1 2
+p. llen carrito:1
+q. del carrito:1
+r. exists carrito:1
