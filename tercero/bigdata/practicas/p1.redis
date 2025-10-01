@@ -1,0 +1,42 @@
+# ejercicio 1
+set "dias_prestamo" 7
+set "multas_por_retraso" 36
+set "total_libros" 0
+set "total_usuarios" 0
+
+# ejercicio 2
+hset libro:1 titulo "El Principito" autor "Antoine de Saint-Exupéry" año 1943
+hset libro:2 titulo "Don Quijote" autor "Miguel de Cervantes" año 1605
+hset libro:3 titulo "Cien años de soledad" autor "Gabriel García Márquez" año 1967
+incrby "total_libros" 3
+
+# ejercicio 3
+hset usuario:1 nombre "Ana García" email "ana@email.com"
+hset usuario:2 nombre "Carlos López" email "carlos@email.com"
+incrby "total_usuarios" 2
+
+# ejercicio 4
+lpush categoria:clásicos 1
+lpush categoria:clásicos 2
+lpush categoria:novela 3
+
+# ejercicio 5
+set prestamo:1:1 ex 604800 "Libro 1 - El Principito"
+rpush historial:1 1
+
+# ejercicio 6
+ttl prestamo:1:1
+exists pretamo:1:1
+
+# ejercicio 7
+hgetall libro:1
+get categoria:clásicos
+get historial:1
+
+# ejercicio 8
+hset libro:4 titulo "1984" autor "George Orwell" año 1949
+lpush categoria:novela 4
+incrby "total_libros" 1
+
+# ejercicio 9
+set prestamo:1:1 ex 604800 "Libro 1 - El Principito"
