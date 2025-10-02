@@ -16,27 +16,31 @@ hset usuario:2 nombre "Carlos López" email "carlos@email.com"
 incrby "total_usuarios" 2
 
 # ejercicio 4
-lpush categoria:clásicos 1
-lpush categoria:clásicos 2
-lpush categoria:novela 3
+sadd categoria:clásicos 1 2
+sadd categoria:novela 3
 
 # ejercicio 5
-set prestamo:1:1 ex 604800 "Libro 1 - El Principito"
+set prestamo:1:1 "Libro 1 - El Principito"  EX 604800
 rpush historial:1 1
 
 # ejercicio 6
 ttl prestamo:1:1
-exists pretamo:1:1
+exists prestamo:1:1
 
 # ejercicio 7
 hgetall libro:1
-get categoria:clásicos
-get historial:1
+smembers categoria:clásicos
+lrange historial:1 0 -1
 
 # ejercicio 8
 hset libro:4 titulo "1984" autor "George Orwell" año 1949
-lpush categoria:novela 4
+sadd categoria:novela 4
 incrby "total_libros" 1
 
 # ejercicio 9
-set prestamo:1:1 ex 604800 "Libro 1 - El Principito"
+expire prestamo:1:1 604800
+ttl prestamo:1:1
+
+# ejercicio 10
+set notificacion:1:1 "Entrega pendiente" ex 172800
+ttl notificacion:1:1
