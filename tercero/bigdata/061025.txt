@@ -1,0 +1,214 @@
+#insertar clientes
+
+db.clientes.insertMany([
+  {
+    nombre: "Ana García",
+    edad: 28,
+    email: "ana.garcia@email.com",
+    telefono: "+34 611 223 344",
+    direccion: {
+      calle: "Calle Mayor 123",
+      ciudad: "Madrid",
+      codigo_postal: "28013",
+      pais: "España"
+    },
+    categorias: ["premium", "frecuente"],
+    compras_realizadas: 15,
+    total_gastado: 2450.75,
+    fecha_registro: ISODate("2023-01-15T10:30:00Z"),
+    activo: true,
+    intereses: ["tecnologia", "deportes", "musica"],
+    notas: "Cliente muy satisfecho con nuestros servicios"
+  },
+  {
+    nombre: "Carlos Rodríguez",
+    edad: 35,
+    email: "carlos.rod@empresa.com",
+    telefono: "+34 622 334 455",
+    direccion: {
+      calle: "Avenida Diagonal 456",
+      ciudad: "Barcelona",
+      codigo_postal: "08008",
+      pais: "España"
+    },
+    categorias: ["basico", "nuevo"],
+    compras_realizadas: 3,
+    total_gastado: 450.20,
+    fecha_registro: ISODate("2023-03-20T14:15:00Z"),
+    activo: true,
+    intereses: ["libros", "viajes"],
+    notas: "Cliente reciente, necesita seguimiento"
+  },
+  {
+    nombre: "María López",
+    edad: 42,
+    email: "maria.lopez@corp.com",
+    telefono: "+34 633 445 566",
+    direccion: {
+      calle: "Plaza España 789",
+      ciudad: "Sevilla",
+      codigo_postal: "41001",
+      pais: "España"
+    },
+    categorias: ["vip", "frecuente", "antiguo"],
+    compras_realizadas: 47,
+    total_gastado: 8920.50,
+    fecha_registro: ISODate("2020-08-10T09:00:00Z"),
+    activo: true,
+    intereses: ["moda", "cosmetica", "hogar"],
+    notas: "Cliente VIP desde 2020"
+  },
+  {
+    nombre: "Pedro Martínez",
+    edad: 25,
+    email: "pedro.mtz@email.com",
+    telefono: "+34 644 556 677",
+    direccion: {
+      calle: "Gran Vía 321",
+      ciudad: "Valencia",
+      codigo_postal: "46004",
+      pais: "España"
+    },
+    categorias: ["basico"],
+    compras_realizadas: 8,
+    total_gastado: 1200.00,
+    fecha_registro: ISODate("2022-11-05T16:45:00Z"),
+    activo: false,
+    intereses: ["deportes", "tecnologia"],
+    notas: "Cliente inactivo desde enero 2023"
+  },
+  {
+    nombre: "Laura Chen",
+    edad: 31,
+    email: "laura.chen@asia.com",
+    telefono: "+34 655 667 788",
+    direccion: {
+      calle: "Calle Alcalá 654",
+      ciudad: "Madrid",
+      codigo_postal: "28014",
+      pais: "España"
+    },
+    categorias: ["premium", "internacional"],
+    compras_realizadas: 22,
+    total_gastado: 3150.30,
+    fecha_registro: ISODate("2021-05-30T11:20:00Z"),
+    activo: true,
+    intereses: ["arte", "gastronomia", "viajes"],
+    notas: "Cliente internacional con alto potencial"
+  },
+  {
+    nombre: "Alejandro Ruiz",
+    edad: 19,
+    email: "ale.ruiz@estudiante.com",
+    telefono: "+34 666 778 899",
+    direccion: {
+      calle: "Calle Sierpes 987",
+      ciudad: "Sevilla",
+      codigo_postal: "41004",
+      pais: "España"
+    },
+    categorias: ["estudiante", "nuevo"],
+    compras_realizadas: 2,
+    total_gastado: 150.75,
+    fecha_registro: ISODate("2023-06-10T13:10:00Z"),
+    activo: true,
+    intereses: ["videojuegos", "musica"],
+    notas: "Cliente joven con descuento estudiante"
+  },
+  {
+    nombre: "Elena Vargas",
+    edad: 55,
+    email: "elena.vargas@veterano.com",
+    telefono: "+34 677 889 900",
+    direccion: {
+      calle: "Paseo de Gracia 159",
+      ciudad: "Barcelona",
+      codigo_postal: "08007",
+      pais: "España"
+    },
+    categorias: ["vip", "antiguo", "frecuente"],
+    compras_realizadas: 89,
+    total_gastado: 15750.80,
+    fecha_registro: ISODate("2018-12-01T08:00:00Z"),
+    activo: true,
+    intereses: ["lujo", "joyeria", "viajes"],
+    notas: "Cliente más valioso de la empresa"
+  },
+  {
+    nombre: "David Kim",
+    edad: 29,
+    email: "david.kim@tech.com",
+    telefono: "+34 688 990 011",
+    direccion: {
+      calle: "Calle Colón 753",
+      ciudad: "Valencia",
+      codigo_postal: "46003",
+      pais: "España"
+    },
+    categorias: ["premium", "tecnologia"],
+    compras_realizadas: 12,
+    total_gastado: 2800.40,
+    fecha_registro: ISODate("2022-02-28T15:30:00Z"),
+    activo: true,
+    intereses: ["tecnologia", "gadgets", "fotografia"],
+    notas: "Amante de la tecnología última generación"
+  }
+])
+
+db.clientes.find()
+db.clientes.find({"direccion.ciudad":"Madrid"})
+db.clientes.find({"nombre":"David Kim"})
+db.clientes.find({"activo":true})
+db.clientes.find({"nombre":"/^A/"})
+db.clientes.find({"nombre":"/^a/i"})
+db.clientes.find({"notas":"/cliente joven/i"})
+db.clientes.find({"nombre":"/.*ez$/"})
+db.clientes.find({"edad":{$gt:30}})
+db.clientes.find({"edad":{$lt:25}})
+db.clientes.find({"edad":{$lte:25}})
+db.clientes.find({"direccion.ciudad":{$eq:"Madrid"}})
+db.clientes.find({"edad":{$gte:25,$lte:40}})
+db.clientes.find({"direccion.ciudad":{$ne:"Madrid"}})
+db.clientes.find({"direccion.ciudad":{$in:["Madrid","Barcelona"]}})
+db.clientes.find({"direccion.ciudad":{$nin:["Madrid","Barcelona"]}})
+db.clientes.find({"fecha_registro":{
+	$gte:ISODate("2023-01-01"),
+	$lt:ISODate("2024-01-01")
+}})
+db.clientes.find({"activo":true},{"nombre":1, "email":1, "edad":1})
+db.clientes.find({"activo":true},{"telefono":0, "notas":0})
+db.clientes.find({"activo":true},{"telefono":0, "notas":1})
+db.clientes.find({"activo":true},{"_id":0, "notas":1})
+db.clientes.find({"activo":true, "edad":{$gt:30}})
+db.clientes.find({
+	$and: [
+		{"activo":true},
+		{"edad": {$gt:30}}
+	]
+	})
+db.clientes.find({
+	$or: [
+		{"direccion.ciudad":"Madrid"},
+		{"direccion.ciudad":"Barcelona"},
+	]
+	})
+db.clientes.find({
+	$and: [
+		{"activo":true},
+		{$or: [
+			{"categorias":"premium"},
+			{"categorias":"vip"},
+		]
+		}]
+	})
+db.clientes.find({
+	"categorias": {$all:["premium","frecuente"]}
+})
+db.clientes.find({
+	"categorias": {$size:3}
+})
+db.clientes.find({
+	"categorias.0": "premium"
+})
+db.clientes.find().sort({"edad":1})
+db.clientes.find().sort({"edad":-1})
