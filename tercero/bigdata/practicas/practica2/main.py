@@ -78,4 +78,3 @@ if __name__ == "__main__":
         print("Asegurate de que redis está corriendo.")
     except Exception as e:
         print("Error inesperado")
-        
