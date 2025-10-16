@@ -1,0 +1,17 @@
+{
+	"name": "malacka",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.18.2",
+	"dependencies": {
+		"oracledb": "^6.9.0"
+	}
+}

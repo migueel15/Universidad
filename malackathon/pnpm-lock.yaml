@@ -1,0 +1,23 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      oracledb:
+        specifier: ^6.9.0
+        version: 6.9.0
+
+packages:
+
+  oracledb@6.9.0:
+    resolution: {integrity: sha512-NwPbIGPv6m0GTFSbyy4/5WEjsKMiiJRxztLmYUcfD3oyh/uXdmVmKOwEWr84wFwWJ/0wQrYQh4PjnzvShibRaA==}
+    engines: {node: '>=14.17'}
+
+snapshots:
+
+  oracledb@6.9.0: {}
