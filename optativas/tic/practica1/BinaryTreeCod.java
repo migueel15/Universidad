@@ -326,7 +326,7 @@ public class BinaryTreeCod {
 		for (int i = 0; i < ni.length; i++) {
 			K += ni[i] / Math.pow(2, i + 1);
 		}
-		if (K >= 1) {
+		if (K > 1) {
 			throw new TreeException("K mayor a 1");
 		}
 		return K;
@@ -479,7 +479,7 @@ public class BinaryTreeCod {
 
 		boolean printTree = true;
 
-		int[] parametersC1 = { 0, 1, 4, 3 };
+		int[] parametersC1 = { 0, 1, 3, 4 };
 		BinaryTreeCod.Test(parametersC1, printTree);
 	}
 }
