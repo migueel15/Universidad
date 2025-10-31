@@ -1,0 +1,61 @@
+{
+    nombre: "Laptop Gaming",
+    precio: 1200,
+    categoria: "tecnologia",
+    stock: 15,
+    especificaciones: {
+      marca: "ASUS",
+      ram: "16GB",
+      almacenamiento: "512GB SSD"
+    },
+    tags: ["gaming", "portatil", "tecnologia"],
+    activo: true
+  },
+  {
+    nombre: "Smartphone Android",
+    precio: 599,
+    categoria: "tecnologia",
+    stock: 30,
+    especificaciones: {
+      marca: "Samsung",
+      ram: "8GB",
+      almacenamiento: "128GB"
+    },
+    tags: ["movil", "android", "tecnologia"],
+    activo: true
+  },
+  {
+    nombre: "Auriculares Bluetooth",
+    precio: 89,
+    categoria: "audio",
+    stock: 0,
+    especificaciones: {
+      marca: "Sony",
+      tipo: "In-ear",
+      bateria: "20h"
+    },
+    tags: ["audio", "inalambrico"],
+    activo: false
+  },
+  {
+    nombre: "Tablet Digital",
+    precio: 349,
+    categoria: "tecnologia",
+    stock: 25,
+    especificaciones: {
+      marca: "Apple",
+      pantalla: "10.9\"",
+      almacenamiento: "64GB"
+    },
+    tags: ["tablet", "apple", "tecnologia"],
+    activo: true
+  },
+  {
+    nombre: "Cable USB",
+    precio: 2,
+    categoria: "cable",
+    stock: 30,
+    descuento:20,
+    tags: ["cable","usb"],
+    activo: true
+  }

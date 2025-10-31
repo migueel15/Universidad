@@ -1,0 +1,36 @@
+{
+    nombre: "Ana García",
+    email: "ana.garcia@email.com",
+    edad: 28,
+    direccion: {
+      calle: "Calle Mayor 123",
+      ciudad: "Málaga",
+      codigo_postal: "28013"
+    },
+    pedidos_realizados: 5,
+    premium: true
+  },
+  {
+    nombre: "Carlos López",
+    email: "carlos.lopez@empresa.com",
+    edad: 35,
+    direccion: {
+      calle: "Avenida Diagonal 456",
+      ciudad: "Sevilla",
+      codigo_postal: "08008"
+    },
+    pedidos_realizados: 2,
+    premium: false
+  },
+  {
+    nombre: "María Rodríguez",
+    email: "maria.rodriguez@corp.com",
+    edad: 42,
+    direccion: {
+      calle: "Calle Larios, 79",
+      ciudad: "Málaga",
+      codigo_postal: "28014"
+    },
+    pedidos_realizados: 2,
+    premium: false
+  }
