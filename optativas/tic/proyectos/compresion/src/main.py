@@ -46,7 +46,9 @@ def compress_with_all_algorithms(img, base_filename="output"):
         encoder_huf = HuffmanStaticEncoder()
         compressed_huf, metadata_huf = encoder_huf.encode_image(img)
         size_huf = len(compressed_huf)
-        ratio_huf = original_size / size_huf
+        metadata_size_huf = len(pickle.dumps(metadata_huf))
+        total_size_huf = size_huf + metadata_size_huf
+        ratio_huf = original_size / total_size_huf
 
         # Guardar archivos
         huf_filename = f"{base_filename}_huffman_static.bin"
@@ -57,10 +59,20 @@ def compress_with_all_algorithms(img, base_filename="output"):
         img_decoded = encoder_huf.decode_image(compressed_huf, metadata_huf)
         img_decoded.save(f"{base_filename}_huffman_static_decompressed.png")
 
-        results.append(("Huffman Estático", size_huf, ratio_huf, huf_filename))
+        results.append(
+            (
+                "Huffman Estático",
+                total_size_huf,
+                ratio_huf,
+                huf_filename,
+                metadata_size_huf,
+            )
+        )
         print(f"  ✓ Guardado: {huf_filename} ({size_huf:,} bytes)")
+        print(f"    Metadatos: {metadata_size_huf:,} bytes")
+        print(f"    Total: {total_size_huf:,} bytes")
         print(
-            f"    Ratio: {ratio_huf:.2f}x | Reducción: {(1 - size_huf/original_size)*100:.1f}%"
+            f"    Ratio: {ratio_huf:.2f}x | Reducción: {(1 - total_size_huf/original_size)*100:.1f}%"
         )
     except Exception as e:
         print(f"  ✗ Error: {e}")
@@ -71,7 +83,9 @@ def compress_with_all_algorithms(img, base_filename="output"):
         encoder_arith = ArithmeticEncoder()
         compressed_arith, metadata_arith = encoder_arith.encode_image(img)
         size_arith = len(compressed_arith)
-        ratio_arith = original_size / size_arith
+        metadata_size_arith = len(pickle.dumps(metadata_arith))
+        total_size_arith = size_arith + metadata_size_arith
+        ratio_arith = original_size / total_size_arith
 
         # Guardar archivos
         arith_filename = f"{base_filename}_arithmetic.bin"
@@ -82,10 +96,20 @@ def compress_with_all_algorithms(img, base_filename="output"):
         img_decoded = encoder_arith.decode_image(compressed_arith, metadata_arith)
         img_decoded.save(f"{base_filename}_arithmetic_decompressed.png")
 
-        results.append(("Aritmética", size_arith, ratio_arith, arith_filename))
+        results.append(
+            (
+                "Aritmética",
+                total_size_arith,
+                ratio_arith,
+                arith_filename,
+                metadata_size_arith,
+            )
+        )
         print(f"  ✓ Guardado: {arith_filename} ({size_arith:,} bytes)")
+        print(f"    Metadatos: {metadata_size_arith:,} bytes")
+        print(f"    Total: {total_size_arith:,} bytes")
         print(
-            f"    Ratio: {ratio_arith:.2f}x | Reducción: {(1 - size_arith/original_size)*100:.1f}%"
+            f"    Ratio: {ratio_arith:.2f}x | Reducción: {(1 - total_size_arith/original_size)*100:.1f}%"
         )
     except Exception as e:
         print(f"  ✗ Error: {e}")
@@ -96,7 +120,9 @@ def compress_with_all_algorithms(img, base_filename="output"):
         encoder_lzw = LZWEncoder(max_dict_size=4096)
         compressed_lzw, metadata_lzw = encoder_lzw.encode_image(img)
         size_lzw = len(compressed_lzw)
-        ratio_lzw = original_size / size_lzw
+        metadata_size_lzw = len(pickle.dumps(metadata_lzw))
+        total_size_lzw = size_lzw + metadata_size_lzw
+        ratio_lzw = original_size / total_size_lzw
 
         # Guardar archivos
         lzw_filename = f"{base_filename}_lzw.bin"
@@ -107,24 +133,33 @@ def compress_with_all_algorithms(img, base_filename="output"):
         img_decoded = encoder_lzw.decode_image(compressed_lzw, metadata_lzw)
         img_decoded.save(f"{base_filename}_lzw_decompressed.png")
 
-        results.append(("LZW", size_lzw, ratio_lzw, lzw_filename))
+        results.append(
+            ("LZW", total_size_lzw, ratio_lzw, lzw_filename, metadata_size_lzw)
+        )
         print(f"  ✓ Guardado: {lzw_filename} ({size_lzw:,} bytes)")
+        print(f"    Metadatos: {metadata_size_lzw:,} bytes")
+        print(f"    Total: {total_size_lzw:,} bytes")
         print(
-            f"    Ratio: {ratio_lzw:.2f}x | Reducción: {(1 - size_lzw/original_size)*100:.1f}%"
+            f"    Ratio: {ratio_lzw:.2f}x | Reducción: {(1 - total_size_lzw/original_size)*100:.1f}%"
         )
     except Exception as e:
         print(f"  ✗ Error: {e}")
-
+    #
     # 4. Huffman por Bloques (diferentes tamaños)
     print("\nComprimiendo con Huffman por Bloques...")
 
-    for block_size in [8, 16, 32]:
+    # for block_size in [8, 16, 32]:
+    for block_size in [256]:
         try:
             print(f"  Bloques {block_size}x{block_size}...")
             encoder_blocks = HuffmanBlockEncoder(block_size=block_size)
             compressed_blocks, metadata_blocks = encoder_blocks.encode_image(img)
             size_blocks = len(compressed_blocks)
-            ratio_blocks = original_size / size_blocks
+
+            # Calcular tamaño de metadatos
+            metadata_size = len(pickle.dumps(metadata_blocks))
+            total_size = size_blocks + metadata_size
+            ratio_blocks = original_size / total_size
 
             # Guardar archivos
             blocks_filename = (
@@ -144,14 +179,17 @@ def compress_with_all_algorithms(img, base_filename="output"):
             results.append(
                 (
                     f"Huffman Bloques {block_size}x{block_size}",
-                    size_blocks,
+                    total_size,
                     ratio_blocks,
                     blocks_filename,
+                    metadata_size,
                 )
             )
             print(f"    ✓ Guardado: {blocks_filename} ({size_blocks:,} bytes)")
+            print(f"      Metadatos: {metadata_size:,} bytes")
+            print(f"      Total: {total_size:,} bytes (datos + metadatos)")
             print(
-                f"      Ratio: {ratio_blocks:.2f}x | Reducción: {(1 - size_blocks/original_size)*100:.1f}%"
+                f"      Ratio: {ratio_blocks:.2f}x | Reducción: {(1 - total_size/original_size)*100:.1f}%"
             )
         except Exception as e:
             print(f"    ✗ Error: {e}")
@@ -274,30 +312,32 @@ Ejemplos de uso:
 
     # Resumen comparativo
     print("\n" + "=" * 80)
-    print("RESUMEN COMPARATIVO")
+    print("RESUMEN COMPARATIVO (Incluyendo metadatos)")
     print("=" * 80)
 
     # Ordenar por ratio (mejor primero)
     results.sort(key=lambda x: x[2], reverse=True)
 
     print(
-        f"\n{'Algoritmo':<30} {'Archivo':<40} {'Tamaño':>15} {'Ratio':>10} {'Reducción':>12}"
+        f"\n{'Algoritmo':<30} {'Total':>12} {'Metadatos':>12} {'Ratio':>10} {'Reducción':>12}"
     )
-    print("-" * 110)
-    for name, size, ratio, filename in results:
-        reduction = (1 - size / original_size) * 100
-        basename = os.path.basename(filename)
+    print("-" * 80)
+    for name, total_size, ratio, filename, metadata_size in results:
+        reduction = (1 - total_size / original_size) * 100
         print(
-            f"{name:<30} {basename:<40} {size:>15,} {ratio:>9.2f}x {reduction:>11.1f}%"
+            f"{name:<30} {total_size:>12,} {metadata_size:>12,} {ratio:>9.2f}x {reduction:>11.1f}%"
         )
 
     # Mejor algoritmo
-    best_name, best_size, best_ratio, best_file = results[0]
+    best_name, best_size, best_ratio, best_file, best_metadata = results[0]
     print("\n" + "=" * 80)
     print(f"🏆 MEJOR ALGORITMO: {best_name}")
     print(f"   Archivo: {os.path.basename(best_file)}")
     print(
-        f"   Ratio: {best_ratio:.2f}x | Tamaño: {best_size:,} bytes | Reducción: {(1 - best_size/original_size)*100:.1f}%"
+        f"   Tamaño total: {best_size:,} bytes (datos + {best_metadata:,} bytes metadatos)"
+    )
+    print(
+        f"   Ratio: {best_ratio:.2f}x | Reducción: {(1 - best_size/original_size)*100:.1f}%"
     )
     print("=" * 80)
 
