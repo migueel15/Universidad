@@ -11,6 +11,7 @@ from lzw import LZWEncoder
 import argparse
 import sys
 import os
+import pickle
 
 
 def compress_with_all_algorithms(img, base_filename="output"):

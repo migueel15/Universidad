@@ -240,32 +240,44 @@ class HuffmanBlockEncoder:
     def decode_block(self, bits: str, tree: HuffmanNode, block_shape: Tuple[int, int]) -> np.ndarray:
         """
         Decodifica un bloque usando su árbol de Huffman.
-        
+
         Args:
             bits: Cadena de bits del bloque
             tree: Árbol de Huffman del bloque
             block_shape: Forma del bloque (height, width)
-            
+
         Returns:
             Array numpy del bloque decodificado
         """
         num_pixels = block_shape[0] * block_shape[1]
+
+        # Caso especial: si el árbol es solo una hoja (bloque constante con un solo valor)
+        if tree.is_leaf():
+            # Todos los píxeles tienen el mismo valor
+            decoded = [tree.symbol] * num_pixels
+            decoded_array = np.array(decoded, dtype=np.uint8)
+            return decoded_array.reshape(block_shape)
+
         decoded = []
         current = tree
-        
+
         for bit in bits:
             if bit == '0':
                 current = current.left
             else:
                 current = current.right
-            
+
+            # Verificar que current no sea None (por seguridad)
+            if current is None:
+                raise ValueError("Error en decodificación: árbol de Huffman inválido")
+
             if current.is_leaf():
                 decoded.append(current.symbol)
                 current = tree
-                
+
                 if len(decoded) == num_pixels:
                     break
-        
+
         decoded_array = np.array(decoded, dtype=np.uint8)
         return decoded_array.reshape(block_shape)
     
