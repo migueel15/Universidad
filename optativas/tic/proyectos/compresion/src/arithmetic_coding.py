@@ -220,13 +220,21 @@ class ArithmeticEncoder:
 
         print("Codificando canal R...")
         self._bw_init()
-        len_before = 0
-        # codificamos R, G, B en secuencia escribiendo bits en el buffer y contando bits por canal
-        bits_r = self._encode_channel_to_bitbuffer(img_array[:, :, 0], "R")
+        # codificamos R, G, B secuencialmente y medimos bits por canal (no acumulados)
+        cumulative_bits = 0
+        bits_r_total = self._encode_channel_to_bitbuffer(img_array[:, :, 0], "R")
+        len_r = bits_r_total - cumulative_bits
+        cumulative_bits = bits_r_total
+
         print("Codificando canal G...")
-        bits_g = self._encode_channel_to_bitbuffer(img_array[:, :, 1], "G")
+        bits_g_total = self._encode_channel_to_bitbuffer(img_array[:, :, 1], "G")
+        len_g = bits_g_total - cumulative_bits
+        cumulative_bits = bits_g_total
+
         print("Codificando canal B...")
-        bits_b = self._encode_channel_to_bitbuffer(img_array[:, :, 2], "B")
+        bits_b_total = self._encode_channel_to_bitbuffer(img_array[:, :, 2], "B")
+        len_b = bits_b_total - cumulative_bits
+        cumulative_bits = bits_b_total
 
         # Obtener bytes del bitbuffer con padding
         compressed_bytes, padding = self._bw_flush_and_get_bytes_with_padding()
@@ -237,9 +245,9 @@ class ArithmeticEncoder:
             "height": image.height,
             "channels": 3,
             "padding": padding,
-            "len_r": bits_r,
-            "len_g": bits_g,
-            "len_b": bits_b,
+            "len_r": len_r,
+            "len_g": len_g,
+            "len_b": len_b,
             "models": self.models,
         }
 
