@@ -1,15 +1,19 @@
-LTspice 24.1.10 for Windows
-Circuit: C:\Users\Usuario\OneDrive - Universidad de Málaga\Universidad\1º\Recuperaciones\Electronica\P4\12.net
-Start Time: Mon Nov 10 17:38:09 2025
+LTspice 24.1.9 for Windows
+Circuit: Z:\home\miguel\Universidad\primero\Electronica\Practica4\12.net
+Start Time: Tue Nov 11 10:10:57 2025
 solver = Normal
-Maximum thread count: 12
+Maximum thread count: 16
 tnom = 27
 temp = 27
 method = trap
-Direct Newton iteration for .op point succeeded.
-Total elapsed time: 0.135 seconds.
+Z:\home\miguel\Universidad\primero\Electronica\Practica4\12.net(3): Missing value, assuming 0V @ DC.
+
+Vi N003 0
+^^^^^^^^^
+.step 
+Total elapsed time: 0.067 seconds.
 
 Files loaded:
-C:\Users\Usuario\OneDrive - Universidad de Málaga\Universidad\1º\Recuperaciones\Electronica\P4\12.net
-C:\Users\Usuario\AppData\Local\LTspice\lib\cmp\standard.mos
+Z:\home\miguel\Universidad\primero\Electronica\Practica4\12.net
+C:\users\miguel\AppData\Local\LTspice\lib\cmp\standard.mos
 

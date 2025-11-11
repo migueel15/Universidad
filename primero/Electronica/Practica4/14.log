@@ -1,16 +1,20 @@
-LTspice 24.1.10 for Windows
-Circuit: C:\Users\Usuario\OneDrive - Universidad de Málaga\Universidad\1º\Recuperaciones\Electronica\P4\14.net
-Start Time: Mon Nov 10 19:53:08 2025
+LTspice 24.1.9 for Windows
+Circuit: Z:\home\miguel\Universidad\primero\Electronica\Practica4\14.net
+Start Time: Tue Nov 11 10:36:34 2025
 solver = Normal
-Maximum thread count: 12
+Maximum thread count: 16
 tnom = 27
 temp = 27
 method = trap
 Direct Newton iteration for .op point succeeded.
-Warning: Simulation tolerance relaxed to achieve convergence from 5.0026801162958137e-05 to 5.0026801162959140e-05 seconds.
-Total elapsed time: 0.215 seconds.
+Warning: Simulation tolerance relaxed to achieve convergence from 5.0026801167130459e-05 to 5.0026801167131462e-05 seconds.
+Warning: Simulation tolerance relaxed to achieve convergence from 5.0026801167131462e-05 to 5.0026801167132465e-05 seconds.
+Warning: Simulation tolerance relaxed to achieve convergence from 1.5002650142669678e-04 to 1.5002650142669779e-04 seconds.
+Warning: Simulation tolerance relaxed to achieve convergence from 1.5002650142669779e-04 to 1.5002650142669879e-04 seconds.
+Warning: Simulation tolerance relaxed to achieve convergence from 2.5002650142677129e-04 to 2.5002650142677226e-04 seconds.
+Total elapsed time: 0.181 seconds.
 
 Files loaded:
-C:\Users\Usuario\OneDrive - Universidad de Málaga\Universidad\1º\Recuperaciones\Electronica\P4\14.net
-C:\Users\Usuario\AppData\Local\LTspice\lib\cmp\standard.mos
+Z:\home\miguel\Universidad\primero\Electronica\Practica4\14.net
+C:\users\miguel\AppData\Local\LTspice\lib\cmp\standard.mos
 
