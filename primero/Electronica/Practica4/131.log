@@ -1,6 +1,6 @@
 LTspice 24.1.9 for Windows
 Circuit: Z:\home\miguel\Universidad\primero\Electronica\Practica4\131.net
-Start Time: Tue Nov 11 10:33:03 2025
+Start Time: Tue Nov 11 13:21:02 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -13,7 +13,7 @@ Z:\home\miguel\Universidad\primero\Electronica\Practica4\131.net(3): Missing val
 Vi N004 0
 ^^^^^^^^^
 .step 
-Total elapsed time: 0.078 seconds.
+Total elapsed time: 0.075 seconds.
 
 Files loaded:
 Z:\home\miguel\Universidad\primero\Electronica\Practica4\131.net
