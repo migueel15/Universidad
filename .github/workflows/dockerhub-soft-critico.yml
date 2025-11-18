@@ -3,7 +3,7 @@ name: Practica Software Critico Build and Deploy Dockerhub
 on:
   push:
     paths:
-      - "Universidad/optativas/critico/practicas/p2/**"
+      - "optativas/critico/practicas/p2/**"
     branches:
       - main
 
@@ -27,7 +27,7 @@ jobs:
       - name: Build and Push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./Universidad/optativas/critico/practicas/p2
-          file: ./Universidad/optativas/critico/practicas/p2/Dockerfile
+          context: ./optativas/critico/practicas/p2
+          file: ./optativas/critico/practicas/p2/Dockerfile
           push: true
           tags: migueel15/backend-soft-critico:latest
