@@ -1,12 +1,21 @@
 import redis
+import os
+
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 
 
 class RedisManager:
 
-    def __init__(self, host="localhost", port=6379):
+    def __init__(self, host=REDIS_HOST, port=6379):
 
         try:
-            client = redis.Redis(host=host, port=port, decode_responses=True)
+            client = redis.Redis(
+                host=host,
+                port=port,
+                decode_responses=True,
+                socket_connect_timeout=2,
+                socket_timeout=2,
+            )
             client.ping()
             self.client = client
 

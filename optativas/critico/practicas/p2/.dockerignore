@@ -1,0 +1,10 @@
+.git
+.gitignore
+docker-compose.yml
+*.md
+*.log
+__pycache__/
+.env
+.DS_Store
+redis-data/
+
