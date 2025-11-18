@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  api:
+    image: migueel15/backend-soft-critico:latest
+    ports:
+      - "80:80"
+    environment:
+      - REDIS_HOST=redis
+    deploy:
+      replicas: 5
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+  redis:
+    image: redis/redis-stack
+    ports:
+      - "6379:6379"
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_INSTALL_PLUGINS=redis-datasource
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: overlay
+
