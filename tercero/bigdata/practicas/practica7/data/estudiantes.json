@@ -1,0 +1,42 @@
+[
+            {
+                "nombre": "Ana García López",
+                "email": "ana.garcia@universidad.edu",
+                "carrera": "Ingeniería Informática",
+                "semestre": 5,
+                "edad": 21,
+                "ciudad": "Madrid",
+                "fecha_registro": new Date(2022, 9, 1),
+                "activo": true
+            },
+            {
+                "nombre": "Carlos Rodríguez Martín",
+                "email": "carlos.rodriguez@universidad.edu", 
+                "carrera": "Literatura",
+                "semestre": 3,
+                "edad": 20,
+                "ciudad": "Barcelona",
+                "fecha_registro": new Date(2023, 1, 15),
+                "activo": true
+            },
+            {
+                "nombre": "María Chen Wang",
+                "email": "maria.chen@universidad.edu",
+                "carrera": "Psicología", 
+                "semestre": 7,
+                "edad": 23,
+                "ciudad": "Valencia",
+                "fecha_registro": new Date(2021, 9, 1),
+                "activo": true
+            },
+            {
+                "nombre": "David Martínez Ruiz",
+                "email": "david.martinez@universidad.edu",
+                "carrera": "Ingeniería Informática",
+                "semestre": 6,
+                "edad": 22,
+                "ciudad": "Madrid",
+                "fecha_registro": new Date(2022, 2, 1),
+                "activo": false
+            }
+]

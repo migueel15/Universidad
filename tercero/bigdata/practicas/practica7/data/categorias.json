@@ -1,0 +1,30 @@
+[
+            {
+                "_id": 1,
+                "nombre": "Ciencia Ficción",
+                "descripcion": "Novelas de ciencia ficción y fantasía",
+                "libros_count": 0,
+                "ubicacion": "Ala A"
+            },
+            {
+                "_id": 2,
+                "nombre": "Literatura Clásica", 
+                "descripcion": "Obras clásicas de la literatura universal",
+                "libros_count": 0,
+                "ubicacion": "Ala B"
+            },
+            {
+                "_id": 3,
+                "nombre": "Tecnología",
+                "descripcion": "Libros de programación y tecnología",
+                "libros_count": 0,
+                "ubicacion": "Ala C"
+            },
+            {
+                "_id": 4,
+                "nombre": "Ciencias Sociales",
+                "descripcion": "Sociología, psicología y antropología",
+                "libros_count": 0,
+                "ubicacion": "Ala D"
+            }
+]

@@ -1,0 +1,20 @@
+[
+            {
+                "libro_id": libro_1984["_id"],
+                "estudiante_id": estudiante_ana["_id"],
+                "fecha_prestamo": new Date(2024, 1, 10),
+                "fecha_devolucion": new Date(2024, 1, 24),
+                "fecha_devolucion_real": null,
+                "estado": "activo",
+                "multa": 0
+            },
+            {
+                "libro_id": libro_python["_id"],
+                "estudiante_id": estudiante_carlos["_id"],
+                "fecha_prestamo": new Date(2024, 1, 5),
+                "fecha_devolucion": new Date(2024, 1, 19),
+                "fecha_devolucion_real": new Date(2024, 1, 18),
+                "estado": "devuelto",
+                "multa": 0
+            }
+]
