@@ -54,10 +54,11 @@ class RedisManager:
             print("Error al añadir el valor")
 
     def showValues(self, timeSerieId="ts:1"):
-        ts = self.client.ts()
-        data = ts.range(timeSerieId, "-", "+")
-        print(f"HOSTNAME: {socket.gethostname()}")
-        print(data)
+        try:
+            ts = self.client.ts()
+            return ts.range(timeSerieId, "-", "+")
+        except Exception as e:
+            print("Error al mostrar la tabla")
 
     def close(self):
         self.client.close()

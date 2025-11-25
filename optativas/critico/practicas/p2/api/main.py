@@ -1,3 +1,4 @@
+import socket
 from fastapi import FastAPI
 from datetime import datetime
 import os
@@ -12,10 +13,10 @@ redis = RedisManager()
 @app.get("/nuevo")
 def home(dato: float):
     redis.addValue(dato)
-    return f"{dato}"
+    return f"Dato insertado: {dato}"
 
 
 @app.get("/listar")
 def getLista():
-    redis.showValues()
-    return "Lista completa"
+    data = redis.showValues()
+    return {"HOSTNAME": socket.gethostname(), "data": data}
