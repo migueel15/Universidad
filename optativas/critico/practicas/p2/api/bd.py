@@ -2,6 +2,7 @@ import socket
 import redis
 import time
 import os
+import numpy as np
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 
@@ -59,6 +60,45 @@ class RedisManager:
             return ts.range(timeSerieId, "-", "+")
         except Exception as e:
             print("Error al mostrar la tabla")
+
+    def detectar(
+        self, nuevoValor: float, model, scaler, threshold, WINDOW=24, tsId="ts:1"
+    ):
+        try:
+            self.addValue(nuevoValor)
+
+            series = self.client.ts().range(tsId, "-", "+")
+
+            valores = [float(v[1]) for v in series]
+
+            if len(valores) < WINDOW:
+                return {
+                    "anomalia": "no evaluada",
+                    "motivo": f"No hay suficientes valores. Se necesitan {WINDOW}.",
+                    "actuales": len(valores),
+                }
+
+            ventana = valores[-WINDOW:]
+
+            ventana_np = np.array(ventana).reshape(1, -1)
+            ventana_scaled = scaler.transform(ventana_np)
+
+            pred = model.predict(ventana_scaled)[0][0]
+            real = float(nuevoValor)
+
+            denom = max(abs(real), abs(pred), 1e-6)
+            error = abs(real - pred) / denom
+
+            anomalía = "si" if error > threshold else "no"
+
+            mediciones_json = [
+                {"time": int(t), "valor": float(v)} for (t, v) in series[-WINDOW:]
+            ]
+
+            return {"mediciones": mediciones_json, "anomalia": anomalía}
+
+        except Exception as e:
+            print(f"Error al detectar anomalia: {e}")
 
     def close(self):
         self.client.close()

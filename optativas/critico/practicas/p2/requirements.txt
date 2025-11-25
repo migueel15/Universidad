@@ -1,3 +1,7 @@
 fastapi
 uvicorn
 redis
+tensorflow
+keras
+joblib
+pandas
