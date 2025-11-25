@@ -14,8 +14,10 @@ class RedisManager:
         self.host = host
         self.port = port
         self.retries = retries
+        self.tsId = "ts:1"
 
         self._connect_with_retry()
+        self._ensure_ts_exists()
 
     def _connect_with_retry(self):
         intento = 0
@@ -44,32 +46,42 @@ class RedisManager:
 
         print("No se pudo conectar a Redis tras múltiples intentos.")
 
+    def _ensure_ts_exists(self):
+        ts = self.client.ts()
+        try:
+            ts.info(self.tsId)
+        except Exception:
+            ts.create(self.tsId)
+            print(f"Serie TS creada: {self.tsId}")
+
     def clearData(self):
         self.client.flushall()
 
-    def addValue(self, nuevoValor: float, timestamp="*", timeSerieId="ts:1"):
+    def addValue(self, nuevoValor: float, timestamp="*"):
         try:
             ts = self.client.ts()
-            ts.add(key=timeSerieId, timestamp=timestamp, value=nuevoValor)
+            ts.add(key=self.tsId, timestamp=timestamp, value=nuevoValor)
+            print(f"VALOR: {nuevoValor}")
         except Exception as e:
             print("Error al añadir el valor")
 
-    def showValues(self, timeSerieId="ts:1"):
+    def showValues(self):
         try:
             ts = self.client.ts()
-            return ts.range(timeSerieId, "-", "+")
+            return ts.range(self.tsId, "-", "+")
         except Exception as e:
             print("Error al mostrar la tabla")
 
-    def detectar(
-        self, nuevoValor: float, model, scaler, threshold, WINDOW=24, tsId="ts:1"
-    ):
+    def detectar(self, nuevoValor: float, model, scaler, threshold, WINDOW=24):
         try:
-            self.addValue(nuevoValor)
+            ts = self.client.ts()
 
-            series = self.client.ts().range(tsId, "-", "+")
+            series = ts.range(self.tsId, "-", "+")
+            print(series)
 
             valores = [float(v[1]) for v in series]
+
+            self.addValue(nuevoValor)
 
             if len(valores) < WINDOW:
                 return {
@@ -80,8 +92,9 @@ class RedisManager:
 
             ventana = valores[-WINDOW:]
 
-            ventana_np = np.array(ventana).reshape(1, -1)
-            ventana_scaled = scaler.transform(ventana_np)
+            ventana_np = np.array(ventana).reshape(-1, 1)
+            ventana_scaled_individual = scaler.transform(ventana_np)
+            ventana_scaled = ventana_scaled_individual.reshape(1, WINDOW, 1)
 
             pred = model.predict(ventana_scaled)[0][0]
             real = float(nuevoValor)

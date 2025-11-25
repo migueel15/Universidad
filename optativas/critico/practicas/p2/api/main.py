@@ -31,4 +31,5 @@ def getLista():
 
 @app.get("/detectar")
 def detectar(dato: float):
-    redis.detectar(dato, model, scaler, threshold)
+    res = redis.detectar(dato, model, scaler, threshold)
+    return res
