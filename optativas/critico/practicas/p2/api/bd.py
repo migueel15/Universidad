@@ -1,3 +1,4 @@
+import socket
 import redis
 import time
 import os
@@ -55,6 +56,7 @@ class RedisManager:
     def showValues(self, timeSerieId="ts:1"):
         ts = self.client.ts()
         data = ts.range(timeSerieId, "-", "+")
+        print(f"HOSTNAME: {socket.gethostname()}")
         print(data)
 
     def close(self):
