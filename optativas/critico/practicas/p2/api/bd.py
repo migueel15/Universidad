@@ -1,4 +1,5 @@
 import redis
+import time
 import os
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
@@ -6,21 +7,40 @@ REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 
 class RedisManager:
 
-    def __init__(self, host=REDIS_HOST, port=6379):
+    def __init__(self, host=REDIS_HOST, port=6379, retries=10):
 
-        try:
-            client = redis.Redis(
-                host=host,
-                port=port,
-                decode_responses=True,
-                socket_connect_timeout=2,
-                socket_timeout=2,
-            )
-            client.ping()
-            self.client = client
+        self.host = host
+        self.port = port
+        self.retries = retries
 
-        except Exception as e:
-            print(f"Error al establecer la conexion {e}")
+        self._connect_with_retry()
+
+    def _connect_with_retry(self):
+        intento = 0
+        delay = 1
+
+        while intento < self.retries:
+            try:
+                client = redis.Redis(
+                    host=self.host,
+                    port=self.port,
+                    decode_responses=True,
+                    socket_connect_timeout=2,
+                    socket_timeout=2,
+                )
+                client.ping()
+                self.client = client
+                print("Conectado correctamente a Redis.")
+                return
+
+            except Exception as e:
+                intento += 1
+                print(f"[{intento}/{self.retries}] Error de conexión: {e}")
+                print(f"Reintentando en {delay} segundos...")
+                time.sleep(delay)
+                delay = min(delay * 2, 10)
+
+        print("No se pudo conectar a Redis tras múltiples intentos.")
 
     def clearData(self):
         self.client.flushall()
@@ -39,4 +59,4 @@ class RedisManager:
 
     def close(self):
         self.client.close()
-        print("Conexcion cerrada con redis")
+        print("Conexion cerrada con redis")
