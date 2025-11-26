@@ -121,12 +121,16 @@ class RedisManager:
             ventana_scaled = ventana_scaled_individual.reshape(1, WINDOW, 1)
 
             pred = model.predict(ventana_scaled)[0][0]
+            pred_real = scaler.inverse_transform([[pred]])[0][0]
             real = float(nuevoValor)
 
-            denom = max(abs(real), abs(pred), 1e-6)
-            error = abs(real - pred) / denom
+            denom = max(abs(real), abs(pred_real), 1e-6)
+            error = abs(real - pred_real) / denom
 
             anomalía = "si" if error > threshold else "no"
+            print(
+                f"Dato a insertar:{nuevoValor}; Prediccion:{pred_real}; Error:{error}; Anomalia:{anomalía}"
+            )
 
             mediciones_json = [
                 {"time": int(t), "valor": float(v)} for (t, v) in series[-WINDOW:]
