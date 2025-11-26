@@ -1,6 +1,6 @@
 services:
   web:    
-    build: .
+    image: migueel15/backend-soft-critico:latest
     ports:
       - "4000:80"
     networks:
