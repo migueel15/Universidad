@@ -1,10 +1,18 @@
 import socket
 import redis
+from redis import sentinel
+from redis.sentinel import Sentinel
 import time
 import os
 import numpy as np
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+SENTINEL_HOST = os.getenv("SENTINEL_HOST")
+SENTINEL_HOST2 = os.getenv("SENTINEL_HOST2")
+SENTINEL_HOST3 = os.getenv("SENTINEL_HOST3")
+SENTINEL_PORT = os.getenv("SENTINEL_PORT")
+SENTINEL_PORT2 = os.getenv("SENTINEL_PORT2")
+SENTINEL_PORT3 = os.getenv("SENTINEL_PORT3")
 
 
 class RedisManager:
@@ -16,8 +24,24 @@ class RedisManager:
         self.retries = retries
         self.tsId = "ts:1"
 
-        self._connect_with_retry()
+        if SENTINEL_HOST:
+            self._connect_with_sentinel()
+        else:
+            self._connect_with_retry()
         self._ensure_ts_exists()
+
+    def _connect_with_sentinel(self):
+        sentinel = Sentinel(
+            [
+                (SENTINEL_HOST, SENTINEL_PORT),
+                (SENTINEL_HOST2, SENTINEL_PORT2),
+                (SENTINEL_HOST3, SENTINEL_PORT3),
+            ],
+            socket_timeout=0.1,
+        )
+        self.master_info = sentinel.discover_master("mymaster")
+        self.client = sentinel.master_for("mymaster", socket_timeout=0.1)
+        return True
 
     def _connect_with_retry(self):
         intento = 0

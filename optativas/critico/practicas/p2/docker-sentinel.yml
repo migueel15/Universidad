@@ -1,0 +1,110 @@
+services:
+  web:    
+    build: .
+    ports:
+      - "4000:80"
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.8
+
+    environment:
+      - SENTINEL_HOST=sentinel1
+      - SENTINEL_HOST2=sentinel2
+      - SENTINEL_HOST3=sentinel3
+      - SENTINEL_PORT=26379
+      - SENTINEL_PORT2=26380
+      - SENTINEL_PORT3=26381
+
+
+  redis-master:
+    image: redis/redis-stack:latest
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.2
+
+  redis-replica1:
+    image: redis/redis-stack:latest
+    container_name: redis-replica1
+    environment:
+      - REDIS_ARGS=--replicaof redis-master 6379
+    depends_on:
+      - redis-master
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.3
+
+  redis-replica2:
+    image: redis/redis-stack:latest
+    container_name: redis-replica2
+    environment:
+      - REDIS_ARGS=--replicaof redis-master 6379
+    depends_on:
+      - redis-master
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.4
+
+  sentinel1:
+    image: redis/redis-stack:latest
+    container_name: sentinel1
+    command: >
+      bash -c "
+        mkdir -p /data &&
+        echo 'sentinel monitor mymaster 172.30.0.2 6379 2' > /data/sentinel.conf &&
+        echo 'sentinel down-after-milliseconds mymaster 5000' >> /data/sentinel.conf &&
+        echo 'sentinel failover-timeout mymaster 10000' >> /data/sentinel.conf &&
+        redis-sentinel /data/sentinel.conf"
+    depends_on:
+      - redis-master
+    ports:
+      - "26379:26379"
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.5
+
+  sentinel2:
+    image: redis/redis-stack:latest
+    container_name: sentinel2
+    command: >
+      bash -c "
+        mkdir -p /data &&
+        echo 'sentinel monitor mymaster 172.30.0.2 6379 2' > /data/sentinel.conf &&
+        echo 'sentinel down-after-milliseconds mymaster 5000' >> /data/sentinel.conf &&
+        echo 'sentinel failover-timeout mymaster 10000' >> /data/sentinel.conf &&
+        redis-sentinel /data/sentinel.conf"
+    depends_on:
+      - redis-master
+    ports:
+      - "26380:26379"      
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.6
+
+  sentinel3:
+    image: redis/redis-stack:latest
+    container_name: sentinel3
+    command: >
+      bash -c "
+        mkdir -p /data &&
+        echo 'sentinel monitor mymaster 172.30.0.2 6379 2' > /data/sentinel.conf &&
+        echo 'sentinel down-after-milliseconds mymaster 5000' >> /data/sentinel.conf &&
+        echo 'sentinel failover-timeout mymaster 10000' >> /data/sentinel.conf &&
+        redis-sentinel /data/sentinel.conf"
+    depends_on:
+      - redis-master
+    ports:
+      - "26381:26379"      
+    networks:
+      redisnet:
+        ipv4_address: 172.30.0.7
+
+networks:
+  redisnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+
