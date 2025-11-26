@@ -1,10 +1,13 @@
 .git
 .gitignore
+venv
+.venv
 docker-compose.yml
+docker-sentinel.yml
+develop.yml
+grafana_data
 *.md
 *.log
 __pycache__/
 .env
 .DS_Store
-redis-data/
-

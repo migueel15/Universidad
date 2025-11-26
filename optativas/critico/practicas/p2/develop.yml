@@ -21,6 +21,8 @@ services:
       - "3000:3000"
     environment:
       - GF_INSTALL_PLUGINS=redis-datasource
+    volumes:
+      - ./grafana_data:/var/lib/grafana
     networks:
       - webnet
 
