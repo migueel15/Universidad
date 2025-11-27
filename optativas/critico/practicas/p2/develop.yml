@@ -2,7 +2,7 @@ services:
   api:
     build: .
     ports:
-      - "80:80"
+      - "4000:80"
     environment:
       - REDIS_HOST=redis
     networks:
