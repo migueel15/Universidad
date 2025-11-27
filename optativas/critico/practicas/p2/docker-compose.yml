@@ -4,7 +4,7 @@ services:
   api:
     image: migueel15/backend-soft-critico:latest
     ports:
-      - "80:80"
+      - "4000:80"
     environment:
       - REDIS_HOST=redis
     deploy:

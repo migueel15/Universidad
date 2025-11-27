@@ -1,6 +1,6 @@
 services:
   web:    
-    image: migueel15/backend-soft-critico:latest
+    image: migueel15/backend-soft-critico:cluster
     ports:
       - "4000:80"
     networks:

@@ -7,3 +7,4 @@ keras==2.14.0
 scikit-learn==1.7.2
 tensorflow==2.14.0
 numpy==1.26.0
+redis-py-cluster==2.1.3
