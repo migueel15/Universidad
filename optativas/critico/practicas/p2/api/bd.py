@@ -2,11 +2,14 @@ import socket
 import redis
 from redis import sentinel
 from redis.sentinel import Sentinel
+from rediscluster import RedisCluster
 import time
 import os
 import numpy as np
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_HOST2 = os.getenv("REDIS_HOST2")
+REDIS_HOST3 = os.getenv("REDIS_HOST3")
 SENTINEL_HOST = os.getenv("SENTINEL_HOST")
 SENTINEL_HOST2 = os.getenv("SENTINEL_HOST2")
 SENTINEL_HOST3 = os.getenv("SENTINEL_HOST3")
@@ -26,11 +29,15 @@ class RedisManager:
 
         if SENTINEL_HOST:
             self._connect_with_sentinel()
+        elif REDIS_HOST2:
+            self._connect_with_cluster()
+
         else:
             self._connect_with_retry()
         self._ensure_ts_exists()
 
     def _connect_with_sentinel(self):
+        print("Conectando con sentinel")
         sentinel = Sentinel(
             [
                 (SENTINEL_HOST, SENTINEL_PORT),
@@ -41,6 +48,23 @@ class RedisManager:
         )
         self.master_info = sentinel.discover_master("mymaster")
         self.client = sentinel.master_for("mymaster", socket_timeout=0.1)
+        return True
+
+    def _connect_with_cluster(self):
+        print("Conectando con cluster")
+        startup_nodes = [
+            {"host": REDIS_HOST, "port": 6379},
+            {"host": REDIS_HOST2, "port": 6379},
+            {"host": REDIS_HOST3, "port": 6379},
+        ]
+        redis = RedisCluster(
+            startup_nodes=startup_nodes,
+            decode_responses=True,
+            skip_full_coverage_check=True,
+            socket_timeout=5,
+            socket_connect_timeout=5,
+        )
+        self.client = redis
         return True
 
     def _connect_with_retry(self):
@@ -85,7 +109,6 @@ class RedisManager:
         try:
             ts = self.client.ts()
             ts.add(key=self.tsId, timestamp=timestamp, value=nuevoValor)
-            print(f"VALOR: {nuevoValor}")
         except Exception as e:
             print("Error al añadir el valor")
 
@@ -101,7 +124,6 @@ class RedisManager:
             ts = self.client.ts()
 
             series = ts.range(self.tsId, "-", "+")
-            print(series)
 
             valores = [float(v[1]) for v in series]
 
