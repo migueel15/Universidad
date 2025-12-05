@@ -1,0 +1,201 @@
+pedido_id,cliente_id,producto,cantidad,precio_unitario,fecha_pedido,estado,descuento,total
+1,25.0,Teclado Mecánico,1.0,1420.48,2023-01-01,Pendiente,0.11,1264.23
+2,,Cámara Web,3.0,1330.14,2023-03-05,Cancelado,0.15,3391.86
+3,,Ratón Inalámbrico,4.0,1397.44,2023-10-11,Pendiente,0.06,5254.37
+4,,Altavoz Inteligente,2.0,1234.87,2023-06-04,Enviado,0.16,2074.58
+5,,Teclado Mecánico,2.0,865.48,2023-10-24,Cancelado,0.14,1488.63
+6,29.0,Disco Duro SSD,4.0,1589.53,2023-03-28,Completado,0.09,5785.89
+7,,Smartphone,2.0,1348.86,2023-04-26,Pendiente,0.04,2589.81
+8,3.0,Impresora Láser,5.0,1700.98,2023-02-07,Enviado,0.12,7484.31
+9,41.0,Smartwatch,4.0,993.81,2023-05-05,Pendiente,0.2,3180.19
+10,1.0,Router WiFi,4.0,445.49,2023-12-23,Enviado,0.02,1746.32
+11,16.0,Impresora Láser,2.0,1604.82,2023-12-08,Cancelado,0.29,2278.84
+12,,Power Bank,5.0,897.37,2023-03-23,Enviado,0.14,3858.69
+13,49.0,Power Bank,3.0,1533.97,2023-09-24,Enviado,0.19,3727.55
+14,,Smartphone,3.0,476.64,2023-06-21,Cancelado,0.27,1043.84
+15,6.0,Tablet,2.0,772.24,2023-03-20,Pendiente,0.02,1513.59
+16,,Disco Duro SSD,4.0,837.39,2023-04-16,Enviado,0.12,2947.61
+17,50.0,Power Bank,5.0,766.96,2023-01-04,Cancelado,0.09,3489.67
+18,,Disco Duro SSD,,1601.74,2023-04-23,Enviado,0.07,7448.09
+19,,Laptop Gaming,4.0,678.9,2023-12-14,Enviado,0.22,2118.17
+20,30.0,Cámara Web,5.0,63.66,2023-07-21,Completado,0.03,308.75
+21,28.0,Power Bank,4.0,371.64,2023-05-14,Enviado,0.1,1337.9
+22,,Ratón Inalámbrico,4.0,563.73,2023-08-04,Cancelado,0.25,1691.19
+23,31.0,Smartwatch,5.0,113.65,2023-06-29,Pendiente,0.2,454.6
+24,50.0,Router WiFi,1.0,1899.73,2023-04-13,Completado,0.19,1538.78
+25,16.0,Impresora Láser,1.0,1132.3,2023-04-22,Enviado,0.21,894.52
+26,,Tablet,5.0,1218.42,2023-02-28,Pendiente,,4325.39
+27,7.0,Teclado Mecánico,5.0,1357.92,2023-07-12,Enviado,0.28,4888.51
+28,13.0,Cámara Web,2.0,212.78,2023-06-04,Completado,0.24,323.43
+29,37.0,Ratón Inalámbrico,5.0,862.47,2023-07-09,Completado,0.15,3665.5
+30,22.0,Power Bank,4.0,1646.44,2023-02-24,Enviado,0.29,4675.89
+31,,Smartwatch,2.0,876.62,2023-09-25,Cancelado,0.18,1437.66
+32,,Impresora Láser,4.0,1653.21,2023-10-31,Cancelado,0.1,5951.56
+33,16.0,Teclado Mecánico,4.0,495.29,2023-08-26,Enviado,0.1,1783.04
+34,,Tablet,4.0,432.12,2023-05-13,Cancelado,0.08,1590.2
+35,,Disco Duro SSD,1.0,1038.09,2023-04-08,Completado,0.07,965.42
+36,,Disco Duro SSD,2.0,1384.31,2023-11-27,Enviado,0.13,2408.7
+37,2.0,Teclado Mecánico,2.0,814.76,2023-05-05,Cancelado,0.2,1303.62
+38,,Disco Duro SSD,5.0,694.08,2023-10-09,Cancelado,0.11,3088.66
+39,,Teclado Mecánico,3.0,468.77,2023-04-09,Cancelado,0.04,1350.06
+40,35.0,"Monitor 24""",2.0,1479.82,2023-05-22,Cancelado,0.29,2101.34
+41,,"Monitor 24""",3.0,367.09,2023-01-08,Pendiente,0.08,1013.17
+42,,Smartwatch,2.0,1279.36,2023-09-09,Completado,0.26,1893.45
+43,,Impresora Láser,4.0,886.53,2023-04-05,Completado,0.08,3262.43
+44,31.0,Power Bank,1.0,807.41,2023-02-07,Completado,0.05,767.04
+45,,Smartphone,2.0,245.72,2023-08-02,Pendiente,0.23,378.41
+46,,Impresora Láser,3.0,1721.73,2023-08-08,Cancelado,0.17,4287.11
+47,4.0,Router WiFi,2.0,1254.77,2023-05-16,Completado,0.05,2384.06
+48,12.0,Tablet,1.0,822.95,2023-12-19,Enviado,0.09,748.88
+49,,Smartwatch,3.0,1408.95,2023-08-21,Completado,,3339.21
+50,17.0,Auriculares Bluetooth,1.0,1093.68,2023-11-28,Pendiente,0.27,798.39
+51,10.0,Laptop Gaming,2.0,1587.33,2023-11-01,Cancelado,0.13,2761.95
+52,,Smartwatch,4.0,1885.93,2023-09-14,Enviado,0.13,6563.04
+53,39.0,Auriculares Bluetooth,3.0,1211.39,2023-01-14,Completado,0.07,3379.78
+54,44.0,Router WiFi,3.0,1156.73,2023-03-31,Enviado,0.16,2914.96
+55,,Tablet,5.0,877.41,2023-09-09,Completado,0.14,3772.86
+56,,Ratón Inalámbrico,1.0,1716.89,2023-06-18,Enviado,0.21,1356.34
+57,,Power Bank,5.0,83.03,2023-02-15,Cancelado,0.08,381.94
+58,,Power Bank,5.0,1651.61,2023-01-01,Enviado,,7267.08
+59,,Cámara Web,4.0,1254.56,2023-01-27,Pendiente,0.08,4616.78
+60,,Impresora Láser,4.0,251.64,2023-11-19,Pendiente,0.21,795.18
+61,20.0,Disco Duro SSD,4.0,195.49,2023-02-28,Enviado,0.28,563.01
+62,42.0,Impresora Láser,3.0,1022.66,2023-05-20,Enviado,0.25,2300.98
+63,31.0,Impresora Láser,5.0,297.84,2023-04-08,Pendiente,0.26,1102.01
+64,,Ratón Inalámbrico,5.0,541.67,2023-01-02,Cancelado,0.22,2112.51
+65,,Power Bank,2.0,898.63,2023-09-05,Cancelado,0.1,1617.53
+66,,Impresora Láser,3.0,1740.51,2023-12-24,Pendiente,0.17,4333.87
+67,,Laptop Gaming,3.0,1491.96,2023-12-28,Enviado,0.12,3938.77
+68,43.0,Impresora Láser,1.0,261.23,2023-10-30,Cancelado,0.26,193.31
+69,29.0,Disco Duro SSD,4.0,40.54,2023-03-15,Enviado,0.26,120.0
+70,10.0,Impresora Láser,3.0,683.74,2023-12-21,Enviado,0.19,1661.49
+71,,Ratón Inalámbrico,4.0,1746.04,2023-01-19,Completado,0.07,6495.27
+72,,"Monitor 24""",1.0,873.6,2023-02-20,Completado,0.13,760.03
+73,,Laptop Gaming,1.0,655.51,2023-01-29,Cancelado,0.11,583.4
+74,28.0,"Monitor 24""",5.0,829.98,2023-12-16,Pendiente,,3942.4
+75,,Cámara Web,2.0,1000.36,2023-10-26,Pendiente,0.07,1860.67
+76,,Impresora Láser,3.0,1337.01,2023-08-27,Cancelado,0.2,3208.82
+77,11.0,Impresora Láser,3.0,1975.43,2023-06-03,Enviado,0.21,4681.77
+78,,"Monitor 24""",4.0,1708.14,2023-02-24,Pendiente,0.11,6080.98
+79,,Smartwatch,3.0,53.66,2023-12-04,Enviado,0.08,148.1
+80,37.0,Cámara Web,,1667.35,2023-05-27,Pendiente,0.18,5468.91
+81,23.0,Altavoz Inteligente,2.0,1245.57,2023-12-14,Pendiente,0.19,2017.82
+82,41.0,Teclado Mecánico,4.0,76.4,2023-07-06,Pendiente,0.03,296.43
+83,,Smartwatch,4.0,359.52,2023-03-09,Cancelado,0.16,1207.99
+84,18.0,Teclado Mecánico,4.0,1935.09,2023-06-01,Cancelado,0.24,5882.67
+85,30.0,Tablet,2.0,1721.68,2023-12-12,Enviado,0.29,2444.79
+86,,Smartphone,4.0,37.7,2023-10-02,Completado,0.14,129.69
+87,,Cámara Web,4.0,1646.61,2023-07-10,Completado,0.2,5269.15
+88,31.0,Cámara Web,5.0,662.73,2023-11-09,Pendiente,0.19,2684.06
+89,,Smartwatch,3.0,1301.99,2023-03-01,Pendiente,0.01,3866.91
+90,,Impresora Láser,1.0,203.41,2023-10-03,Pendiente,0.12,179.0
+91,,Cámara Web,2.0,1771.97,2023-12-02,Completado,0.25,2657.96
+92,,Teclado Mecánico,1.0,1383.66,2023-04-22,Enviado,0.13,1203.78
+93,,Smartphone,3.0,1093.49,2023-11-27,Cancelado,0.02,3214.86
+94,18.0,Smartphone,4.0,192.43,2023-04-19,Completado,0.02,754.33
+95,22.0,Tablet,5.0,418.36,2023-10-11,Pendiente,0.18,1715.28
+96,,Router WiFi,2.0,1579.4,2023-11-02,Completado,0.08,2906.1
+97,10.0,Disco Duro SSD,3.0,1599.04,2023-02-26,Completado,0.04,4605.24
+98,23.0,Cámara Web,3.0,41.4,2023-05-16,Completado,0.04,119.23
+99,27.0,Smartwatch,1.0,957.73,2023-07-05,Completado,0.14,823.65
+100,15.0,Smartwatch,5.0,610.24,2023-11-26,Completado,0.02,2990.18
+101,,Auriculares Bluetooth,1.0,985.64,2023-08-16,Completado,0.27,719.52
+102,21.0,Smartphone,2.0,557.28,2023-11-21,Cancelado,0.11,991.96
+103,,Impresora Láser,5.0,1214.8,2023-02-20,Completado,0.26,4494.76
+104,42.0,Auriculares Bluetooth,4.0,1777.3,2023-07-31,Cancelado,0.25,5331.9
+105,,Smartwatch,,631.97,2023-06-10,Cancelado,0.11,562.45
+106,,Smartphone,1.0,1665.23,2023-02-17,Enviado,,1615.27
+107,,Router WiFi,2.0,1117.18,2023-10-28,Cancelado,0.2,1787.49
+108,,Power Bank,4.0,1737.5,2023-01-27,Cancelado,0.18,5699.0
+109,23.0,Cámara Web,5.0,433.35,2023-12-03,Enviado,0.07,2015.08
+110,,Power Bank,5.0,741.45,2023-05-23,Pendiente,0.24,2817.51
+111,36.0,Cámara Web,3.0,67.62,2023-05-20,Cancelado,0.28,146.06
+112,23.0,Tablet,2.0,1136.98,2023-07-25,Completado,0.04,2183.0
+113,41.0,Smartphone,5.0,438.11,2023-08-03,Enviado,0.1,1971.5
+114,,Smartwatch,3.0,1555.9,2023-10-18,Completado,0.27,3407.42
+115,10.0,Router WiFi,5.0,109.03,2023-02-11,Cancelado,0.13,474.28
+116,,Cámara Web,4.0,834.23,2023-04-21,Completado,0.1,3003.23
+117,,Altavoz Inteligente,5.0,978.4,2023-12-08,Cancelado,0.01,4843.08
+118,26.0,Laptop Gaming,2.0,609.82,2023-04-19,Pendiente,0.23,939.12
+119,,Smartphone,1.0,999.8,2023-08-09,Pendiente,0.04,959.81
+120,35.0,Disco Duro SSD,5.0,1668.37,2023-07-01,Completado,0.12,7340.83
+121,48.0,Auriculares Bluetooth,1.0,924.91,2023-02-09,Cancelado,0.17,767.68
+122,,Smartwatch,4.0,586.14,2023-07-27,Completado,0.29,1664.64
+123,,Power Bank,3.0,185.38,2023-02-24,Pendiente,0.13,483.84
+124,26.0,Auriculares Bluetooth,3.0,1494.15,2023-04-24,Cancelado,0.23,3451.49
+125,5.0,Disco Duro SSD,5.0,395.87,2023-06-28,Cancelado,0.22,1543.89
+126,42.0,"Monitor 24""",1.0,301.42,2023-04-12,Pendiente,0.18,247.16
+127,49.0,Tablet,4.0,933.27,2023-10-16,Enviado,0.2,2986.46
+128,,Power Bank,3.0,310.41,2023-02-04,Enviado,0.13,810.17
+129,,Cámara Web,1.0,710.37,2023-02-07,Cancelado,0.14,610.92
+130,3.0,Ratón Inalámbrico,3.0,162.69,2023-02-16,Enviado,0.14,419.74
+131,36.0,Impresora Láser,5.0,1307.16,2023-06-14,Enviado,0.15,5555.43
+132,,Smartphone,3.0,1964.95,2023-02-13,Pendiente,0.01,5835.9
+133,,Impresora Láser,5.0,1050.27,2023-03-23,Cancelado,0.11,4673.7
+134,,Auriculares Bluetooth,3.0,1361.01,2023-01-27,Cancelado,0.02,4001.37
+135,,Teclado Mecánico,3.0,1450.23,2023-12-03,Pendiente,0.1,3915.62
+136,38.0,Ratón Inalámbrico,3.0,1935.72,2023-12-24,Enviado,0.04,5574.87
+137,46.0,Teclado Mecánico,5.0,759.59,2023-06-18,Pendiente,0.2,3038.36
+138,48.0,Altavoz Inteligente,4.0,1021.89,2023-01-10,Cancelado,0.09,3719.68
+139,,Router WiFi,4.0,392.09,2023-03-12,Pendiente,0.02,1536.99
+140,7.0,Altavoz Inteligente,3.0,1754.02,2023-11-13,Pendiente,0.18,4314.89
+141,10.0,Tablet,5.0,1620.0,2023-03-26,Enviado,0.01,8019.0
+142,24.0,Impresora Láser,5.0,577.01,2023-08-18,Pendiente,0.16,2423.44
+143,,Power Bank,2.0,742.0,2023-10-20,Enviado,0.14,1276.24
+144,,Disco Duro SSD,5.0,843.14,2023-03-24,Pendiente,0.24,3203.93
+145,,Laptop Gaming,4.0,1749.49,2023-10-11,Completado,0.21,5528.39
+146,34.0,Teclado Mecánico,1.0,1528.6,2023-05-20,Enviado,0.27,1115.88
+147,,Smartphone,2.0,1635.24,2023-06-28,Completado,0.12,2878.02
+148,,"Monitor 24""",4.0,1989.11,2023-07-11,Pendiente,0.01,7876.88
+149,,Router WiFi,,283.82,2023-05-27,Enviado,0.21,448.44
+150,,Impresora Láser,5.0,20.45,2023-02-10,Completado,0.08,94.07
+151,,Smartphone,3.0,482.9,2023-03-04,Completado,0.07,1347.29
+152,,Smartphone,1.0,1675.01,2023-09-13,Completado,0.19,1356.76
+153,37.0,Smartwatch,2.0,589.63,2023-01-01,Cancelado,0.07,1096.71
+154,27.0,Altavoz Inteligente,1.0,1051.73,2023-07-04,Completado,0.29,746.73
+155,35.0,Auriculares Bluetooth,4.0,96.63,2023-07-18,Cancelado,0.08,355.6
+156,,Router WiFi,1.0,696.16,2023-12-03,Completado,0.23,536.04
+157,,Tablet,1.0,711.08,2023-06-23,Pendiente,0.25,533.31
+158,,Smartwatch,,1267.15,2023-03-11,Completado,0.21,4004.19
+159,30.0,Teclado Mecánico,2.0,97.17,2023-04-13,Completado,0.09,176.85
+160,,Power Bank,5.0,952.07,2023-01-19,Pendiente,0.09,4331.92
+161,50.0,Power Bank,3.0,553.7,2023-07-08,Enviado,0.27,1212.6
+162,,Auriculares Bluetooth,3.0,1947.71,2023-09-12,Enviado,0.11,5200.39
+163,,Router WiFi,1.0,1456.89,2023-02-10,Enviado,0.18,1194.65
+164,,Ratón Inalámbrico,1.0,169.34,2023-12-05,Cancelado,0.09,154.1
+165,,Tablet,4.0,709.58,2023-01-22,Cancelado,0.18,2327.42
+166,,Altavoz Inteligente,1.0,159.33,2023-11-23,Enviado,0.11,141.8
+167,48.0,Laptop Gaming,2.0,1698.85,2023-12-14,Enviado,,3363.72
+168,5.0,Router WiFi,3.0,730.68,2023-10-18,Completado,0.18,1797.47
+169,,Ratón Inalámbrico,3.0,893.44,2023-02-09,Pendiente,0.16,2251.47
+170,,Altavoz Inteligente,3.0,506.73,2023-02-28,Completado,0.22,1185.75
+171,,Disco Duro SSD,1.0,530.94,2023-05-14,Enviado,0.06,499.08
+172,,Smartwatch,4.0,408.35,2023-03-11,Completado,0.14,1404.72
+173,,Smartphone,3.0,1339.0,2023-12-30,Completado,0.16,3374.28
+174,,Power Bank,2.0,1426.5,2023-12-25,Pendiente,0.24,2168.28
+175,33.0,Smartphone,,1586.21,2023-05-02,Enviado,0.01,3140.7
+176,,Impresora Láser,5.0,268.24,2023-02-14,Completado,0.09,1220.49
+177,,Disco Duro SSD,4.0,1540.64,2023-10-22,Completado,0.04,5916.06
+178,21.0,Impresora Láser,4.0,1363.42,2023-06-26,Pendiente,0.26,4035.72
+179,50.0,Router WiFi,2.0,870.91,2023-01-29,Completado,0.16,1463.13
+180,20.0,Tablet,3.0,1870.13,2023-04-26,Cancelado,0.28,4039.48
+181,,Power Bank,1.0,508.7,2023-11-22,Cancelado,,488.35
+182,20.0,Disco Duro SSD,2.0,1187.7,2023-10-25,Pendiente,0.05,2256.63
+183,,Power Bank,5.0,91.98,2023-01-15,Completado,0.01,455.3
+184,,Altavoz Inteligente,2.0,1536.25,2023-08-02,Completado,0.15,2611.62
+185,,Altavoz Inteligente,3.0,971.06,2023-12-17,Enviado,0.09,2650.99
+186,5.0,Tablet,4.0,837.09,2023-08-26,Pendiente,0.1,3013.52
+187,,Power Bank,3.0,1471.06,2023-06-26,Enviado,0.04,4236.65
+188,24.0,Ratón Inalámbrico,2.0,938.28,2023-05-17,Enviado,0.07,1745.2
+189,7.0,Teclado Mecánico,4.0,1729.69,2023-08-03,Pendiente,0.29,4912.32
+190,,Cámara Web,3.0,387.77,2023-03-23,Enviado,0.3,814.32
+191,,Teclado Mecánico,4.0,56.12,2023-07-21,Enviado,0.29,159.38
+192,,Laptop Gaming,1.0,569.9,2023-11-02,Enviado,0.09,518.61
+193,1.0,Auriculares Bluetooth,2.0,1766.09,2023-07-07,Enviado,0.11,3143.64
+194,26.0,Cámara Web,5.0,397.36,2023-10-11,Cancelado,0.02,1947.06
+195,,Router WiFi,5.0,566.64,2023-11-16,Completado,0.04,2719.87
+196,,Ratón Inalámbrico,3.0,1120.09,2023-07-07,Pendiente,,3158.65
+197,,Disco Duro SSD,1.0,100.15,2023-03-12,Cancelado,0.24,76.11
+198,,Tablet,5.0,1787.33,2023-03-13,Cancelado,0.28,6434.39
+199,21.0,Auriculares Bluetooth,5.0,1481.25,2023-06-03,Cancelado,0.15,6295.31
+200,,Smartwatch,5.0,606.58,2023-01-09,Cancelado,0.1,2729.61
