@@ -5,45 +5,53 @@ from pyspark.sql.types import (
     IntegerType,
     StringType,
     DoubleType,
+    BooleanType,
+    DateType,
 )
 from pyspark.sql.functions import col, when, count, sum as spark_sum, avg
 
 # ejercicio 1
 spark = SparkSession.builder.appName("Practica11Spark").getOrCreate()
 
+schema_clientes = StructType(
+    [
+        StructField("cliente_id", IntegerType(), True),
+        StructField("nombre", StringType(), True),
+        StructField("ciudad", StringType(), True),
+        StructField("pais", StringType(), True),
+        StructField("fecha_registro", DateType(), True),
+        StructField("vip", BooleanType(), True),
+        StructField("categoria_cliente", StringType(), True),
+    ]
+)
+
 schema_ventas = StructType(
     [
         StructField("venta_id", IntegerType(), True),
+        StructField("fecha", DateType(), True),
         StructField("cliente_id", IntegerType(), True),
         StructField("producto", StringType(), True),
         StructField("categoria", StringType(), True),
         StructField("cantidad", IntegerType(), True),
         StructField("precio", DoubleType(), True),
-        StructField("descuento", DoubleType(), True),
-        StructField("total", DoubleType(), True),
         StructField("region", StringType(), True),
+        StructField("descuento", DoubleType(), True),
+        StructField("vendedor_id", IntegerType(), True),
+        StructField("total", DoubleType(), True),
     ]
 )
 
-schema_clientes = StructType(
-    [
-        StructField("cliente_id", IntegerType(), True),
-        StructField("nombre_cliente", StringType(), True),
-        StructField("ciudad", StringType(), True),
-    ]
-)
-
-ventas = spark.read.csv("ventas.csv", header=True, schema=schema_ventas)
 clientes = spark.read.csv("clientes.csv", header=True, schema=schema_clientes)
+ventas = spark.read.csv("ventas.csv", header=True, schema=schema_ventas)
 
-ventas.printSchema()
 clientes.printSchema()
+ventas.printSchema()
 
-ventas.show(5)
 clientes.show(5)
+ventas.show(5)
 
-ventas.count()
 clientes.count()
+ventas.count()
 
 # ejercicio 2
 ventas_sel = ventas.select("venta_id", "producto", "cantidad", "precio", "total")
@@ -105,7 +113,7 @@ ventas_limpio = ventas.fillna(
 
 # ejercicio 6
 join_df = ventas_limpio.join(clientes, "cliente_id", "left").select(
-    "venta_id", "producto", "total", "nombre_cliente", "ciudad"
+    "venta_id", "producto", "total", "nombre", "ciudad"
 )
 
 join_df.show()
@@ -130,7 +138,7 @@ spark.sql(
 
 spark.sql(
     """
-    SELECT v.venta_id, v.producto, v.total, c.nombre_cliente, c.ciudad
+    SELECT v.venta_id, v.producto, v.total, c.nombre, c.ciudad
     FROM ventas v
     JOIN clientes c ON v.cliente_id = c.cliente_id
 """
