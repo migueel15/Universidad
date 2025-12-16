@@ -1,0 +1,9 @@
+cliente_id,nombre,ciudad,pais,fecha_registro,vip,categoria_cliente
+101,Ana García,Madrid,España,2023-06-01,True,C
+102,Carlos López,Barcelona,España,2023-07-01,False,C
+103,María Rodríguez,Valencia,España,2023-07-31,True,C
+104,Javier Pérez,Sevilla,España,2023-08-30,False,B
+105,Laura Martínez,Madrid,España,2023-09-29,False,A
+106,Pedro Sánchez,Barcelona,España,2023-10-29,True,B
+107,Sofía Fernández,Valencia,España,2023-11-28,False,C
+108,David González,Sevilla,España,2023-12-28,True,A
