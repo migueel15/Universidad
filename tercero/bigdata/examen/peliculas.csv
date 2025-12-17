@@ -1,0 +1,11 @@
+id,titulo,genero,anyo,duracion_min,precio
+1,El Padrino,Drama,1972,175.0,12.99
+2,Interestelar,Ciencia Ficción,2014,169.0,14.99
+3,Toy Story,Animación,1995,,9.99
+4,Matrix,Acción,1999,136.0,11.99
+5,Parasite,Drama,2019,132.0,13.5
+6,Avengers,Acción,2012,143.0,
+7,Titanic,Drama,1997,195.0,10.99
+8,Gladiator,Acción,2000,155.0,12.5
+9,Inception,Ciencia Ficción,2010,,14.5
+10,Avatar,Ciencia Ficción,2009,162.0,
