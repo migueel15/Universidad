@@ -1,5 +1,8 @@
 from kazoo.client import KazooClient
 import sys
+import os
+
+zk_hosts = os.getenv("ZOOKEEPER_HOSTS", "127.0.0.1:2181")
 
 if len(sys.argv) != 3:
     print("Uso: python init_config.py <sampling_period> <api_url>")
@@ -8,7 +11,7 @@ if len(sys.argv) != 3:
 sampling_period = sys.argv[1]
 api_url = sys.argv[2]
 
-client = KazooClient(hosts="127.0.0.1:2181")
+client = KazooClient(hosts=zk_hosts)
 client.start()
 
 # Crear/actualizar configuración

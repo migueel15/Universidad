@@ -4,6 +4,7 @@ import time
 import signal
 import threading
 import random
+from kazoo.protocol.states import KazooState
 from kazoo.recipe.counter import Counter
 import requests
 
@@ -13,7 +14,7 @@ from kazoo.recipe.barrier import Barrier
 from kazoo.recipe.watchers import ChildrenWatch, DataWatch
 
 DEFAULT_SAMPLING_PERIOD = 5
-DEFAULT_API_URL = "http://localhost:4000"
+DEFAULT_API_URL = "http://api:80"
 
 ELECTION_PATH = "/election"
 MEASUREMENTS_PATH = "/mediciones"
@@ -32,9 +33,11 @@ class MedicionesApp:
         self.api_url = DEFAULT_API_URL
         self.sampling_period = DEFAULT_SAMPLING_PERIOD
 
+        self.zk_ready = False
         self.running = True
 
         self.zk = KazooClient(hosts=self.zk_hosts)
+        self.zk.add_listener(self.zk_state_listener)
         self.election: Election | None = None
         self.barrier = None
         self.counter = None
@@ -42,6 +45,29 @@ class MedicionesApp:
     def shutdown_handler(self, sig, frame):
         print(f"[{self.device_id}] Señal recibida, terminando sincronizacion...")
         self.running = False
+
+    def zk_state_listener(self, state):
+        if state == KazooState.SUSPENDED:
+            print(f"[{self.device_id}] ZooKeeper SUSPENDIDO")
+            self.zk_ready = False
+
+        elif state == KazooState.CONNECTED:
+            print(f"[{self.device_id}] ZooKeeper CONECTADO")
+            self.zk_ready = True
+            self.on_reconnected()
+
+        elif state == KazooState.LOST:
+            print(f"[{self.device_id}] ZooKeeper SESIÓN PERDIDA")
+            self.zk_ready = False
+
+    def on_reconnected(self):
+        print(f"[{self.device_id}] Reconfigurando recetas")
+
+        self.barrier = Barrier(self.zk, BARRIER_PATH)
+        self.counter = Counter(self.zk, COUNTER_PATH)
+
+        self.election = Election(self.zk, ELECTION_PATH, self.device_id)
+        threading.Thread(target=self.run_election, daemon=True).start()
 
     def generate_random_number(
         self, min_val: float = 0.0, max_val: float = 100.0
@@ -72,11 +98,9 @@ class MedicionesApp:
 
     def send_mediciones(self, value: float):
         print(f"Mandando mediciones: {value}")
-        params = {"value": value}
+        params = {"dato": value}
         try:
-            response = requests.get(self.api_url, params=params, timeout=2)
-            if response.status_code == 200:
-                print("Dato mandado con éxito")
+            response = requests.get(f"{self.api_url}/nuevo", params=params, timeout=2)
         except Exception as e:
             print(f"Error enviando mediciones: {e}")
 
@@ -105,19 +129,25 @@ class MedicionesApp:
     def leader_loop(self):
         print(f"[{self.device_id}] SOY EL LÍDER")
         ChildrenWatch(self.zk, MEASUREMENTS_PATH, self.on_device_change)
+
         while self.running:
-            print(f"[{self.device_id}] Líder activo")
-            if self.barrier is not None:
+            if not self.zk_ready:
+                time.sleep(1)
+                continue
+
+            try:
                 self.barrier.create()
-            time.sleep(self.sampling_period)
+                time.sleep(self.sampling_period)
 
-            mean = self.calc_mean()
+                mean = self.calc_mean()
+                if mean is not None:
+                    self.send_mediciones(mean)
 
-            if mean is not None:
-                self.send_mediciones(mean)
-
-            if self.barrier is not None:
                 self.barrier.remove()
+
+            except Exception as e:
+                print(f"[{self.device_id}] Error líder, esperando reconexión: {e}")
+                time.sleep(1)
 
     def run_election(self):
         if self.election is None:
@@ -156,18 +186,20 @@ class MedicionesApp:
     def run(self):
         self.setup()
         while self.running:
-            if self.barrier is not None:
+            if not self.zk_ready:
+                time.sleep(1)
+                continue
+            try:
                 self.barrier.create()
-            new_value = self.generate_random_number()
-            print(f"Actualizando nuevo valor ID:{self.device_id} VALOR:{new_value}")
-            self.save_new_value(new_value)
-            if self.counter is not None:
+                value = self.generate_random_number()
+                self.save_new_value(value)
                 self.counter += 1
                 print(f"[{self.device_id}] Iteración global: {self.counter.value}")
-            if self.barrier is not None:
                 self.barrier.wait()
+            except Exception as e:
+                print(f"[{self.device_id}] Error ZooKeeper, reintentando: {e}")
+                time.sleep(1)
 
-        print(f"[{self.device_id}] Cerrando conexión ZooKeeper")
         self.zk.stop()
 
 

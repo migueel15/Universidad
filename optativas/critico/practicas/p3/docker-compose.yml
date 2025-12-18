@@ -1,0 +1,96 @@
+services:
+  api:
+    image: migueel15/backend-soft-critico:latest
+    ports:
+      - "4000:80"
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - zk-network
+
+  redis:
+    image: redis/redis-stack
+    ports:
+      - "6379:6379"
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      - zk-network
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_INSTALL_PLUGINS=redis-datasource
+    volumes:
+      - ./grafana_data:/var/lib/grafana
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      - zk-network
+
+  zookeeper1:
+    image: zookeeper:3.9
+    container_name: zookeeper1
+    restart: always
+    ports:
+      - "2181:2181"
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888
+      ZOO_CFG_EXTRA: "clientPort=2181"
+    volumes:
+      - ./zk_data/zookeeper1/data:/data
+      - ./zk_data/zookeeper1/datalog:/datalog
+    networks:
+      - zk-network
+    healthcheck:
+      test: ["CMD", "sh", "-c", "echo ruok | nc localhost 2181 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  practica3-1:
+    # image: practica3
+    image: migueel15/practica3-kazoo:latest
+    container_name: practica3-1
+    depends_on:
+      zookeeper1:
+        condition: service_healthy
+    command: ["1"]
+    environment:
+      ZOOKEEPER_HOSTS: zookeeper1:2181
+    networks:
+      - zk-network
+
+  practica3-2:
+    image: migueel15/practica3-kazoo:latest
+    container_name: practica3-2
+    depends_on:
+      zookeeper1:
+        condition: service_healthy
+    command: ["2"]
+    environment:
+      ZOOKEEPER_HOSTS: zookeeper1:2181
+    networks:
+      - zk-network
+
+  practica3-3:
+    image: migueel15/practica3-kazoo:latest
+    container_name: practica3-3
+    depends_on:
+      zookeeper1:
+        condition: service_healthy
+    command: ["3"]
+    environment:
+      ZOOKEEPER_HOSTS: zookeeper1:2181
+    networks:
+      - zk-network
+
+networks:
+  zk-network:
+    driver: bridge
