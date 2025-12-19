@@ -47,6 +47,8 @@ class MedicionesApp:
         self.running = False
 
     def zk_state_listener(self, state):
+        if self.running is False:
+            return
         if state == KazooState.SUSPENDED:
             print(f"[{self.device_id}] ZooKeeper SUSPENDIDO")
             self.zk_ready = False
