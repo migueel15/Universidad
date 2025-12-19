@@ -75,7 +75,7 @@ services:
       start_period: 10s
 
   practica3-1:
-    build: .
+    image: migueel15/practica3-kazoo:latest
     container_name: practica3-1
     depends_on:
       zookeeper1:
@@ -91,7 +91,7 @@ services:
       - zk-network
 
   practica3-2:
-    build: .
+    image: migueel15/practica3-kazoo:latest
     container_name: practica3-2
     depends_on:
       zookeeper1:
@@ -107,7 +107,7 @@ services:
       - zk-network
 
   practica3-3:
-    build: .
+    image: migueel15/practica3-kazoo:latest
     container_name: practica3-3
     depends_on:
       zookeeper1:
