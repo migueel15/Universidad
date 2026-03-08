@@ -1,0 +1,17 @@
+# Fdb version 4
+["pdflatex"] 1772948938.29463 "/home/miguel/Universidad/segundo/talf/p1/latex/main.tex" "main.pdf" "main" 1772948938.33528 0
+  "/home/miguel/Universidad/segundo/talf/p1/latex/main.tex" 1772948938.15144 68 02adb2e681f0f63faa7d028574658381 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1772820570 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texmf-dist/tex/latex/base/article.cls" 1772820570 20144 b966087dda3b194755eb460d32e2ef75 ""
+  "/usr/share/texmf-dist/tex/latex/base/size10.clo" 1772820570 8448 686612a86f0e04f41ea577f5ec7e83d8 ""
+  "/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1772820570 30662 bfd6e864f4ffc5018b0e2b6260c3181c ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1772820570 43569 fd570f2fa160877d211e859f687312ba ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1772943913 325717 59a65e600f662ceace641c3ea8b5d4af ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1772943904 3084553 960e5a67bef7fdea73ff9aeb2ff0729a ""
+  "main.aux" 1772948938.32882 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1772948938.15144 68 02adb2e681f0f63faa7d028574658381 ""
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  (rewritten before read)
