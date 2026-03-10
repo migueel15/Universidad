@@ -81,7 +81,11 @@ class DampedPendulum:
         radius = self.body.position - self.suspension_point
         tangent = self._tangent(radius)
         angle = math.atan2(radius.x, -radius.y)
-        angular_velocity = 0.0 if radius.length == 0 else self.body.velocity.dot(tangent) / radius.length
+        angular_velocity = (
+            0.0
+            if radius.length == 0
+            else self.body.velocity.dot(tangent) / radius.length
+        )
         return PendulumState(angle=angle, angular_velocity=angular_velocity)
 
     def _velocity_func(
@@ -139,14 +143,20 @@ def build_demo_space() -> tuple[pymunk.Space, DampedPendulum]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Demo visual de un pendulo amortiguado con pymunk.")
+    parser = argparse.ArgumentParser(
+        description="Demo visual de un pendulo amortiguado con pymunk."
+    )
     parser.add_argument(
         "--no-gui",
         action="store_true",
         help="Ejecuta solo la simulacion y muestra el estado final por consola.",
     )
-    parser.add_argument("--steps", type=int, default=600, help="Pasos a ejecutar en modo sin interfaz.")
-    parser.add_argument("--dt", type=float, default=1 / 120, help="Paso temporal de simulacion.")
+    parser.add_argument(
+        "--steps", type=int, default=600, help="Pasos a ejecutar en modo sin interfaz."
+    )
+    parser.add_argument(
+        "--dt", type=float, default=1 / 120, help="Paso temporal de simulacion."
+    )
     return parser.parse_args()
 
 
@@ -159,14 +169,20 @@ def run_demo(steps: int = 600, dt: float = 1 / 120) -> PendulumState:
 
 def run_visual_demo(dt: float = 1 / 120) -> None:
     space, pendulum = build_demo_space()
-    radius = next(shape.radius for shape in pendulum.body.shapes if isinstance(shape, pymunk.Circle))
+    radius = next(
+        shape.radius
+        for shape in pendulum.body.shapes
+        if isinstance(shape, pymunk.Circle)
+    )
 
     root = tk.Tk()
     root.title("Pendulo amortiguado con pymunk")
 
     width = 640
     height = 520
-    canvas = tk.Canvas(root, width=width, height=height, bg="#f4f1ea", highlightthickness=0)
+    canvas = tk.Canvas(
+        root, width=width, height=height, bg="#f4f1ea", highlightthickness=0
+    )
     canvas.pack()
 
     canvas.create_text(
@@ -188,7 +204,9 @@ def run_visual_demo(dt: float = 1 / 120) -> None:
 
     pivot = pendulum.suspension_point
     pivot_canvas = (pivot.x, height - pivot.y)
-    canvas.create_line(0, pivot_canvas[1], width, pivot_canvas[1], fill="#e5ddd0", width=2)
+    canvas.create_line(
+        0, pivot_canvas[1], width, pivot_canvas[1], fill="#e5ddd0", width=2
+    )
     canvas.create_oval(
         pivot_canvas[0] - 8,
         pivot_canvas[1] - 8,
