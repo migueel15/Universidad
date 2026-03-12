@@ -1,0 +1,82 @@
+\documentclass[fleqn, 10pt]{article}
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm, amsmath}
+\usepackage{nccmath} %Para centrar ecuaciones
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+% Personalizo mi alfabeto
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\Lb}{\pazocal{L}}
+
+% Definimos los entornos para definiciones, teoremas, etc...
+\theoremstyle{plain}
+\newtheorem{proposicion}{Proposición}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{example}{Ejemplo}[section]
+
+%Definimos el título
+\title{Teoría de Autómatas y Lenguajes Formales\\[.4\baselineskip]Práctica 1: Latex y expresiones regurales}
+\author{Nombre, Apellidos}
+\date{\today}
+
+%Comienzo del documento
+\begin{document}
+
+%Generamos el título
+\maketitle
+
+\section{Expresiones regulares}
+
+Las \textit{expresiones regulares} ($\mathcal{R}$) son un método de representación de
+lenguajes. Aunque su potencia expresiva es limitada, haciendo que sólo los
+lenguajes regulares puedan representarse con ellas, tienen la virtud de una gran
+sencillez en su formulación.
+
+
+\begin{definition}[\textbf{\textit{Aplicación $\Lb$}}]\label{def:aplicL}
+	La aplicación $\Lb$ establece una relación formal entre las expresiones regulares y los lenguajes que éstos representan, definiéndose como sigue:
+  \begin{ceqn}	%Para definir ecuación centrada en el texto
+    \begin{align*} %Ecuación multilínea con alineamiento personalizado (split y align)
+    \Lb: \mathcal{R} \rightarrow 2^{\Sigma^*}\\ 
+    r \rightarrow \Lb(r)
+    \end{align*} 
+  \end{ceqn} 
+  
+\begin{enumerate}[label=\alph{enumi})]
+  \item $\Lb(\emptyset)=\emptyset$ 
+  \item $\Lb(a)=\{a\} \, \forall a\in\Sigma$ 
+  \item Si $\alpha,\beta \in \mathcal{R}$ entonces $\Lb((\alpha\beta))=\Lb(\alpha)\Lb(\beta)$
+  \item Si $\alpha,\beta \in \mathcal{R}$ entonces $\Lb((\alpha+\beta))=\Lb(\alpha)\cup \Lb(\beta)$
+  \item Si $\alpha \in \mathcal{R}$ entonces $\Lb(\alpha^*)=\Lb(\alpha)^*$
+\end{enumerate}
+
+\end{definition}
+
+\subsection{Propiedades de las expresiones regulares}
+\begin{proposicion}
+Si $\alpha,\beta,\gamma$ son expresiones regulares entonces se cumple:
+  \begin{equation}
+  (\alpha+\beta)\gamma=\alpha\gamma+\beta\gamma
+  \end{equation}
+\end{proposicion}
+\begin{proof}
+Usando las reglas de la definición \ref{def:aplicL} tenemos que:
+\begin{multline*}
+\Lb(((\alpha+\beta)\gamma))=\Lb((\alpha+\beta))\Lb(\gamma)=(\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma)=\Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma)=
+\end{multline*}
+\end{proof}
+
+\begin{example}
+Consideremos $L=\{w\in \{a,b\}^* : w \textnormal{ no termina en } ab\}$. Un expresión regular que genera L es: \\
+ESCRIBIR SOLUCIÓN COMO ECUACIÓN CENTRADA NO NUMERADA
+
+\end{example}
+
+
+\end{document}
