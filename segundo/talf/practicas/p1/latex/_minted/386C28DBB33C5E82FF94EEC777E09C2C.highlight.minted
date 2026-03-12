@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{python.grammar}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{produce}
+
+\PYG{n}{produce}\PYG{p}{(}
+    \PYG{l+s+s2}{\PYGZdq{}ejercicio3\PYGZdq{}}\PYG{p}{,}
+    \PYG{n}{num\PYGZus{}strings}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{,}
+    \PYG{n}{max\PYGZus{}derivation}\PYG{o}{=}\PYG{l+m+mi}{20}\PYG{p}{,}
+    \PYG{n}{database\PYGZus{}path}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}libs/python/grammar/grammars\PYGZdq{}}\PYG{p}{,}
+\PYG{p}{)}
+
+\end{MintedVerbatim}

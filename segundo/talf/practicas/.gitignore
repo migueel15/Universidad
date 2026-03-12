@@ -1,0 +1,4 @@
+libs
+__pycache__
+pyrightconfig.json
+.venv
