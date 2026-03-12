@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.12)  12 MAR 2026 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.12)  13 MAR 2026 00:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -257,6 +257,13 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen178
 \Gm@layoutvoffset=\dimen179
 \Gm@dimlist=\toks35
+) (/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -284,20 +291,20 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count331
@@ -317,8 +324,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -354,13 +361,21 @@ LaTeX Info: Redefining \% on input line 16.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 \pydata@fh@0=\write4
 \openout4 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20260312172715 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20260313001522 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
-(./_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20260312172715 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+ (./_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20260313001522 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./_minted/default.style.minted) (./_minted/04A010AE62509C2C8352D7AF0BC213D9.highlight.minted
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
@@ -369,44 +384,47 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 <assets/ej1.png, id=1, 694.595pt x 44.165pt>
 File: assets/ej1.png Graphic file (type png)
 <use assets/ej1.png>
-Package pdftex.def Info: assets/ej1.png  used on input line 57.
+Package pdftex.def Info: assets/ej1.png  used on input line 61.
 (pdftex.def)             Requested size: 341.43437pt x 21.71043pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 61.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 65.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 61.
-<assets/ej2.png, id=3, 1063.975pt x 44.165pt>
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 65.
+<assets/ej2.png, id=3, 1100.11pt x 50.1875pt>
 File: assets/ej2.png Graphic file (type png)
 <use assets/ej2.png>
-Package pdftex.def Info: assets/ej2.png  used on input line 70.
-(pdftex.def)             Requested size: 341.43437pt x 14.17216pt.
- [1
+Package pdftex.def Info: assets/ej2.png  used on input line 72.
+(pdftex.def)             Requested size: 341.43437pt x 15.57632pt.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 85.
+ (/usr/share/texmf-dist/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./assets/ej1.png> <./assets/ej2.png>] (./_minted/38BCC8380963E6B99095A42826F30BE8.highlight.minted) (./_minted/386C28DBB33C5E82FF94EEC777E09C2C.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
+Underfull \hbox (badness 10000) in paragraph at lines 132--136
 
  []
 
 
-Overfull \hbox (3.48926pt too wide) in paragraph at lines 133--133
+Overfull \hbox (3.48926pt too wide) in paragraph at lines 153--153
 []\OT1/cmr/bx/n/12 Dise~na una ex-pre-si^^Son re-gu-lar (en re-gexr.com o usan-do grep/Python)
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 142.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 142.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 158.
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 162.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 162.
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 142.
+(Font)              for symbol `textbackslash' on input line 162.
 
-<assets/ej4.png, id=22, 1430.34375pt x 295.1025pt>
+<assets/ej4.png, id=23, 1430.34375pt x 295.1025pt>
 File: assets/ej4.png Graphic file (type png)
 <use assets/ej4.png>
-Package pdftex.def Info: assets/ej4.png  used on input line 147.
+Package pdftex.def Info: assets/ej4.png  used on input line 167.
 (pdftex.def)             Requested size: 426.79135pt x 88.05411pt.
 [2 <./assets/ej4.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 8.
@@ -422,18 +440,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10168 strings out of 469453
- 217411 string characters out of 5469037
- 757156 words of memory out of 5000000
- 38712 multiletter control sequences out of 15000+600000
- 633219 words of font info for 60 fonts, out of 8000000 for 9000
+ 10311 strings out of 469453
+ 219590 string characters out of 5469037
+ 756690 words of memory out of 5000000
+ 38831 multiletter control sequences out of 15000+600000
+ 637787 words of font info for 78 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 86i,7n,93p,528b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (2 pages, 179828 bytes).
+ 86i,9n,93p,528b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (2 pages, 188712 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

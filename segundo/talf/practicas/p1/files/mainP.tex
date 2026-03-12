@@ -67,14 +67,23 @@ Si $\alpha,\beta,\gamma$ son expresiones regulares entonces se cumple:
 \end{proposicion}
 \begin{proof}
 Usando las reglas de la definición \ref{def:aplicL} tenemos que:
-\begin{multline*}
-\Lb(((\alpha+\beta)\gamma))=\Lb((\alpha+\beta))\Lb(\gamma)=(\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma)=\Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma)=
-\end{multline*}
+\begin{align*}
+\Lb(((\alpha+\beta)\gamma))
+  &= \Lb((\alpha+\beta))\Lb(\gamma) \\
+  &= (\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma) \\
+  &= \Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma) \\
+  &= \Lb((\alpha\gamma))\cup \Lb((\beta\gamma)) \\
+  &= \Lb((\alpha\gamma+\beta\gamma)).
+\end{align*}
 \end{proof}
 
 \begin{example}
 Consideremos $L=\{w\in \{a,b\}^* : w \textnormal{ no termina en } ab\}$. Un expresión regular que genera L es: \\
-ESCRIBIR SOLUCIÓN COMO ECUACIÓN CENTRADA NO NUMERADA
+\begin{ceqn}
+  \[
+  \varepsilon + a + b + (a+b)^*(aa+ba+bb)
+  \]
+\end{ceqn}
 
 \end{example}
 

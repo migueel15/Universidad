@@ -6,6 +6,10 @@
 \usepackage{minted}
 \usepackage{amsmath}
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm, marginparwidth=1.75cm]{geometry}
+\usepackage{amsfonts}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\Lb}{\pazocal{L}}
+
 
 \usemintedstyle{default}
 
@@ -61,9 +65,7 @@ R_cubed = power_relation(R, 3)
 incluya la cadena \textbackslash usepackage\{amsthm, amsmath\}}
 
 Se usa el comando \texttt{grep} para buscar el fichero que contiene la cadena indicada
-en todos los archivos indicando la expresión regular \texttt{.*\.tex}.
-En este caso se usa la flag \texttt{-F} para indicar que se busca la cadena literal
-y no una expresión regular.
+en todos los archivos indicando la expresión regular \texttt{files/*.tex}.
 
 \begin{center}
   \centering
@@ -71,6 +73,24 @@ y no una expresión regular.
 \end{center}
 
 El archivo que contiene la cadena es \texttt{files/mainP.tex}.
+
+Demostración Proposición 1:
+\begin{align*}
+\Lb(((\alpha+\beta)\gamma))
+  &= \Lb((\alpha+\beta))\Lb(\gamma) \\
+  &= (\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma) \\
+  &= \Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma) \\
+  &= \Lb((\alpha\gamma))\cup \Lb((\beta\gamma)) \\
+  &= \Lb((\alpha\gamma+\beta\gamma)).
+\end{align*}
+
+
+Cadena que genera L:
+\begin{center}
+  \[
+  \varepsilon + a + b + (a, b)^*(aa+ba+bb)
+  \]
+\end{center}
 
 \newpage
 \subsection{Modifica el fichero grammars.json del módulo grammar añadiendo una
