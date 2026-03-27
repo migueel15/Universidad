@@ -1,0 +1,131 @@
+\documentclass[10pt]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{minted}
+\usepackage{amsmath}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm, marginparwidth=1.75cm]{geometry}
+\usepackage{amsfonts}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\Lb}{\pazocal{L}}
+
+
+\usemintedstyle{default}
+
+\title{Práctica 2: Autómatas Finitos}
+\author{Miguel Ángel Dorado Maldonado}
+
+\begin{document}
+\maketitle
+Considera el lenguaje sobre el alfabeto \{a,b\} que solamente contiene la cadena a: L = \{a\}.
+\section{Autómata finito en JFLAP.}
+
+\subsection{Construye un AFD que reconozca el lenguaje y rechace todas las cadenas que no pertenezcan al lenguaje.}
+\begin{center}
+    \centering
+    \includegraphics[width=0.5\linewidth]{1.1afd.png}
+\end{center}
+\subsection{Verifica el autómata construido con 6 cadenas de ejemplo.}
+Probaremos con las siguientes cadenas:
+a, ab, b, aa, ba, abababa.
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.5\linewidth]{1.2test.png}
+\end{center}
+
+\section{Autómata finito en Python}
+\subsection{Abre el módulo automata y crea en Python un autómata equivalente al construido en la actividad anterior mediante finite\_automaton.}
+Creamos el autómata en el archivo json siguiendo la estructura definida. En este caso el autómata creado lo nombraré "solo cadena a afd".
+\newpage
+
+\begin{minted}[frame=single,
+               framesep=3mm,
+               xleftmargin=21pt,
+               tabsize=4]{js}
+    	{
+		"name": "solo cadena a afd",
+		"representation": {
+			"K": ["q0", "q1", "q2"],
+			"A": ["a", "b"],
+			"s": "q0",
+			"F": ["q1"],
+			"t": [["q0", "a", "q1"],
+				  ["q0", "b", "q2"],
+				  ["q1", "a", "q2"],
+				  ["q1", "b", "q2"],
+				  ["q2", "a", "q2"],
+				  ["q2", "b", "q2"]]
+		}
+	}
+\end{minted}
+
+
+\begin{minted}
+from python.automata import finite_automaton
+from python.util import load_representation
+
+# ej1
+automaton = load_representation(
+    "libs/python/automata/finiteautomata", "solo cadena a afd"
+)
+finite_automaton(automaton, "a")
+finite_automaton(automaton, "ab")
+finite_automaton(automaton, "b")
+\end{minted}
+Salida:
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.9\linewidth]{salidaafd.png}
+\end{center}
+\section{Repite los pasos anteriores pero con un AFND y compara su comportamiento con el AFD}
+\subsection{Apartado 1.}
+\begin{center}
+    \centering
+    \includegraphics[width=0.5\linewidth]{3afnd.png}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+\end{center}
+\subsection{Apartado 2.}
+
+\begin{minted}[frame=single,
+               framesep=3mm,
+               xleftmargin=21pt,
+               tabsize=4]{js}
+{
+		"name": "solo cadena a afnd",
+		"representation": {
+			"K": ["q0", "q1" ],
+			"A": ["a", "b"],
+			"s": "q0",
+			"F": ["q1"],
+			"t": [["q0", "a", "q1"]]
+		}
+	}
+\end{minted}
+
+
+\begin{minted}
+from python.automata import finite_automaton
+from python.util import load_representation
+
+# ej1
+automaton = load_representation(
+    "libs/python/automata/finiteautomata", "solo cadena a afd"
+)
+finite_automaton(automaton, "a")
+finite_automaton(automaton, "ab")
+finite_automaton(automaton, "b")
+\end{minted}
+Salida:
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\linewidth]{afndexample.png}
+\end{center}
+\end{document}
+
