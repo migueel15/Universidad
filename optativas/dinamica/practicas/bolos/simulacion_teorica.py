@@ -25,7 +25,7 @@ GROUND_Y = 550
 
 def create_space() -> pymunk.Space:
     space = pymunk.Space()
-    space.gravity = (0, 900)
+    space.gravity = (0, 980)
     return space
 
 
@@ -81,7 +81,6 @@ def render_stats(
     screen: pygame.Surface, font: pygame.font.Font, ball_body: pymunk.Body | None
 ) -> None:
     if ball_body is not None:
-
         INITIAL_X = 20
         INITIAL_Y = 80
 
@@ -89,6 +88,7 @@ def render_stats(
         vel_x, vel_y = ball_body.velocity
         speed = math.sqrt(vel_x**2 + vel_y**2)
         ang_vel = ball_body.angular_velocity
+        tangential_speed = ang_vel * BALL_RADIUS_PX
 
         speed_mts = speed / PIXELS_PER_METER
 
@@ -101,14 +101,14 @@ def render_stats(
 
         current_state = (
             "RODADURA PURA"
-            if abs(ang_vel * BALL_RADIUS_PX - speed) < 1e-1
+            if abs(tangential_speed - vel_x) < 1e-1
             else (
                 "DESLIZAMIENTO PURO"
                 if abs(ang_vel) < 1e-1 and vel_x != 0
                 else (
                     "RODADURA CON DESLIZAMIENTO"
-                    if abs(vel_x) - abs(ang_vel * BALL_RADIUS_PX) > 1e-1
-                    else "PATINA"
+                    if abs(vel_x) > abs(tangential_speed)
+                    else "SOBRERROTA"
                 )
             )
         )
@@ -138,7 +138,7 @@ def main() -> None:
     simulation_running = False
 
     track_time = False
-    initial_time = 0.0
+    elapsed_time = 0.0
 
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -160,14 +160,14 @@ def main() -> None:
         dt = clock.tick(FPS) / 1000.0
 
         if track_time and ball_body is not None:
-            initial_time += dt
+            elapsed_time += dt
 
             if track_time and (
                 abs(ball_body.angular_velocity * BALL_RADIUS_PX - ball_body.velocity[0])
                 < 1
             ):
                 track_time = False
-                print(f"Tiempo hasta rodadura pura: {initial_time:.2f} segundos")
+                print(f"Tiempo hasta rodadura pura: {elapsed_time:.2f} segundos")
             else:
                 print(
                     abs(
@@ -197,7 +197,7 @@ def main() -> None:
 
                     simulation_running = False
                     track_time = False
-                    initial_time = 0.0
+                    elapsed_time = 0.0
 
         if simulation_running:
             space.step(dt)
