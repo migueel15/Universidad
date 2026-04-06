@@ -10,10 +10,13 @@ PIXELS_PER_METER = 100.0
 
 LANE_LENGTH_M = 18.288
 BALL_RADIUS_M = 0.108
+LANE_START_X = 80
+LANE_END_X = int(LANE_START_X + LANE_LENGTH_M * PIXELS_PER_METER)
 
-WIDTH = LANE_LENGTH_M * PIXELS_PER_METER + 160
+WIDTH = 1000
 HEIGHT = 700
 FPS = 60
+CAMERA_ZOOM = 1.5
 
 # BALL_RADIUS_PX = 30
 BALL_RADIUS_PX = int(BALL_RADIUS_M * PIXELS_PER_METER)
@@ -31,9 +34,7 @@ def create_space() -> pymunk.Space:
 
 def create_ground(space: pymunk.Space) -> pymunk.Segment:
     body = space.static_body
-    shape = pymunk.Segment(
-        body, (80, GROUND_Y), ((80 + LANE_LENGTH_M * PIXELS_PER_METER), GROUND_Y), 3
-    )
+    shape = pymunk.Segment(body, (LANE_START_X, GROUND_Y), (LANE_END_X, GROUND_Y), 3)
     shape.friction = 0.2
     shape.elasticity = 0.0
     space.add(shape)
@@ -92,13 +93,6 @@ def render_stats(
 
         speed_mts = speed / PIXELS_PER_METER
 
-        # current_state = (
-        #     "DESLIZAMIENTO PURO"
-        #     if abs(ang_vel) < 1e-3 and vel_x != 0
-        #     else "PATINA" if abs(ang_vel) < 1e-3 and vel_x == 0
-        #     else "RODAMIENTO"
-        # )
-
         current_state = (
             "RODADURA PURA"
             if abs(tangential_speed - vel_x) < 1e-1
@@ -132,6 +126,19 @@ def render_stats(
         )
 
 
+def update_camera(ball_body: pymunk.Body | None) -> tuple[float, float]:
+    camera_y = GROUND_Y - GROUND_Y / CAMERA_ZOOM
+
+    if ball_body is None:
+        return 0.0, camera_y
+
+    visible_width = WIDTH / CAMERA_ZOOM
+    target_camera_x = ball_body.position.x - visible_width * 0.35
+    max_camera_x = max(0, LANE_END_X - visible_width)
+    camera_x = max(0.0, min(target_camera_x, max_camera_x))
+    return camera_x, camera_y
+
+
 def main() -> None:
     ball_body = None
     ball_shape = None
@@ -139,6 +146,7 @@ def main() -> None:
 
     track_time = False
     elapsed_time = 0.0
+    camera_x = 0.0
 
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -198,11 +206,27 @@ def main() -> None:
                     simulation_running = False
                     track_time = False
                     elapsed_time = 0.0
+                    camera_x = 0.0
 
         if simulation_running:
             space.step(dt)
 
+            if (
+                ball_body is not None
+                and ball_body.position.x >= LANE_END_X - BALL_RADIUS_PX
+            ):
+                ball_body.position = (LANE_END_X - BALL_RADIUS_PX, ball_body.position.y)
+                ball_body.velocity = (0, 0)
+                ball_body.angular_velocity = 0
+                simulation_running = False
+                track_time = False
+
+        camera_x, camera_y = update_camera(ball_body)
+
         screen.fill((245, 245, 245))
+        draw_options.transform = pymunk.Transform.scaling(
+            CAMERA_ZOOM
+        ) @ pymunk.Transform.translation(-camera_x, -camera_y)
         space.debug_draw(draw_options)
 
         render_buttons(screen, font, launch_button, reset_button)
