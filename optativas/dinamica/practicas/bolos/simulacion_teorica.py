@@ -30,7 +30,7 @@ GROUND_Y = 550
 
 def create_space() -> pymunk.Space:
     space = pymunk.Space()
-    space.gravity = (0, 980)
+    space.gravity = (0, 981)
     return space
 
 
@@ -44,7 +44,7 @@ def create_ground(space: pymunk.Space) -> pymunk.Segment:
 
 
 def create_ball(space: pymunk.Space) -> tuple[pymunk.Body, pymunk.Circle]:
-    moment = pymunk.moment_for_circle(BALL_MASS, 0, BALL_RADIUS_PX)
+    moment = (2 / 5) * BALL_MASS * (BALL_RADIUS_PX**2)
     body = pymunk.Body(BALL_MASS, moment)
     body.position = (200, GROUND_Y - BALL_RADIUS_PX - 1)
     body.velocity = (BALL_INITIAL_VELOCITY_MPS * PIXELS_PER_METER, 0)
