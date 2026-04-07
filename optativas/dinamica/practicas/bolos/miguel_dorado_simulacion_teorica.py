@@ -243,14 +243,6 @@ def main() -> None:
                 track_time = False
                 time_to_rodadura = elapsed_time
                 velocity_at_rodadura = ball_body.velocity[0] / PIXELS_PER_METER
-                print(f"Tiempo hasta rodadura pura: {time_to_rodadura:.2f} segundos")
-            else:
-                print(
-                    abs(
-                        ball_body.angular_velocity * BALL_RADIUS_PX
-                        - ball_body.velocity[0]
-                    )
-                )
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
