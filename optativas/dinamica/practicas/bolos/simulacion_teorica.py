@@ -22,6 +22,8 @@ CAMERA_ZOOM = 1.5
 BALL_RADIUS_PX = int(BALL_RADIUS_M * PIXELS_PER_METER)
 BALL_MASS = 7.0
 BALL_INITIAL_VELOCITY_MPS = 7.0
+BALL_FRICTION = 0.8
+GROUND_FRICTION = 0.2
 
 GROUND_Y = 550
 
@@ -35,7 +37,7 @@ def create_space() -> pymunk.Space:
 def create_ground(space: pymunk.Space) -> pymunk.Segment:
     body = space.static_body
     shape = pymunk.Segment(body, (LANE_START_X, GROUND_Y), (LANE_END_X, GROUND_Y), 3)
-    shape.friction = 0.2
+    shape.friction = GROUND_FRICTION
     shape.elasticity = 0.0
     space.add(shape)
     return shape
@@ -48,7 +50,7 @@ def create_ball(space: pymunk.Space) -> tuple[pymunk.Body, pymunk.Circle]:
     body.velocity = (BALL_INITIAL_VELOCITY_MPS * PIXELS_PER_METER, 0)
 
     shape = pymunk.Circle(body, BALL_RADIUS_PX)
-    shape.friction = 0.8
+    shape.friction = BALL_FRICTION
     shape.elasticity = 0.0
 
     space.add(body, shape)
@@ -126,6 +128,68 @@ def render_stats(
         )
 
 
+def render_calculated_stats(
+    screen: pygame.Surface,
+    font: pygame.font.Font,
+    time_to_rodadura: float | None,
+    velocity_at_rodadura: float | None,
+) -> None:
+
+    if time_to_rodadura is not None and velocity_at_rodadura is not None:
+        INITIAL_X = 200
+        INITIAL_Y = HEIGHT - 130
+
+        teorical_time = (2 * BALL_INITIAL_VELOCITY_MPS) / (
+            7 * BALL_FRICTION * GROUND_FRICTION * 9.81
+        )
+        teorical_velocity = (
+            BALL_INITIAL_VELOCITY_MPS
+            - BALL_FRICTION * GROUND_FRICTION * 9.81 * teorical_time
+        )
+
+        render_text(
+            screen,
+            font,
+            f"Real",
+            (INITIAL_X, INITIAL_Y),
+        )
+
+        render_text(
+            screen,
+            font,
+            f"Tiempo: {time_to_rodadura:.2f} s",
+            (INITIAL_X, INITIAL_Y + 30),
+        )
+
+        render_text(
+            screen,
+            font,
+            f"Velocidad: {velocity_at_rodadura:.2f} m/s",
+            (INITIAL_X, INITIAL_Y + 60),
+        )
+
+        render_text(
+            screen,
+            font,
+            f"Teórico",
+            (INITIAL_X + 400, INITIAL_Y),
+        )
+
+        render_text(
+            screen,
+            font,
+            f"Tiempo: {teorical_time:.2f} s",
+            (INITIAL_X + 400, INITIAL_Y + 30),
+        )
+
+        render_text(
+            screen,
+            font,
+            f"Velocidad: {teorical_velocity:.2f} m/s",
+            (INITIAL_X + 400, INITIAL_Y + 60),
+        )
+
+
 def update_camera(ball_body: pymunk.Body | None) -> tuple[float, float]:
     camera_y = GROUND_Y - GROUND_Y / CAMERA_ZOOM
 
@@ -146,6 +210,8 @@ def main() -> None:
 
     track_time = False
     elapsed_time = 0.0
+    time_to_rodadura = None
+    velocity_at_rodadura = None
     camera_x = 0.0
 
     pygame.init()
@@ -167,7 +233,7 @@ def main() -> None:
     while running:
         dt = clock.tick(FPS) / 1000.0
 
-        if track_time and ball_body is not None:
+        if simulation_running and ball_body is not None:
             elapsed_time += dt
 
             if track_time and (
@@ -175,7 +241,9 @@ def main() -> None:
                 < 1
             ):
                 track_time = False
-                print(f"Tiempo hasta rodadura pura: {elapsed_time:.2f} segundos")
+                time_to_rodadura = elapsed_time
+                velocity_at_rodadura = ball_body.velocity[0] / PIXELS_PER_METER
+                print(f"Tiempo hasta rodadura pura: {time_to_rodadura:.2f} segundos")
             else:
                 print(
                     abs(
@@ -206,6 +274,7 @@ def main() -> None:
                     simulation_running = False
                     track_time = False
                     elapsed_time = 0.0
+                    time_to_rodadura = None
                     camera_x = 0.0
 
         if simulation_running:
@@ -231,6 +300,8 @@ def main() -> None:
 
         render_buttons(screen, font, launch_button, reset_button)
         render_stats(screen, font, ball_body)
+        render_text(screen, font, f"Tiempo: {elapsed_time:.2f} s", (20, HEIGHT - 40))
+        render_calculated_stats(screen, font, time_to_rodadura, velocity_at_rodadura)
 
         pygame.display.flip()
 
