@@ -20,6 +20,7 @@ public class MoviesController {
 
         List< Movies> pelis = this.moviesRepository.findAll();
         model.addAttribute("pelis", pelis);
+        model.addAttribute("nombre", "miguel");
         return "movies";
     }
 }

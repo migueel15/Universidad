@@ -26,7 +26,7 @@
 %>
     <tr>
 
-        <td><%= peli.getTitle() %> </td>
+		<td>${nombre}</td>
         <td><%= peli.getBudget() %> </td>
         <td><%= peli.getVoteAverage() %> </td>
         <td><%= peli.getRuntime() %> </td>
