@@ -1,5 +1,7 @@
 package es.taw.movies;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

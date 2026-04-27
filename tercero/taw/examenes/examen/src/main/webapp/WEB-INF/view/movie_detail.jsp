@@ -13,7 +13,7 @@
 
 <body>
 <h1><%=movie.getTitle()%></h1>
-<form method="post" action="movies/addEdit">
+<form method="post" action="/movies/edit">
     <div class="d-flex flex-column">
         <input hidden name="id" value="<%=movie.getId()%>">
 
@@ -24,13 +24,13 @@
 
     <label>
         Duracion:
-        <input name="duracion" value="<%=movie.getRuntime()%>" type="number">
+        <input name="duracion" value="<%=movie.getRuntime()%>" type="number"
+               step="0.01">
     </label>
 
     <label>
         Recaudacion:
-        <input name="recaudacion" value="<%=movie.getRevenue()%>" type="number"
-               step="0">
+        <input name="recaudacion" value="<%=movie.getRevenue()%>" type="number">
     </label>
 
         <div>
@@ -41,7 +41,7 @@
             <label>
                 <%=genre.getName()%>
                 <input type="checkbox" <%=movie.getGenresList().contains(genre) ? "checked" : ""%>
-                       value="<%=genre.getId()%>">
+                       name="generos" value="<%=genre.getId()%>">
             </label>
             <%
                 }
