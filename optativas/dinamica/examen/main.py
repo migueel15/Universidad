@@ -1,6 +1,8 @@
 import pygame
 import pymunk
 
+from libs.physics_utils_dinamica import get_Cd
+
 WIDTH, HEIGHT = 1000, 600
 GREEN_TABLE = (34, 139, 34)
 WHITE = (255, 255, 255)

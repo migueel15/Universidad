@@ -1,2 +1,0 @@
-def hola():
-    print("holaaaa")

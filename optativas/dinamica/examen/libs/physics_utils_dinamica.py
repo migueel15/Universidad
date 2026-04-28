@@ -16,11 +16,14 @@ Convenciones:
 - Ángulos en radianes salvo que la función indique explícitamente grados.
 """
 
-from __future__ import annotations
 
 from dataclasses import dataclass
 from math import acos, asin, atan2, cos, exp, log, pi, radians, sin, sqrt, tan
+import math
 from typing import Callable, Iterable, Literal, Sequence
+
+import numpy as np
+from pymunk.vec2d import Vec2d
 
 Vector2 = tuple[float, float]
 Vector3 = tuple[float, float, float]
@@ -43,12 +46,24 @@ SPEED_OF_SOUND_15C = 340.29  # m/s aproximado
 
 
 def clamp(value: float, min_value: float, max_value: float) -> float:
-    """Limita value al intervalo [min_value, max_value]."""
+    """
+    Limita value al intervalo [min_value, max_value].
+
+    Parámetros:
+        value: valor numérico que se quiere limitar.
+        min_value: límite inferior permitido.
+        max_value: límite superior permitido.
+    """
     return max(min_value, min(max_value, value))
 
 
 def sign(value: float) -> int:
-    """Devuelve -1, 0 o 1 según el signo de value."""
+    """
+    Devuelve -1, 0 o 1 según el signo de value.
+
+    Parámetros:
+        value: valor numérico del que se obtiene el signo.
+    """
     if value > 0:
         return 1
     if value < 0:
@@ -57,17 +72,33 @@ def sign(value: float) -> int:
 
 
 def deg_to_rad(degrees: float) -> float:
-    """Convierte grados a radianes."""
+    """
+    Convierte grados a radianes.
+
+    Parámetros:
+        degrees: ángulo expresado en grados.
+    """
     return radians(degrees)
 
 
 def rad_to_deg(rad: float) -> float:
-    """Convierte radianes a grados."""
+    """
+    Convierte radianes a grados.
+
+    Parámetros:
+        rad: ángulo expresado en radianes.
+    """
     return rad * 180.0 / pi
 
 
 def almost_zero(value: float, eps: float = 1e-12) -> bool:
-    """Comprueba si un número es prácticamente cero."""
+    """
+    Comprueba si un número es prácticamente cero.
+
+    Parámetros:
+        value: valor numérico que se compara con cero.
+        eps: tolerancia máxima para considerar el valor como cero.
+    """
     return abs(value) < eps
 
 
@@ -77,35 +108,75 @@ def almost_zero(value: float, eps: float = 1e-12) -> bool:
 
 
 def vec2_add(a: Vector2, b: Vector2) -> Vector2:
+    """
+    Parámetros:
+        a: primer vector 2D.
+        b: segundo vector 2D que se suma a a.
+    """
     return (a[0] + b[0], a[1] + b[1])
 
 
 def vec2_sub(a: Vector2, b: Vector2) -> Vector2:
+    """
+    Parámetros:
+        a: vector 2D del que se resta b.
+        b: vector 2D que se resta a a.
+    """
     return (a[0] - b[0], a[1] - b[1])
 
 
 def vec2_scale(v: Vector2, k: float) -> Vector2:
+    """
+    Parámetros:
+        v: vector 2D que se escala.
+        k: factor escalar que multiplica cada componente de v.
+    """
     return (k * v[0], k * v[1])
 
 
 def vec2_dot(a: Vector2, b: Vector2) -> float:
+    """
+    Parámetros:
+        a: primer vector 2D del producto escalar.
+        b: segundo vector 2D del producto escalar.
+    """
     return a[0] * b[0] + a[1] * b[1]
 
 
 def vec2_cross_z(a: Vector2, b: Vector2) -> float:
-    """Producto vectorial 2D: devuelve la componente z de a x b."""
+    """
+    Producto vectorial 2D: devuelve la componente z de a x b.
+
+    Parámetros:
+        a: primer vector 2D del producto vectorial.
+        b: segundo vector 2D del producto vectorial.
+    """
     return a[0] * b[1] - a[1] * b[0]
 
 
 def vec2_norm(v: Vector2) -> float:
+    """
+    Parámetros:
+        v: vector 2D del que se calcula el módulo.
+    """
     return sqrt(vec2_dot(v, v))
 
 
 def vec2_distance(a: Vector2, b: Vector2) -> float:
+    """
+    Parámetros:
+        a: primer punto o vector 2D.
+        b: segundo punto o vector 2D.
+    """
     return vec2_norm(vec2_sub(a, b))
 
 
 def vec2_unit(v: Vector2, eps: float = 1e-12) -> Vector2:
+    """
+    Parámetros:
+        v: vector 2D que se normaliza.
+        eps: tolerancia para detectar vectores casi nulos.
+    """
     n = vec2_norm(v)
     if n < eps:
         raise ValueError("No se puede normalizar un vector casi nulo")
@@ -113,7 +184,14 @@ def vec2_unit(v: Vector2, eps: float = 1e-12) -> Vector2:
 
 
 def vec2_project(a: Vector2, b: Vector2, eps: float = 1e-12) -> Vector2:
-    """Proyección de a sobre b."""
+    """
+    Proyección de a sobre b.
+
+    Parámetros:
+        a: vector 2D que se proyecta.
+        b: vector 2D que define la dirección de proyección.
+        eps: tolerancia para detectar una dirección casi nula.
+    """
     denom = vec2_dot(b, b)
     if denom < eps:
         raise ValueError("No se puede proyectar sobre un vector casi nulo")
@@ -121,12 +199,24 @@ def vec2_project(a: Vector2, b: Vector2, eps: float = 1e-12) -> Vector2:
 
 
 def vec2_perpendicular(v: Vector2) -> Vector2:
-    """Vector perpendicular girado +90 grados."""
+    """
+    Vector perpendicular girado +90 grados.
+
+    Parámetros:
+        v: vector 2D que se gira 90 grados.
+    """
     return (-v[1], v[0])
 
 
 def vec2_angle_between(a: Vector2, b: Vector2, eps: float = 1e-12) -> float:
-    """Ángulo entre dos vectores 2D en radianes."""
+    """
+    Ángulo entre dos vectores 2D en radianes.
+
+    Parámetros:
+        a: primer vector 2D.
+        b: segundo vector 2D.
+        eps: tolerancia para detectar vectores casi nulos.
+    """
     na = vec2_norm(a)
     nb = vec2_norm(b)
     if na < eps or nb < eps:
@@ -135,33 +225,71 @@ def vec2_angle_between(a: Vector2, b: Vector2, eps: float = 1e-12) -> float:
 
 
 def vec2_rotate(v: Vector2, angle: float) -> Vector2:
-    """Rota un vector 2D un ángulo en radianes."""
+    """
+    Rota un vector 2D un ángulo en radianes.
+
+    Parámetros:
+        v: vector 2D que se rota.
+        angle: ángulo de rotación en radianes.
+    """
     c, s = cos(angle), sin(angle)
     return (c * v[0] - s * v[1], s * v[0] + c * v[1])
 
 
 def vec2_lerp(a: Vector2, b: Vector2, t: float) -> Vector2:
-    """Interpolación lineal entre a y b."""
+    """
+    Interpolación lineal entre a y b.
+
+    Parámetros:
+        a: vector 2D inicial de la interpolación.
+        b: vector 2D final de la interpolación.
+        t: factor de interpolación; 0 devuelve a y 1 devuelve b.
+    """
     return (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
 
 
 def vec3_add(a: Vector3, b: Vector3) -> Vector3:
+    """
+    Parámetros:
+        a: primer vector 3D.
+        b: segundo vector 3D que se suma a a.
+    """
     return (a[0] + b[0], a[1] + b[1], a[2] + b[2])
 
 
 def vec3_sub(a: Vector3, b: Vector3) -> Vector3:
+    """
+    Parámetros:
+        a: vector 3D del que se resta b.
+        b: vector 3D que se resta a a.
+    """
     return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
 
 
 def vec3_scale(v: Vector3, k: float) -> Vector3:
+    """
+    Parámetros:
+        v: vector 3D que se escala.
+        k: factor escalar que multiplica cada componente de v.
+    """
     return (k * v[0], k * v[1], k * v[2])
 
 
 def vec3_dot(a: Vector3, b: Vector3) -> float:
+    """
+    Parámetros:
+        a: primer vector 3D del producto escalar.
+        b: segundo vector 3D del producto escalar.
+    """
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 
 
 def vec3_cross(a: Vector3, b: Vector3) -> Vector3:
+    """
+    Parámetros:
+        a: primer vector 3D del producto vectorial.
+        b: segundo vector 3D del producto vectorial.
+    """
     return (
         a[1] * b[2] - a[2] * b[1],
         a[2] * b[0] - a[0] * b[2],
@@ -170,14 +298,28 @@ def vec3_cross(a: Vector3, b: Vector3) -> Vector3:
 
 
 def vec3_norm(v: Vector3) -> float:
+    """
+    Parámetros:
+        v: vector 3D del que se calcula el módulo.
+    """
     return sqrt(vec3_dot(v, v))
 
 
 def vec3_distance(a: Vector3, b: Vector3) -> float:
+    """
+    Parámetros:
+        a: primer punto o vector 3D.
+        b: segundo punto o vector 3D.
+    """
     return vec3_norm(vec3_sub(a, b))
 
 
 def vec3_unit(v: Vector3, eps: float = 1e-12) -> Vector3:
+    """
+    Parámetros:
+        v: vector 3D que se normaliza.
+        eps: tolerancia para detectar vectores casi nulos.
+    """
     n = vec3_norm(v)
     if n < eps:
         raise ValueError("No se puede normalizar un vector casi nulo")
@@ -185,6 +327,12 @@ def vec3_unit(v: Vector3, eps: float = 1e-12) -> Vector3:
 
 
 def vec3_project(a: Vector3, b: Vector3, eps: float = 1e-12) -> Vector3:
+    """
+    Parámetros:
+        a: vector 3D que se proyecta.
+        b: vector 3D que define la dirección de proyección.
+        eps: tolerancia para detectar una dirección casi nula.
+    """
     denom = vec3_dot(b, b)
     if denom < eps:
         raise ValueError("No se puede proyectar sobre un vector casi nulo")
@@ -192,6 +340,12 @@ def vec3_project(a: Vector3, b: Vector3, eps: float = 1e-12) -> Vector3:
 
 
 def vec3_angle_between(a: Vector3, b: Vector3, eps: float = 1e-12) -> float:
+    """
+    Parámetros:
+        a: primer vector 3D.
+        b: segundo vector 3D.
+        eps: tolerancia para detectar vectores casi nulos.
+    """
     na = vec3_norm(a)
     nb = vec3_norm(b)
     if na < eps or nb < eps:
@@ -212,6 +366,11 @@ def spherical_to_cartesian(r: float, theta: float, phi: float) -> Vector3:
     - r: distancia radial.
     - theta: ángulo cenital desde +Z.
     - phi: azimut en plano XY desde +X.
+
+    Parámetros:
+        r: distancia radial al origen.
+        theta: ángulo cenital medido desde el eje +Z, en radianes.
+        phi: ángulo azimutal en el plano XY desde +X, en radianes.
     """
     return (
         r * sin(theta) * cos(phi),
@@ -223,7 +382,15 @@ def spherical_to_cartesian(r: float, theta: float, phi: float) -> Vector3:
 def cartesian_to_spherical(
     x: float, y: float, z: float, eps: float = 1e-12
 ) -> tuple[float, float, float]:
-    """Cartesianas a esféricas: devuelve (r, theta, phi)."""
+    """
+    Cartesianas a esféricas: devuelve (r, theta, phi).
+
+    Parámetros:
+        x: coordenada cartesiana en el eje X.
+        y: coordenada cartesiana en el eje Y.
+        z: coordenada cartesiana en el eje Z.
+        eps: tolerancia para detectar el origen como punto sin ángulos definidos.
+    """
     r = sqrt(x * x + y * y + z * z)
     if r < eps:
         raise ValueError("El origen no tiene theta/phi definidos")
@@ -242,6 +409,11 @@ def pybullet_camera_to_cartesian(distance: float, yaw: float, pitch: float) -> V
     z = -d sin(alpha)
 
     yaw y pitch en radianes.
+
+    Parámetros:
+        distance: distancia de la cámara al objetivo.
+        yaw: ángulo de giro horizontal estilo PyBullet, en radianes.
+        pitch: ángulo de inclinación vertical estilo PyBullet, en radianes.
     """
     return (
         distance * cos(pitch) * sin(yaw),
@@ -253,7 +425,15 @@ def pybullet_camera_to_cartesian(distance: float, yaw: float, pitch: float) -> V
 def cartesian_to_pybullet_camera(
     x: float, y: float, z: float, eps: float = 1e-12
 ) -> tuple[float, float, float]:
-    """Vector relativo cartesiano a (distance, yaw, pitch) estilo PyBullet, en radianes."""
+    """
+    Vector relativo cartesiano a (distance, yaw, pitch) estilo PyBullet, en radianes.
+
+    Parámetros:
+        x: componente X del vector relativo de cámara.
+        y: componente Y del vector relativo de cámara.
+        z: componente Z del vector relativo de cámara.
+        eps: tolerancia para detectar distancia casi cero.
+    """
     d = sqrt(x * x + y * y + z * z)
     if d < eps:
         raise ValueError("La cámara no puede estar a distancia cero")
@@ -268,7 +448,13 @@ def cartesian_to_pybullet_camera(
 
 
 def mat3_mul_vec3(m: Matrix3, v: Vector3) -> Vector3:
-    """Multiplica matriz 3x3 por vector 3D."""
+    """
+    Multiplica matriz 3x3 por vector 3D.
+
+    Parámetros:
+        m: matriz 3x3 que se aplica al vector.
+        v: vector 3D multiplicado por la matriz.
+    """
     return (
         vec3_dot(m[0], v),
         vec3_dot(m[1], v),
@@ -277,7 +463,13 @@ def mat3_mul_vec3(m: Matrix3, v: Vector3) -> Vector3:
 
 
 def mat3_mul(a: Matrix3, b: Matrix3) -> Matrix3:
-    """Multiplica dos matrices 3x3."""
+    """
+    Multiplica dos matrices 3x3.
+
+    Parámetros:
+        a: matriz 3x3 izquierda de la multiplicación.
+        b: matriz 3x3 derecha de la multiplicación.
+    """
     cols = (
         (b[0][0], b[1][0], b[2][0]),
         (b[0][1], b[1][1], b[2][1]),
@@ -287,34 +479,68 @@ def mat3_mul(a: Matrix3, b: Matrix3) -> Matrix3:
 
 
 def rotation_matrix_x(angle: float) -> Matrix3:
+    """
+    Parámetros:
+        angle: ángulo de rotación alrededor del eje X, en radianes.
+    """
     c, s = cos(angle), sin(angle)
     return ((1.0, 0.0, 0.0), (0.0, c, -s), (0.0, s, c))
 
 
 def rotation_matrix_y(angle: float) -> Matrix3:
+    """
+    Parámetros:
+        angle: ángulo de rotación alrededor del eje Y, en radianes.
+    """
     c, s = cos(angle), sin(angle)
     return ((c, 0.0, s), (0.0, 1.0, 0.0), (-s, 0.0, c))
 
 
 def rotation_matrix_z(angle: float) -> Matrix3:
+    """
+    Parámetros:
+        angle: ángulo de rotación alrededor del eje Z, en radianes.
+    """
     c, s = cos(angle), sin(angle)
     return ((c, -s, 0.0), (s, c, 0.0), (0.0, 0.0, 1.0))
 
 
 def rotate_vec3_x(v: Vector3, angle: float) -> Vector3:
+    """
+    Parámetros:
+        v: vector 3D que se rota alrededor del eje X.
+        angle: ángulo de rotación en radianes.
+    """
     return mat3_mul_vec3(rotation_matrix_x(angle), v)
 
 
 def rotate_vec3_y(v: Vector3, angle: float) -> Vector3:
+    """
+    Parámetros:
+        v: vector 3D que se rota alrededor del eje Y.
+        angle: ángulo de rotación en radianes.
+    """
     return mat3_mul_vec3(rotation_matrix_y(angle), v)
 
 
 def rotate_vec3_z(v: Vector3, angle: float) -> Vector3:
+    """
+    Parámetros:
+        v: vector 3D que se rota alrededor del eje Z.
+        angle: ángulo de rotación en radianes.
+    """
     return mat3_mul_vec3(rotation_matrix_z(angle), v)
 
 
 def euler_zxz_matrix(alpha: float, beta: float, gamma: float) -> Matrix3:
-    """Matriz de Euler clásica Z-X-Z: Rz(alpha) Rx(beta) Rz(gamma)."""
+    """
+    Matriz de Euler clásica Z-X-Z: Rz(alpha) Rx(beta) Rz(gamma).
+
+    Parámetros:
+        alpha: primer giro de Euler alrededor de Z, en radianes.
+        beta: giro de Euler alrededor de X, en radianes.
+        gamma: segundo giro de Euler alrededor de Z, en radianes.
+    """
     return mat3_mul(
         mat3_mul(rotation_matrix_z(alpha), rotation_matrix_x(beta)),
         rotation_matrix_z(gamma),
@@ -324,6 +550,11 @@ def euler_zxz_matrix(alpha: float, beta: float, gamma: float) -> Matrix3:
 def tait_bryan_xyz_matrix(roll: float, pitch: float, yaw: float) -> Matrix3:
     """
     Convención tipo roll-pitch-yaw: R = Rz(yaw) Ry(pitch) Rx(roll).
+
+    Parámetros:
+        roll: rotación alrededor del eje X, en radianes.
+        pitch: rotación alrededor del eje Y, en radianes.
+        yaw: rotación alrededor del eje Z, en radianes.
     """
     return mat3_mul(
         mat3_mul(rotation_matrix_z(yaw), rotation_matrix_y(pitch)),
@@ -334,7 +565,13 @@ def tait_bryan_xyz_matrix(roll: float, pitch: float, yaw: float) -> Matrix3:
 def quaternion_from_axis_angle(
     axis: Vector3, angle: float
 ) -> tuple[float, float, float, float]:
-    """Cuaternión [x, y, z, w] a partir de eje unitario y ángulo."""
+    """
+    Cuaternión [x, y, z, w] a partir de eje unitario y ángulo.
+
+    Parámetros:
+        axis: eje 3D de rotación; se normaliza internamente.
+        angle: ángulo de rotación alrededor del eje, en radianes.
+    """
     ux, uy, uz = vec3_unit(axis)
     half = angle / 2.0
     s = sin(half)
@@ -342,6 +579,10 @@ def quaternion_from_axis_angle(
 
 
 def quaternion_norm(q: tuple[float, float, float, float]) -> float:
+    """
+    Parámetros:
+        q: cuaternión en formato (x, y, z, w).
+    """
     x, y, z, w = q
     return sqrt(x * x + y * y + z * z + w * w)
 
@@ -349,6 +590,11 @@ def quaternion_norm(q: tuple[float, float, float, float]) -> float:
 def quaternion_normalize(
     q: tuple[float, float, float, float], eps: float = 1e-12
 ) -> tuple[float, float, float, float]:
+    """
+    Parámetros:
+        q: cuaternión en formato (x, y, z, w) que se normaliza.
+        eps: tolerancia para detectar cuaterniones casi nulos.
+    """
     n = quaternion_norm(q)
     if n < eps:
         raise ValueError("No se puede normalizar un cuaternión casi nulo")
@@ -358,7 +604,13 @@ def quaternion_normalize(
 def quaternion_multiply(
     q1: tuple[float, float, float, float], q2: tuple[float, float, float, float]
 ) -> tuple[float, float, float, float]:
-    """Multiplica cuaterniones en formato [x, y, z, w]."""
+    """
+    Multiplica cuaterniones en formato [x, y, z, w].
+
+    Parámetros:
+        q1: primer cuaternión de la multiplicación, en formato (x, y, z, w).
+        q2: segundo cuaternión de la multiplicación, en formato (x, y, z, w).
+    """
     x1, y1, z1, w1 = q1
     x2, y2, z2, w2 = q2
     return (
@@ -372,13 +624,23 @@ def quaternion_multiply(
 def quaternion_conjugate(
     q: tuple[float, float, float, float],
 ) -> tuple[float, float, float, float]:
+    """
+    Parámetros:
+        q: cuaternión en formato (x, y, z, w).
+    """
     return (-q[0], -q[1], -q[2], q[3])
 
 
 def rotate_vector_by_quaternion(
     v: Vector3, q: tuple[float, float, float, float]
 ) -> Vector3:
-    """Rota v usando un cuaternión [x, y, z, w]."""
+    """
+    Rota v usando un cuaternión [x, y, z, w].
+
+    Parámetros:
+        v: vector 3D que se quiere rotar.
+        q: cuaternión de rotación en formato (x, y, z, w).
+    """
     qn = quaternion_normalize(q)
     vq = (v[0], v[1], v[2], 0.0)
     rq = quaternion_multiply(quaternion_multiply(qn, vq), quaternion_conjugate(qn))
@@ -388,7 +650,14 @@ def rotate_vector_by_quaternion(
 def quaternion_from_euler_xyz(
     roll: float, pitch: float, yaw: float
 ) -> tuple[float, float, float, float]:
-    """Cuaternión [x, y, z, w] desde roll, pitch, yaw."""
+    """
+    Cuaternión [x, y, z, w] desde roll, pitch, yaw.
+
+    Parámetros:
+        roll: rotación alrededor del eje X, en radianes.
+        pitch: rotación alrededor del eje Y, en radianes.
+        yaw: rotación alrededor del eje Z, en radianes.
+    """
     qx = quaternion_from_axis_angle((1.0, 0.0, 0.0), roll)
     qy = quaternion_from_axis_angle((0.0, 1.0, 0.0), pitch)
     qz = quaternion_from_axis_angle((0.0, 0.0, 1.0), yaw)
@@ -401,29 +670,67 @@ def quaternion_from_euler_xyz(
 
 
 def derivative_forward(f: Callable[[float], float], t: float, dt: float) -> float:
+    """
+    Parámetros:
+        f: función real de una variable que se deriva numéricamente.
+        t: punto donde se aproxima la derivada.
+        dt: paso temporal usado en la diferencia finita.
+    """
     return (f(t + dt) - f(t)) / dt
 
 
 def derivative_backward(f: Callable[[float], float], t: float, dt: float) -> float:
+    """
+    Parámetros:
+        f: función real de una variable que se deriva numéricamente.
+        t: punto donde se aproxima la derivada.
+        dt: paso temporal usado en la diferencia finita.
+    """
     return (f(t) - f(t - dt)) / dt
 
 
 def derivative_central(f: Callable[[float], float], t: float, dt: float) -> float:
+    """
+    Parámetros:
+        f: función real de una variable que se deriva numéricamente.
+        t: punto donde se aproxima la derivada.
+        dt: paso temporal usado a cada lado del punto central.
+    """
     return (f(t + dt) - f(t - dt)) / (2.0 * dt)
 
 
 def velocity_from_positions(x_current: float, x_previous: float, dt: float) -> float:
-    """Diferencia hacia atrás: v = (x_i - x_{i-1}) / dt."""
+    """
+    Diferencia hacia atrás: v = (x_i - x_{i-1}) / dt.
+
+    Parámetros:
+        x_current: posición actual.
+        x_previous: posición del paso anterior.
+        dt: tiempo transcurrido entre ambas posiciones.
+    """
     return (x_current - x_previous) / dt
 
 
 def acceleration_from_velocities(
     v_current: float, v_previous: float, dt: float
 ) -> float:
+    """
+    Parámetros:
+        v_current: velocidad actual.
+        v_previous: velocidad del paso anterior.
+        dt: tiempo transcurrido entre ambas velocidades.
+    """
     return (v_current - v_previous) / dt
 
 
 def riemann_left(f: Callable[[float], float], a: float, b: float, n: int) -> float:
+    """
+    Parámetros:
+        f: función que se integra numéricamente.
+        a: límite inferior del intervalo de integración.
+        b: límite superior del intervalo de integración.
+        n: número de subintervalos de la suma.
+    """
     if n <= 0:
         raise ValueError("n debe ser positivo")
     dx = (b - a) / n
@@ -431,6 +738,13 @@ def riemann_left(f: Callable[[float], float], a: float, b: float, n: int) -> flo
 
 
 def trapezoidal_rule(f: Callable[[float], float], a: float, b: float, n: int) -> float:
+    """
+    Parámetros:
+        f: función que se integra numéricamente.
+        a: límite inferior del intervalo de integración.
+        b: límite superior del intervalo de integración.
+        n: número de subintervalos trapezoidales.
+    """
     if n <= 0:
         raise ValueError("n debe ser positivo")
     dx = (b - a) / n
@@ -440,7 +754,15 @@ def trapezoidal_rule(f: Callable[[float], float], a: float, b: float, n: int) ->
 
 
 def simpson_rule(f: Callable[[float], float], a: float, b: float, n: int) -> float:
-    """Regla de Simpson. n debe ser par."""
+    """
+    Regla de Simpson. n debe ser par.
+
+    Parámetros:
+        f: función que se integra numéricamente.
+        a: límite inferior del intervalo de integración.
+        b: límite superior del intervalo de integración.
+        n: número par de subintervalos de Simpson.
+    """
     if n <= 0 or n % 2 != 0:
         raise ValueError("n debe ser positivo y par")
     dx = (b - a) / n
@@ -451,14 +773,30 @@ def simpson_rule(f: Callable[[float], float], a: float, b: float, n: int) -> flo
 
 
 def euler_step(x: float, v: float, a: float, dt: float) -> tuple[float, float]:
-    """Integración de Euler explícita: x_{n+1}=x+v dt, v_{n+1}=v+a dt."""
+    """
+    Integración de Euler explícita: x_{n+1}=x+v dt, v_{n+1}=v+a dt.
+
+    Parámetros:
+        x: posición o estado escalar actual.
+        v: velocidad escalar actual.
+        a: aceleración escalar considerada constante durante el paso.
+        dt: duración del paso de integración.
+    """
     return x + v * dt, v + a * dt
 
 
 def semi_implicit_euler_step(
     x: float, v: float, a: float, dt: float
 ) -> tuple[float, float]:
-    """Euler semi-implícito: primero actualiza v, luego x."""
+    """
+    Euler semi-implícito: primero actualiza v, luego x.
+
+    Parámetros:
+        x: posición o estado escalar actual.
+        v: velocidad escalar actual.
+        a: aceleración escalar considerada constante durante el paso.
+        dt: duración del paso de integración.
+    """
     v_new = v + a * dt
     return x + v_new * dt, v_new
 
@@ -466,7 +804,15 @@ def semi_implicit_euler_step(
 def rk4_step(
     y: float, t: float, dt: float, dydt: Callable[[float, float], float]
 ) -> float:
-    """Un paso RK4 para y' = f(t, y)."""
+    """
+    Un paso RK4 para y' = f(t, y).
+
+    Parámetros:
+        y: valor actual de la variable dependiente.
+        t: valor actual de la variable independiente, normalmente tiempo.
+        dt: tamaño del paso de integración.
+        dydt: función que calcula dy/dt a partir de t e y.
+    """
     k1 = dydt(t, y)
     k2 = dydt(t + dt / 2.0, y + dt * k1 / 2.0)
     k3 = dydt(t + dt / 2.0, y + dt * k2 / 2.0)
@@ -480,27 +826,52 @@ def rk4_step(
 
 
 def newton_acceleration(force: float, mass: float) -> float:
-    """Segunda ley de Newton: a = F/m."""
+    """
+    Segunda ley de Newton: a = F/m.
+
+    Parámetros:
+        force: fuerza neta aplicada en una dimensión.
+        mass: masa del cuerpo.
+    """
     if mass <= 0:
         raise ValueError("La masa debe ser positiva")
     return force / mass
 
 
 def vector_acceleration(force: Vector3, mass: float) -> Vector3:
+    """
+    Parámetros:
+        force: fuerza neta aplicada como vector 3D.
+        mass: masa del cuerpo.
+    """
     if mass <= 0:
         raise ValueError("La masa debe ser positiva")
     return vec3_scale(force, 1.0 / mass)
 
 
 def weight_force(mass: float, g: float = G_EARTH) -> float:
-    """Peso: P = mg."""
+    """
+    Peso: P = mg.
+
+    Parámetros:
+        mass: masa del cuerpo.
+        g: aceleración de la gravedad.
+    """
     return mass * g
 
 
 def gravitational_force_magnitude(
     m1: float, m2: float, r: float, G: float = G_UNIVERSAL
 ) -> float:
-    """Ley de gravitación universal: F = G m1 m2 / r^2."""
+    """
+    Ley de gravitación universal: F = G m1 m2 / r^2.
+
+    Parámetros:
+        m1: masa del primer cuerpo.
+        m2: masa del segundo cuerpo.
+        r: distancia entre los centros de ambos cuerpos.
+        G: constante de gravitación universal usada en el cálculo.
+    """
     if r <= 0:
         raise ValueError("La distancia debe ser positiva")
     return G * m1 * m2 / (r * r)
@@ -509,7 +880,16 @@ def gravitational_force_magnitude(
 def gravitational_force_vector(
     pos1: Vector3, mass1: float, pos2: Vector3, mass2: float, G: float = G_UNIVERSAL
 ) -> Vector3:
-    """Fuerza sobre el cuerpo 1 debida al cuerpo 2."""
+    """
+    Fuerza sobre el cuerpo 1 debida al cuerpo 2.
+
+    Parámetros:
+        pos1: posición 3D del cuerpo que recibe la fuerza.
+        mass1: masa del cuerpo que recibe la fuerza.
+        pos2: posición 3D del cuerpo que atrae.
+        mass2: masa del cuerpo que atrae.
+        G: constante de gravitación universal usada en el cálculo.
+    """
     r_vec = vec3_sub(pos2, pos1)
     r = vec3_norm(r_vec)
     mag = gravitational_force_magnitude(mass1, mass2, r, G)
@@ -519,7 +899,15 @@ def gravitational_force_vector(
 def gravitational_acceleration_from_body(
     pos: Vector3, source_pos: Vector3, source_mass: float, G: float = G_UNIVERSAL
 ) -> Vector3:
-    """Aceleración gravitatoria en pos causada por una masa puntual."""
+    """
+    Aceleración gravitatoria en pos causada por una masa puntual.
+
+    Parámetros:
+        pos: posición 3D donde se evalúa la aceleración.
+        source_pos: posición 3D de la masa que genera el campo.
+        source_mass: masa puntual que genera el campo gravitatorio.
+        G: constante de gravitación universal usada en el cálculo.
+    """
     r_vec = vec3_sub(source_pos, pos)
     r = vec3_norm(r_vec)
     if r <= 0:
@@ -528,14 +916,29 @@ def gravitational_acceleration_from_body(
 
 
 def hooke_force(displacement: float, k: float) -> float:
-    """Ley de Hooke 1D: F = -kx."""
+    """
+    Ley de Hooke 1D: F = -kx.
+
+    Parámetros:
+        displacement: desplazamiento respecto a la posición de equilibrio.
+        k: constante elástica del muelle.
+    """
     return -k * displacement
 
 
 def hooke_force_vector(
     pos: Vector3, anchor: Vector3, rest_length: float, k: float, eps: float = 1e-12
 ) -> Vector3:
-    """Fuerza de un muelle entre anchor y pos."""
+    """
+    Fuerza de un muelle entre anchor y pos.
+
+    Parámetros:
+        pos: posición 3D del extremo móvil del muelle.
+        anchor: posición 3D del punto fijo del muelle.
+        rest_length: longitud natural del muelle sin deformación.
+        k: constante elástica del muelle.
+        eps: tolerancia para evitar normalizar una dirección casi nula.
+    """
     delta = vec3_sub(pos, anchor)
     length = vec3_norm(delta)
     if length < eps:
@@ -545,16 +948,34 @@ def hooke_force_vector(
 
 
 def viscous_damping_force(velocity: float, b: float) -> float:
-    """Rozamiento viscoso lineal 1D: F = -b v."""
+    """
+    Rozamiento viscoso lineal 1D: F = -b v.
+
+    Parámetros:
+        velocity: velocidad escalar del cuerpo.
+        b: coeficiente de amortiguamiento viscoso.
+    """
     return -b * velocity
 
 
 def viscous_damping_force_vector(velocity: Vector3, b: float) -> Vector3:
+    """
+    Parámetros:
+        velocity: velocidad del cuerpo como vector 3D.
+        b: coeficiente de amortiguamiento viscoso.
+    """
     return vec3_scale(velocity, -b)
 
 
 def pymunk_damping_velocity(v_old: float, damping: float, dt: float) -> float:
-    """Modelo tipo Pymunk: v_new = v_old * damping ** dt."""
+    """
+    Modelo tipo Pymunk: v_new = v_old * damping ** dt.
+
+    Parámetros:
+        v_old: velocidad antes de aplicar el damping.
+        damping: factor de amortiguamiento por segundo estilo Pymunk.
+        dt: tiempo transcurrido desde la velocidad anterior.
+    """
     return v_old * (damping**dt)
 
 
@@ -562,6 +983,10 @@ def damping_from_b_over_m(b: float, mass: float) -> float:
     """
     Factor continuo equivalente por segundo para F=-bv:
     v(t+1) = v(t) exp(-b/m).
+
+    Parámetros:
+        b: coeficiente de amortiguamiento viscoso.
+        mass: masa del cuerpo amortiguado.
     """
     if mass <= 0:
         raise ValueError("La masa debe ser positiva")
@@ -569,80 +994,171 @@ def damping_from_b_over_m(b: float, mass: float) -> float:
 
 
 def coulomb_friction_max(mu_static: float, normal_force: float) -> float:
-    """Máximo rozamiento estático: Fr <= mu_e N."""
+    """
+    Máximo rozamiento estático: Fr <= mu_e N.
+
+    Parámetros:
+        mu_static: coeficiente de rozamiento estático.
+        normal_force: módulo de la fuerza normal.
+    """
     return mu_static * normal_force
 
 
 def kinetic_friction(mu_dynamic: float, normal_force: float) -> float:
-    """Rozamiento dinámico: Fr = mu_d N."""
+    """
+    Rozamiento dinámico: Fr = mu_d N.
+
+    Parámetros:
+        mu_dynamic: coeficiente de rozamiento dinámico o cinético.
+        normal_force: módulo de la fuerza normal.
+    """
     return mu_dynamic * normal_force
 
 
 def inclined_plane_normal(mass: float, angle: float, g: float = G_EARTH) -> float:
-    """Normal en plano inclinado: N = mg cos(theta)."""
+    """
+    Normal en plano inclinado: N = mg cos(theta).
+
+    Parámetros:
+        mass: masa del cuerpo sobre el plano.
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return mass * g * cos(angle)
 
 
 def inclined_plane_weight_parallel(
     mass: float, angle: float, g: float = G_EARTH
 ) -> float:
-    """Componente tangencial del peso: mg sin(theta)."""
+    """
+    Componente tangencial del peso: mg sin(theta).
+
+    Parámetros:
+        mass: masa del cuerpo sobre el plano.
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return mass * g * sin(angle)
 
 
 def inclined_plane_acceleration_no_friction(angle: float, g: float = G_EARTH) -> float:
+    """
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return g * sin(angle)
 
 
 def inclined_plane_acceleration_with_kinetic_friction(
     angle: float, mu_dynamic: float, g: float = G_EARTH
 ) -> float:
-    """Aceleración bajando por una rampa con rozamiento cinético."""
+    """
+    Aceleración bajando por una rampa con rozamiento cinético.
+
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        mu_dynamic: coeficiente de rozamiento dinámico o cinético.
+        g: aceleración de la gravedad.
+    """
     return g * (sin(angle) - mu_dynamic * cos(angle))
 
 
 def will_slide_on_incline(angle: float, mu_static: float) -> bool:
-    """Un bloque empieza a deslizar si tan(theta) > mu_static."""
+    """
+    Un bloque empieza a deslizar si tan(theta) > mu_static.
+
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        mu_static: coeficiente de rozamiento estático.
+    """
     return tan(angle) > mu_static
 
 
 def work_constant_force(force: Vector3, displacement: Vector3) -> float:
-    """Trabajo: W = F · Δr."""
+    """
+    Trabajo: W = F · Δr.
+
+    Parámetros:
+        force: fuerza constante aplicada como vector 3D.
+        displacement: desplazamiento del punto de aplicación como vector 3D.
+    """
     return vec3_dot(force, displacement)
 
 
 def kinetic_energy(mass: float, speed: float) -> float:
+    """
+    Parámetros:
+        mass: masa del cuerpo.
+        speed: módulo de la velocidad del cuerpo.
+    """
     return 0.5 * mass * speed * speed
 
 
 def gravitational_potential_energy(
     mass: float, height: float, g: float = G_EARTH
 ) -> float:
+    """
+    Parámetros:
+        mass: masa del cuerpo.
+        height: altura respecto al nivel de referencia.
+        g: aceleración de la gravedad.
+    """
     return mass * g * height
 
 
 def spring_potential_energy(k: float, displacement: float) -> float:
+    """
+    Parámetros:
+        k: constante elástica del muelle.
+        displacement: deformación del muelle respecto a su equilibrio.
+    """
     return 0.5 * k * displacement * displacement
 
 
 def mechanical_energy(
     mass: float, speed: float, height: float, g: float = G_EARTH
 ) -> float:
+    """
+    Parámetros:
+        mass: masa del cuerpo.
+        speed: módulo de la velocidad del cuerpo.
+        height: altura respecto al nivel de referencia.
+        g: aceleración de la gravedad.
+    """
     return kinetic_energy(mass, speed) + gravitational_potential_energy(mass, height, g)
 
 
 def power_from_force_velocity(force: Vector3, velocity: Vector3) -> float:
-    """Potencia instantánea: P = F · v."""
+    """
+    Potencia instantánea: P = F · v.
+
+    Parámetros:
+        force: fuerza aplicada como vector 3D.
+        velocity: velocidad del punto donde actúa la fuerza como vector 3D.
+    """
     return vec3_dot(force, velocity)
 
 
 def impulse_from_force(force: Vector3, dt: float) -> Vector3:
-    """Impulso aproximado para fuerza constante: J = F dt."""
+    """
+    Impulso aproximado para fuerza constante: J = F dt.
+
+    Parámetros:
+        force: fuerza constante aplicada como vector 3D.
+        dt: duración del intervalo de aplicación de la fuerza.
+    """
     return vec3_scale(force, dt)
 
 
 def delta_v_from_impulse(impulse: Vector3, mass: float) -> Vector3:
-    """Cambio de velocidad: Δv = J/m."""
+    """
+    Cambio de velocidad: Δv = J/m.
+
+    Parámetros:
+        impulse: impulso aplicado como vector 3D.
+        mass: masa del cuerpo que recibe el impulso.
+    """
     if mass <= 0:
         raise ValueError("La masa debe ser positiva")
     return vec3_scale(impulse, 1.0 / mass)
@@ -654,51 +1170,102 @@ def delta_v_from_impulse(impulse: Vector3, mass: float) -> Vector3:
 
 
 def angular_frequency_spring(k: float, mass: float) -> float:
-    """Frecuencia angular de un muelle sin amortiguar: omega = sqrt(k/m)."""
+    """
+    Frecuencia angular de un muelle sin amortiguar: omega = sqrt(k/m).
+
+    Parámetros:
+        k: constante elástica del muelle.
+        mass: masa unida al muelle.
+    """
     if mass <= 0:
         raise ValueError("La masa debe ser positiva")
     return sqrt(k / mass)
 
 
 def angular_frequency_pendulum(length: float, g: float = G_EARTH) -> float:
-    """Frecuencia angular de péndulo pequeño: omega = sqrt(g/L)."""
+    """
+    Frecuencia angular de péndulo pequeño: omega = sqrt(g/L).
+
+    Parámetros:
+        length: longitud del péndulo.
+        g: aceleración de la gravedad.
+    """
     if length <= 0:
         raise ValueError("La longitud debe ser positiva")
     return sqrt(g / length)
 
 
 def pendulum_period_small_angle(length: float, g: float = G_EARTH) -> float:
+    """
+    Parámetros:
+        length: longitud del péndulo.
+        g: aceleración de la gravedad.
+    """
     return 2.0 * pi / angular_frequency_pendulum(length, g)
 
 
 def pendulum_tangential_force(mass: float, angle: float, g: float = G_EARTH) -> float:
-    """Fuerza tangencial exacta del péndulo: F = -mg sin(theta)."""
+    """
+    Fuerza tangencial exacta del péndulo: F = -mg sin(theta).
+
+    Parámetros:
+        mass: masa del péndulo.
+        angle: ángulo del péndulo respecto a la vertical, en radianes.
+        g: aceleración de la gravedad.
+    """
     return -mass * g * sin(angle)
 
 
 def pendulum_small_angle_force(
     mass: float, length: float, arc_displacement: float, g: float = G_EARTH
 ) -> float:
-    """Aproximación lineal: F ≈ -(mg/L) x."""
+    """
+    Aproximación lineal: F ≈ -(mg/L) x.
+
+    Parámetros:
+        mass: masa del péndulo.
+        length: longitud del péndulo.
+        arc_displacement: desplazamiento sobre el arco respecto al equilibrio.
+        g: aceleración de la gravedad.
+    """
     if length <= 0:
         raise ValueError("La longitud debe ser positiva")
     return -(mass * g / length) * arc_displacement
 
 
 def critical_damping(mass: float, k: float) -> float:
-    """Amortiguamiento crítico: b_c = 2 sqrt(mk)."""
+    """
+    Amortiguamiento crítico: b_c = 2 sqrt(mk).
+
+    Parámetros:
+        mass: masa del oscilador.
+        k: constante elástica del oscilador.
+    """
     if mass <= 0 or k < 0:
         raise ValueError("mass debe ser positiva y k no negativa")
     return 2.0 * sqrt(mass * k)
 
 
 def damping_ratio(mass: float, b: float, k: float) -> float:
-    """Ratio de amortiguamiento: zeta = b / (2 sqrt(mk))."""
+    """
+    Ratio de amortiguamiento: zeta = b / (2 sqrt(mk)).
+
+    Parámetros:
+        mass: masa del oscilador.
+        b: coeficiente de amortiguamiento viscoso.
+        k: constante elástica del oscilador.
+    """
     return b / critical_damping(mass, k)
 
 
 def characteristic_time_damping(mass: float, b: float) -> float:
-    """Tiempo característico tau = 2m/b para oscilador amortiguado."""
+    """
+    Tiempo característico tau = 2m/b para oscilador amortiguado.
+
+    Parámetros:
+        mass: masa del oscilador amortiguado.
+        b: coeficiente de amortiguamiento viscoso.
+    """
     if b == 0:
         raise ValueError("b no puede ser cero")
     return 2.0 * mass / b
@@ -707,7 +1274,16 @@ def characteristic_time_damping(mass: float, b: float) -> float:
 def damped_oscillator_acceleration(
     x: float, v: float, mass: float, b: float, k: float
 ) -> float:
-    """Para m x'' + b x' + kx = 0: a = (-b v - kx)/m."""
+    """
+    Para m x'' + b x' + kx = 0: a = (-b v - kx)/m.
+
+    Parámetros:
+        x: posición o elongación actual del oscilador.
+        v: velocidad actual del oscilador.
+        mass: masa del oscilador.
+        b: coeficiente de amortiguamiento viscoso.
+        k: constante elástica del oscilador.
+    """
     if mass <= 0:
         raise ValueError("La masa debe ser positiva")
     return (-b * v - k * x) / mass
@@ -727,13 +1303,28 @@ class ProjectileState2D:
 
 
 def projectile_initial_velocity(v0: float, angle: float) -> Vector2:
-    """Componentes iniciales: vx0=v0 cos(theta), vy0=v0 sin(theta)."""
+    """
+    Componentes iniciales: vx0=v0 cos(theta), vy0=v0 sin(theta).
+
+    Parámetros:
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+    """
     return (v0 * cos(angle), v0 * sin(angle))
 
 
 def projectile_position_no_drag(
     x0: float, y0: float, v0: float, angle: float, t: float, g: float = G_EARTH
 ) -> Vector2:
+    """
+    Parámetros:
+        x0: posición horizontal inicial.
+        y0: posición vertical inicial.
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        t: tiempo transcurrido desde el lanzamiento.
+        g: aceleración de la gravedad.
+    """
     vx0, vy0 = projectile_initial_velocity(v0, angle)
     return (x0 + vx0 * t, y0 + vy0 * t - 0.5 * g * t * t)
 
@@ -741,6 +1332,13 @@ def projectile_position_no_drag(
 def projectile_velocity_no_drag(
     v0: float, angle: float, t: float, g: float = G_EARTH
 ) -> Vector2:
+    """
+    Parámetros:
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        t: tiempo transcurrido desde el lanzamiento.
+        g: aceleración de la gravedad.
+    """
     vx0, vy0 = projectile_initial_velocity(v0, angle)
     return (vx0, vy0 - g * t)
 
@@ -748,18 +1346,40 @@ def projectile_velocity_no_drag(
 def projectile_state_no_drag(
     x0: float, y0: float, v0: float, angle: float, t: float, g: float = G_EARTH
 ) -> ProjectileState2D:
+    """
+    Parámetros:
+        x0: posición horizontal inicial.
+        y0: posición vertical inicial.
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        t: tiempo transcurrido desde el lanzamiento.
+        g: aceleración de la gravedad.
+    """
     x, y = projectile_position_no_drag(x0, y0, v0, angle, t, g)
     vx, vy = projectile_velocity_no_drag(v0, angle, t, g)
     return ProjectileState2D(x=x, y=y, vx=vx, vy=vy)
 
 
 def projectile_time_to_peak(v0: float, angle: float, g: float = G_EARTH) -> float:
+    """
+    Parámetros:
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return v0 * sin(angle) / g
 
 
 def projectile_max_height(
     y0: float, v0: float, angle: float, g: float = G_EARTH
 ) -> float:
+    """
+    Parámetros:
+        y0: altura inicial del proyectil.
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     vy0 = v0 * sin(angle)
     return y0 + (vy0 * vy0) / (2.0 * g)
 
@@ -770,6 +1390,13 @@ def projectile_time_of_flight_from_height(
     """
     Tiempo positivo en el que y(t)=y_target.
     Resuelve: y0 + vy0 t - 1/2 g t^2 = y_target.
+
+    Parámetros:
+        y0: altura inicial del proyectil.
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        y_target: altura objetivo donde se calcula la intersección.
+        g: aceleración de la gravedad.
     """
     vy0 = v0 * sin(angle)
     disc = vy0 * vy0 + 2.0 * g * (y0 - y_target)
@@ -786,19 +1413,42 @@ def projectile_range_from_height(
     y_target: float = 0.0,
     g: float = G_EARTH,
 ) -> float:
+    """
+    Parámetros:
+        x0: posición horizontal inicial.
+        y0: altura inicial del proyectil.
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        y_target: altura objetivo donde termina el vuelo.
+        g: aceleración de la gravedad.
+    """
     t = projectile_time_of_flight_from_height(y0, v0, angle, y_target, g)
     return x0 + v0 * cos(angle) * t
 
 
 def projectile_range_level_ground(v0: float, angle: float, g: float = G_EARTH) -> float:
-    """Alcance con salida y llegada a la misma altura: R = v0^2 sin(2theta)/g."""
+    """
+    Alcance con salida y llegada a la misma altura: R = v0^2 sin(2theta)/g.
+
+    Parámetros:
+        v0: módulo de la velocidad inicial.
+        angle: ángulo de lanzamiento respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return (v0 * v0 * sin(2.0 * angle)) / g
 
 
 def projectile_angle_for_range_level(
     v0: float, range_: float, g: float = G_EARTH
 ) -> tuple[float, float]:
-    """Ángulos posibles para alcanzar R a misma altura."""
+    """
+    Ángulos posibles para alcanzar R a misma altura.
+
+    Parámetros:
+        v0: módulo de la velocidad inicial.
+        range_: alcance horizontal deseado a igual altura de salida y llegada.
+        g: aceleración de la gravedad.
+    """
     value = g * range_ / (v0 * v0)
     if value < -1.0 or value > 1.0:
         raise ValueError("No existe ángulo real para ese alcance con esa velocidad")
@@ -812,17 +1462,33 @@ def projectile_angle_for_range_level(
 
 
 def frontal_area_circle(radius: float) -> float:
+    """
+    Parámetros:
+        radius: radio del círculo frontal.
+    """
     return pi * radius * radius
 
 
 def frontal_area_sphere(diameter: float) -> float:
+    """
+    Parámetros:
+        diameter: diámetro de la esfera.
+    """
     return pi * (diameter / 2.0) ** 2
 
 
 def reynolds_number(
     rho: float, speed: float, characteristic_length: float, mu: float
 ) -> float:
-    """Re = rho v L / mu."""
+    """
+    Re = rho v L / mu.
+
+    Parámetros:
+        rho: densidad del fluido.
+        speed: velocidad relativa entre cuerpo y fluido.
+        characteristic_length: longitud característica del cuerpo.
+        mu: viscosidad dinámica del fluido.
+    """
     if mu <= 0:
         raise ValueError("La viscosidad debe ser positiva")
     return rho * abs(speed) * characteristic_length / mu
@@ -831,6 +1497,10 @@ def reynolds_number(
 def drag_regime_from_reynolds(
     Re: float,
 ) -> Literal["laminar", "transicion", "turbulento", "crisis/supercritico"]:
+    """
+    Parámetros:
+        Re: número de Reynolds.
+    """
     if Re < 1.0:
         return "laminar"
     if Re < 1.0e3:
@@ -843,7 +1513,15 @@ def drag_regime_from_reynolds(
 def stokes_drag_magnitude(
     mu: float, radius_equiv: float, speed: float, shape_factor: float = 1.0
 ) -> float:
-    """Módulo Stokes: F = 6 pi mu K r v."""
+    """
+    Módulo Stokes: F = 6 pi mu K r v.
+
+    Parámetros:
+        mu: viscosidad dinámica del fluido.
+        radius_equiv: radio equivalente del cuerpo.
+        speed: módulo de la velocidad relativa al fluido.
+        shape_factor: factor corrector por forma del cuerpo.
+    """
     return 6.0 * pi * mu * shape_factor * radius_equiv * abs(speed)
 
 
@@ -854,6 +1532,14 @@ def stokes_drag_force_vector(
     shape_factor: float = 1.0,
     eps: float = 1e-12,
 ) -> Vector3:
+    """
+    Parámetros:
+        velocity: velocidad relativa al fluido como vector 3D.
+        mu: viscosidad dinámica del fluido.
+        radius_equiv: radio equivalente del cuerpo.
+        shape_factor: factor corrector por forma del cuerpo.
+        eps: tolerancia para considerar velocidad relativa nula.
+    """
     speed = vec3_norm(velocity)
     if speed < eps:
         return (0.0, 0.0, 0.0)
@@ -862,21 +1548,43 @@ def stokes_drag_force_vector(
 
 
 def sphere_cd_intermediate(Re: float) -> float:
-    """Aproximación para esfera en transición: Cd ≈ 24/Re * (1 + 0.15 Re^0.687)."""
+    """
+    Aproximación para esfera en transición: Cd ≈ 24/Re * (1 + 0.15 Re^0.687).
+
+    Parámetros:
+        Re: número de Reynolds de la esfera.
+    """
     if Re <= 0:
         raise ValueError("Re debe ser positivo")
     return (24.0 / Re) * (1.0 + 0.15 * (Re**0.687))
 
 
 def newton_drag_magnitude(rho: float, Cd: float, area: float, speed: float) -> float:
-    """Módulo de arrastre cuadrático: Fd = 1/2 rho Cd A v^2."""
+    """
+    Módulo de arrastre cuadrático: Fd = 1/2 rho Cd A v^2.
+
+    Parámetros:
+        rho: densidad del fluido.
+        Cd: coeficiente de arrastre.
+        area: área frontal efectiva.
+        speed: módulo de la velocidad relativa al fluido.
+    """
     return 0.5 * rho * Cd * area * speed * speed
 
 
 def newton_drag_force_vector(
     velocity: Vector3, rho: float, Cd: float, area: float, eps: float = 1e-12
 ) -> Vector3:
-    """F_drag = -1/2 rho Cd A |v| v."""
+    """
+    F_drag = -1/2 rho Cd A |v| v.
+
+    Parámetros:
+        velocity: velocidad relativa al fluido como vector 3D.
+        rho: densidad del fluido.
+        Cd: coeficiente de arrastre.
+        area: área frontal efectiva.
+        eps: tolerancia para considerar velocidad relativa nula.
+    """
     speed = vec3_norm(velocity)
     if speed < eps:
         return (0.0, 0.0, 0.0)
@@ -885,7 +1593,13 @@ def newton_drag_force_vector(
 
 
 def relative_velocity(projectile_velocity: Vector3, wind_velocity: Vector3) -> Vector3:
-    """v_rel = v_proyectil - v_viento."""
+    """
+    v_rel = v_proyectil - v_viento.
+
+    Parámetros:
+        projectile_velocity: velocidad del proyectil respecto al mundo.
+        wind_velocity: velocidad del viento respecto al mundo.
+    """
     return vec3_sub(projectile_velocity, wind_velocity)
 
 
@@ -897,7 +1611,17 @@ def drag_force_with_wind(
     area: float,
     eps: float = 0.1,
 ) -> Vector3:
-    """Arrastre usando velocidad relativa al aire. Umbral eps para evitar ruido numérico."""
+    """
+    Arrastre usando velocidad relativa al aire. Umbral eps para evitar ruido numérico.
+
+    Parámetros:
+        projectile_velocity: velocidad del proyectil respecto al mundo.
+        wind_velocity: velocidad del viento respecto al mundo.
+        rho: densidad del aire.
+        Cd: coeficiente de arrastre.
+        area: área frontal efectiva.
+        eps: umbral mínimo de velocidad relativa para evitar ruido numérico.
+    """
     v_rel = relative_velocity(projectile_velocity, wind_velocity)
     if vec3_norm(v_rel) < eps:
         return (0.0, 0.0, 0.0)
@@ -907,7 +1631,14 @@ def drag_force_with_wind(
 def air_temperature_at_altitude(
     altitude_m: float, T0: float = T_AIR_0, lapse_rate: float = LAPSE_RATE
 ) -> float:
-    """Temperatura ISA en troposfera, limitada a 0..11000 m."""
+    """
+    Temperatura ISA en troposfera, limitada a 0..11000 m.
+
+    Parámetros:
+        altitude_m: altitud sobre el nivel del mar en metros.
+        T0: temperatura de referencia a nivel del mar, en Kelvin.
+        lapse_rate: gradiente térmico vertical de la troposfera, en K/m.
+    """
     h = clamp(altitude_m, 0.0, 11000.0)
     return T0 - lapse_rate * h
 
@@ -923,6 +1654,14 @@ def air_density_at_altitude(
     """
     Densidad del aire en troposfera:
     rho(h) = rho0 * (T(h)/T0)^(g/(R L)-1)
+
+    Parámetros:
+        altitude_m: altitud sobre el nivel del mar en metros.
+        rho0: densidad de referencia a nivel del mar.
+        T0: temperatura de referencia a nivel del mar, en Kelvin.
+        lapse_rate: gradiente térmico vertical de la troposfera, en K/m.
+        R: constante específica del gas para el aire seco.
+        g: aceleración de la gravedad usada en el modelo atmosférico.
     """
     T = air_temperature_at_altitude(altitude_m, T0, lapse_rate)
     exponent = (g / (R * lapse_rate)) - 1.0
@@ -932,17 +1671,34 @@ def air_density_at_altitude(
 def speed_of_sound_from_temperature(
     temp_k: float, gamma: float = GAMMA_AIR, R: float = R_AIR
 ) -> float:
-    """c = sqrt(gamma R T)."""
+    """
+    c = sqrt(gamma R T).
+
+    Parámetros:
+        temp_k: temperatura absoluta del aire en Kelvin.
+        gamma: coeficiente adiabático del aire.
+        R: constante específica del gas para el aire seco.
+    """
     if temp_k <= 0:
         raise ValueError("La temperatura en Kelvin debe ser positiva")
     return sqrt(gamma * R * temp_k)
 
 
 def speed_of_sound_at_altitude(altitude_m: float, T0: float = T_AIR_0) -> float:
+    """
+    Parámetros:
+        altitude_m: altitud sobre el nivel del mar en metros.
+        T0: temperatura de referencia a nivel del mar, en Kelvin.
+    """
     return speed_of_sound_from_temperature(air_temperature_at_altitude(altitude_m, T0))
 
 
 def mach_number(speed: float, speed_of_sound: float) -> float:
+    """
+    Parámetros:
+        speed: módulo de la velocidad del objeto.
+        speed_of_sound: velocidad local del sonido.
+    """
     if speed_of_sound <= 0:
         raise ValueError("La velocidad del sonido debe ser positiva")
     return abs(speed) / speed_of_sound
@@ -954,6 +1710,9 @@ def mach_correction_factor(M: float) -> float:
     - M < 0.8: 1
     - 0.8 <= M < 1.2: 1 + 1.25(M - 0.8)
     - M >= 1.2: 1.5 + 0.5/M
+
+    Parámetros:
+        M: número de Mach.
     """
     if M < 0.8:
         return 1.0
@@ -965,6 +1724,12 @@ def mach_correction_factor(M: float) -> float:
 def cd_with_mach_correction(
     Cd_reynolds: float, speed: float, speed_of_sound: float
 ) -> float:
+    """
+    Parámetros:
+        Cd_reynolds: coeficiente de arrastre estimado por Reynolds.
+        speed: módulo de la velocidad del objeto.
+        speed_of_sound: velocidad local del sonido.
+    """
     return Cd_reynolds * mach_correction_factor(mach_number(speed, speed_of_sound))
 
 
@@ -975,7 +1740,16 @@ def bernoulli_pressure_total(
     height: float = 0.0,
     g: float = G_EARTH,
 ) -> float:
-    """Bernoulli: P + rho g h + 1/2 rho v^2."""
+    """
+    Bernoulli: P + rho g h + 1/2 rho v^2.
+
+    Parámetros:
+        static_pressure: presión estática del fluido.
+        rho: densidad del fluido.
+        speed: módulo de la velocidad del fluido.
+        height: altura del punto respecto a una referencia.
+        g: aceleración de la gravedad.
+    """
     return static_pressure + rho * g * height + 0.5 * rho * speed * speed
 
 
@@ -985,6 +1759,11 @@ def pressure_difference_from_speeds(
     """
     Diferencia por Bernoulli simplificado.
     Devuelve P_a - P_b = 1/2 rho (v_b^2 - v_a^2).
+
+    Parámetros:
+        rho: densidad del fluido.
+        speed_a: velocidad del fluido en el punto A.
+        speed_b: velocidad del fluido en el punto B.
     """
     return 0.5 * rho * (speed_b * speed_b - speed_a * speed_a)
 
@@ -995,6 +1774,11 @@ def magnus_force_direction_2d(
     """
     Dirección cualitativa del efecto Magnus en 2D.
     Para omega_z positivo y velocidad +x, devuelve dirección +y.
+
+    Parámetros:
+        velocity: velocidad 2D del cuerpo respecto al aire.
+        omega_z: velocidad angular alrededor del eje Z.
+        eps: tolerancia para considerar velocidad o giro nulos.
     """
     speed = vec2_norm(velocity)
     if speed < eps or almost_zero(omega_z, eps):
@@ -1009,6 +1793,11 @@ def magnus_force_simplified(
     """
     Modelo simplificado: F_M = coefficient * (omega x v).
     El coefficient agrupa rho, radio, área y constantes empíricas.
+
+    Parámetros:
+        velocity: velocidad del cuerpo como vector 3D.
+        omega: velocidad angular del cuerpo como vector 3D.
+        coefficient: coeficiente empírico que agrupa densidad, geometría y constantes.
     """
     return vec3_scale(vec3_cross(omega, velocity), coefficient)
 
@@ -1019,32 +1808,69 @@ def magnus_force_simplified(
 
 
 def angular_velocity(theta_initial: float, theta_final: float, dt: float) -> float:
+    """
+    Parámetros:
+        theta_initial: ángulo inicial, en radianes.
+        theta_final: ángulo final, en radianes.
+        dt: tiempo transcurrido entre ambos ángulos.
+    """
     return (theta_final - theta_initial) / dt
 
 
 def angular_acceleration(omega_initial: float, omega_final: float, dt: float) -> float:
+    """
+    Parámetros:
+        omega_initial: velocidad angular inicial.
+        omega_final: velocidad angular final.
+        dt: tiempo transcurrido entre ambas velocidades angulares.
+    """
     return (omega_final - omega_initial) / dt
 
 
 def centripetal_acceleration(speed: float, radius: float) -> float:
+    """
+    Parámetros:
+        speed: módulo de la velocidad tangencial.
+        radius: radio de la trayectoria circular.
+    """
     if radius <= 0:
         raise ValueError("El radio debe ser positivo")
     return speed * speed / radius
 
 
 def centripetal_force(mass: float, speed: float, radius: float) -> float:
+    """
+    Parámetros:
+        mass: masa del cuerpo.
+        speed: módulo de la velocidad tangencial.
+        radius: radio de la trayectoria circular.
+    """
     return mass * centripetal_acceleration(speed, radius)
 
 
 def centrifugal_force_apparent(mass: float, speed: float, radius: float) -> float:
-    """Mismo módulo que la centrípeta, sentido opuesto en sistema no inercial."""
+    """
+    Mismo módulo que la centrípeta, sentido opuesto en sistema no inercial.
+
+    Parámetros:
+        mass: masa del cuerpo.
+        speed: módulo de la velocidad tangencial.
+        radius: radio de la trayectoria circular.
+    """
     return centripetal_force(mass, speed, radius)
 
 
 def max_curve_speed_from_friction(
     mu: float, radius: float, g: float = G_EARTH
 ) -> float:
-    """Curva plana: m v^2/R <= mu mg -> v_max = sqrt(mu g R)."""
+    """
+    Curva plana: m v^2/R <= mu mg -> v_max = sqrt(mu g R).
+
+    Parámetros:
+        mu: coeficiente de rozamiento disponible.
+        radius: radio de la curva plana.
+        g: aceleración de la gravedad.
+    """
     if radius < 0:
         raise ValueError("El radio no puede ser negativo")
     return sqrt(mu * g * radius)
@@ -1053,28 +1879,55 @@ def max_curve_speed_from_friction(
 def required_friction_for_curve(
     speed: float, radius: float, g: float = G_EARTH
 ) -> float:
-    """mu mínimo en curva plana: mu >= v^2/(gR)."""
+    """
+    mu mínimo en curva plana: mu >= v^2/(gR).
+
+    Parámetros:
+        speed: módulo de la velocidad en la curva.
+        radius: radio de la curva plana.
+        g: aceleración de la gravedad.
+    """
     if radius <= 0:
         raise ValueError("El radio debe ser positivo")
     return speed * speed / (g * radius)
 
 
 def motorcycle_lean_angle(speed: float, radius: float, g: float = G_EARTH) -> float:
-    """tan(phi)=v^2/(gR). Devuelve phi en radianes."""
+    """
+    tan(phi)=v^2/(gR). Devuelve phi en radianes.
+
+    Parámetros:
+        speed: módulo de la velocidad de la moto.
+        radius: radio de la curva.
+        g: aceleración de la gravedad.
+    """
     return atan2(speed * speed, g * radius)
 
 
 def banked_curve_speed_no_friction(
     radius: float, bank_angle: float, g: float = G_EARTH
 ) -> float:
-    """Peralte ideal sin rozamiento: v = sqrt(R g tan(theta))."""
+    """
+    Peralte ideal sin rozamiento: v = sqrt(R g tan(theta)).
+
+    Parámetros:
+        radius: radio de la curva peraltada.
+        bank_angle: ángulo de peralte respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return sqrt(radius * g * tan(bank_angle))
 
 
 def center_of_mass_discrete(
     masses: Sequence[float], positions: Sequence[Vector3]
 ) -> Vector3:
-    """Centro de masas discreto 3D."""
+    """
+    Centro de masas discreto 3D.
+
+    Parámetros:
+        masses: secuencia de masas puntuales.
+        positions: secuencia de posiciones 3D asociadas a cada masa.
+    """
     if len(masses) != len(positions) or not masses:
         raise ValueError("masses y positions deben tener la misma longitud no nula")
     total = sum(masses)
@@ -1087,11 +1940,22 @@ def center_of_mass_discrete(
 
 
 def triangle_centroid(p1: Vector2, p2: Vector2, p3: Vector2) -> Vector2:
+    """
+    Parámetros:
+        p1: primer vértice 2D del triángulo.
+        p2: segundo vértice 2D del triángulo.
+        p3: tercer vértice 2D del triángulo.
+    """
     return ((p1[0] + p2[0] + p3[0]) / 3.0, (p1[1] + p2[1] + p3[1]) / 3.0)
 
 
 def polygon_signed_area(vertices: Sequence[Vector2]) -> float:
-    """Área firmada mediante la fórmula del zapatero."""
+    """
+    Área firmada mediante la fórmula del zapatero.
+
+    Parámetros:
+        vertices: vértices 2D ordenados del polígono.
+    """
     n = len(vertices)
     if n < 3:
         raise ValueError("Un polígono necesita al menos 3 vértices")
@@ -1104,7 +1968,13 @@ def polygon_signed_area(vertices: Sequence[Vector2]) -> float:
 
 
 def polygon_centroid(vertices: Sequence[Vector2], eps: float = 1e-12) -> Vector2:
-    """Centroide de un polígono simple con vértices ordenados."""
+    """
+    Centroide de un polígono simple con vértices ordenados.
+
+    Parámetros:
+        vertices: vértices 2D ordenados del polígono simple.
+        eps: tolerancia para detectar áreas casi nulas.
+    """
     A = polygon_signed_area(vertices)
     if abs(A) < eps:
         raise ValueError("El área del polígono es casi cero")
@@ -1121,54 +1991,112 @@ def polygon_centroid(vertices: Sequence[Vector2], eps: float = 1e-12) -> Vector2
 
 
 def torque_2d(r: Vector2, force: Vector2) -> float:
-    """Torque escalar 2D: tau = r_x F_y - r_y F_x."""
+    """
+    Torque escalar 2D: tau = r_x F_y - r_y F_x.
+
+    Parámetros:
+        r: vector 2D desde el pivote hasta el punto de aplicación.
+        force: fuerza aplicada como vector 2D.
+    """
     return vec2_cross_z(r, force)
 
 
 def torque_magnitude(r: float, force: float, angle_between: float) -> float:
-    """Módulo: tau = r F sin(phi)."""
+    """
+    Módulo: tau = r F sin(phi).
+
+    Parámetros:
+        r: distancia desde el eje de giro al punto de aplicación.
+        force: módulo de la fuerza aplicada.
+        angle_between: ángulo entre r y la fuerza, en radianes.
+    """
     return r * force * sin(angle_between)
 
 
 def angular_acceleration_from_torque(torque: float, inertia: float) -> float:
-    """alpha = tau / I."""
+    """
+    alpha = tau / I.
+
+    Parámetros:
+        torque: torque neto aplicado.
+        inertia: momento de inercia respecto al eje de giro.
+    """
     if inertia <= 0:
         raise ValueError("El momento de inercia debe ser positivo")
     return torque / inertia
 
 
 def angular_momentum(inertia: float, omega: float) -> float:
-    """L = I omega."""
+    """
+    L = I omega.
+
+    Parámetros:
+        inertia: momento de inercia respecto al eje de giro.
+        omega: velocidad angular.
+    """
     return inertia * omega
 
 
 def moment_of_inertia_point_masses(
     masses: Sequence[float], radii: Sequence[float]
 ) -> float:
-    """I = sum(m_i r_i^2)."""
+    """
+    I = sum(m_i r_i^2).
+
+    Parámetros:
+        masses: secuencia de masas puntuales.
+        radii: distancias de cada masa al eje de giro.
+    """
     if len(masses) != len(radii):
         raise ValueError("masses y radii deben tener la misma longitud")
     return sum(m * r * r for m, r in zip(masses, radii))
 
 
 def inertia_thin_ring(mass: float, radius: float) -> float:
+    """
+    Parámetros:
+        mass: masa del anillo fino.
+        radius: radio del anillo fino.
+    """
     return mass * radius * radius
 
 
 def inertia_annulus(mass: float, inner_radius: float, outer_radius: float) -> float:
+    """
+    Parámetros:
+        mass: masa de la corona circular.
+        inner_radius: radio interior de la corona.
+        outer_radius: radio exterior de la corona.
+    """
     return 0.5 * mass * (inner_radius * inner_radius + outer_radius * outer_radius)
 
 
 def inertia_solid_cylinder_axis(mass: float, radius: float) -> float:
-    """Cilindro/disco macizo respecto a eje central longitudinal: I=1/2 mR^2."""
+    """
+    Cilindro/disco macizo respecto a eje central longitudinal: I=1/2 mR^2.
+
+    Parámetros:
+        mass: masa del cilindro o disco macizo.
+        radius: radio del cilindro o disco.
+    """
     return 0.5 * mass * radius * radius
 
 
 def inertia_solid_sphere(mass: float, radius: float) -> float:
+    """
+    Parámetros:
+        mass: masa de la esfera maciza.
+        radius: radio de la esfera maciza.
+    """
     return (2.0 / 5.0) * mass * radius * radius
 
 
 def inertia_hollow_sphere(mass: float, radius: float) -> float:
+    """
+    Parámetros:
+        mass: masa de la esfera hueca delgada.
+        radius: radio de la esfera hueca.
+    """
     return (2.0 / 3.0) * mass * radius * radius
 
 
@@ -1178,6 +2106,11 @@ def inertia_spherical_shell_thick(
     """
     Corteza esférica gruesa:
     I = 2/5 m (R2^5 - R1^5)/(R2^3 - R1^3)
+
+    Parámetros:
+        mass: masa de la corteza esférica gruesa.
+        inner_radius: radio interior de la corteza.
+        outer_radius: radio exterior de la corteza.
     """
     denom = outer_radius**3 - inner_radius**3
     if denom == 0:
@@ -1186,48 +2119,103 @@ def inertia_spherical_shell_thick(
 
 
 def inertia_ring_diameter_axis(mass: float, radius: float) -> float:
-    """Anillo respecto a un diámetro: I=1/2 mR^2."""
+    """
+    Anillo respecto a un diámetro: I=1/2 mR^2.
+
+    Parámetros:
+        mass: masa del anillo.
+        radius: radio del anillo.
+    """
     return 0.5 * mass * radius * radius
 
 
 def inertia_disk_diameter_axis(mass: float, radius: float) -> float:
-    """Disco respecto a un diámetro: I=1/4 mR^2."""
+    """
+    Disco respecto a un diámetro: I=1/4 mR^2.
+
+    Parámetros:
+        mass: masa del disco.
+        radius: radio del disco.
+    """
     return 0.25 * mass * radius * radius
 
 
 def inertia_cylinder_central_perpendicular(
     mass: float, radius: float, length: float
 ) -> float:
-    """Cilindro respecto a eje central perpendicular: I=1/4 mR^2 + 1/12 mL^2."""
+    """
+    Cilindro respecto a eje central perpendicular: I=1/4 mR^2 + 1/12 mL^2.
+
+    Parámetros:
+        mass: masa del cilindro.
+        radius: radio del cilindro.
+        length: longitud del cilindro.
+    """
     return 0.25 * mass * radius * radius + (1.0 / 12.0) * mass * length * length
 
 
 def inertia_rod_center(mass: float, length: float) -> float:
+    """
+    Parámetros:
+        mass: masa de la varilla.
+        length: longitud de la varilla.
+    """
     return (1.0 / 12.0) * mass * length * length
 
 
 def inertia_rectangular_plate_center(mass: float, a: float, b: float) -> float:
+    """
+    Parámetros:
+        mass: masa de la placa rectangular.
+        a: longitud de un lado de la placa.
+        b: longitud del otro lado de la placa.
+    """
     return (1.0 / 12.0) * mass * (a * a + b * b)
 
 
 def parallel_axis_theorem(inertia_cm: float, mass: float, distance: float) -> float:
-    """Steiner: I = I_cm + m d^2."""
+    """
+    Steiner: I = I_cm + m d^2.
+
+    Parámetros:
+        inertia_cm: momento de inercia respecto al eje que pasa por el centro de masas.
+        mass: masa del cuerpo.
+        distance: distancia entre el eje del centro de masas y el eje paralelo nuevo.
+    """
     return inertia_cm + mass * distance * distance
 
 
 def rolling_condition_speed(omega: float, radius: float) -> float:
-    """Rodadura pura: v_cm = omega R."""
+    """
+    Rodadura pura: v_cm = omega R.
+
+    Parámetros:
+        omega: velocidad angular de la rueda o cuerpo rodante.
+        radius: radio de rodadura.
+    """
     return omega * radius
 
 
 def rolling_condition_omega(v_cm: float, radius: float) -> float:
+    """
+    Parámetros:
+        v_cm: velocidad del centro de masas.
+        radius: radio de rodadura.
+    """
     if radius <= 0:
         raise ValueError("El radio debe ser positivo")
     return v_cm / radius
 
 
 def rolling_contact_speed(v_cm: float, omega: float, radius: float) -> float:
-    """Velocidad del punto de contacto inferior: v_p = v_cm - omega R."""
+    """
+    Velocidad del punto de contacto inferior: v_p = v_cm - omega R.
+
+    Parámetros:
+        v_cm: velocidad del centro de masas.
+        omega: velocidad angular del cuerpo rodante.
+        radius: radio de rodadura.
+    """
     return v_cm - omega * radius
 
 
@@ -1236,6 +2224,13 @@ def rolling_state(
 ) -> Literal[
     "rodadura pura", "deslizamiento puro", "rotacion pura", "rodadura con deslizamiento"
 ]:
+    """
+    Parámetros:
+        v_cm: velocidad del centro de masas.
+        omega: velocidad angular del cuerpo rodante.
+        radius: radio de rodadura.
+        eps: tolerancia para clasificar velocidades casi nulas.
+    """
     if abs(v_cm) < eps and abs(omega) < eps:
         return "rodadura pura"
     if abs(omega) < eps and abs(v_cm) >= eps:
@@ -1253,6 +2248,13 @@ def rolling_acceleration_incline(
     """
     Aceleración de rodadura pura en plano inclinado:
     a = g sin(theta) / (1 + I/(mR^2)).
+
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        inertia: momento de inercia respecto al eje de rotación.
+        mass: masa del cuerpo rodante.
+        radius: radio de rodadura.
+        g: aceleración de la gravedad.
     """
     if mass <= 0 or radius <= 0:
         raise ValueError("mass y radius deben ser positivos")
@@ -1260,19 +2262,41 @@ def rolling_acceleration_incline(
 
 
 def rolling_acceleration_solid_sphere(angle: float, g: float = G_EARTH) -> float:
+    """
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return (5.0 / 7.0) * g * sin(angle)
 
 
 def rolling_acceleration_solid_cylinder(angle: float, g: float = G_EARTH) -> float:
+    """
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return (2.0 / 3.0) * g * sin(angle)
 
 
 def rolling_acceleration_hollow_cylinder(angle: float, g: float = G_EARTH) -> float:
+    """
+    Parámetros:
+        angle: ángulo del plano inclinado respecto a la horizontal, en radianes.
+        g: aceleración de la gravedad.
+    """
     return 0.5 * g * sin(angle)
 
 
 def rolling_friction_torque(Crr: float, radius: float, normal_force: float) -> float:
-    """Torque de rozamiento por rodadura: tau = Crr R Fn."""
+    """
+    Torque de rozamiento por rodadura: tau = Crr R Fn.
+
+    Parámetros:
+        Crr: coeficiente de resistencia a la rodadura.
+        radius: radio de rodadura.
+        normal_force: módulo de la fuerza normal.
+    """
     return Crr * radius * normal_force
 
 
@@ -1287,6 +2311,14 @@ def rolling_friction_torque_limited(
     """
     Torque de rodadura limitado para no invertir el giro en un paso:
     min(Crr R Fn, I |omega| / dt) con signo opuesto a omega.
+
+    Parámetros:
+        Crr: coeficiente de resistencia a la rodadura.
+        radius: radio de rodadura.
+        normal_force: módulo de la fuerza normal.
+        inertia: momento de inercia respecto al eje de rotación.
+        omega: velocidad angular actual.
+        dt: duración del paso temporal.
     """
     tau = rolling_friction_torque(Crr, radius, normal_force)
     tau_stop = inertia * abs(omega) / dt
@@ -1299,14 +2331,29 @@ def rolling_friction_torque_limited(
 
 
 def linear_momentum(mass: float, velocity: float) -> float:
+    """
+    Parámetros:
+        mass: masa del cuerpo.
+        velocity: velocidad escalar del cuerpo.
+    """
     return mass * velocity
 
 
 def linear_momentum_vector(mass: float, velocity: Vector3) -> Vector3:
+    """
+    Parámetros:
+        mass: masa del cuerpo.
+        velocity: velocidad del cuerpo como vector 3D.
+    """
     return vec3_scale(velocity, mass)
 
 
 def total_momentum(masses: Sequence[float], velocities: Sequence[Vector3]) -> Vector3:
+    """
+    Parámetros:
+        masses: secuencia de masas de los cuerpos.
+        velocities: secuencia de velocidades 3D asociadas a cada masa.
+    """
     if len(masses) != len(velocities):
         raise ValueError("masses y velocities deben tener la misma longitud")
     total = (0.0, 0.0, 0.0)
@@ -1318,6 +2365,11 @@ def total_momentum(masses: Sequence[float], velocities: Sequence[Vector3]) -> Ve
 def center_of_mass_velocity(
     masses: Sequence[float], velocities: Sequence[Vector3]
 ) -> Vector3:
+    """
+    Parámetros:
+        masses: secuencia de masas de los cuerpos.
+        velocities: secuencia de velocidades 3D asociadas a cada masa.
+    """
     total_mass = sum(masses)
     if total_mass == 0:
         raise ValueError("La masa total no puede ser cero")
@@ -1327,7 +2379,15 @@ def center_of_mass_velocity(
 def coefficient_of_restitution(
     v1_i: float, v2_i: float, v1_f: float, v2_f: float
 ) -> float:
-    """e = -(v2f - v1f)/(v2i - v1i)."""
+    """
+    e = -(v2f - v1f)/(v2i - v1i).
+
+    Parámetros:
+        v1_i: velocidad inicial del cuerpo 1 en la dirección de colisión.
+        v2_i: velocidad inicial del cuerpo 2 en la dirección de colisión.
+        v1_f: velocidad final del cuerpo 1 en la dirección de colisión.
+        v2_f: velocidad final del cuerpo 2 en la dirección de colisión.
+    """
     denom = v2_i - v1_i
     if denom == 0:
         raise ValueError("Las velocidades relativas iniciales no pueden ser iguales")
@@ -1335,7 +2395,13 @@ def coefficient_of_restitution(
 
 
 def combined_elasticity(e1: float, e2: float) -> float:
-    """Coeficiente de restitución combinado estilo Pymunk: e_total = e1 * e2."""
+    """
+    Coeficiente de restitución combinado estilo Pymunk: e_total = e1 * e2.
+
+    Parámetros:
+        e1: coeficiente de restitución del primer material o cuerpo.
+        e2: coeficiente de restitución del segundo material o cuerpo.
+    """
     return e1 * e2
 
 
@@ -1345,6 +2411,13 @@ def collision_1d_final_velocities(
     """
     Colisión 1D con coeficiente de restitución e.
     Conserva momento lineal y cumple v2f - v1f = -e(v2i - v1i).
+
+    Parámetros:
+        m1: masa del cuerpo 1.
+        v1: velocidad inicial del cuerpo 1.
+        m2: masa del cuerpo 2.
+        v2: velocidad inicial del cuerpo 2.
+        e: coeficiente de restitución de la colisión.
     """
     if m1 <= 0 or m2 <= 0:
         raise ValueError("Las masas deben ser positivas")
@@ -1354,7 +2427,15 @@ def collision_1d_final_velocities(
 
 
 def perfectly_inelastic_velocity(m1: float, v1: float, m2: float, v2: float) -> float:
-    """Velocidad común tras colisión perfectamente inelástica."""
+    """
+    Velocidad común tras colisión perfectamente inelástica.
+
+    Parámetros:
+        m1: masa del cuerpo 1.
+        v1: velocidad inicial del cuerpo 1.
+        m2: masa del cuerpo 2.
+        v2: velocidad inicial del cuerpo 2.
+    """
     if m1 + m2 == 0:
         raise ValueError("La masa total no puede ser cero")
     return (m1 * v1 + m2 * v2) / (m1 + m2)
@@ -1366,6 +2447,13 @@ def impulse_1d_for_collision(
     """
     Impulso normal 1D aplicado sobre el cuerpo 1:
     J = -(1+e)(v1-v2) / (1/m1 + 1/m2)
+
+    Parámetros:
+        m1: masa del cuerpo 1.
+        v1: velocidad inicial del cuerpo 1.
+        m2: masa del cuerpo 2.
+        v2: velocidad inicial del cuerpo 2.
+        e: coeficiente de restitución de la colisión.
     """
     if m1 <= 0 or m2 <= 0:
         raise ValueError("Las masas deben ser positivas")
@@ -1378,6 +2466,11 @@ def reflect_velocity_against_wall(
     """
     Rebote contra pared con normal unitaria.
     v' = v - (1+e)(v·n)n
+
+    Parámetros:
+        velocity: velocidad incidente como vector 2D.
+        normal: normal 2D de la pared o superficie de contacto.
+        restitution: coeficiente de restitución del rebote.
     """
     n = vec2_unit(normal)
     vn = vec2_dot(velocity, n)
@@ -1387,7 +2480,13 @@ def reflect_velocity_against_wall(
 def decompose_velocity_normal_tangent(
     velocity: Vector2, normal: Vector2
 ) -> tuple[Vector2, Vector2]:
-    """Descompone v en componente normal y tangencial respecto a una normal de contacto."""
+    """
+    Descompone v en componente normal y tangencial respecto a una normal de contacto.
+
+    Parámetros:
+        velocity: velocidad 2D que se descompone.
+        normal: normal 2D que define la dirección normal del contacto.
+    """
     n = vec2_unit(normal)
     v_n = vec2_scale(n, vec2_dot(velocity, n))
     v_t = vec2_sub(velocity, v_n)
@@ -1405,6 +2504,14 @@ def oblique_collision_no_friction_2d(
     """
     Colisión oblicua 2D sin fricción.
     Solo modifica las componentes normales. Las tangenciales se conservan.
+
+    Parámetros:
+        m1: masa del cuerpo 1.
+        v1: velocidad inicial 2D del cuerpo 1.
+        m2: masa del cuerpo 2.
+        v2: velocidad inicial 2D del cuerpo 2.
+        normal: normal 2D de contacto que define la dirección del impulso.
+        e: coeficiente de restitución de la colisión.
     """
     n = vec2_unit(normal)
     t = vec2_perpendicular(n)
@@ -1424,7 +2531,14 @@ def oblique_collision_no_friction_2d(
 def angular_momentum_particles(
     positions: Sequence[Vector3], masses: Sequence[float], velocities: Sequence[Vector3]
 ) -> Vector3:
-    """Momento angular total: L = sum r_i x m_i v_i."""
+    """
+    Momento angular total: L = sum r_i x m_i v_i.
+
+    Parámetros:
+        positions: secuencia de posiciones 3D de las partículas respecto al origen.
+        masses: secuencia de masas de las partículas.
+        velocities: secuencia de velocidades 3D de las partículas.
+    """
     if not (len(positions) == len(masses) == len(velocities)):
         raise ValueError("positions, masses y velocities deben tener la misma longitud")
     total = (0.0, 0.0, 0.0)
@@ -1439,6 +2553,11 @@ def orbital_speed_from_angular_momentum(
     """
     Conservación L para fuerza central y misma masa:
     m r_i v_i = m r_f v_f -> v_f = r_i v_i / r_f.
+
+    Parámetros:
+        radius_initial: radio orbital inicial.
+        speed_initial: velocidad tangencial inicial.
+        radius_final: radio orbital final.
     """
     if radius_final == 0:
         raise ValueError("radius_final no puede ser cero")
@@ -1448,14 +2567,28 @@ def orbital_speed_from_angular_momentum(
 def point_velocity_from_rotation(
     v_cm: Vector3, omega: Vector3, r_cm_to_point: Vector3
 ) -> Vector3:
-    """Velocidad de un punto del rígido: v_P = v_CM + omega x r."""
+    """
+    Velocidad de un punto del rígido: v_P = v_CM + omega x r.
+
+    Parámetros:
+        v_cm: velocidad del centro de masas como vector 3D.
+        omega: velocidad angular del sólido como vector 3D.
+        r_cm_to_point: vector desde el centro de masas hasta el punto considerado.
+    """
     return vec3_add(v_cm, vec3_cross(omega, r_cm_to_point))
 
 
 def cm_velocity_for_desired_point_velocity(
     v_point: Vector3, omega: Vector3, r_cm_to_point: Vector3
 ) -> Vector3:
-    """v_CM = v_P - omega x r."""
+    """
+    v_CM = v_P - omega x r.
+
+    Parámetros:
+        v_point: velocidad deseada del punto como vector 3D.
+        omega: velocidad angular del sólido como vector 3D.
+        r_cm_to_point: vector desde el centro de masas hasta el punto considerado.
+    """
     return vec3_sub(v_point, vec3_cross(omega, r_cm_to_point))
 
 
@@ -1502,6 +2635,10 @@ VISCOSITIES_PA_S_20C: dict[str, float] = {
 
 
 def drag_coefficient_2d(shape: str) -> float:
+    """
+    Parámetros:
+        shape: nombre de la forma 2D en la tabla de coeficientes.
+    """
     try:
         return DRAG_COEFFICIENTS_2D[shape]
     except KeyError as exc:
@@ -1509,6 +2646,10 @@ def drag_coefficient_2d(shape: str) -> float:
 
 
 def drag_coefficient_3d(shape: str) -> float:
+    """
+    Parámetros:
+        shape: nombre de la forma 3D en la tabla de coeficientes.
+    """
     try:
         return DRAG_COEFFICIENTS_3D[shape]
     except KeyError as exc:
@@ -1516,6 +2657,10 @@ def drag_coefficient_3d(shape: str) -> float:
 
 
 def laminar_shape_factor(shape: str) -> float:
+    """
+    Parámetros:
+        shape: nombre de la forma en la tabla de factores laminares.
+    """
     try:
         return LAMINAR_SHAPE_FACTORS[shape]
     except KeyError as exc:
@@ -1523,6 +2668,10 @@ def laminar_shape_factor(shape: str) -> float:
 
 
 def viscosity_20c(fluid: str) -> float:
+    """
+    Parámetros:
+        fluid: nombre del fluido en la tabla de viscosidades a 20 grados Celsius.
+    """
     try:
         return VISCOSITIES_PA_S_20C[fluid]
     except KeyError as exc:
@@ -1535,29 +2684,396 @@ def viscosity_20c(fluid: str) -> float:
 
 
 def meters_to_pixels(meters: float, pixels_per_meter: float) -> float:
+    """
+    Parámetros:
+        meters: longitud física expresada en metros.
+        pixels_per_meter: escala de conversión en píxeles por metro.
+    """
     return meters * pixels_per_meter
 
 
 def pixels_to_meters(pixels: float, pixels_per_meter: float) -> float:
+    """
+    Parámetros:
+        pixels: longitud visual expresada en píxeles.
+        pixels_per_meter: escala de conversión en píxeles por metro.
+    """
     if pixels_per_meter == 0:
         raise ValueError("pixels_per_meter no puede ser cero")
     return pixels / pixels_per_meter
 
 
 def acceleration_mps2_to_pxps2(accel: float, pixels_per_meter: float) -> float:
+    """
+    Parámetros:
+        accel: aceleración física expresada en m/s².
+        pixels_per_meter: escala de conversión en píxeles por metro.
+    """
     return accel * pixels_per_meter
 
 
 def acceleration_pxps2_to_mps2(accel_px: float, pixels_per_meter: float) -> float:
+    """
+    Parámetros:
+        accel_px: aceleración visual expresada en px/s².
+        pixels_per_meter: escala de conversión en píxeles por metro.
+    """
     return pixels_to_meters(accel_px, pixels_per_meter)
 
+
+def aplicar_frenado_aire_rotacional(body, R=None, rho=1.225, Cm=0.02):  # golf 0.07
+    """
+    Aplica el torque de resistencia aerodinámica a la rotación (Spin Decay).
+    Tau = -0.5 * rho * w^2 * R^5 * Cm
+    """
+
+    if R == None:
+        R = list(body.shapes)[0].radius
+
+    w = body.angular_velocity  # En radianes por segundo
+
+    if abs(w) > 0.01:  # Evitamos cálculos si casi no gira
+        # Calculamos la magnitud del torque (cuadrática con omega)
+        # Nota: usamos abs(w) para que la magnitud sea siempre positiva
+        # y luego aplicamos el signo opuesto al final.
+        torque_magnitud = 0.5 * rho * (w**2) * (R**5) * Cm
+
+        # El torque debe oponerse al giro actual
+        signo_opuesto = -1 if w > 0 else 1
+
+        # Aplicamos el torque directamente al cuerpo de Pymunk
+        body.torque += signo_opuesto * torque_magnitud
+
+
+############################################################
+def aplicar_rodadura(body, FNorm=None, R=None, Crr=0.02, dt=1 / 60.0):
+    """
+    Aplica un torque disipativo que simula la resistencia a la rodadura.
+    No genera movimiento inverso al detenerse.
+
+    En R hay que pasar el radio pixeles, para comodidad el usuario
+    si R=None, se calcula suponiendo que el body tiene solo un shape
+    que es un disco.
+    Igual con FNorm, si se pasa None, se calcula como masa*gravedad
+    en caso contrario se toma el valor que se pase
+    """
+
+    if R == None:
+        R = list(body.shapes)[0].radius
+    if FNorm == None:
+        FNorm = (body.mass * body.space.gravity).length
+
+    # Para no tener que andar con ángulos de inclinación y otros datos
+    # pedimos la FNorm (en liso y sin otras fuerzas será masa*gavedad
+    torque_rodadura_max = Crr * FNorm * R
+    w = body.angular_velocity
+    if abs(w) > 0.01:
+        # Direccion opuesta al giro
+        dir_freno = -1 if w > 0 else 1
+        # Torque necesario para detener la rueda en exactamente un paso (dt)
+        # Basado en T = I * alpha -> T = I * (w / dt)
+        torque_detencion_total = (body.moment * abs(w)) / dt
+        # Elegimos el menor: el fisico o el que la clava a cero
+        torque_final = min(torque_rodadura_max, torque_detencion_total)
+        # Sumamos al torque ya existente (motor, etc.)
+        body.torque += dir_freno * torque_final
+    else:
+        # Umbral de parada total para evitar micro-vibraciones (jitter)
+        body.velocity = (0, 0)
+        body.angular_velocity = 0
+
+
+##############################################################
+
+
+###########################################################
+# Calcula el numero de Reynolds en función de la velocidad,
+# una longitud característica, la viscosidad y la densidad
+# del fluido. Por defecto mu y rho son las del aire en con
+# diciones normales.
+# -----------------------------------------------------
+def get_reynolds(v, D, mu=1.85e-5, rho=1.225):
+    """
+    Calcula el número de Reynolds (Re).
+
+    Parámetros:
+    v -> modulo de velocidad (float): m/s
+    D -> longitud_caracteristica (float): m (ej. diámetro de tubería)
+         Si es una esfera es el diametro
+    mu -> viscosidad dinamica (float): Pa·s o kg/(m·s)
+    rho -> densidad (float): kg/m^3
+    """
+    try:
+        re = (rho * v * D) / mu
+        return re
+    except ZeroDivisionError:
+        return float("inf")
+
+
+#######################################################################
+# Calcula el coeficiente de arraste para UNA ESFERA para valor del número de reynolds
+# Si crisis es False, no tiene en cuenta la crisis de arrastre y supone
+# que Cd es constante después de la zona de Newton
+# ---------------------------------------------------------------------
+def get_Cd(v, D, mu=1.85e-5, rho=1.225, crisis=False, golf=False):
+    """
+    Calcula el coeficiente de arrastre (Cd) para una esfera en función de Re.
+    Re lo calcula con la función de arriba a partir de:
+    v -> modulo de velocidad (float): m/s
+    D -> longitud_caracteristica (float): m (ej. diámetro de tubería)
+         Si es una esfera es el diametro
+    mu -> viscosidad dinamica (float): Pa·s o kg/(m·s)
+    rho -> densidad (float): kg/m^3
+
+    El cálculo es, en principio para una esfera lisa, si crisis=False no
+    se tiene en cuenta la cirsis de arrastre (aprox. Re>2e5 porque en muchos
+    casos es difícil de conseguir)
+    Si golf=True, tenemos en cuenta los dimples (hoyuelos) y la crisis de
+    arrastre aparece antes re>40000
+    """
+
+    Re = get_reynolds(v, D, mu=mu, rho=rho)
+
+    if Re == float("inf"):
+        return 0.0
+
+    # ----- especial para la pelota de golf:
+    if golf:
+        if Re > 40000:
+            return 0.22  # Cd reducido por la crisis de arrastre
+        else:
+            return 0.5  # Antes de la crisis Cd es mayor que para la esfera lisa
+
+    ############## esto ya es lo que había antes para esferas lisas
+
+    # 1. Schiller–Naumann para Re < 1000
+    if Re < 1000:
+        # Cd = (24/Re) * (1 + 0.15 * Re^0.687)
+        return (24.0 / Re) * (1.0 + 0.15 * (Re**0.687))
+
+    # 2. Valor constante 0.44 hasta 2x10^5
+    # (Schiller-Naumann en Re=1000 es ~0.441, el empalme es casi continuo)
+    elif Re <= 2e5 or crisis == False:
+        return 0.44
+
+    # 3. Crisis de arrastre: Interpolación log-log de 2e5 a 3e5 (de 0.44 a 0.1)
+    elif Re <= 3e5:
+        re1, cd1 = 2e5, 0.44
+        re2, cd2 = 3e5, 0.1
+
+        log_re = math.log10(Re)
+        log_re1, log_cd1 = math.log10(re1), math.log10(cd1)
+        log_re2, log_cd2 = math.log10(re2), math.log10(cd2)
+
+        log_cd = log_cd1 + (log_cd2 - log_cd1) * (log_re - log_re1) / (
+            log_re2 - log_re1
+        )
+        return 10**log_cd
+
+    # 4. Recuperación: Interpolación log-log de 3e5 a 2e6 (de 0.1 a 0.2)
+    elif Re <= 2e6:
+        re1, cd1 = 3e5, 0.1
+        re2, cd2 = 2e6, 0.2
+
+        log_re = math.log10(Re)
+        log_re1, log_cd1 = math.log10(re1), math.log10(cd1)
+        log_re2, log_cd2 = math.log10(re2), math.log10(cd2)
+
+        log_cd = log_cd1 + (log_cd2 - log_cd1) * (log_re - log_re1) / (
+            log_re2 - log_re1
+        )
+        return 10**log_cd
+
+    # 5. Para Re > 2e6, valor constante
+    else:
+        return 0.2
+
+
+#######################################################################
+#######################################################################
+
+
+#################################################################################
+#### Dada la velocidad calcula la corrección al coeficiente de arrastre debido
+#### a la velocidad supersónica o proxima a supersónica. Por defecto toma
+#### como velocidad del sonido  340 m/s
+#### El resultado de esta función hay que multiplicarlo al valor Cd
+def mach_correction(velocity, v_sound=340):
+    """
+    Aplica el factor de corrección por compresibilidad (Mach) al Cd de Reynolds.
+    """
+    # v_sound = 340.0 # m/s aprox.
+    mach = velocity / v_sound
+
+    if mach < 0.8:
+        factor = 1.0
+    elif mach < 1.2:
+        # Transición: subida brusca
+        factor = 1.0 + 1.25 * (mach - 0.8)
+    else:
+        # Supersónico: factor basado en Miller-Bailey simplificado
+        factor = 1.5 + (0.5 / mach)
+
+    return factor
+
+
+###############################################################################
+
+
+##############################################################################
+def get_rho(h):  # obtiene la densidad del aire en función de la altitud
+    rho0, T0 = 1.225, 288.15
+    L, R, g = 0.0065, 287.05, 9.80665
+    # Limitamos a la troposfera (11km)
+    h_corr = max(0.0, min(h, 11000.0))
+    temp_local = T0 - L * h_corr
+    exponente = (g / (R * L)) - 1
+    return rho0 * (temp_local / T0) ** exponente
+
+
+##############################################################################
+
+
+##############################################################################
+def vel_sonido_temp(temp_k):  # velocidad del sonido en función de la temperatura
+    # Constantes para el aire
+    gamma = 1.4
+    R = 287.05
+    # Velocidad en m/s
+    c = math.sqrt(gamma * R * temp_k)
+    return c
+
+
+####################################################################
+def vel_sonido_altitud(
+    alt_m, T0=288.15
+):  # Velocidad del sonido en función de la altitud.
+    # El parámetro opcional es la temperatura a nivel del mar, por defecto 15 grados C
+    L = 0.0065
+    # Obtenemos T local (ISA)
+    y = max(0, min(alt_m, 11000))
+    t_local = T0 - L * y
+    # Usamos la funcion previa
+    return vel_sonido_temp(t_local)
+
+
+######################################################################
+
+
+################################################################################################
+################################################################################################
+### Utiliza todo lo de arriba para calcular y APLICAR el drag (fuerza opuesta a la velocidad del cuerpo, o
+### a la velociad relativa del cuerpo con respecto al aire si hay viento
+################################################################################################
+def aplicar_newton(
+    body,
+    AREA_M2,
+    M_PX=1,
+    Cd=0.47,
+    alt_m=0,
+    v_viento=[0, 0],
+    CORRECT_RHO=False,
+    MACH=False,
+    offset=(0, 0),
+):  # M_PX factor de escala m/pixel
+    # si se pone alt_m (altitud en m) =0 no tiene en cuenta el efecto de la altitud en la densidad ni velocidad del sonido
+    # v_viento se pasa en m/s
+    # offset es un desplazamiento del punto de aplicación de la fuerza de fricción
+    # 1. Calculamos la velocidad RELATIVA (Vectorial) v_ms es la velocidad del proyectil en m/s
+    # si v_viento==0 no afecta en nada
+    v_viento = Vec2d(*v_viento)  # no se aplica el factor porque viene en m/s
+    v_ms = body.velocity * M_PX
+    # v_rel es la diferencia con el viento y v_rel_mag su modulo
+    v_rel = v_ms - v_viento
+    v_rel_mag = v_rel.length
+    # --- FILTRO DE ESTABILIDAD ---
+    # Si la diferencia es menor a 0.1 m/s, consideramos que
+    # el objeto ya "flota" con el viento y no aplicamos mas arrastre.
+    if v_rel_mag < 0.1:
+        return
+    # 2. Densidad y Cd (con correccion Mach si esta activa)
+    rho = get_rho(alt_m) if CORRECT_RHO else 1.225
+    if MACH:
+        # IMPORTANTE: El Mach se calcula con la velocidad RELATIVA
+        Cd = Cd * mach_correction(v_rel_mag)
+
+    # 3. Aplicamos la fuerza opuesta a la velocidad relativa
+    # ya sale convertida en unidades de pymunk
+    f_drag = -0.5 * rho * Cd * AREA_M2 * v_rel_mag * v_rel / M_PX
+    # Convertimos la fuerza de vuelta a la escala del motor (Pymunk)
+
+    # El desplazamiento del punto de aplicación hay que hacerlo teniendo en cuenta
+    # que el objeto puede estar girado
+    offset_rot = (offset[0] * math.cos(body.angle), offset[1] * math.sin(body.angle))
+
+    # Hay que aplicar la fuerza en un punto externo para evitar la influencia del giro
+    # del cuerpo
+    body.apply_force_at_world_point(f_drag, body.position + offset_rot)
+
+    # print(f"{f_drag.x/M_PX:5.3f} {f_drag.y/M_PX:5.3f} {v_rel_mag:5.3f} {v_rel.x:5.3f} {v_rel.y:5.3f}")
+
+    return f_drag
+
+
+################################################################################################
+
+
+####################### calculo de la fuerza Magnus ####################################
+
+
+def aplicar_magnus(
+    body, AREA_M2, M_PX=1, k=0.7, v_viento=[0, 0], offset=(0, 0)
+):  # M_PX factor de escala m/pixel
+    # k es la cte que lleva el coeficiente C_M, pongo por defecto la del fúbol
+    # ponemos la densidad del aire para h=0
+    # v_viento se pasa en m/s
+    # offset es un desplazamiento del punto de aplicación de la fuerza de magnus
+    # 1. Calculamos la velocidad RELATIVA (Vectorial) v_ms es la velocidad del proyectil en m/s
+    # si v_viento==0 no afecta en nada
+    v_viento = Vec2d(*v_viento)  # no se aplica el factor porque viene en m/s
+    v_ms = body.velocity * M_PX
+    # v_rel es la diferencia con el viento y v_rel_mag su modulo
+    v_rel = v_ms - v_viento
+    v_rel_mag = v_rel.length
+    # --- FILTRO DE ESTABILIDAD ---
+    # Si la diferencia es menor a 0.1 m/s, consideramos que
+    # el objeto ya "flota" con el viento y no aplicamos mas arrastre.
+    if v_rel_mag < 0.1:
+        return
+    # 2. Densidad al nivel del mar
+    rho = get_rho(0)
+
+    # 3. Calculamos magnus:
+    # 3.1 dirección y sentido. Vector unitario normal a la trayectoria
+    u_m = Vec2d(-v_rel[1], v_rel[0]).normalized()
+    # 3.2 Calculamos la expresión de la fuerza
+    # La k se ha pasado como parámetro (tipo de deporte)
+    R = list(body.shapes)[0].radius * M_PX  # suponemos una esfera, con un solo shape
+    ##### FALTA S arriba ######
+    S = R * body.angular_velocity / v_rel_mag
+    Cm = (
+        k * S / (2 + abs(S))
+    )  # el signo menos requerido por el producto vectorial, lo incorpora la S del numerador
+    # Esto da la fuerza ya convertida a unidades de Pymunk
+    f_drag = 0.5 * rho * Cm * AREA_M2 * v_rel_mag**2 * u_m / M_PX
+
+    # 3.3 El desplazamiento del punto de aplicación hay que hacerlo teniendo en cuenta
+    # que el objeto puede estar girado
+    offset_rot = (offset[0] * math.cos(body.angle), offset[1] * math.sin(body.angle))
+
+    # Hay que aplicar la fuerza en un punto externo para evitar la influencia del giro
+    # del cuerpo
+    body.apply_force_at_world_point(f_drag, body.position + offset_rot)
+
+    # print(f"{f_drag.x/M_PX:5.3f} {f_drag.y/M_PX:5.3f} {v_rel_mag:5.3f} {v_rel.x:5.3f} {v_rel.y:5.3f}")
+
+    return f_drag
 
 # =============================================================================
 # Pequeña batería de pruebas manuales
 # =============================================================================
 
 if __name__ == "__main__":
-    # Ejemplos rápidos para comprobar que el módulo funciona.
     print(
         "Proyectil 20 m/s, 45º, t=1:",
         projectile_state_no_drag(0, 0, 20, radians(45), 1),
