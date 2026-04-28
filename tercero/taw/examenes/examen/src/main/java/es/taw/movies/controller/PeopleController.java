@@ -26,7 +26,8 @@ public class PeopleController {
     }
 
     @GetMapping("/")
-    public String dashboard(Model model, @ModelAttribute FilterRequest filter) {
+    public String dashboard(Model model,
+                            @ModelAttribute FilterRequest filter) {
         List<People> people;
         if(filter.getType() == FilterRequest.PersonType.REPARTO){
             people =peopleRepository.findByCharacterAndText(filter.getContent());

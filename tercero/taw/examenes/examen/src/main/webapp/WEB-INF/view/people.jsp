@@ -16,6 +16,7 @@
 %>
 
 <body>
+
 <form method="get" action="/">
     <label>
         <input type="radio" name="type" value="REPARTO" <%=filter.getType()
