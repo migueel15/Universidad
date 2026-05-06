@@ -1,0 +1,201 @@
+\documentclass[10pt]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{minted}
+\usepackage{amsmath}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm, marginparwidth=1.75cm]{geometry}
+\usepackage{amsfonts}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\Lb}{\pazocal{L}}
+
+
+\usemintedstyle{default}
+
+\title{Práctica 3: APND, CBR, MT y REC}
+\author{Miguel Ángel Dorado Maldonado}
+
+\begin{document}
+\maketitle
+
+\section{Actividad 1: APND}
+
+\[
+    L = \{0^n1^{2n} : n > 0\}
+\]
+
+\subsection{Transiciones}
+
+\begin{center}
+    \centering
+    \includegraphics[width=1\linewidth]{imageeee.png}
+\end{center}
+
+\subsection{Pruebas en JFLAP}
+
+\begin{center}
+    \centering
+    \includegraphics[width=1\linewidth]{imageee.png}
+\end{center}
+
+\subsection{Definición en Python}
+
+El APND se añade al archivo \texttt{pushdownautomata.json} con el nombre
+\texttt{ej1\_0n1\_2n}:
+
+\begin{minted}{json}
+{
+  "name": "ej1_0n1_2n",
+  "hint": "APND para L={0^n1^2n : n>0}",
+  "e.g.": [],
+  "representation": {
+    "K": ["q0", "q1"],
+    "I": ["0", "1"],
+    "S": ["A"],
+    "s": "q0",
+    "F": ["q1"],
+    "t": [
+      [["q0", "0", ""], ["q0", "AA"]],
+      [["q0", "1", "A"], ["q1", ""]],
+      [["q1", "1", "A"], ["q1", ""]]
+    ]
+  }
+}
+\end{minted}
+
+Para comprobar el funcionamiento se usa el siguiente código:
+
+\begin{minted}{python}
+from python.automata import pushdown_automaton
+
+pruebas = [
+    ("011", "accept"),
+    ("001111", "accept"),
+    ("000111111", "accept"),
+    ("01", "blocked"),
+    ("00111", "blocked"),
+    ("1111", "blocked"),
+]
+
+for cadena, esperado in pruebas:
+    print("Cadena:", cadena)
+    resultado = pushdown_automaton(
+        "ej1_0n1_2n",
+        cadena,
+        desired_output=esperado
+    )
+    print("Resultado:", resultado)
+    print("Esperado:", esperado)
+    print()
+\end{minted}
+
+\section{Actividad 2: Máquina de Turing}
+
+La entrada tiene la forma:
+
+\[
+    *|^{n+1}*|^{m+1}*
+\]
+
+La salida esperada es:
+
+\[
+    *|^{n+m+1}***
+\]
+
+\begin{center}
+    \centering
+    \includegraphics[width=1\linewidth]{sumaapdn.png}
+\end{center}
+
+\subsection{Definición en Python}
+
+\begin{minted}{json}
+{
+  "name": "ej2_suma",
+  "representation": {
+    "matrix": [
+      ["q0", "*", "l", "q1"],
+      ["q0", "|", "|", "q0"],
+      ["q1", "*", "|", "q2"],
+      ["q1", "|", "l", "q1"],
+      ["q2", "*", "l", "q3"],
+      ["q2", "|", "r", "q2"],
+      ["q3", "*", "l", "q4"],
+      ["q3", "|", "*", "q3"],
+      ["q4", "*", "h", "q4"],
+      ["q4", "|", "*", "q4"]
+    ]
+  }
+}
+\end{minted}
+
+\begin{minted}{python}
+from python.turingmachine import turing_machine
+
+pruebas = [
+    "*|*|*",
+    "*||*|*",
+    "*|*||*",
+    "*||*||*",
+    "*|||*||*",
+    "*|||*|||*",
+]
+
+for cinta in pruebas:
+    print("Cinta:", cinta)
+    cinta_final, posicion = turing_machine("ej2_suma", cinta, outputformat="none")
+    print("Resultado:", "".join(cinta_final.content))
+    print("Posicion:", posicion)
+    print()
+\end{minted}
+
+\section{Actividad 3: Función recursiva}
+
+La suma de tres valores se puede definir usando la suma de dos valores:
+
+\[
+    suma3(x,y,z) = suma(suma(x,y),z)
+\]
+
+Usando la notación de la librería:
+
+\[
+    addition(addition(\pi^3_1,\pi^3_2),\pi^3_3)
+\]
+
+\subsection{Evaluación a mano}
+
+Tomamos como ejemplo:
+
+\[
+    suma3(2,3,4)
+\]
+
+\[
+\begin{aligned}
+suma3(2,3,4) &= suma(suma(2,3),4) \\
+              &= suma(5,4) \\
+              &= 9
+\end{aligned}
+\]
+
+\subsection{Ejecución en Python}
+
+\begin{minted}{python}
+from python.recursivefunctions import eval_rec_function
+
+suma3 = "addition(addition(π^3_1,π^3_2),π^3_3)"
+
+print(eval_rec_function(suma3, 2, 3, 4))
+\end{minted}
+
+El resultado obtenido es:
+
+\begin{minted}{text}
+9
+\end{minted}
+
+
+\end{document}
