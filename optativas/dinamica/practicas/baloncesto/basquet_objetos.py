@@ -1,9 +1,7 @@
 import pygame
 import pymunk
-import pymunk.pygame_util
 import math
 from pymunk import Vec2d
-import numpy as np
 
 
 ################################# SIMULACIÓN GENERICA ##############################################
