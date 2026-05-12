@@ -19,6 +19,7 @@ class Tsim:
         self.suelo = suelo
         # inicia pygame
         pygame.init()
+        pygame.key.set_repeat(150, 40)
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.clock = pygame.time.Clock()
         # intenta poner el fondo
@@ -659,6 +660,8 @@ class Tbasket(Tsim):
         self.v_lanzamiento = 9.0  # m/s
         self.ang_lanzamiento = 55.0  # grados
         self.w_lanzamiento = -15.0  # rad/s (backspin)
+        self.color_trayectoria = (255, 230, 80)
+        self.fuente = pygame.font.SysFont(None, 24)
 
         # balon
         self.balon = Tbalon(self, self.pos_inicio_balon)
@@ -680,6 +683,12 @@ class Tbasket(Tsim):
         # teclas
         self.add_evento_tecla(pygame.K_SPACE, self.lanzar_triple)
         self.add_evento_tecla(pygame.K_ESCAPE, self.resetear_posicion)
+        self.add_evento_tecla(pygame.K_RIGHT, lambda: self.cambiar_velocidad(0.2))
+        self.add_evento_tecla(pygame.K_LEFT, lambda: self.cambiar_velocidad(-0.2))
+        self.add_evento_tecla(pygame.K_UP, lambda: self.cambiar_angulo(1.0))
+        self.add_evento_tecla(pygame.K_DOWN, lambda: self.cambiar_angulo(-1.0))
+        self.add_evento_tecla(pygame.K_a, lambda: self.cambiar_giro(-1.0))
+        self.add_evento_tecla(pygame.K_d, lambda: self.cambiar_giro(1.0))
 
     def lanzar_triple(self):
         # Ahora usamos las variables de la instancia
@@ -691,11 +700,23 @@ class Tbasket(Tsim):
     def configurar_tiro(self, v=None, ang=None, w=None):
         """Método para cambiar los parámetros desde fuera"""
         if v is not None:
-            self.v_lanzamiento = v
+            self.v_lanzamiento = max(1.0, min(20.0, v))
         if ang is not None:
-            self.ang_lanzamiento = ang
+            self.ang_lanzamiento = max(5.0, min(85.0, ang))
         if w is not None:
-            self.w_lanzamiento = w
+            self.w_lanzamiento = max(-80.0, min(80.0, w))
+
+    def cambiar_velocidad(self, delta):
+        if self.balon.sujeto:
+            self.configurar_tiro(v=self.v_lanzamiento + delta)
+
+    def cambiar_angulo(self, delta):
+        if self.balon.sujeto:
+            self.configurar_tiro(ang=self.ang_lanzamiento + delta)
+
+    def cambiar_giro(self, delta):
+        if self.balon.sujeto:
+            self.configurar_tiro(w=self.w_lanzamiento + delta)
 
     def resetear_posicion(self):
         self.balon.sujetar_en_mano(self.pos_inicio_balon)
@@ -708,12 +729,90 @@ class Tbasket(Tsim):
             if actualizar:
                 actualizar(dt)
 
+    def calcular_trayectoria(self):
+        puntos = []
+        pos = Vec2d(self.balon.pos_mano[0], self.balon.pos_mano[1])
+        rad = math.radians(self.ang_lanzamiento)
+        vel = Vec2d(
+            self.v_lanzamiento * math.cos(rad),
+            self.v_lanzamiento * math.sin(rad),
+        )
+        omega = self.w_lanzamiento
+        dt = 1.0 / 60.0
+        masa = self.balon.body.mass
+        radio = self.balon.radio_m
+        area = self.balon.area_m2
+        inercia = self.balon.body.moment * self.M_PX**2
+        gravedad = Vec2d(
+            self.space.gravity.x * self.M_PX, -self.space.gravity.y * self.M_PX
+        )
+
+        for _ in range(240):
+            punto_px = self.balon._m_a_px(pos)
+            puntos.append(punto_px)
+            v_mag = vel.length
+            acc = Vec2d(gravedad.x, gravedad.y)
+            if v_mag > 0.1:
+                f_drag = -0.5 * self.balon.rho_aire * self.balon.Cd * area * v_mag * vel
+                acc += f_drag / masa
+                if abs(omega) > 0.01:
+                    S = radio * omega / v_mag
+                    Cm = self.balon.k_magnus * S / (2 + abs(S))
+                    u_magnus = Vec2d(vel.y, -vel.x).normalized()
+                    f_magnus = (
+                        0.5 * self.balon.rho_aire * Cm * area * v_mag**2 * u_magnus
+                    )
+                    acc += f_magnus / masa
+            if abs(omega) > 0.01 and inercia > 0:
+                torque_m = (
+                    -0.5
+                    * self.balon.rho_aire
+                    * self.balon.Cm_rotacional
+                    * abs(omega)
+                    * omega
+                    * radio**5
+                )
+                omega += torque_m / inercia * dt
+            vel += acc * dt
+            pos += vel * dt
+            if pos.y < radio:
+                break
+        return puntos
+
+    def dibujar_trayectoria(self):
+        if not self.balon.sujeto:
+            return
+        puntos = self.calcular_trayectoria()
+        if len(puntos) < 2:
+            return
+        puntos = [(int(p.x), int(p.y)) for p in puntos]
+        pygame.draw.lines(self.screen, self.color_trayectoria, False, puntos, 2)
+        for punto in puntos[::12]:
+            pygame.draw.circle(self.screen, self.color_trayectoria, punto, 3)
+
+    def dibujar_info_tiro(self):
+        if not self.balon.sujeto:
+            return
+        textos = [
+            f"Velocidad: {self.v_lanzamiento:4.1f} m/s  Izq/Der",
+            f"Angulo:    {self.ang_lanzamiento:4.1f} grados Arriba/Abajo",
+            f"Giro:      {self.w_lanzamiento:4.1f} rad/s A/D",
+            "Espacio: lanzar   Escape: reset",
+        ]
+        for i, texto in enumerate(textos):
+            img = self.fuente.render(texto, True, (255, 255, 255))
+            sombra = self.fuente.render(texto, True, (20, 20, 20))
+            self.screen.blit(sombra, (17, 17 + i * 22))
+            self.screen.blit(img, (16, 16 + i * 22))
+
     def draw(self):
         super().draw()
+        self.dibujar_trayectoria()
         for obj in self.objetos.values():
             dibujar = getattr(obj, "draw", None)
             if dibujar:
                 dibujar()
+        self.dibujar_info_tiro()
 
 
 # -------------------------------------------------------------------------------------------
