@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peliculas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Planetas Starwars</h1>
+
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Diametro</th>
+        <th>Clima</th>
+        <th>Terreno</th>
+        <th>Especies</th>
+      </tr>
+
+
+    <% planetas.forEach((p) => { %>
+
+      <tr>
+        <td><%=p.nombre%></td>
+        <td><%=p.diametro%></td>
+        <td><%=p.clima%></td>
+        <td>hola</td>
+        <td>hola</td>
+      </tr>
+
+    <%
+      })
+    %>
+    </table>
+
+  </body>
+</html>

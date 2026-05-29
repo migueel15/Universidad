@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1></h1>
+
+    <table>
+      <tr>
+        <th>EMAIL</th>
+        <th>NAME</th>
+        <th>MICROMARKET</th>
+        <th>DISCOUNT_CODE</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% clientes.forEach(function(cliente) { %>
+        <tr>
+          <td> <%= cliente.EMAIL %> </td>
+          <td> <%= cliente.NAME %> </td>
+          <td> <%= cliente.ZIP %> </td>
+          <td> <%= cliente.DISCOUNT_CODE %> </td>
+          <td><a href="/<%= cliente.CUSTOMER_ID %>">Editar</a> </td>
+          <td><a href="/borrar/<%= cliente.CUSTOMER_ID %>">Borrar</a> </td>
+        </tr>
+      <% }); %>
+    </table>
+  <a href="/nuevo">Nuevo ...</a>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1></h1>
+
+  <form action="/guardar" method="post">
+    <h1>Datos del cliente</h1>
+    <input type="hidden" name="CUSTOMER_ID" value="<%= (cliente ? cliente.CUSTOMER_ID: '') %>" size="30" maxlength="30">
+    <table>
+      <tr>
+        <td>Name: </td>
+        <td> <input type="text" name="NAME" value="<%= (cliente ? cliente.NAME: '') %>" size="30" maxlength="30"> </td>
+      </tr>
+        <tr>
+          <td>Email: </td>
+          <td> <input type="text" name="EMAIL" value="<%= (cliente ? cliente.EMAIL: '') %>" size="40" maxlength="40">  </td>
+        </tr>
+      <tr>
+        <td>Address: </td>
+        <td> <input type="text" name="ADDRESSLINE1" value="<%= (cliente ? cliente.ADDRESSLINE1: '') %>" size="30" maxlength="30">
+              <input type="text" name="ADDRESSLINE2" value="<%= (cliente ? cliente.ADDRESSLINE2: '') %>" size="30" maxlength="30">
+        </td>
+      </tr>
+      <tr>
+        <td>City: </td>
+        <td> <input type="text" name="CITY" value="<%= (cliente ? cliente.CITY: '') %>" size="25" maxlength="25">
+        </td>
+      </tr>
+      <tr>
+        <td>State: </td>
+        <td> <input type="text" name="STATE" value="<%= (cliente ? cliente.STATE: '') %>" size="2" maxlength="2">
+        </td>
+      </tr>
+      <tr>
+        <td>Phone: </td>
+        <td> <input type="text" name="PHONE" value="<%= (cliente ? cliente.PHONE: '') %>" size="12" maxlength="12">
+        </td>
+      </tr>
+      <tr>
+        <td>Fax: </td>
+        <td> <input type="text" name="FAX" value="<%= (cliente ? cliente.FAX: '') %>" size="12" maxlength="12">
+        </td>
+      </tr>
+      <tr>
+        <td>Credit limit: </td>
+        <td> <input type="text" name="CREDIT_LIMIT" value="<%= (cliente ? cliente.CREDIT_LIMIT: '') %>" size="5" maxlength="5">
+        </td>
+      </tr>
+        <tr>
+          <td>Micromarket: </td>
+          <td>
+            <select name="ZIP">
+            <% supermercados.forEach(function(supermercado) {
+                var selected = "";
+                if (cliente && cliente.ZIP == supermercado.ZIP_CODE) {
+                   selected = "SELECTED"
+                }
+            %>
+              <option value="<%= supermercado.ZIP_CODE %>" label="<%= supermercado.ZIP_CODE %>" <%= selected %> />
+
+
+            <% }); %>
+            </select>
+          </td>
+        </tr>
+      <tr>
+        <td>Discount Code: </td>
+        <td>
+          <select name="DISCOUNT_CODE">
+            <% descuentos.forEach(function(descuento) {
+              var selected = "";
+              if (cliente && cliente.DISCOUNT_CODE == descuento.DISCOUNT_CODE) {
+                selected = "SELECTED"
+              }
+            %>
+            <option value="<%= descuento.DISCOUNT_CODE %>" label="<%= descuento.RATE %>" <%= selected %> />
+
+
+            <% }); %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+          <td colspan="2"><input value="Guardar" type="submit"> </td>
+        </tr>
+    </table>
+
+  </form>
+  </body>
+</html>
