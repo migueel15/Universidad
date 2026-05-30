@@ -17,6 +17,13 @@ class CollisionType(IntEnum):
     NET = 3
 
 
+# Official indoor volleyball: 65-67 cm circumference and 260-280 g.
+OFFICIAL_BALL_CIRCUMFERENCE_M = 0.66
+OFFICIAL_BALL_MASS_KG = 0.270
+OFFICIAL_BALL_RADIUS_M = OFFICIAL_BALL_CIRCUMFERENCE_M / (2.0 * math.pi)
+COURT_LINE_WIDTH_M = 0.05
+
+
 @dataclass(frozen=True)
 class CourtConfig:
     court_length: float = 18.0
@@ -37,8 +44,8 @@ class CourtConfig:
 
 @dataclass(frozen=True)
 class BallConfig:
-    mass: float = 0.270
-    radius: float = 0.105
+    mass: float = OFFICIAL_BALL_MASS_KG
+    radius: float = OFFICIAL_BALL_RADIUS_M
     elasticity: float = 0.58
     friction: float = 0.55
 
@@ -69,7 +76,7 @@ class Camera:
         return int(x), int(y)
 
     def length_to_px(self, length_m: float) -> int:
-        return int(length_m * self.scale)
+        return max(1, round(length_m * self.scale))
 
 
 @dataclass(frozen=True)
@@ -155,7 +162,8 @@ class PlayerPose:
     hitting: bool = False
 
 
-PLAYER_HEAD_RADIUS_M = 0.18
+PLAYER_HEIGHT_M = 1.90
+PLAYER_HEAD_RADIUS_M = 0.11
 PLAYER_HAND_RADIUS_M = 0.10
 
 
@@ -405,8 +413,8 @@ class TopspinJumpServeController:
             lift = 0.70 * (1.0 - land_u)
 
         hip_y = 0.95 + lift
-        head_y = 1.72 + lift
-        shoulder = (hip_x + 0.07, 1.42 + lift)
+        head_y = PLAYER_HEIGHT_M - PLAYER_HEAD_RADIUS_M + lift
+        shoulder = (hip_x + 0.07, 1.52 + lift)
         hitting = (
             self.preparation_duration - 0.08
             <= elapsed
@@ -483,7 +491,7 @@ class Volleyball:
 
     def draw(self, screen: pygame.Surface, camera: Camera) -> None:
         center = camera.to_screen(self.body.position)
-        radius_px = max(4, camera.length_to_px(self.radius))
+        radius_px = camera.length_to_px(self.radius)
         pygame.draw.circle(screen, (245, 245, 245), center, radius_px)
         pygame.draw.circle(screen, (35, 35, 35), center, radius_px, 2)
         angle = self.body.angle
@@ -534,10 +542,12 @@ class VolleyCourt:
         right = camera.to_screen((self.config.visual_right, 0.0))
         bottom = camera.to_screen((self.config.visual_right, self.config.visual_bottom))
         pygame.draw.rect(screen, (222, 169, 104), (left[0], left[1], right[0] - left[0], bottom[1] - left[1]))
-        pygame.draw.line(screen, (110, 74, 42), left, right, 4)
+        ground_width = camera.length_to_px(self.config.ground_radius * 2.0)
+        pygame.draw.line(screen, (110, 74, 42), left, right, ground_width)
 
     def _draw_court_lines(self, screen: pygame.Surface, camera: Camera, font: pygame.font.Font) -> None:
         c = self.config
+        court_line_width = camera.length_to_px(COURT_LINE_WIDTH_M)
         for x, label in [
             (0.0, "fondo"),
             (c.attack_left_x, "3 m"),
@@ -547,13 +557,13 @@ class VolleyCourt:
         ]:
             p1 = camera.to_screen((x, 0.0))
             p2 = camera.to_screen((x, 0.22 if x in (c.attack_left_x, c.attack_right_x) else 0.35))
-            pygame.draw.line(screen, (255, 255, 255), p1, p2, 3)
+            pygame.draw.line(screen, (255, 255, 255), p1, p2, court_line_width)
             text = font.render(label, True, (45, 45, 45))
             screen.blit(text, (p1[0] - text.get_width() // 2, p1[1] + 8))
 
         start = camera.to_screen((0.0, 0.0))
         end = camera.to_screen((c.court_length, 0.0))
-        pygame.draw.line(screen, (255, 255, 255), start, end, 2)
+        pygame.draw.line(screen, (255, 255, 255), start, end, court_line_width)
 
         serve_a = camera.to_screen((c.visual_left, 0.0))
         serve_b = camera.to_screen((0.0, 0.0))
@@ -565,7 +575,8 @@ class VolleyCourt:
         c = self.config
         base = camera.to_screen((c.net_x, 0.0))
         top = camera.to_screen((c.net_x, c.net_height))
-        pygame.draw.line(screen, (35, 35, 35), base, top, 5)
+        net_width = camera.length_to_px(c.net_radius * 2.0)
+        pygame.draw.line(screen, (35, 35, 35), base, top, net_width)
         for i in range(9):
             y = c.net_height * i / 8
             p1 = camera.to_screen((c.net_x - 0.08, y))
@@ -601,19 +612,19 @@ class VolleyCourt:
                 body_color = (125, 28, 22)
         elif jumping_serve:
             hip = camera.to_screen((-0.28, 1.65))
-            head = camera.to_screen((-0.28, 2.42))
-            shoulder = camera.to_screen((-0.21, 2.12))
+            head = camera.to_screen((-0.28, 2.49))
+            shoulder = camera.to_screen((-0.21, 2.22))
             hand = camera.to_screen((0.10, 3.10))
             foot1 = camera.to_screen((-0.58, 0.70))
             foot2 = camera.to_screen((0.00, 0.78))
         else:
             hip = camera.to_screen((-1.05, 0.95))
-            head = camera.to_screen((-1.05, 1.72))
-            shoulder = camera.to_screen((-0.98, 1.42))
+            head = camera.to_screen((-1.05, PLAYER_HEIGHT_M - PLAYER_HEAD_RADIUS_M))
+            shoulder = camera.to_screen((-0.98, 1.52))
             hand = camera.to_screen((-0.68, 2.20))
             foot1 = camera.to_screen((-1.32, 0.0))
             foot2 = camera.to_screen((-0.78, 0.0))
-        head_radius = max(6, camera.length_to_px(PLAYER_HEAD_RADIUS_M))
+        head_radius = camera.length_to_px(PLAYER_HEAD_RADIUS_M)
         hand_radius = max(4, camera.length_to_px(PLAYER_HAND_RADIUS_M))
         pygame.draw.circle(screen, body_color, head, head_radius)
         pygame.draw.line(screen, body_color, head, hip, 5)
