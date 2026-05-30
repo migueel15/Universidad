@@ -25,6 +25,7 @@ OFFICIAL_BALL_RADIUS_M = OFFICIAL_BALL_CIRCUMFERENCE_M / (2.0 * math.pi)
 COURT_LINE_WIDTH_M = 0.05
 BALL_IMAGE_PATH = Path(__file__).resolve().parent / "assets" / "bola.png"
 BACKGROUND_IMAGE_PATH = Path(__file__).resolve().parent / "assets" / "fondo.png"
+BACKGROUND_OPACITY = 128
 
 
 @dataclass(frozen=True)
@@ -57,14 +58,14 @@ class BallConfig:
 class Camera:
     width: int = 1400
     height: int = 720
-    margin_left: int = 38
-    margin_right: int = 38
+    margin_left: int = 16
+    margin_right: int = 16
     margin_top: int = 132
-    margin_bottom: int = 118
-    world_left: float = -3.0
-    world_right: float = 21.0
+    margin_bottom: int = 70
+    world_left: float = -1.70
+    world_right: float = 19.20
     world_bottom: float = -0.3
-    world_top: float = 8.0
+    world_top: float = 7.5
 
     @property
     def scale(self) -> float:
@@ -568,6 +569,8 @@ class VolleyCourt:
             scaled_size = (math.ceil(image_w * scale), math.ceil(image_h * scale))
             scaled = pygame.transform.smoothscale(self.background_image, scaled_size)
             self.background_surface = pygame.Surface(screen_size)
+            self.background_surface.fill((216, 235, 247))
+            scaled.set_alpha(BACKGROUND_OPACITY)
             offset = (
                 (screen_size[0] - scaled_size[0]) // 2,
                 (screen_size[1] - scaled_size[1]) // 2,

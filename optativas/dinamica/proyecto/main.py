@@ -38,10 +38,10 @@ class App:
         self.camera = Camera(
             width=SCREEN_WIDTH,
             height=SCREEN_HEIGHT,
-            world_left=self.court_config.visual_left,
-            world_right=self.court_config.visual_right,
+            world_left=-1.70,
+            world_right=19.20,
             world_bottom=self.court_config.visual_bottom,
-            world_top=self.court_config.visual_top,
+            world_top=7.5,
         )
         self.space = setup_space()
         self.court = VolleyCourt(self.space, self.court_config)
