@@ -311,7 +311,7 @@ class TopspinJumpServeController:
         self.court = court
         self.config = config
         self.toss_spin = config.spin * 0.25
-        self.toss_start_position = Vec2d(court.serve_x - 0.25, 2.05)
+        self.toss_start_position = Vec2d(court.serve_x, court.serve_y)
         self.hit_position = Vec2d(0.10, config.launch_y or 3.10)
         self.phase = "idle"
         self.elapsed = 0.0
@@ -590,18 +590,10 @@ class VolleyCourt:
     def _draw_court_lines(self, screen: pygame.Surface, camera: Camera, font: pygame.font.Font) -> None:
         c = self.config
         court_line_width = camera.length_to_px(COURT_LINE_WIDTH_M)
-        for x, label in [
-            (0.0, "fondo"),
-            (c.attack_left_x, "3 m"),
-            (c.net_x, "red"),
-            (c.attack_right_x, "3 m"),
-            (c.court_length, "fondo"),
-        ]:
+        for x in (0.0, c.attack_left_x, c.net_x, c.attack_right_x, c.court_length):
             p1 = camera.to_screen((x, 0.0))
             p2 = camera.to_screen((x, 0.22 if x in (c.attack_left_x, c.attack_right_x) else 0.35))
             pygame.draw.line(screen, (255, 255, 255), p1, p2, court_line_width)
-            text = font.render(label, True, (45, 45, 45))
-            screen.blit(text, (p1[0] - text.get_width() // 2, p1[1] + 8))
 
         start = camera.to_screen((0.0, 0.0))
         end = camera.to_screen((c.court_length, 0.0))
@@ -610,8 +602,6 @@ class VolleyCourt:
         serve_a = camera.to_screen((c.visual_left, 0.0))
         serve_b = camera.to_screen((0.0, 0.0))
         pygame.draw.line(screen, (200, 90, 55), serve_a, serve_b, 5)
-        text = font.render("zona de saque", True, (120, 55, 35))
-        screen.blit(text, (serve_a[0] + 20, serve_a[1] + 30))
 
     def _draw_net(self, screen: pygame.Surface, camera: Camera, font: pygame.font.Font) -> None:
         c = self.config
@@ -624,9 +614,6 @@ class VolleyCourt:
             p1 = camera.to_screen((c.net_x - 0.08, y))
             p2 = camera.to_screen((c.net_x + 0.08, y))
             pygame.draw.line(screen, (80, 80, 80), p1, p2, 1)
-        text = font.render(f"{c.net_height:.2f} m", True, (35, 35, 35))
-        screen.blit(text, (top[0] + 8, top[1] - 20))
-
     def _draw_player(
         self,
         screen: pygame.Surface,
