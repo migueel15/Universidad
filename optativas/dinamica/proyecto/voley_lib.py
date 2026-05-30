@@ -155,6 +155,10 @@ class PlayerPose:
     hitting: bool = False
 
 
+PLAYER_HEAD_RADIUS_M = 0.18
+PLAYER_HAND_RADIUS_M = 0.10
+
+
 @dataclass
 class ServeResult:
     serve_name: str
@@ -417,7 +421,7 @@ class TopspinJumpServeController:
             )
             hand = (hip_x + 0.38, shoulder[1] + 0.70 + 0.28 * reach_u)
 
-        foot_y = 0.0 if lift <= 0.02 else 0.10 + 0.45 * lift
+        foot_y = 0.0 if lift <= 0.02 else lift
         return PlayerPose(
             hip=(hip_x, hip_y),
             head=(hip_x, head_y),
@@ -596,12 +600,12 @@ class VolleyCourt:
             if player_pose.hitting:
                 body_color = (125, 28, 22)
         elif jumping_serve:
-            hip = camera.to_screen((-1.05, 1.25))
-            head = camera.to_screen((-1.05, 2.02))
-            shoulder = camera.to_screen((-0.98, 1.72))
-            hand = camera.to_screen((-0.68, 3.12))
-            foot1 = camera.to_screen((-1.32, 0.42))
-            foot2 = camera.to_screen((-0.78, 0.55))
+            hip = camera.to_screen((-0.28, 1.65))
+            head = camera.to_screen((-0.28, 2.42))
+            shoulder = camera.to_screen((-0.21, 2.12))
+            hand = camera.to_screen((0.10, 3.10))
+            foot1 = camera.to_screen((-0.58, 0.70))
+            foot2 = camera.to_screen((0.00, 0.78))
         else:
             hip = camera.to_screen((-1.05, 0.95))
             head = camera.to_screen((-1.05, 1.72))
@@ -609,12 +613,14 @@ class VolleyCourt:
             hand = camera.to_screen((-0.68, 2.20))
             foot1 = camera.to_screen((-1.32, 0.0))
             foot2 = camera.to_screen((-0.78, 0.0))
-        pygame.draw.circle(screen, body_color, head, 13)
+        head_radius = max(6, camera.length_to_px(PLAYER_HEAD_RADIUS_M))
+        hand_radius = max(4, camera.length_to_px(PLAYER_HAND_RADIUS_M))
+        pygame.draw.circle(screen, body_color, head, head_radius)
         pygame.draw.line(screen, body_color, head, hip, 5)
         pygame.draw.line(screen, body_color, hip, foot1, 5)
         pygame.draw.line(screen, body_color, hip, foot2, 5)
         pygame.draw.line(screen, body_color, shoulder, hand, 5)
-        pygame.draw.circle(screen, (245, 245, 245), hand, 6)
+        pygame.draw.circle(screen, (245, 245, 245), hand, hand_radius)
 
 
 class AirModel:
