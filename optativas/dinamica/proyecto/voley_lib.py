@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import IntEnum
 import math
+from pathlib import Path
 import random
 from typing import Optional
 
@@ -22,6 +23,8 @@ OFFICIAL_BALL_CIRCUMFERENCE_M = 0.66
 OFFICIAL_BALL_MASS_KG = 0.270
 OFFICIAL_BALL_RADIUS_M = OFFICIAL_BALL_CIRCUMFERENCE_M / (2.0 * math.pi)
 COURT_LINE_WIDTH_M = 0.05
+BALL_IMAGE_PATH = Path(__file__).resolve().parent / "assets" / "bola.png"
+BACKGROUND_IMAGE_PATH = Path(__file__).resolve().parent / "assets" / "fondo.png"
 
 
 @dataclass(frozen=True)
@@ -307,6 +310,7 @@ class TopspinJumpServeController:
     def __init__(self, court: CourtConfig, config: ServeConfig):
         self.court = court
         self.config = config
+        self.toss_spin = config.spin * 0.25
         self.toss_start_position = Vec2d(court.serve_x - 0.25, 2.05)
         self.hit_position = Vec2d(0.10, config.launch_y or 3.10)
         self.phase = "idle"
@@ -347,6 +351,7 @@ class TopspinJumpServeController:
         if not self.active:
             return False
 
+        previous_elapsed = self.elapsed
         self.elapsed += dt
         if self.hit_triggered:
             self.phase = "flight"
@@ -358,12 +363,13 @@ class TopspinJumpServeController:
             self.phase = "hit"
             self.hit_triggered = True
             self.pose = self._pose_at(self.elapsed)
-            self._place_ball(ball, self.hit_position)
+            rotate_dt = self.preparation_duration - previous_elapsed
+            self._place_ball(ball, self.hit_position, self.toss_spin, rotate_dt)
             return True
 
         self.phase = self._phase_for_time(self.elapsed)
         self.pose = self._pose_at(self.elapsed)
-        self._place_ball(ball, self._ball_position_at(self.elapsed))
+        self._place_ball(ball, self._ball_position_at(self.elapsed), self.toss_spin, dt)
         return False
 
     def phase_label(self) -> str:
@@ -378,11 +384,18 @@ class TopspinJumpServeController:
         }
         return labels.get(self.phase, self.phase)
 
-    def _place_ball(self, ball: Volleyball, position: Vec2d) -> None:
+    def _place_ball(
+        self,
+        ball: Volleyball,
+        position: Vec2d,
+        angular_velocity: float = 0.0,
+        rotate_dt: float = 0.0,
+    ) -> None:
         ball.body.position = (position.x, position.y)
         ball.body.velocity = (0.0, 0.0)
         ball.body.force = (0.0, 0.0)
-        ball.body.angular_velocity = 0.0
+        ball.body.angle += angular_velocity * max(0.0, rotate_dt)
+        ball.body.angular_velocity = angular_velocity
         ball.body.torque = 0.0
 
     def _ball_position_at(self, elapsed: float) -> Vec2d:
@@ -458,6 +471,11 @@ class Volleyball:
         self.space = space
         self.mass = config.mass
         self.radius = config.radius
+        self.image = pygame.image.load(str(BALL_IMAGE_PATH))
+        if pygame.display.get_surface() is not None:
+            self.image = self.image.convert_alpha()
+        self.scaled_image: pygame.Surface | None = None
+        self.scaled_image_diameter = 0
         moment = pymunk.moment_for_circle(config.mass, 0.0, config.radius)
         self.body = pymunk.Body(config.mass, moment)
         self.body.position = position
@@ -467,14 +485,14 @@ class Volleyball:
         self.shape.collision_type = CollisionType.BALL
         self.space.add(self.body, self.shape)
 
-    def reset(self, position: tuple[float, float]) -> None:
+    def reset(self, position: tuple[float, float], angle: float = 0.0) -> None:
         if self.body not in self.space.bodies:
             self.space.add(self.body, self.shape)
         self.body.body_type = pymunk.Body.DYNAMIC
         self.body.position = position
         self.body.velocity = (0.0, 0.0)
         self.body.force = (0.0, 0.0)
-        self.body.angle = 0.0
+        self.body.angle = angle
         self.body.angular_velocity = 0.0
         self.body.torque = 0.0
 
@@ -491,15 +509,16 @@ class Volleyball:
 
     def draw(self, screen: pygame.Surface, camera: Camera) -> None:
         center = camera.to_screen(self.body.position)
-        radius_px = camera.length_to_px(self.radius)
-        pygame.draw.circle(screen, (245, 245, 245), center, radius_px)
-        pygame.draw.circle(screen, (35, 35, 35), center, radius_px, 2)
-        angle = self.body.angle
-        p1 = Vec2d(math.cos(angle), math.sin(angle)) * self.radius * 0.85
-        p2 = Vec2d(-math.sin(angle), math.cos(angle)) * self.radius * 0.65
-        for d in (p1, -p1, p2, -p2):
-            end = camera.to_screen(Vec2d(self.body.position.x, self.body.position.y) + d)
-            pygame.draw.line(screen, (35, 35, 35), center, end, 2)
+        diameter_px = camera.length_to_px(self.radius * 2.0)
+        if self.scaled_image is None or self.scaled_image_diameter != diameter_px:
+            self.scaled_image = pygame.transform.smoothscale(
+                self.image, (diameter_px, diameter_px)
+            )
+            self.scaled_image_diameter = diameter_px
+
+        angle_deg = math.degrees(self.body.angle) % 360.0
+        rotated = pygame.transform.rotozoom(self.scaled_image, angle_deg, 1.0)
+        screen.blit(rotated, rotated.get_rect(center=center))
 
 
 class VolleyCourt:
@@ -507,6 +526,11 @@ class VolleyCourt:
         self.space = space
         self.config = config
         self.static_shapes: list[pymunk.Shape] = []
+        self.background_image = pygame.image.load(str(BACKGROUND_IMAGE_PATH))
+        if pygame.display.get_surface() is not None:
+            self.background_image = self.background_image.convert()
+        self.background_surface: pygame.Surface | None = None
+        self.background_size = (0, 0)
         self._create_static_world()
 
     def _create_static_world(self) -> None:
@@ -530,12 +554,28 @@ class VolleyCourt:
         jumping_serve: bool = False,
         player_pose: Optional[PlayerPose] = None,
     ) -> None:
-        c = self.config
-        screen.fill((216, 235, 247))
+        self._draw_background(screen)
         self._draw_floor(screen, camera)
         self._draw_court_lines(screen, camera, font)
         self._draw_net(screen, camera, font)
         self._draw_player(screen, camera, jumping_serve, player_pose)
+
+    def _draw_background(self, screen: pygame.Surface) -> None:
+        screen_size = screen.get_size()
+        if self.background_surface is None or self.background_size != screen_size:
+            image_w, image_h = self.background_image.get_size()
+            scale = max(screen_size[0] / image_w, screen_size[1] / image_h)
+            scaled_size = (math.ceil(image_w * scale), math.ceil(image_h * scale))
+            scaled = pygame.transform.smoothscale(self.background_image, scaled_size)
+            self.background_surface = pygame.Surface(screen_size)
+            offset = (
+                (screen_size[0] - scaled_size[0]) // 2,
+                (screen_size[1] - scaled_size[1]) // 2,
+            )
+            self.background_surface.blit(scaled, offset)
+            self.background_size = screen_size
+
+        screen.blit(self.background_surface, (0, 0))
 
     def _draw_floor(self, screen: pygame.Surface, camera: Camera) -> None:
         left = camera.to_screen((self.config.visual_left, 0.0))

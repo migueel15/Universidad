@@ -124,7 +124,8 @@ class App:
             if hit_now:
                 config = SERVE_PRESETS["topspin"]
                 hit_position = self.topspin_controller.hit_position
-                self.ball.reset((hit_position.x, hit_position.y))
+                hit_angle = self.ball.body.angle
+                self.ball.reset((hit_position.x, hit_position.y), hit_angle)
                 self.ball.launch(config)
                 self.air.reset()
                 self.state.start(config, self.ball.body.position)
