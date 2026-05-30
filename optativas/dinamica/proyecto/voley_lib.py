@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from enum import IntEnum
 import math
 from pathlib import Path
 import random
@@ -10,12 +9,6 @@ from typing import Optional
 import pygame
 import pymunk
 from pymunk import Vec2d
-
-
-class CollisionType(IntEnum):
-    BALL = 1
-    GROUND = 2
-    NET = 3
 
 
 # Official indoor volleyball: 65-67 cm circumference and 260-280 g.
@@ -31,11 +24,9 @@ BACKGROUND_OPACITY = round(255 * 0.35)
 @dataclass(frozen=True)
 class CourtConfig:
     court_length: float = 18.0
-    half_length: float = 9.0
     visual_left: float = -3.0
     visual_right: float = 21.0
     visual_bottom: float = -0.3
-    visual_top: float = 8.0
     net_x: float = 9.0
     net_height: float = 2.43
     serve_x: float = -0.75
@@ -71,7 +62,10 @@ class Camera:
     def scale(self) -> float:
         usable_w = self.width - self.margin_left - self.margin_right
         usable_h = self.height - self.margin_top - self.margin_bottom
-        return min(usable_w / (self.world_right - self.world_left), usable_h / (self.world_top - self.world_bottom))
+        return min(
+            usable_w / (self.world_right - self.world_left),
+            usable_h / (self.world_top - self.world_bottom),
+        )
 
     def to_screen(self, point: Vec2d | tuple[float, float]) -> tuple[int, int]:
         p = Vec2d(*point)
@@ -97,7 +91,6 @@ class ServeConfig:
     wind_noise: float
     random_lift_force: float
     color: tuple[int, int, int]
-    description: str
     launch_y: Optional[float] = None
     jump_serve: bool = False
 
@@ -116,7 +109,6 @@ SERVE_PRESETS: dict[str, ServeConfig] = {
         wind_noise=3.0,
         random_lift_force=1.0,
         color=(245, 213, 92),
-        description="Poca rotacion: hace una parabola leve, pero el viento y las rafagas deforman la trayectoria.",
         launch_y=2.45,
     ),
     "topspin": ServeConfig(
@@ -132,15 +124,14 @@ SERVE_PRESETS: dict[str, ServeConfig] = {
         wind_noise=0.20,
         random_lift_force=0.0,
         color=(231, 76, 60),
-        description="Golpeo alto en salto con topspin fuerte para una trayectoria baja y agresiva.",
         launch_y=3.10,
         jump_serve=True,
     ),
     "globo": ServeConfig(
         key="globo",
         name="Saque globo",
-        speed=12.4,
-        angle_deg=46.0,
+        speed=13.5,
+        angle_deg=59.0,
         spin=-5.0,
         cd=0.47,
         magnus_k=0.12,
@@ -149,7 +140,6 @@ SERVE_PRESETS: dict[str, ServeConfig] = {
         wind_noise=0.15,
         random_lift_force=0.0,
         color=(52, 152, 219),
-        description="Menor velocidad y angulo alto: domina la parabola de la gravedad.",
     ),
 }
 
@@ -179,7 +169,6 @@ class ServeResult:
     max_height: float
     net_cross_height: Optional[float]
     net_clearance: Optional[float]
-    speed_at_net: Optional[float]
     final_speed: float
 
 
@@ -193,11 +182,8 @@ class ServeState:
     result: Optional[ServeResult] = None
     previous_position: Optional[Vec2d] = None
     net_checked: bool = False
-    landed: bool = False
-    net_hit: bool = False
     net_cross_height: Optional[float] = None
     net_clearance: Optional[float] = None
-    speed_at_net: Optional[float] = None
     trajectory_timer: float = 0.0
 
     def start(self, config: ServeConfig, start_position: Vec2d) -> None:
@@ -209,14 +195,13 @@ class ServeState:
         self.result = None
         self.previous_position = Vec2d(start_position.x, start_position.y)
         self.net_checked = False
-        self.landed = False
-        self.net_hit = False
         self.net_cross_height = None
         self.net_clearance = None
-        self.speed_at_net = None
         self.trajectory_timer = 0.0
 
-    def update(self, ball: Volleyball, court: CourtConfig, dt: float) -> Optional[ServeResult]:
+    def update(
+        self, ball: Volleyball, court: CourtConfig, dt: float
+    ) -> Optional[ServeResult]:
         if not self.active or self.config is None or self.previous_position is None:
             return None
 
@@ -234,14 +219,11 @@ class ServeState:
         if not self.net_checked and prev.x < court.net_x <= pos.x:
             t = (court.net_x - prev.x) / max(pos.x - prev.x, 1e-9)
             y_net = prev.y + (pos.y - prev.y) * t
-            speed_net = body.velocity.length
             clearance = y_net - court.net_height
             self.net_checked = True
             self.net_cross_height = y_net
             self.net_clearance = clearance
-            self.speed_at_net = speed_net
             if y_net - ball.radius <= court.net_height:
-                self.net_hit = True
                 result = ServeResult(
                     serve_name=self.config.name,
                     result="RED",
@@ -250,7 +232,6 @@ class ServeState:
                     max_height=self.max_height,
                     net_cross_height=y_net,
                     net_clearance=clearance,
-                    speed_at_net=speed_net,
                     final_speed=body.velocity.length,
                 )
                 self._finish(result)
@@ -275,20 +256,9 @@ class ServeState:
                 max_height=self.max_height,
                 net_cross_height=self.net_cross_height,
                 net_clearance=self.net_clearance,
-                speed_at_net=self.speed_at_net,
                 final_speed=body.velocity.length,
             )
 
-            if self.net_checked and result.net_cross_height is None:
-                for a, b in zip(self.trajectory, self.trajectory[1:]):
-                    if a.x <= court.net_x <= b.x:
-                        tt = (court.net_x - a.x) / max(b.x - a.x, 1e-9)
-                        y_net = a.y + (b.y - a.y) * tt
-                        result.net_cross_height = y_net
-                        result.net_clearance = y_net - court.net_height
-                        break
-
-            self.landed = True
             self.trajectory.append(Vec2d(landing_x, ground_contact_y))
             self._finish(result)
             return result
@@ -308,8 +278,6 @@ class TopspinJumpServeController:
     landing_duration = 0.45
 
     def __init__(self, court: CourtConfig, config: ServeConfig):
-        self.court = court
-        self.config = config
         self.toss_spin = config.spin * 0.25
         self.toss_start_position = Vec2d(court.serve_x, court.serve_y)
         self.hit_position = Vec2d(0.10, config.launch_y or 3.10)
@@ -334,7 +302,6 @@ class TopspinJumpServeController:
         self.hit_triggered = False
         self.pose = self._pose_at(0.0)
         ball.reset((self.toss_start_position.x, self.toss_start_position.y))
-        ball.freeze()
 
     def reset(self) -> None:
         self.phase = "idle"
@@ -467,9 +434,10 @@ class TopspinJumpServeController:
 
 
 class Volleyball:
-    def __init__(self, space: pymunk.Space, config: BallConfig, position: tuple[float, float]):
+    def __init__(
+        self, space: pymunk.Space, config: BallConfig, position: tuple[float, float]
+    ):
         self.space = space
-        self.mass = config.mass
         self.radius = config.radius
         self.image = pygame.image.load(str(BALL_IMAGE_PATH))
         if pygame.display.get_surface() is not None:
@@ -482,7 +450,6 @@ class Volleyball:
         self.shape = pymunk.Circle(self.body, config.radius)
         self.shape.elasticity = config.elasticity
         self.shape.friction = config.friction
-        self.shape.collision_type = CollisionType.BALL
         self.space.add(self.body, self.shape)
 
     def reset(self, position: tuple[float, float], angle: float = 0.0) -> None:
@@ -498,14 +465,11 @@ class Volleyball:
 
     def launch(self, config: ServeConfig) -> None:
         angle = math.radians(config.angle_deg)
-        self.body.velocity = (config.speed * math.cos(angle), config.speed * math.sin(angle))
+        self.body.velocity = (
+            config.speed * math.cos(angle),
+            config.speed * math.sin(angle),
+        )
         self.body.angular_velocity = config.spin
-
-    def freeze(self) -> None:
-        self.body.velocity = (0.0, 0.0)
-        self.body.force = (0.0, 0.0)
-        self.body.angular_velocity = 0.0
-        self.body.torque = 0.0
 
     def draw(self, screen: pygame.Surface, camera: Camera) -> None:
         center = camera.to_screen(self.body.position)
@@ -525,7 +489,6 @@ class VolleyCourt:
     def __init__(self, space: pymunk.Space, config: CourtConfig):
         self.space = space
         self.config = config
-        self.static_shapes: list[pymunk.Shape] = []
         self.background_image = pygame.image.load(str(BACKGROUND_IMAGE_PATH))
         if pygame.display.get_surface() is not None:
             self.background_image = self.background_image.convert()
@@ -535,29 +498,35 @@ class VolleyCourt:
 
     def _create_static_world(self) -> None:
         c = self.config
-        ground = pymunk.Segment(self.space.static_body, (c.visual_left, 0.0), (c.visual_right, 0.0), c.ground_radius)
+        ground = pymunk.Segment(
+            self.space.static_body,
+            (c.visual_left, 0.0),
+            (c.visual_right, 0.0),
+            c.ground_radius,
+        )
         ground.elasticity = 0.72
         ground.friction = 0.90
-        ground.collision_type = CollisionType.GROUND
-        net = pymunk.Segment(self.space.static_body, (c.net_x, 0.0), (c.net_x, c.net_height), c.net_radius)
+        net = pymunk.Segment(
+            self.space.static_body,
+            (c.net_x, 0.0),
+            (c.net_x, c.net_height),
+            c.net_radius,
+        )
         net.elasticity = 0.18
         net.friction = 0.65
-        net.collision_type = CollisionType.NET
         self.space.add(ground, net)
-        self.static_shapes.extend([ground, net])
 
     def draw(
         self,
         screen: pygame.Surface,
         camera: Camera,
-        font: pygame.font.Font,
         jumping_serve: bool = False,
         player_pose: Optional[PlayerPose] = None,
     ) -> None:
         self._draw_background(screen)
         self._draw_floor(screen, camera)
-        self._draw_court_lines(screen, camera, font)
-        self._draw_net(screen, camera, font)
+        self._draw_court_lines(screen, camera)
+        self._draw_net(screen, camera)
         self._draw_player(screen, camera, jumping_serve, player_pose)
 
     def _draw_background(self, screen: pygame.Surface) -> None:
@@ -583,16 +552,21 @@ class VolleyCourt:
         left = camera.to_screen((self.config.visual_left, 0.0))
         right = camera.to_screen((self.config.visual_right, 0.0))
         bottom = camera.to_screen((self.config.visual_right, self.config.visual_bottom))
-        pygame.draw.rect(screen, (222, 169, 104), (left[0], left[1], right[0] - left[0], bottom[1] - left[1]))
+        pygame.draw.rect(
+            screen,
+            (222, 169, 104),
+            (left[0], left[1], right[0] - left[0], bottom[1] - left[1]),
+        )
         ground_width = camera.length_to_px(self.config.ground_radius * 2.0)
         pygame.draw.line(screen, (110, 74, 42), left, right, ground_width)
 
-    def _draw_court_lines(self, screen: pygame.Surface, camera: Camera, font: pygame.font.Font) -> None:
+    def _draw_court_lines(self, screen: pygame.Surface, camera: Camera) -> None:
         c = self.config
         court_line_width = camera.length_to_px(COURT_LINE_WIDTH_M)
         for x in (0.0, c.attack_left_x, c.net_x, c.attack_right_x, c.court_length):
             p1 = camera.to_screen((x, 0.0))
-            p2 = camera.to_screen((x, 0.22 if x in (c.attack_left_x, c.attack_right_x) else 0.35))
+            line_height = 0.22 if x in (c.attack_left_x, c.attack_right_x) else 0.35
+            p2 = camera.to_screen((x, line_height))
             pygame.draw.line(screen, (255, 255, 255), p1, p2, court_line_width)
 
         start = camera.to_screen((0.0, 0.0))
@@ -603,7 +577,7 @@ class VolleyCourt:
         serve_b = camera.to_screen((0.0, 0.0))
         pygame.draw.line(screen, (200, 90, 55), serve_a, serve_b, 5)
 
-    def _draw_net(self, screen: pygame.Surface, camera: Camera, font: pygame.font.Font) -> None:
+    def _draw_net(self, screen: pygame.Surface, camera: Camera) -> None:
         c = self.config
         base = camera.to_screen((c.net_x, 0.0))
         top = camera.to_screen((c.net_x, c.net_height))
@@ -614,6 +588,7 @@ class VolleyCourt:
             p1 = camera.to_screen((c.net_x - 0.08, y))
             p2 = camera.to_screen((c.net_x + 0.08, y))
             pygame.draw.line(screen, (80, 80, 80), p1, p2, 1)
+
     def _draw_player(
         self,
         screen: pygame.Surface,
@@ -730,32 +705,18 @@ def setup_space() -> pymunk.Space:
     return space
 
 
-def draw_trajectory(screen: pygame.Surface, camera: Camera, points: list[Vec2d], color: tuple[int, int, int]) -> None:
+def draw_trajectory(
+    screen: pygame.Surface,
+    camera: Camera,
+    points: list[Vec2d],
+    color: tuple[int, int, int],
+) -> None:
     if len(points) < 2:
         return
     screen_points = [camera.to_screen(p) for p in points]
     pygame.draw.lines(screen, color, False, screen_points, 2)
     for p in screen_points[::8]:
         pygame.draw.circle(screen, color, p, 2)
-
-
-def format_result(result: Optional[ServeResult]) -> list[str]:
-    if result is None:
-        return ["Sin resultado"]
-    landing = "-" if result.landing_x is None else f"{result.landing_x:.2f} m"
-    net = "-" if result.net_cross_height is None else f"{result.net_cross_height:.2f} m"
-    clearance = "-" if result.net_clearance is None else f"{result.net_clearance:.2f} m"
-    speed_net = "-" if result.speed_at_net is None else f"{result.speed_at_net:.2f} m/s"
-    return [
-        f"Resultado: {result.result}",
-        f"Tiempo: {result.flight_time:.2f} s",
-        f"Caida x: {landing}",
-        f"Altura max: {result.max_height:.2f} m",
-        f"Altura en red: {net}",
-        f"Margen red: {clearance}",
-        f"Vel. en red: {speed_net}",
-        f"Vel. final: {result.final_speed:.2f} m/s",
-    ]
 
 
 def draw_text_block(

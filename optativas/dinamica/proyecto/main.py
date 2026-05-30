@@ -30,19 +30,11 @@ class App:
         pygame.display.set_caption("Comparacion de saques de voleibol")
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
-        self.font = pygame.font.SysFont("Arial", 18)
         self.small_font = pygame.font.SysFont("Arial", 15)
         self.title_font = pygame.font.SysFont("Arial", 24, bold=True)
 
         self.court_config = CourtConfig()
-        self.camera = Camera(
-            width=SCREEN_WIDTH,
-            height=SCREEN_HEIGHT,
-            world_left=-1.70,
-            world_right=19.20,
-            world_bottom=self.court_config.visual_bottom,
-            world_top=7.5,
-        )
+        self.camera = Camera(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         self.space = setup_space()
         self.court = VolleyCourt(self.space, self.court_config)
         self.ball = Volleyball(
@@ -189,7 +181,6 @@ class App:
         self.air.reset()
         self.topspin_controller.reset()
         self.ball.reset((self.court_config.serve_x, self.court_config.serve_y))
-        self.ball.freeze()
 
     def draw(self) -> None:
         jumping_serve = (
@@ -203,7 +194,6 @@ class App:
         self.court.draw(
             self.screen,
             self.camera,
-            self.small_font,
             jumping_serve,
             player_pose,
         )
