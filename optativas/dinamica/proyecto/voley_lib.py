@@ -111,9 +111,9 @@ SERVE_PRESETS: dict[str, ServeConfig] = {
     "topspin": ServeConfig(
         key="topspin",
         name="Saque topspin",
-        speed=22.0,
-        angle_deg=8.0,
-        spin=-88.0,
+        speed=25.5,
+        angle_deg=6.0,
+        spin=-120.0,
         cd=0.44,
         magnus_k=0.60,
         rotational_drag_cm=0.020,
@@ -121,8 +121,8 @@ SERVE_PRESETS: dict[str, ServeConfig] = {
         wind_noise=0.20,
         random_lift_force=0.0,
         color=(231, 76, 60),
-        description="Alta velocidad, salto y spin hacia delante para que el balon caiga antes.",
-        launch_y=3.20,
+        description="Golpeo alto en salto con topspin fuerte para una trayectoria baja y agresiva.",
+        launch_y=3.10,
         jump_serve=True,
     ),
     "globo": ServeConfig(
@@ -141,6 +141,18 @@ SERVE_PRESETS: dict[str, ServeConfig] = {
         description="Menor velocidad y angulo alto: domina la parabola de la gravedad.",
     ),
 }
+
+
+@dataclass(frozen=True)
+class PlayerPose:
+    hip: tuple[float, float]
+    head: tuple[float, float]
+    shoulder: tuple[float, float]
+    hand: tuple[float, float]
+    foot1: tuple[float, float]
+    foot2: tuple[float, float]
+    airborne: bool = False
+    hitting: bool = False
 
 
 @dataclass
@@ -274,6 +286,161 @@ class ServeState:
         self.active = False
 
 
+class TopspinJumpServeController:
+    toss_duration = 0.45
+    approach_duration = 0.52
+    jump_duration = 0.36
+    landing_duration = 0.45
+
+    def __init__(self, court: CourtConfig, config: ServeConfig):
+        self.court = court
+        self.config = config
+        self.toss_start_position = Vec2d(court.serve_x - 0.25, 2.05)
+        self.hit_position = Vec2d(0.10, config.launch_y or 3.10)
+        self.phase = "idle"
+        self.elapsed = 0.0
+        self.active = False
+        self.hit_triggered = False
+        self.pose = self._pose_at(0.0)
+
+    @property
+    def preparation_duration(self) -> float:
+        return self.toss_duration + self.approach_duration + self.jump_duration
+
+    @property
+    def preparation_time(self) -> float:
+        return min(self.elapsed, self.preparation_duration)
+
+    def start(self, ball: Volleyball) -> None:
+        self.phase = "toss"
+        self.elapsed = 0.0
+        self.active = True
+        self.hit_triggered = False
+        self.pose = self._pose_at(0.0)
+        ball.reset((self.toss_start_position.x, self.toss_start_position.y))
+        ball.freeze()
+
+    def reset(self) -> None:
+        self.phase = "idle"
+        self.elapsed = 0.0
+        self.active = False
+        self.hit_triggered = False
+        self.pose = self._pose_at(0.0)
+
+    def finish(self) -> None:
+        self.phase = "finished"
+        self.active = False
+
+    def update(self, ball: Volleyball, dt: float) -> bool:
+        if not self.active:
+            return False
+
+        self.elapsed += dt
+        if self.hit_triggered:
+            self.phase = "flight"
+            self.pose = self._pose_at(self.elapsed)
+            return False
+
+        if self.elapsed >= self.preparation_duration:
+            self.elapsed = self.preparation_duration
+            self.phase = "hit"
+            self.hit_triggered = True
+            self.pose = self._pose_at(self.elapsed)
+            self._place_ball(ball, self.hit_position)
+            return True
+
+        self.phase = self._phase_for_time(self.elapsed)
+        self.pose = self._pose_at(self.elapsed)
+        self._place_ball(ball, self._ball_position_at(self.elapsed))
+        return False
+
+    def phase_label(self) -> str:
+        labels = {
+            "idle": "inactivo",
+            "toss": "lanzamiento",
+            "approach": "carrera",
+            "jump": "salto",
+            "hit": "golpeo",
+            "flight": "vuelo",
+            "finished": "terminado",
+        }
+        return labels.get(self.phase, self.phase)
+
+    def _place_ball(self, ball: Volleyball, position: Vec2d) -> None:
+        ball.body.position = (position.x, position.y)
+        ball.body.velocity = (0.0, 0.0)
+        ball.body.force = (0.0, 0.0)
+        ball.body.angular_velocity = 0.0
+        ball.body.torque = 0.0
+
+    def _ball_position_at(self, elapsed: float) -> Vec2d:
+        u = self._smoothstep(elapsed / self.preparation_duration)
+        x = self.toss_start_position.x + (
+            self.hit_position.x - self.toss_start_position.x
+        ) * u
+        y = self.toss_start_position.y + (
+            self.hit_position.y - self.toss_start_position.y
+        ) * u
+        y += 1.05 * math.sin(math.pi * u)
+        return Vec2d(x, y)
+
+    def _pose_at(self, elapsed: float) -> PlayerPose:
+        prep_u = self._smoothstep(elapsed / self.preparation_duration)
+        hip_x = -1.20 + 0.92 * prep_u
+        jump_start = self.toss_duration + self.approach_duration
+
+        if elapsed <= jump_start:
+            lift = 0.0
+        elif elapsed <= self.preparation_duration:
+            jump_u = self._smoothstep((elapsed - jump_start) / self.jump_duration)
+            lift = 0.70 * jump_u
+        else:
+            land_u = self._smoothstep(
+                (elapsed - self.preparation_duration) / self.landing_duration
+            )
+            lift = 0.70 * (1.0 - land_u)
+
+        hip_y = 0.95 + lift
+        head_y = 1.72 + lift
+        shoulder = (hip_x + 0.07, 1.42 + lift)
+        hitting = (
+            self.preparation_duration - 0.08
+            <= elapsed
+            <= self.preparation_duration + 0.10
+        )
+        if hitting:
+            hand = (self.hit_position.x, self.hit_position.y)
+        else:
+            reach_u = self._smoothstep(
+                (elapsed - self.toss_duration * 0.65)
+                / (self.preparation_duration - self.toss_duration * 0.65)
+            )
+            hand = (hip_x + 0.38, shoulder[1] + 0.70 + 0.28 * reach_u)
+
+        foot_y = 0.0 if lift <= 0.02 else 0.10 + 0.45 * lift
+        return PlayerPose(
+            hip=(hip_x, hip_y),
+            head=(hip_x, head_y),
+            shoulder=shoulder,
+            hand=hand,
+            foot1=(hip_x - 0.30, foot_y),
+            foot2=(hip_x + 0.28, foot_y + (0.08 if lift > 0.02 else 0.0)),
+            airborne=lift > 0.02,
+            hitting=hitting,
+        )
+
+    def _phase_for_time(self, elapsed: float) -> str:
+        if elapsed < self.toss_duration:
+            return "toss"
+        if elapsed < self.toss_duration + self.approach_duration:
+            return "approach"
+        return "jump"
+
+    def _smoothstep(self, value: float) -> float:
+        t = max(0.0, min(1.0, value))
+        return t * t * (3.0 - 2.0 * t)
+
+
 class Volleyball:
     def __init__(self, space: pymunk.Space, config: BallConfig, position: tuple[float, float]):
         self.space = space
@@ -343,13 +510,20 @@ class VolleyCourt:
         self.space.add(ground, net)
         self.static_shapes.extend([ground, net])
 
-    def draw(self, screen: pygame.Surface, camera: Camera, font: pygame.font.Font, jumping_serve: bool = False) -> None:
+    def draw(
+        self,
+        screen: pygame.Surface,
+        camera: Camera,
+        font: pygame.font.Font,
+        jumping_serve: bool = False,
+        player_pose: Optional[PlayerPose] = None,
+    ) -> None:
         c = self.config
         screen.fill((216, 235, 247))
         self._draw_floor(screen, camera)
         self._draw_court_lines(screen, camera, font)
         self._draw_net(screen, camera, font)
-        self._draw_player(screen, camera, jumping_serve)
+        self._draw_player(screen, camera, jumping_serve, player_pose)
 
     def _draw_floor(self, screen: pygame.Surface, camera: Camera) -> None:
         left = camera.to_screen((self.config.visual_left, 0.0))
@@ -396,8 +570,32 @@ class VolleyCourt:
         text = font.render(f"{c.net_height:.2f} m", True, (35, 35, 35))
         screen.blit(text, (top[0] + 8, top[1] - 20))
 
-    def _draw_player(self, screen: pygame.Surface, camera: Camera, jumping_serve: bool) -> None:
-        if jumping_serve:
+    def _draw_player(
+        self,
+        screen: pygame.Surface,
+        camera: Camera,
+        jumping_serve: bool,
+        player_pose: Optional[PlayerPose],
+    ) -> None:
+        body_color = (40, 40, 40)
+        if player_pose is not None:
+            hip = camera.to_screen(player_pose.hip)
+            head = camera.to_screen(player_pose.head)
+            shoulder = camera.to_screen(player_pose.shoulder)
+            hand = camera.to_screen(player_pose.hand)
+            foot1 = camera.to_screen(player_pose.foot1)
+            foot2 = camera.to_screen(player_pose.foot2)
+            if player_pose.airborne:
+                shadow = camera.to_screen((player_pose.hip[0], 0.02))
+                pygame.draw.ellipse(
+                    screen,
+                    (115, 80, 48),
+                    (shadow[0] - 24, shadow[1] - 5, 48, 10),
+                    1,
+                )
+            if player_pose.hitting:
+                body_color = (125, 28, 22)
+        elif jumping_serve:
             hip = camera.to_screen((-1.05, 1.25))
             head = camera.to_screen((-1.05, 2.02))
             shoulder = camera.to_screen((-0.98, 1.72))
@@ -411,11 +609,11 @@ class VolleyCourt:
             hand = camera.to_screen((-0.68, 2.20))
             foot1 = camera.to_screen((-1.32, 0.0))
             foot2 = camera.to_screen((-0.78, 0.0))
-        pygame.draw.circle(screen, (40, 40, 40), head, 13)
-        pygame.draw.line(screen, (40, 40, 40), head, hip, 5)
-        pygame.draw.line(screen, (40, 40, 40), hip, foot1, 5)
-        pygame.draw.line(screen, (40, 40, 40), hip, foot2, 5)
-        pygame.draw.line(screen, (40, 40, 40), shoulder, hand, 5)
+        pygame.draw.circle(screen, body_color, head, 13)
+        pygame.draw.line(screen, body_color, head, hip, 5)
+        pygame.draw.line(screen, body_color, hip, foot1, 5)
+        pygame.draw.line(screen, body_color, hip, foot2, 5)
+        pygame.draw.line(screen, body_color, shoulder, hand, 5)
         pygame.draw.circle(screen, (245, 245, 245), hand, 6)
 
 

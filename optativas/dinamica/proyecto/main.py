@@ -10,6 +10,7 @@ from voley_lib import (
     SERVE_PRESETS,
     ServeResult,
     ServeState,
+    TopspinJumpServeController,
     Volleyball,
     VolleyCourt,
     draw_text_block,
@@ -52,6 +53,9 @@ class App:
         )
         self.air = AirModel()
         self.state = ServeState()
+        self.topspin_controller = TopspinJumpServeController(
+            self.court_config, SERVE_PRESETS["topspin"]
+        )
         self.history: list[ServeResult] = []
         self.path_history: list[tuple[tuple[int, int, int], list]] = []
         self.last_serve_key = "float"
@@ -92,11 +96,18 @@ class App:
 
     def launch(self, key: str) -> None:
         config = SERVE_PRESETS[key]
+        self.last_serve_key = key
+        if key == "topspin":
+            self.state = ServeState()
+            self.air.reset()
+            self.topspin_controller.start(self.ball)
+            return
+
+        self.topspin_controller.reset()
         launch_position = (
             self.court_config.serve_x,
             config.launch_y or self.court_config.serve_y,
         )
-        self.last_serve_key = key
         self.ball.reset(launch_position)
         self.ball.launch(config)
         self.air.reset()
@@ -106,8 +117,19 @@ class App:
         self.ball.reset((self.court_config.serve_x, self.court_config.serve_y))
         self.air.reset()
         self.state = ServeState()
+        self.topspin_controller.reset()
 
     def update(self, dt: float) -> None:
+        if self.topspin_controller.active:
+            hit_now = self.topspin_controller.update(self.ball, dt)
+            if hit_now:
+                config = SERVE_PRESETS["topspin"]
+                hit_position = self.topspin_controller.hit_position
+                self.ball.reset((hit_position.x, hit_position.y))
+                self.ball.launch(config)
+                self.air.reset()
+                self.state.start(config, self.ball.body.position)
+
         if not self.state.active or self.state.config is None:
             return
 
@@ -122,6 +144,11 @@ class App:
                 self.path_history.append(
                     (self.state.config.color, list(self.state.trajectory))
                 )
+                if (
+                    self.topspin_controller.active
+                    and self.state.config.key == "topspin"
+                ):
+                    self.topspin_controller.finish()
                 break
 
     def draw(self) -> None:
@@ -130,7 +157,16 @@ class App:
             and self.state.config is not None
             and self.state.config.jump_serve
         )
-        self.court.draw(self.screen, self.camera, self.small_font, jumping_serve)
+        player_pose = (
+            self.topspin_controller.pose if self.topspin_controller.active else None
+        )
+        self.court.draw(
+            self.screen,
+            self.camera,
+            self.small_font,
+            jumping_serve,
+            player_pose,
+        )
         if self.show_trajectory:
             self.draw_history_trajectories()
             if self.state.config is not None:
@@ -172,48 +208,69 @@ class App:
             "C  limpiar historial",
         ]
         draw_text_block(
-            self.screen, self.font, controls, panel_x + 22, 66, line_height=23
+            self.screen, self.font, controls, panel_x + 22, 62, line_height=20
         )
 
-        y = 240
+        y = 218
         current_config = self.state.config or SERVE_PRESETS[self.last_serve_key]
+        topspin_active = self.topspin_controller.active or (
+            self.state.active and current_config.key == "topspin"
+        )
         pygame.draw.circle(self.screen, current_config.color, (panel_x + 32, y + 10), 7)
         self.screen.blit(
             self.title_font.render(current_config.name, True, (20, 20, 20)),
             (panel_x + 48, y - 4),
         )
+        serve_lines = [
+            f"v0 = {current_config.speed:.1f} m/s",
+            f"angulo = {current_config.angle_deg:.1f} grados",
+            f"spin = {current_config.spin:.1f} rad/s",
+            f"Cd = {current_config.cd:.2f}",
+            f"k Magnus = {current_config.magnus_k:.2f}",
+            f"viento = ({self.air.last_wind.x:.2f}, {self.air.last_wind.y:.2f}) m/s",
+            current_config.description,
+        ]
+        if topspin_active:
+            flight_time = (
+                self.state.elapsed
+                if self.state.active and self.state.config is not None
+                else 0.0
+            )
+            serve_lines.extend(
+                [
+                    f"Fase: {self.topspin_controller.phase_label()}",
+                    f"Alt. golpeo objetivo = "
+                    f"{self.topspin_controller.hit_position.y:.2f} m",
+                    f"Vel. golpeo = {current_config.speed:.1f} m/s",
+                    f"Spin aplicado = {current_config.spin:.1f} rad/s",
+                    f"Preparacion = {self.topspin_controller.preparation_time:.2f} s",
+                    f"Vuelo post-golpeo = {flight_time:.2f} s",
+                ]
+            )
         draw_text_block(
             self.screen,
             self.small_font,
-            [
-                f"v0 = {current_config.speed:.1f} m/s",
-                f"angulo = {current_config.angle_deg:.1f} grados",
-                f"spin = {current_config.spin:.1f} rad/s",
-                f"Cd = {current_config.cd:.2f}",
-                f"k Magnus = {current_config.magnus_k:.2f}",
-                f"viento = ({self.air.last_wind.x:.2f}, {self.air.last_wind.y:.2f}) m/s",
-                current_config.description,
-            ],
+            serve_lines,
             panel_x + 22,
             y + 36,
-            line_height=21,
+            line_height=16 if topspin_active else 21,
         )
 
-        y = 420
+        y = 462 if topspin_active else 420
         self.screen.blit(
             self.title_font.render("Ultimo resultado", True, (20, 20, 20)),
             (panel_x + 22, y),
         )
         draw_text_block(
             self.screen,
-            self.font,
+            self.small_font if topspin_active else self.font,
             format_result(self.state.result),
             panel_x + 22,
             y + 34,
-            line_height=23,
+            line_height=16 if topspin_active else 23,
         )
 
-        y = 610
+        y = 615 if topspin_active else 610
         self.screen.blit(
             self.title_font.render("Comparativa", True, (20, 20, 20)), (panel_x + 22, y)
         )
