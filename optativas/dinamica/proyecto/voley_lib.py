@@ -25,7 +25,7 @@ OFFICIAL_BALL_RADIUS_M = OFFICIAL_BALL_CIRCUMFERENCE_M / (2.0 * math.pi)
 COURT_LINE_WIDTH_M = 0.05
 BALL_IMAGE_PATH = Path(__file__).resolve().parent / "assets" / "bola.png"
 BACKGROUND_IMAGE_PATH = Path(__file__).resolve().parent / "assets" / "fondo.png"
-BACKGROUND_OPACITY = 128
+BACKGROUND_OPACITY = round(255 * 0.35)
 
 
 @dataclass(frozen=True)
@@ -50,7 +50,7 @@ class CourtConfig:
 class BallConfig:
     mass: float = OFFICIAL_BALL_MASS_KG
     radius: float = OFFICIAL_BALL_RADIUS_M
-    elasticity: float = 0.58
+    elasticity: float = 0.82
     friction: float = 0.55
 
 
@@ -168,7 +168,6 @@ class PlayerPose:
 
 PLAYER_HEIGHT_M = 1.90
 PLAYER_HEAD_RADIUS_M = 0.11
-PLAYER_HAND_RADIUS_M = 0.10
 
 
 @dataclass
@@ -537,7 +536,7 @@ class VolleyCourt:
     def _create_static_world(self) -> None:
         c = self.config
         ground = pymunk.Segment(self.space.static_body, (c.visual_left, 0.0), (c.visual_right, 0.0), c.ground_radius)
-        ground.elasticity = 0.35
+        ground.elasticity = 0.72
         ground.friction = 0.90
         ground.collision_type = CollisionType.GROUND
         net = pymunk.Segment(self.space.static_body, (c.net_x, 0.0), (c.net_x, c.net_height), c.net_radius)
@@ -668,13 +667,11 @@ class VolleyCourt:
             foot1 = camera.to_screen((-1.32, 0.0))
             foot2 = camera.to_screen((-0.78, 0.0))
         head_radius = camera.length_to_px(PLAYER_HEAD_RADIUS_M)
-        hand_radius = max(4, camera.length_to_px(PLAYER_HAND_RADIUS_M))
         pygame.draw.circle(screen, body_color, head, head_radius)
         pygame.draw.line(screen, body_color, head, hip, 5)
         pygame.draw.line(screen, body_color, hip, foot1, 5)
         pygame.draw.line(screen, body_color, hip, foot2, 5)
         pygame.draw.line(screen, body_color, shoulder, hand, 5)
-        pygame.draw.circle(screen, (245, 245, 245), hand, hand_radius)
 
 
 class AirModel:

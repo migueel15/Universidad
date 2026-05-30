@@ -58,7 +58,8 @@ class App:
         self.history: list[ServeResult] = []
         self.path_history: list[tuple[tuple[int, int, int], list]] = []
         self.last_serve_key = "float"
-        self.show_trajectory = True
+        self.show_trajectory = False
+        self.ball_follow_through = False
         self.running = True
 
     def run(self) -> None:
@@ -96,6 +97,7 @@ class App:
     def launch(self, key: str) -> None:
         config = SERVE_PRESETS[key]
         self.last_serve_key = key
+        self.ball_follow_through = False
         if key == "topspin":
             self.state = ServeState()
             self.air.reset()
@@ -117,6 +119,7 @@ class App:
         self.air.reset()
         self.state = ServeState()
         self.topspin_controller.reset()
+        self.ball_follow_through = False
 
     def update(self, dt: float) -> None:
         if self.topspin_controller.active:
@@ -130,7 +133,15 @@ class App:
                 self.air.reset()
                 self.state.start(config, self.ball.body.position)
 
-        if not self.state.active or self.state.config is None:
+        if self.state.active and self.state.config is not None:
+            self.update_active_serve(dt)
+            return
+
+        if self.ball_follow_through and self.state.config is not None:
+            self.update_ball_follow_through(dt)
+
+    def update_active_serve(self, dt: float) -> None:
+        if self.state.config is None:
             return
 
         dt_sub = dt / SUBSTEPS
@@ -139,17 +150,46 @@ class App:
             self.space.step(dt_sub)
             result = self.state.update(self.ball, self.court_config, dt_sub)
             if result is not None:
-                self.ball.freeze()
                 self.history.append(result)
                 self.path_history.append(
                     (self.state.config.color, list(self.state.trajectory))
                 )
+                self.ball_follow_through = True
                 if (
                     self.topspin_controller.active
                     and self.state.config.key == "topspin"
                 ):
                     self.topspin_controller.finish()
                 break
+
+    def update_ball_follow_through(self, dt: float) -> None:
+        if self.state.config is None:
+            return
+
+        dt_sub = dt / SUBSTEPS
+        for _ in range(SUBSTEPS):
+            self.air.apply(self.ball, self.state.config, dt_sub)
+            self.space.step(dt_sub)
+            if self.ball_is_out_of_screen():
+                self.return_ball_to_player()
+                break
+
+    def ball_is_out_of_screen(self) -> bool:
+        center = self.camera.to_screen(self.ball.body.position)
+        radius = self.camera.length_to_px(self.ball.radius)
+        return (
+            center[0] < -radius
+            or center[0] > SCREEN_WIDTH + radius
+            or center[1] < -radius
+            or center[1] > SCREEN_HEIGHT + radius
+        )
+
+    def return_ball_to_player(self) -> None:
+        self.ball_follow_through = False
+        self.air.reset()
+        self.topspin_controller.reset()
+        self.ball.reset((self.court_config.serve_x, self.court_config.serve_y))
+        self.ball.freeze()
 
     def draw(self) -> None:
         jumping_serve = (
