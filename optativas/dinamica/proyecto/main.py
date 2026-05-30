@@ -15,7 +15,6 @@ from voley_lib import (
     VolleyCourt,
     draw_text_block,
     draw_trajectory,
-    format_result,
     setup_space,
 )
 
@@ -177,58 +176,57 @@ class App:
                     self.state.config.color,
                 )
         self.ball.draw(self.screen, self.camera)
-        self.draw_side_panel()
+        self.draw_top_panel()
         pygame.display.flip()
 
     def draw_history_trajectories(self) -> None:
         for color, trajectory in self.path_history[-8:]:
             draw_trajectory(self.screen, self.camera, trajectory, color)
 
-    def draw_side_panel(self) -> None:
-        panel_x = 1060
+    def draw_top_panel(self) -> None:
+        panel_height = self.camera.margin_top
         pygame.draw.rect(
-            self.screen,
-            (244, 246, 248),
-            (panel_x, 0, SCREEN_WIDTH - panel_x, SCREEN_HEIGHT),
+            self.screen, (244, 246, 248), (0, 0, SCREEN_WIDTH, panel_height)
         )
         pygame.draw.line(
-            self.screen, (190, 195, 200), (panel_x, 0), (panel_x, SCREEN_HEIGHT), 2
+            self.screen,
+            (190, 195, 200),
+            (0, panel_height),
+            (SCREEN_WIDTH, panel_height),
+            2,
         )
+        for x in (340, 790, 1080):
+            pygame.draw.line(
+                self.screen, (215, 220, 225), (x, 14), (x, panel_height - 14), 1
+            )
 
         title = self.title_font.render("Saques de voleibol", True, (20, 20, 20))
-        self.screen.blit(title, (panel_x + 22, 22))
-
+        self.screen.blit(title, (22, 14))
         controls = [
-            "1  Saque flotante",
-            "2  Saque topspin",
-            "3  Saque globo",
-            "ESPACIO  repetir saque",
-            "R  reset",
-            "T  trayectoria on/off",
-            "C  limpiar historial",
+            "1 Flotante   2 Topspin   3 Globo",
+            "ESPACIO Repetir   R Reset",
+            "T Trayectoria   C Limpiar",
         ]
-        draw_text_block(
-            self.screen, self.font, controls, panel_x + 22, 62, line_height=20
+        draw_text_block(self.screen, self.small_font, controls, 22, 48, line_height=18)
+        zoom = self.small_font.render(
+            f"Escala vista: {self.camera.scale:.1f} px/m", True, (85, 85, 85)
         )
+        self.screen.blit(zoom, (22, 104))
 
-        y = 218
         current_config = self.state.config or SERVE_PRESETS[self.last_serve_key]
         topspin_active = self.topspin_controller.active or (
             self.state.active and current_config.key == "topspin"
         )
-        pygame.draw.circle(self.screen, current_config.color, (panel_x + 32, y + 10), 7)
+        pygame.draw.circle(self.screen, current_config.color, (360, 28), 7)
         self.screen.blit(
-            self.title_font.render(current_config.name, True, (20, 20, 20)),
-            (panel_x + 48, y - 4),
+            self.title_font.render(current_config.name, True, (20, 20, 20)), (376, 14)
         )
         serve_lines = [
-            f"v0 = {current_config.speed:.1f} m/s",
-            f"angulo = {current_config.angle_deg:.1f} grados",
-            f"spin = {current_config.spin:.1f} rad/s",
-            f"Cd = {current_config.cd:.2f}",
-            f"k Magnus = {current_config.magnus_k:.2f}",
-            f"viento = ({self.air.last_wind.x:.2f}, {self.air.last_wind.y:.2f}) m/s",
-            current_config.description,
+            f"v0 {current_config.speed:.1f} m/s   "
+            f"ang {current_config.angle_deg:.1f} deg   "
+            f"spin {current_config.spin:.1f} rad/s",
+            f"Cd {current_config.cd:.2f}   kM {current_config.magnus_k:.2f}   "
+            f"viento ({self.air.last_wind.x:.2f}, {self.air.last_wind.y:.2f}) m/s",
         ]
         if topspin_active:
             flight_time = (
@@ -236,69 +234,65 @@ class App:
                 if self.state.active and self.state.config is not None
                 else 0.0
             )
-            serve_lines.extend(
-                [
-                    f"Fase: {self.topspin_controller.phase_label()}",
-                    f"Alt. golpeo objetivo = "
-                    f"{self.topspin_controller.hit_position.y:.2f} m",
-                    f"Vel. golpeo = {current_config.speed:.1f} m/s",
-                    f"Spin aplicado = {current_config.spin:.1f} rad/s",
-                    f"Preparacion = {self.topspin_controller.preparation_time:.2f} s",
-                    f"Vuelo post-golpeo = {flight_time:.2f} s",
-                ]
-            )
-        draw_text_block(
-            self.screen,
-            self.small_font,
-            serve_lines,
-            panel_x + 22,
-            y + 36,
-            line_height=16 if topspin_active else 21,
-        )
-
-        y = 462 if topspin_active else 420
-        self.screen.blit(
-            self.title_font.render("Ultimo resultado", True, (20, 20, 20)),
-            (panel_x + 22, y),
-        )
-        draw_text_block(
-            self.screen,
-            self.small_font if topspin_active else self.font,
-            format_result(self.state.result),
-            panel_x + 22,
-            y + 34,
-            line_height=16 if topspin_active else 23,
-        )
-
-        y = 615 if topspin_active else 610
-        self.screen.blit(
-            self.title_font.render("Comparativa", True, (20, 20, 20)), (panel_x + 22, y)
-        )
-        if not self.history:
-            draw_text_block(
-                self.screen,
-                self.small_font,
-                ["Todavia no hay saques."],
-                panel_x + 22,
-                y + 34,
+            serve_lines.append(
+                f"Fase {self.topspin_controller.phase_label()}   "
+                f"golpeo {self.topspin_controller.hit_position.y:.2f} m   "
+                f"prep {self.topspin_controller.preparation_time:.2f} s   "
+                f"vuelo {flight_time:.2f} s"
             )
         else:
-            lines = []
-            for result in self.history[-4:]:
-                landing = (
-                    "-" if result.landing_x is None else f"{result.landing_x:.1f}m"
-                )
-                lines.append(
-                    f"{result.serve_name}: {result.result}, t={result.flight_time:.2f}s, x={landing}"
-                )
-            draw_text_block(
-                self.screen,
-                self.small_font,
-                lines,
-                panel_x + 22,
-                y + 34,
-                line_height=19,
+            serve_lines.append(
+                f"Magnus {current_config.magnus_k:.2f}   "
+                f"rot.drag {current_config.rotational_drag_cm:.3f}"
             )
+        draw_text_block(
+            self.screen, self.small_font, serve_lines, 360, 50, line_height=18
+        )
+
+        self.screen.blit(
+            self.title_font.render("Ultimo resultado", True, (20, 20, 20)), (812, 14)
+        )
+        result = self.state.result
+        if result is None:
+            result_lines = ["Sin resultado"]
+        else:
+            landing = "-" if result.landing_x is None else f"{result.landing_x:.2f} m"
+            net = (
+                "-"
+                if result.net_cross_height is None
+                else f"{result.net_cross_height:.2f} m"
+            )
+            clearance = (
+                "-"
+                if result.net_clearance is None
+                else f"{result.net_clearance:.2f} m"
+            )
+            result_lines = [
+                f"{result.result}   t {result.flight_time:.2f} s   x {landing}",
+                f"hmax {result.max_height:.2f} m   red {net}",
+                f"margen {clearance}   vfin {result.final_speed:.1f} m/s",
+            ]
+        draw_text_block(
+            self.screen, self.small_font, result_lines, 812, 50, line_height=18
+        )
+
+        self.screen.blit(
+            self.title_font.render("Comparativa", True, (20, 20, 20)), (1102, 14)
+        )
+        if not self.history:
+            history_lines = ["Todavia no hay saques."]
+        else:
+            history_lines = []
+            for result in self.history[-3:]:
+                landing = "-" if result.landing_x is None else f"{result.landing_x:.1f}m"
+                serve_name = result.serve_name.replace("Saque ", "").capitalize()
+                history_lines.append(
+                    f"{serve_name}: {result.result}   "
+                    f"t {result.flight_time:.2f}s   x {landing}"
+                )
+        draw_text_block(
+            self.screen, self.small_font, history_lines, 1102, 50, line_height=18
+        )
 
 
 if __name__ == "__main__":

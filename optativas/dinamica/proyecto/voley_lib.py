@@ -54,10 +54,10 @@ class BallConfig:
 class Camera:
     width: int = 1400
     height: int = 720
-    margin_left: int = 70
-    margin_right: int = 360
-    margin_top: int = 45
-    margin_bottom: int = 75
+    margin_left: int = 38
+    margin_right: int = 38
+    margin_top: int = 132
+    margin_bottom: int = 118
     world_left: float = -3.0
     world_right: float = 21.0
     world_bottom: float = -0.3
