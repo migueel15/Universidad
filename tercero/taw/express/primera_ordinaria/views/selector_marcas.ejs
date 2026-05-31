@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seleccion de marcas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <% if(!servicios) {%>
+    <h1>Selecciona:</h1>
+    Marca:
+    <form method="get" action="/">
+      <% marcas.forEach((m) => {%>
+      <label>
+        <input <%=selectedMarcaId == m.id_marca ? "checked" : "" %>
+                type="radio"
+                name="selectedMarcaId"
+                value="<%=m.id_marca%>">
+        <%=m.nombre%>
+        <br>
+      </label>
+      <%
+        })
+      %>
+
+      Vehiculo:
+      <% vehiculos && vehiculos.forEach(v => {%>
+        <label>
+          <input type="checkbox" name="selectedVehiculos" value="<%=v.id_vehiculo%>">
+          <%=v.modelo%>
+        </label>
+
+      <%
+      })
+      %>
+      <br>
+
+      <button type="submit">Enviar</button>
+    </form>
+  <%}%>
+
+  <% if (servicios) {%>
+    <table>
+      <tr>
+        <th>IDSERVICIO</th>
+        <th>FECHA</th>
+        <th>ID VEHICULO</th>
+        <th>MARCA</th>
+        <th>DESCRIPCION</th>
+      </tr>
+      <% servicios.forEach(s => {%>
+
+        <tr>
+          <td><%=s.id_servicio%></td>
+          <td><%=s.fecha%></td>
+          <td><a href="/editar/<%=s.id_vehiculo_vehiculo
+                    .id_vehiculo%>"><%=s.id_vehiculo_vehiculo
+                      .id_vehiculo%></a></td>
+          <td><a href="/marca/<%=s.id_vehiculo_vehiculo.id_marca%>">Ver</a></td>
+          <td><%=s.descripcion%></td>
+        </tr>
+
+      <%})%>
+    </table>
+
+
+  <%}%>
+
+  </body>
+</html>

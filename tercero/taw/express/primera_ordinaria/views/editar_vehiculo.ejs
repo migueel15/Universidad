@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Informacion del vehiculo</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Informacion sobre el vehiculo:</h1>
+
+    <form method="post" action="/guardar">
+      <input hidden name="id" value="<%=vehiculo.id_vehiculo%>">
+      <table>
+        <tr>
+        </tr>
+        <tr>
+          <td>Modelo:</td>
+          <td>
+            <input type="text" name="modelo" value="<%=vehiculo.modelo%>">
+          </td>
+        </tr>
+        <tr>
+          <td>Año:</td>
+          <td>
+            <input type="text" name="year" value="<%=vehiculo.anio%>">
+          </td>
+        </tr>
+        <tr>
+          <td>Propietarios:</td>
+          <td>
+            <select name="propietarios" multiple>
+            <%propietarios.forEach(p => {%>
+              <option <%=idPropietariosDelVehiculo.includes(p
+                      .id_propietario) ? "selected": "" %> value="<%=p
+                      .id_propietario%>"><%=p
+                        .nombre%></option>
+            <%})%>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><button type="submit">Guardar</button></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
