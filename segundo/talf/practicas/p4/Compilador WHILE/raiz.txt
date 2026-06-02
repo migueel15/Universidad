@@ -1,0 +1,25 @@
+RaizCuadradaExceso
+entradas: X1
+salida: result
+metodo:
+	
+if X1=0 then
+	result:=0
+else
+	antepenultimo := 0;
+	penultimo:=0;
+	ultimo := 1;
+	while antepenultimo != ultimo do
+		antepenultimo:=penultimo;
+		penultimo:=ultimo;
+		ultimo:=X1/penultimo;
+		ultimo:=penultimo+ultimo;
+		ultimo:=ultimo/2
+	od;
+	cuadrado:=ultimo*ultimo;
+	if cuadrado>=X1 then
+		result:=ultimo
+	else
+		result:=ultimo+1
+	fi
+fi

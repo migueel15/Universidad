@@ -1,0 +1,60 @@
+Prueba 
+entradas: ent1
+salida: result
+metodo:	
+                     
+primero:=SigmaSuper1Sub21(ent1);
+segundo:=SigmaSuper1Sub22(ent1);
+result:=SigmaSuper2Sub1(primero,segundo)
+
+	
+**
+	
+SigmaSuper2Sub1
+entradas: X1, X2
+salida: result
+metodo:
+	
+factor1 := X1 + X2;
+factor2:=factor1+1;
+producto := factor1*factor2;
+result := producto/2;
+result:=result+X2
+
+	
+**
+	
+Diagonal
+entradas: X1
+salida: result
+metodo:
+	
+result:=0;
+cantor:=SigmaSuper2Sub1(result,0);
+while cantor<=X1 do
+	result:=result+1;
+	cantor:=SigmaSuper2Sub1(result,0)
+od;
+result:=result-1
+
+**
+	
+SigmaSuper1Sub22
+entradas: X1
+salida: result
+metodo:
+	
+diag:=Diagonal(X1);
+cantor:=SigmaSuper2Sub1(diag,0);
+result:=X1-cantor
+
+**
+	
+SigmaSuper1Sub21
+entradas: X1
+salida: result
+metodo:
+	
+diag:=Diagonal(X1);
+otro:=SigmaSuper1Sub22(X1);
+result:=diag-otro

@@ -1,0 +1,6 @@
+DEPURADOR DE PROGRAMAS WHILE
+
+No se ofrece ninguna garantía acerca del funcionamiento de este software.
+Para iniciar el depurador, poner en la línea de comandos en el mismo directorio donde esté Debugger.jar:
+java -jar Debugger.jar
+Se incluyen tres programas de ejemplo.

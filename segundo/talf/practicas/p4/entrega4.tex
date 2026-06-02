@@ -1,0 +1,355 @@
+\documentclass[10pt]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{minted}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm, marginparwidth=1.75cm]{geometry}
+\usepackage{hyperref}
+
+\usemintedstyle{default}
+
+\title{Práctica 4: WHILE y codificación}
+\author{Miguel Ángel Dorado Maldonado}
+\date{2 de junio de 2026}
+
+\begin{document}
+\maketitle
+
+\section{Actividad 1: suma de tres valores}
+
+
+Se pide implementar un programa WHILE que calcule la suma de tres valores usando una variable auxiliar que acumule el resultado.
+
+La función que queremos calcular es:
+
+\[
+    F_Q(x_1,x_2,x_3) = x_1 + x_2 + x_3
+\]
+
+Usamos la variable auxiliar $X_4$ como acumulador. El programa va vaciando $X_1$, $X_2$ y $X_3$, y por cada unidad que resta suma una unidad a $X_4$. Al final copia el resultado acumulado en $X_1$.
+
+\subsection{Programa WHILE}
+\begin{center}
+    \centering
+    \includegraphics[width=0.75\linewidth]{CalculoTQ.png}
+\end{center}
+\begin{minted}{python}
+from python.whilelanguage import *
+from python.whilelanguage.encoding import *
+
+Q = """(3,
+while X1 != 0 do
+    X1 := X1 - 1;
+    X4 := X4 + 1
+od;
+while X2 != 0 do
+    X2 := X2 - 1;
+    X4 := X4 + 1
+od;
+while X3 != 0 do
+    X3 := X3 - 1;
+    X4 := X4 + 1
+od;
+X1 := X4)"""
+
+print("TQ", t_steps(Q, [3, 5, 2]))
+print("Res:", f_function(Q, [3, 5, 2]))
+\end{minted}
+
+\subsection{Resultado}
+
+La entrada usada es:
+
+\[
+    (3,5,2)
+\]
+
+Por tanto, el resultado esperado es:
+
+\[
+    3+5+2 = 10
+\]
+
+La ejecución en Python devuelve:
+
+\begin{minted}{text}
+TQ 44
+Res: 10
+\end{minted}
+
+Luego:
+
+\[
+    F_Q(3,5,2) = 10
+\]
+
+\[
+    T_Q(3,5,2) = 44
+\]
+
+El resultado coincide con la suma esperada.
+
+\section{Actividad 2: función \texttt{diverge}}
+
+Se pide crear el programa WHILE más sencillo que calcule la función \texttt{diverge} con cero argumentos y calcular la codificación de su código.
+
+La función \texttt{diverge} es una función que no termina nunca. Es decir, para su única entrada posible, ya que tiene cero argumentos, el programa no alcanza una configuración final.
+
+\subsection{Programa WHILE}
+
+Como las variables empiezan inicializadas a cero, primero hacemos que $X_1$ valga $1$. Después usamos un bucle que se ejecuta mientras $X_1 \neq 0$. Dentro del bucle incrementamos $X_1$, así que nunca vuelve a valer cero.
+
+\begin{minted}{python}
+D = "X1:=X1+1; while X1!=0 do X1:=X1+1 od"
+\end{minted}
+
+El programa completo tiene cero variables de entrada:
+
+\[
+    (0, D)
+\]
+
+\subsection{Explicación}
+
+Inicialmente:
+
+\[
+    X_1 = 0
+\]
+
+Después de ejecutar la primera instrucción:
+
+\[
+    X_1 = 1
+\]
+
+A partir de ahí se entra en el bucle:
+
+\begin{minted}{text}
+while X1 != 0 do
+    X1 := X1 + 1
+od
+\end{minted}
+
+Como $X_1$ aumenta en cada iteración, nunca se hace cero. Por tanto, el programa no termina.
+
+\subsection{Codificación}
+
+Con la función \texttt{while2n}, la codificación del programa completo se obtiene así:
+
+\begin{minted}{python}
+D = "X1:=X1+1; while X1!=0 do X1:=X1+1 od"
+
+print(while2n(0, D))
+\end{minted}
+
+La función \texttt{while2n} codifica el programa completo, incluyendo el número de variables de entrada. En este caso, el número de entradas es $0$.
+
+La codificación obtenida es:
+
+\begin{minted}{text}
+139273919255627
+\end{minted}
+
+Por tanto:
+
+\[
+    \ulcorner (0,D) \urcorner = 139273919255627
+\]
+
+Si se codifica solamente el código, sin incluir el número de variables de entrada, se usa \texttt{code2n(D)}. En este caso:
+
+\begin{minted}{text}
+code2n(D) = 16689751
+\end{minted}
+
+\section{Actividad 3: enumerar los $k$ primeros vectores de $\mathbb{N}^*$}
+
+Se pide crear una función de Python que enumere los $k$ primeros vectores de $\mathbb{N}^*$.
+
+El conjunto $\mathbb{N}^*$ es el conjunto de todos los vectores finitos de números naturales:
+
+\[
+    \mathbb{N}^* = \bigcup_{n \geq 0} \mathbb{N}^n
+\]
+
+Incluye vectores de cualquier longitud, incluido el vector vacío:
+
+\[
+    [], [0], [1], [0,0], [2], \dots
+\]
+
+Para enumerarlos usamos la función \texttt{godeldecoding}. Esta función decodifica cada número natural como un vector de $\mathbb{N}^*$.
+
+\subsection{Código}
+
+\begin{minted}{python}
+def enumera_vectores(k):
+    vectores = []
+
+    for n in range(k):
+        vectores.append(godeldecoding(n))
+
+    return vectores
+
+print(enumera_vectores(10))
+\end{minted}
+
+\subsection{Resultado}
+
+La salida para $k=10$ es:
+
+\begin{minted}{text}
+[[], [0], [0, 0], [1], [0, 0, 0], [1, 0], [2],
+ [0, 0, 0, 0], [1, 0, 0], [0, 1]]
+\end{minted}
+
+\subsection{Explicación}
+
+La función recorre los números naturales:
+
+\[
+    0,1,2,3,4,\dots
+\]
+
+A cada número $n$ se le aplica \texttt{godeldecoding(n)}. Como la codificación de Gödel establece una biyección entre $\mathbb{N}$ y $\mathbb{N}^*$, al recorrer los naturales se obtienen todos los vectores finitos de naturales.
+
+Por tanto, la función \texttt{enumera\_vectores(k)} devuelve los $k$ primeros vectores de $\mathbb{N}^*$ según el orden inducido por la decodificación de Gödel.
+
+\section{Actividad 4: enumerar los $k$ primeros programas WHILE}
+
+Se pide crear una función de Python que enumere los $k$ primeros programas WHILE.
+
+La idea es similar a la actividad anterior. Como los programas WHILE pueden codificarse mediante números naturales, podemos recorrer los números naturales y decodificar cada uno como programa WHILE.
+
+Para ello usamos la función \texttt{n2while}.
+
+\subsection{Código}
+
+\begin{minted}{python}
+def enumera_programas_while(k):
+    programas = []
+
+    for n in range(k):
+        programas.append(n2while(n))
+
+    return programas
+
+programas = enumera_programas_while(10)
+
+for i, programa in enumerate(programas):
+    print(i, programa)
+\end{minted}
+
+\subsection{Resultado}
+
+La salida para $k=10$ es:
+
+\begin{minted}{text}
+0 (0, X1≔0)
+1 (1, X1≔0)
+2 (0, X1≔0; X1≔0)
+3 (2, X1≔0)
+4 (1, X1≔0; X1≔0)
+5 (0, X1≔X1)
+6 (3, X1≔0)
+7 (2, X1≔0; X1≔0)
+8 (1, X1≔X1)
+9 (0, X1≔0; X1≔0; X1≔0)
+\end{minted}
+
+\subsection{Explicación}
+
+La función recorre los números:
+
+\[
+    0,1,2,3,4,\dots,k-1
+\]
+
+A cada número natural $n$ le aplica:
+
+\begin{minted}{python}
+n2while(n)
+\end{minted}
+
+El resultado es el programa WHILE codificado por ese número. Por tanto, esta función enumera los primeros programas WHILE según el orden inducido por la codificación utilizada por la librería.
+
+Esto refleja la idea teórica de que el conjunto de programas WHILE es enumerable. Es decir, existe una forma efectiva de listar todos los programas WHILE.
+
+\section{Código completo usado}
+
+El código completo empleado para resolver las actividades finales es el siguiente:
+
+\begin{minted}{python}
+from python.whilelanguage import *
+from python.whilelanguage.encoding import *
+
+Q = """(3,
+while X1 != 0 do
+    X1 := X1 - 1;
+    X4 := X4 + 1
+od;
+while X2 != 0 do
+    X2 := X2 - 1;
+    X4 := X4 + 1
+od;
+while X3 != 0 do
+    X3 := X3 - 1;
+    X4 := X4 + 1
+od;
+X1 := X4)"""
+
+print("TQ", t_steps(Q, [3, 5, 2]))
+print("Res:", f_function(Q, [3, 5, 2]))
+
+D = "X1:=X1+1; while X1!=0 do X1:=X1+1 od"
+
+print(while2n(0, D))
+
+def enumera_vectores(k):
+    vectores = []
+
+    for n in range(k):
+        vectores.append(godeldecoding(n))
+
+    return vectores
+
+print(enumera_vectores(10))
+
+def enumera_programas_while(k):
+    programas = []
+
+    for n in range(k):
+        programas.append(n2while(n))
+
+    return programas
+
+programas = enumera_programas_while(10)
+
+for i, programa in enumerate(programas):
+    print(i, programa)
+\end{minted}
+
+\section{Conclusión}
+
+En esta práctica se ha comprobado cómo los programas WHILE pueden ejecutarse y analizarse paso a paso mediante Python. También se ha trabajado con la codificación de datos y programas mediante números naturales.
+
+Las conclusiones principales son:
+
+\begin{itemize}
+    \item Un programa WHILE puede calcular funciones numéricas parciales.
+    \item Si un programa no termina, representa una función indefinida para esa entrada.
+    \item La función \texttt{t\_steps} permite calcular el tiempo de parada de un programa.
+    \item La función \texttt{f\_function} permite obtener el resultado calculado por el programa.
+    \item Los vectores de $\mathbb{N}^*$ son enumerables mediante \texttt{godeldecoding}.
+    \item Los programas WHILE son enumerables mediante \texttt{n2while}.
+    \item La codificación permite relacionar programas, datos y números naturales, lo cual es fundamental para estudiar computabilidad.
+\end{itemize}
+
+\end{document}
+
