@@ -4,20 +4,19 @@ const sequelize = require("sequelize");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-const router = require("./routes/index")
-
+const router = require("./routes/index");
 
 const app = express();
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/", router)
+app.use("/", router);
 
-app.get('/', function(req, res){
+app.get("/", function (req, res) {
   res.send("Prueba");
 });
 
@@ -31,3 +30,4 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
