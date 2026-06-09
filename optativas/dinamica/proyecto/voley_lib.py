@@ -271,6 +271,116 @@ class ServeState:
         self.active = False
 
 
+@dataclass
+class NoMagnusTrajectory:
+    config: Optional[ServeConfig] = None
+    active: bool = False
+    elapsed: float = 0.0
+    position: Vec2d = field(default_factory=lambda: Vec2d(0.0, 0.0))
+    velocity: Vec2d = field(default_factory=lambda: Vec2d(0.0, 0.0))
+    angular_velocity: float = 0.0
+    radius: float = OFFICIAL_BALL_RADIUS_M
+    mass: float = OFFICIAL_BALL_MASS_KG
+    moment: float = 1.0
+    rho: float = 1.225
+    previous_position: Optional[Vec2d] = None
+    trajectory: list[Vec2d] = field(default_factory=list)
+    trajectory_timer: float = 0.0
+
+    def start(self, config: ServeConfig, ball: Volleyball) -> None:
+        self.config = config
+        self.active = True
+        self.elapsed = 0.0
+        self.position = Vec2d(ball.body.position.x, ball.body.position.y)
+        self.velocity = Vec2d(ball.body.velocity.x, ball.body.velocity.y)
+        self.angular_velocity = ball.body.angular_velocity
+        self.radius = ball.radius
+        self.mass = ball.body.mass
+        self.moment = ball.body.moment
+        self.previous_position = Vec2d(self.position.x, self.position.y)
+        self.trajectory = [Vec2d(self.position.x, self.position.y)]
+        self.trajectory_timer = 0.0
+
+    def reset(self) -> None:
+        self.config = None
+        self.active = False
+        self.elapsed = 0.0
+        self.position = Vec2d(0.0, 0.0)
+        self.velocity = Vec2d(0.0, 0.0)
+        self.angular_velocity = 0.0
+        self.previous_position = None
+        self.trajectory.clear()
+        self.trajectory_timer = 0.0
+
+    def update(self, wind: Vec2d, court: CourtConfig, dt: float) -> bool:
+        if not self.active or self.config is None or self.previous_position is None:
+            return False
+
+        prev = Vec2d(self.position.x, self.position.y)
+        self.elapsed += dt
+        v_rel = self.velocity - wind
+        speed = v_rel.length
+        acceleration = Vec2d(0.0, -9.81)
+
+        if speed > 1e-6:
+            area = math.pi * self.radius * self.radius
+            drag = -0.5 * self.rho * self.config.cd * area * speed * v_rel
+            acceleration += drag / self.mass
+
+        self.velocity += acceleration * dt
+        self.position += self.velocity * dt
+        self._update_spin(dt)
+        self.trajectory_timer += dt
+
+        if self.trajectory_timer >= 1.0 / 45.0:
+            self.trajectory.append(Vec2d(self.position.x, self.position.y))
+            self.trajectory_timer = 0.0
+
+        if prev.x < court.net_x <= self.position.x:
+            t = (court.net_x - prev.x) / max(self.position.x - prev.x, 1e-9)
+            y_net = prev.y + (self.position.y - prev.y) * t
+            if y_net - self.radius <= court.net_height:
+                self.trajectory.append(Vec2d(court.net_x, y_net))
+                self.active = False
+                return True
+
+        ground_contact_y = self.radius + court.ground_radius
+        if self.elapsed > 0.06 and prev.y > ground_contact_y >= self.position.y:
+            t = (prev.y - ground_contact_y) / max(prev.y - self.position.y, 1e-9)
+            landing_x = prev.x + (self.position.x - prev.x) * t
+            self.trajectory.append(Vec2d(landing_x, ground_contact_y))
+            self.active = False
+            return True
+
+        if self.elapsed >= 8.0 or self.position.x > court.visual_right + 4.0:
+            self.active = False
+            return True
+
+        self.previous_position = Vec2d(self.position.x, self.position.y)
+        return False
+
+    def _update_spin(self, dt: float) -> None:
+        if (
+            self.config is None
+            or abs(self.angular_velocity) <= 1e-6
+            or self.config.rotational_drag_cm <= 0
+            or self.moment <= 0
+        ):
+            return
+
+        omega = self.angular_velocity
+        torque_mag = (
+            0.5
+            * self.rho
+            * omega
+            * omega
+            * self.radius**5
+            * self.config.rotational_drag_cm
+        )
+        torque = -math.copysign(torque_mag, omega)
+        self.angular_velocity += torque / self.moment * dt
+
+
 class TopspinJumpServeController:
     toss_duration = 0.45
     approach_duration = 0.52

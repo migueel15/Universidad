@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+
 import pygame
 
 from voley_lib import (
@@ -7,6 +9,7 @@ from voley_lib import (
     BallConfig,
     Camera,
     CourtConfig,
+    NoMagnusTrajectory,
     SERVE_PRESETS,
     ServeResult,
     ServeState,
@@ -22,11 +25,16 @@ FPS = 60
 SUBSTEPS = 8
 SCREEN_WIDTH = 1400
 SCREEN_HEIGHT = 720
+ANGLE_STEP_DEG = 1.0
+MIN_SERVE_ANGLE_DEG = -5.0
+MAX_SERVE_ANGLE_DEG = 75.0
+NO_MAGNUS_TRAJECTORY_COLOR = (142, 68, 173)
 
 
 class App:
     def __init__(self):
         pygame.init()
+        pygame.key.set_repeat(180, 45)
         pygame.display.set_caption("Comparacion de saques de voleibol")
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
@@ -44,11 +52,16 @@ class App:
         )
         self.air = AirModel()
         self.state = ServeState()
+        self.no_magnus_trajectory = NoMagnusTrajectory()
         self.topspin_controller = TopspinJumpServeController(
             self.court_config, SERVE_PRESETS["topspin"]
         )
+        self.serve_angles = {
+            key: config.angle_deg for key, config in SERVE_PRESETS.items()
+        }
         self.history: list[ServeResult] = []
         self.path_history: list[tuple[tuple[int, int, int], list]] = []
+        self.no_magnus_path_history: list[list] = []
         self.last_serve_key = "float"
         self.show_trajectory = False
         self.ball_follow_through = False
@@ -84,12 +97,30 @@ class App:
                 elif event.key == pygame.K_c:
                     self.history.clear()
                     self.path_history.clear()
+                    self.no_magnus_path_history.clear()
                     self.state.trajectory.clear()
+                    self.no_magnus_trajectory.reset()
+                elif event.key in (pygame.K_UP, pygame.K_RIGHT):
+                    self.adjust_serve_angle(ANGLE_STEP_DEG)
+                elif event.key in (pygame.K_DOWN, pygame.K_LEFT):
+                    self.adjust_serve_angle(-ANGLE_STEP_DEG)
+
+    def serve_config(self, key: str):
+        return replace(SERVE_PRESETS[key], angle_deg=self.serve_angles[key])
+
+    def adjust_serve_angle(self, delta_deg: float) -> None:
+        current = self.serve_angles[self.last_serve_key]
+        adjusted = max(
+            MIN_SERVE_ANGLE_DEG,
+            min(MAX_SERVE_ANGLE_DEG, current + delta_deg),
+        )
+        self.serve_angles[self.last_serve_key] = adjusted
 
     def launch(self, key: str) -> None:
-        config = SERVE_PRESETS[key]
+        config = self.serve_config(key)
         self.last_serve_key = key
         self.ball_follow_through = False
+        self.no_magnus_trajectory.reset()
         if key == "topspin":
             self.state = ServeState()
             self.air.reset()
@@ -111,19 +142,21 @@ class App:
         self.air.reset()
         self.state = ServeState()
         self.topspin_controller.reset()
+        self.no_magnus_trajectory.reset()
         self.ball_follow_through = False
 
     def update(self, dt: float) -> None:
         if self.topspin_controller.active:
             hit_now = self.topspin_controller.update(self.ball, dt)
             if hit_now:
-                config = SERVE_PRESETS["topspin"]
+                config = self.serve_config("topspin")
                 hit_position = self.topspin_controller.hit_position
                 hit_angle = self.ball.body.angle
                 self.ball.reset((hit_position.x, hit_position.y), hit_angle)
                 self.ball.launch(config)
                 self.air.reset()
                 self.state.start(config, self.ball.body.position)
+                self.no_magnus_trajectory.start(config, self.ball)
 
         if self.state.active and self.state.config is not None:
             self.update_active_serve(dt)
@@ -131,6 +164,10 @@ class App:
 
         if self.ball_follow_through and self.state.config is not None:
             self.update_ball_follow_through(dt)
+            return
+
+        if self.no_magnus_trajectory.active:
+            self.update_no_magnus_only(dt)
 
     def update_active_serve(self, dt: float) -> None:
         if self.state.config is None:
@@ -139,6 +176,7 @@ class App:
         dt_sub = dt / SUBSTEPS
         for _ in range(SUBSTEPS):
             self.air.apply(self.ball, self.state.config, dt_sub)
+            self.update_no_magnus_trajectory(dt_sub)
             self.space.step(dt_sub)
             result = self.state.update(self.ball, self.court_config, dt_sub)
             if result is not None:
@@ -161,10 +199,28 @@ class App:
         dt_sub = dt / SUBSTEPS
         for _ in range(SUBSTEPS):
             self.air.apply(self.ball, self.state.config, dt_sub)
+            self.update_no_magnus_trajectory(dt_sub)
             self.space.step(dt_sub)
             if self.ball_is_out_of_screen():
                 self.return_ball_to_player()
                 break
+
+    def update_no_magnus_trajectory(self, dt: float) -> None:
+        if not self.no_magnus_trajectory.active:
+            return
+
+        finished = self.no_magnus_trajectory.update(
+            self.air.last_wind, self.court_config, dt
+        )
+        if finished:
+            self.no_magnus_path_history.append(
+                list(self.no_magnus_trajectory.trajectory)
+            )
+
+    def update_no_magnus_only(self, dt: float) -> None:
+        dt_sub = dt / SUBSTEPS
+        for _ in range(SUBSTEPS):
+            self.update_no_magnus_trajectory(dt_sub)
 
     def ball_is_out_of_screen(self) -> bool:
         center = self.camera.to_screen(self.ball.body.position)
@@ -199,6 +255,13 @@ class App:
         )
         if self.show_trajectory:
             self.draw_history_trajectories()
+            if self.no_magnus_trajectory.active:
+                draw_trajectory(
+                    self.screen,
+                    self.camera,
+                    self.no_magnus_trajectory.trajectory,
+                    NO_MAGNUS_TRAJECTORY_COLOR,
+                )
             if self.state.config is not None:
                 draw_trajectory(
                     self.screen,
@@ -213,6 +276,10 @@ class App:
     def draw_history_trajectories(self) -> None:
         for color, trajectory in self.path_history[-8:]:
             draw_trajectory(self.screen, self.camera, trajectory, color)
+        for trajectory in self.no_magnus_path_history[-8:]:
+            draw_trajectory(
+                self.screen, self.camera, trajectory, NO_MAGNUS_TRAJECTORY_COLOR
+            )
 
     def draw_top_panel(self) -> None:
         panel_height = self.camera.margin_top
@@ -236,7 +303,7 @@ class App:
         controls = [
             "1 Flotante   2 Topspin   3 Globo",
             "ESPACIO Repetir   R Reset",
-            "T Trayectoria   C Limpiar",
+            "T Trayectoria   C Limpiar   Flechas angulo",
         ]
         draw_text_block(self.screen, self.small_font, controls, 22, 48, line_height=18)
         zoom = self.small_font.render(
@@ -244,7 +311,11 @@ class App:
         )
         self.screen.blit(zoom, (22, 104))
 
-        current_config = self.state.config or SERVE_PRESETS[self.last_serve_key]
+        current_config = (
+            self.state.config
+            if self.state.active and self.state.config is not None
+            else self.serve_config(self.last_serve_key)
+        )
         topspin_active = self.topspin_controller.active or (
             self.state.active and current_config.key == "topspin"
         )
@@ -271,6 +342,7 @@ class App:
                 f"prep {self.topspin_controller.preparation_time:.2f} s   "
                 f"vuelo {flight_time:.2f} s"
             )
+            serve_lines.append("Tray sin Magnus: morado")
         else:
             serve_lines.append(
                 f"Magnus {current_config.magnus_k:.2f}   "
