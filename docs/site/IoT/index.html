@@ -1,0 +1,2920 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uni docs">
+      
+      
+      
+        <link rel="canonical" href="/IoT/">
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.58">
+    
+    
+      
+        <title>Análisis de la evolución de los sistemas distribuidos - Universidad</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analisis-de-la-evolucion-de-los-sistemas-distribuidos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Universidad" class="md-header__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Universidad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Análisis de la evolución de los sistemas distribuidos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Activar tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Activar tema oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./.." class="md-tabs__link">
+        
+  
+  Universidad
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="././" class="md-tabs__link">
+          
+  
+  IoT
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Universidad" class="md-nav__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Universidad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Universidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="././" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IoT
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IoT
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vision-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Visión general
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-caracteristicas-de-los-sistemas-distribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Características de los sistemas distribuidos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Características de los sistemas distribuidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-definicion-fundamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1. Definición fundamental
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-tres-familias-de-sistemas-distribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2. Tres familias de sistemas distribuidos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. Tres familias de sistemas distribuidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computacion-distribuida" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Computación distribuida
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-distribuidos-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistemas distribuidos de información
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-pervasivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistemas pervasivos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cluster-frente-a-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3. Clúster frente a grid
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3. Clúster frente a grid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Clúster
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grid
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-utility-volunteer-y-cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4. Utility, volunteer y cloud computing
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4. Utility, volunteer y cloud computing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utility-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Utility computing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volunteer-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Volunteer computing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cloud computing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-computacion-autonomica-movil-y-ubicua" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.5. Computación autonómica, móvil y ubicua
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5. Computación autonómica, móvil y ubicua">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computacion-autonomica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Computación autonómica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computacion-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Computación móvil
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computacion-ubicua" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Computación ubicua
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-aplicaciones-y-programacion-distribuidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.6. Aplicaciones y programación distribuidas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-ventajas-y-desventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.7. Ventajas y desventajas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-transparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.8. Transparencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-escalabilidad-y-apertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.9. Escalabilidad y apertura
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.9. Escalabilidad y apertura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escalabilidad-de-tamano" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escalabilidad de tamaño
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escalabilidad-geografica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escalabilidad geográfica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escalabilidad-administrativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escalabilidad administrativa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-concurrencia-y-recursos-compartidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.10. Concurrencia y recursos compartidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#111-sistema-paralelo-frente-a-sistema-distribuido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.11. Sistema paralelo frente a sistema distribuido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-las-ocho-falacias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.12. Las ocho falacias
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-problemas-esenciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.13. Problemas esenciales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-la-perspectiva-del-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. La perspectiva del cliente
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. La perspectiva del cliente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-peticion-y-respuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Petición y respuesta
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-las-tres-capas-logicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Las tres capas lógicas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Las tres capas lógicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interfaz-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interfaz de usuario
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procesamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Procesamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Datos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-cliente-ligero-y-cliente-pesado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3. Cliente ligero y cliente pesado
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Cliente ligero y cliente pesado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cliente-ligero" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cliente ligero
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cliente-pesado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cliente pesado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-software-cliente-para-proporcionar-transparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4. Software cliente para proporcionar transparencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-el-ejemplo-de-x-window-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.5. El ejemplo de X Window System
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-servidores-con-estado-y-sin-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.6. Servidores con estado y sin estado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-estado-de-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.7. Estado de sesión
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7. Estado de sesión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identificador-en-una-cookie-y-estado-en-un-almacen-compartido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identificador en una cookie y estado en un almacén compartido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estado-en-el-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estado en el cliente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estado-en-el-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estado en el servidor
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-latencia-y-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.8. Latencia y throughput
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8. Latencia y throughput">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Latencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput-o-rendimiento-agregado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Throughput o rendimiento agregado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.9. Disponibilidad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210-modelos-de-consistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.10. Modelos de consistencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-cache-del-lado-del-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.11. Caché del lado del cliente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-clientes-sincronos-y-asincronos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.12. Clientes síncronos y asíncronos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-perspectiva-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. La perspectiva de red
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. La perspectiva de red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-capas-osi-y-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1. Capas: OSI y TCP/IP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encapsulacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2. Encapsulación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-direcciones-puertos-y-conexiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3. Direcciones, puertos y conexiones
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-servicios-conocidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4. Servicios conocidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5. TCP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5. TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cabecera-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cabecera TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-es-un-flujo-de-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TCP es un flujo de bytes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6. UDP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-elegir-tcp-o-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.7. Elegir TCP o UDP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-api-de-sockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.8. API de sockets
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-mtu-y-fragmentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.9. MTU y fragmentación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310-direcciones-privadas-y-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.10. Direcciones privadas y NAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#311-herramientas-de-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.11. Herramientas de diagnóstico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-arquitecturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Arquitecturas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Arquitecturas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-organizacion-logica-y-colocacion-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1. Organización lógica y colocación física
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1. Organización lógica y colocación física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acoplamiento-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Acoplamiento espacial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acoplamiento-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Acoplamiento temporal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. Cliente-servidor
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tres-disenos-de-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3. Tres diseños de servidor
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. Tres diseños de servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Iterativo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-proceso-o-hilo-por-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Un proceso o hilo por cliente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dirigido-por-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dirigido por eventos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-arquitecturas-de-dos-y-tres-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4. Arquitecturas de dos y tres niveles
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4. Arquitecturas de dos y tres niveles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dos-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dos niveles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tres-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tres niveles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-distribucion-vertical-y-horizontal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5. Distribución vertical y horizontal
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5. Distribución vertical y horizontal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vertical" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vertical
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizontal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Horizontal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-peer-to-peer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6. Peer-to-peer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6. Peer-to-peer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redes-estructuradas-y-dht" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Redes estructuradas y DHT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p2p-hibrido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        P2P híbrido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redes-no-estructuradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Redes no estructuradas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-migracion-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.7. Migración de código
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.7. Migración de código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#movilidad-debil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Movilidad débil
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#movilidad-fuerte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Movilidad fuerte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-y-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Push y pull
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-asociados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos asociados
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-memoria-compartida-distribuida" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.8. Memoria compartida distribuida
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-cloud-iaas-paas-y-saas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.9. Cloud: IaaS, PaaS y SaaS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-iot-edge-y-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.10. IoT, Edge y Cloud
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.10. IoT, Edge y Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispositivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispositivo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Edge
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cloud
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-conexion-entre-los-conceptos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Conexión entre los conceptos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-caso-integrador-una-fabrica-conectada" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Caso integrador: una fábrica conectada
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Universidad
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="analisis-de-la-evolucion-de-los-sistemas-distribuidos">Análisis de la evolución de los sistemas distribuidos<a class="headerlink" href="#analisis-de-la-evolucion-de-los-sistemas-distribuidos" title="Permanent link">&para;</a></h1>
+<h2 id="vision-general">Visión general<a class="headerlink" href="#vision-general" title="Permanent link">&para;</a></h2>
+<p>Un sistema distribuido es una aplicación cuyos componentes se ejecutan en varios computadores independientes, con memorias y relojes separados, y que solamente pueden coordinarse intercambiando mensajes por una red.</p>
+<p>La idea central del documento puede resumirse así:</p>
+<blockquote>
+<p>Los sistemas distribuidos permiten ganar rendimiento, disponibilidad, alcance geográfico y capacidad de crecimiento, pero trasladan una enorme complejidad al software.</p>
+</blockquote>
+<p>Esa complejidad procede principalmente de cuatro hechos:</p>
+<ol>
+<li>No existe memoria compartida entre las máquinas.</li>
+<li>No existe un reloj global perfectamente común.</li>
+<li>La comunicación tiene latencia, capacidad limitada y posibilidad de pérdida.</li>
+<li>Algunos componentes pueden fallar mientras los demás continúan funcionando.</li>
+</ol>
+<hr />
+<h2 id="1-caracteristicas-de-los-sistemas-distribuidos">1. Características de los sistemas distribuidos<a class="headerlink" href="#1-caracteristicas-de-los-sistemas-distribuidos" title="Permanent link">&para;</a></h2>
+<h3 id="11-definicion-fundamental">1.1. Definición fundamental<a class="headerlink" href="#11-definicion-fundamental" title="Permanent link">&para;</a></h3>
+<p>Cada computador posee:</p>
+<ul>
+<li>Su propia CPU.</li>
+<li>Su propia memoria.</li>
+<li>Su propio reloj.</li>
+<li>Su propio estado local.</li>
+</ul>
+<p>Un computador no puede leer directamente la memoria de otro. Para influir en él debe enviarle un mensaje a través de la red.</p>
+<p>Al mismo tiempo, varios programas cooperan para ofrecer al usuario un único servicio. Por ejemplo, cuando se abre una tienda en línea, pueden intervenir:</p>
+<ul>
+<li>Un servidor web.</li>
+<li>Un servicio de autenticación.</li>
+<li>Un catálogo.</li>
+<li>Un sistema de inventario.</li>
+<li>Una plataforma de pagos.</li>
+<li>Una base de datos.</li>
+<li>Una red de distribución de contenido.</li>
+</ul>
+<p>El usuario, sin embargo, percibe una sola aplicación.</p>
+<p>Esta es una característica importante: la unidad que ve el usuario no coincide con la fragmentación técnica interna.</p>
+<h3 id="12-tres-familias-de-sistemas-distribuidos">1.2. Tres familias de sistemas distribuidos<a class="headerlink" href="#12-tres-familias-de-sistemas-distribuidos" title="Permanent link">&para;</a></h3>
+<h4 id="computacion-distribuida">Computación distribuida<a class="headerlink" href="#computacion-distribuida" title="Permanent link">&para;</a></h4>
+<p>Su objetivo principal es aumentar el rendimiento combinando recursos.</p>
+<p>Ejemplos del documento:</p>
+<ul>
+<li>Clústeres.</li>
+<li>Grids o mallas computacionales.</li>
+</ul>
+<p>Caso real: una simulación meteorológica divide el territorio en regiones. Diferentes nodos calculan simultáneamente la evolución de cada región y después intercambian los valores de sus fronteras.</p>
+<h4 id="sistemas-distribuidos-de-informacion">Sistemas distribuidos de información<a class="headerlink" href="#sistemas-distribuidos-de-informacion" title="Permanent link">&para;</a></h4>
+<p>Su objetivo es integrar aplicaciones y datos que ya existen.</p>
+<p>Sus mecanismos típicos son:</p>
+<ul>
+<li>Transacciones.</li>
+<li>Llamadas remotas.</li>
+<li>Servicios que conectan sistemas distintos.</li>
+</ul>
+<p>Caso real: una compra en línea puede tener que coordinar el catálogo, el almacén, el pago y la empresa de transporte. El problema principal no es hacer un único cálculo rápidamente, sino conseguir que sistemas diferentes cooperen correctamente.</p>
+<h4 id="sistemas-pervasivos">Sistemas pervasivos<a class="headerlink" href="#sistemas-pervasivos" title="Permanent link">&para;</a></h4>
+<p>Su objetivo es que la computación esté presente en dispositivos móviles, sensores y objetos cotidianos.</p>
+<p>Los componentes pueden:</p>
+<ul>
+<li>Aparecer.</li>
+<li>Desaparecer.</li>
+<li>Cambiar de red.</li>
+<li>Moverse.</li>
+<li>Permanecer desconectados durante un tiempo.</li>
+</ul>
+<p>IoT pertenece a esta familia. En una red de sensores urbanos, la desconexión ocasional no es necesariamente una avería excepcional, sino parte de la operación normal.</p>
+<h3 id="13-cluster-frente-a-grid">1.3. Clúster frente a grid<a class="headerlink" href="#13-cluster-frente-a-grid" title="Permanent link">&para;</a></h3>
+<h4 id="cluster">Clúster<a class="headerlink" href="#cluster" title="Permanent link">&para;</a></h4>
+<p>Un clúster suele estar formado por máquinas similares:</p>
+<ul>
+<li>En el mismo lugar.</li>
+<li>Conectadas mediante una red local rápida.</li>
+<li>Administradas por una sola organización.</li>
+<li>Sometidas a una política de seguridad común.</li>
+<li>Con hardware y software estrechamente coordinados.</li>
+</ul>
+<p>Puede utilizarse para simulaciones, análisis de grandes datos o entrenamiento de modelos.</p>
+<h4 id="grid">Grid<a class="headerlink" href="#grid" title="Permanent link">&para;</a></h4>
+<p>Un grid reúne recursos heterogéneos pertenecientes a organizaciones distintas. Cada organización mantiene sus propias reglas, administradores y políticas.</p>
+<p>La diferencia decisiva no es únicamente técnica, sino administrativa:</p>
+<ul>
+<li>Un clúster tiene normalmente un propietario.</li>
+<li>Un grid debe coordinar varios dominios de confianza.</li>
+</ul>
+<p>Por ello, un grid necesita tanto protocolos técnicos como acuerdos sobre identidad, acceso, prioridades y uso de recursos.</p>
+<p>Caso real: diferentes universidades comparten capacidad de cálculo para analizar datos científicos que ninguna podría procesar por sí sola.</p>
+<h3 id="14-utility-volunteer-y-cloud-computing">1.4. Utility, volunteer y cloud computing<a class="headerlink" href="#14-utility-volunteer-y-cloud-computing" title="Permanent link">&para;</a></h3>
+<h4 id="utility-computing">Utility computing<a class="headerlink" href="#utility-computing" title="Permanent link">&para;</a></h4>
+<p>Presenta la computación como un servicio medido: el cliente paga por lo que utiliza, de forma parecida a la electricidad.</p>
+<p>El documento señala que la idea comercial existe desde la década de 1960, aunque la infraestructura necesaria para aplicarla masivamente apareció mucho después.</p>
+<h4 id="volunteer-computing">Volunteer computing<a class="headerlink" href="#volunteer-computing" title="Permanent link">&para;</a></h4>
+<p>Los usuarios ceden recursos libres de sus computadores a un proyecto.</p>
+<p>El inconveniente es que esos recursos no son confiables:</p>
+<ul>
+<li>Un participante puede desconectarse.</li>
+<li>Puede apagar el computador.</li>
+<li>Puede no devolver un resultado.</li>
+<li>Incluso podría devolver un resultado incorrecto.</li>
+</ul>
+<p>El sistema debe repartir trabajos pequeños, repetir algunos cálculos y comprobar resultados.</p>
+<p>Caso real: un proyecto científico distribuye unidades de análisis entre miles de ordenadores domésticos y asigna la misma unidad a varios participantes para detectar discrepancias.</p>
+<h4 id="cloud-computing">Cloud computing<a class="headerlink" href="#cloud-computing" title="Permanent link">&para;</a></h4>
+<p>Combina la idea de cobrar por uso con recursos virtualizados y una gran capacidad de crecimiento.</p>
+<p>El usuario solicita recursos sin necesitar conocer:</p>
+<ul>
+<li>La máquina física exacta.</li>
+<li>Las migraciones internas.</li>
+<li>La asignación de cargas.</li>
+<li>La sustitución de hardware averiado.</li>
+</ul>
+<p>El proveedor se ocupa de esos aspectos.</p>
+<h3 id="15-computacion-autonomica-movil-y-ubicua">1.5. Computación autonómica, móvil y ubicua<a class="headerlink" href="#15-computacion-autonomica-movil-y-ubicua" title="Permanent link">&para;</a></h3>
+<h4 id="computacion-autonomica">Computación autonómica<a class="headerlink" href="#computacion-autonomica" title="Permanent link">&para;</a></h4>
+<p>Es un sistema que observa su propio estado y realiza tareas de gestión automáticamente. El documento enumera cinco áreas:</p>
+<ul>
+<li>Configuración.</li>
+<li>Integración.</li>
+<li>Optimización.</li>
+<li>Reparación.</li>
+<li>Protección.</li>
+</ul>
+<p>Ejemplo: si un servidor está sobrecargado, el sistema crea otra instancia, dirige parte del tráfico hacia ella y la elimina cuando deja de ser necesaria.</p>
+<h4 id="computacion-movil">Computación móvil<a class="headerlink" href="#computacion-movil" title="Permanent link">&para;</a></h4>
+<p>Utiliza dispositivos portátiles y conexiones inalámbricas. Sus restricciones incluyen:</p>
+<ul>
+<li>Batería limitada.</li>
+<li>CPU y memoria limitadas.</li>
+<li>Cambios de cobertura.</li>
+<li>Variación del ancho de banda.</li>
+<li>Movimiento entre redes.</li>
+</ul>
+<h4 id="computacion-ubicua">Computación ubicua<a class="headerlink" href="#computacion-ubicua" title="Permanent link">&para;</a></h4>
+<p>Integra computadores en objetos ordinarios. El documento la presenta como una tercera etapa histórica tras los computadores centrales y los ordenadores personales.</p>
+<p>La consecuencia común de estos modelos es que el software debe tolerar que los componentes aparezcan, desaparezcan o cambien de posición.</p>
+<h3 id="16-aplicaciones-y-programacion-distribuidas">1.6. Aplicaciones y programación distribuidas<a class="headerlink" href="#16-aplicaciones-y-programacion-distribuidas" title="Permanent link">&para;</a></h3>
+<p>Una aplicación distribuida está formada por varias partes que se ejecutan simultáneamente en máquinas diferentes y cooperan en una tarea común.</p>
+<p>El trabajo puede colocarse:</p>
+<ul>
+<li>Cerca del usuario, para reducir el tiempo de respuesta.</li>
+<li>Cerca de los datos, para evitar transferencias grandes.</li>
+<li>En máquinas potentes, para acelerar el procesamiento.</li>
+</ul>
+<p>El programador debe resolver problemas que no aparecen de la misma forma en un programa local:</p>
+<ul>
+<li>Nombrar y localizar componentes.</li>
+<li>Representar e intercambiar mensajes.</li>
+<li>Coordinar actividades concurrentes.</li>
+<li>Detectar y gestionar fallos.</li>
+</ul>
+<h3 id="17-ventajas-y-desventajas">1.7. Ventajas y desventajas<a class="headerlink" href="#17-ventajas-y-desventajas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Ventaja</th>
+<th>Coste o dificultad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coste</td>
+<td>Máquinas ordinarias pueden sustituir a una máquina enorme</td>
+<td>Hay más equipos que administrar y alimentar</td>
+</tr>
+<tr>
+<td>Rendimiento</td>
+<td>Existe paralelismo físico real</td>
+<td>La comunicación puede anular la ganancia</td>
+</tr>
+<tr>
+<td>Crecimiento</td>
+<td>Se pueden añadir nodos</td>
+<td>El software debe estar diseñado para aprovecharlos</td>
+</tr>
+<tr>
+<td>Disponibilidad</td>
+<td>El servicio puede sobrevivir a la pérdida de un nodo</td>
+<td>Solo ocurre si se preparó explícitamente para ello</td>
+</tr>
+<tr>
+<td>Compartición</td>
+<td>Datos y dispositivos son accesibles desde distintos lugares</td>
+<td>Seguridad y privacidad se complican</td>
+</tr>
+<tr>
+<td>Adaptación al problema</td>
+<td>Muchos problemas reales ya están geográficamente distribuidos</td>
+<td>Programación, pruebas y depuración son más difíciles</td>
+</tr>
+</tbody>
+</table>
+<p>Añadir computadores no acelera automáticamente una aplicación. Si todos esperan continuamente datos de los demás, el sistema puede dedicar más tiempo a comunicarse que a trabajar.</p>
+<h3 id="18-transparencia">1.8. Transparencia<a class="headerlink" href="#18-transparencia" title="Permanent link">&para;</a></h3>
+<p>La transparencia consiste en ocultar ciertos detalles de la distribución.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué oculta</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acceso</td>
+<td>Cómo se representa o alcanza un recurso</td>
+<td>Leer un archivo remoto mediante una interfaz similar a la local</td>
+</tr>
+<tr>
+<td>Localización</td>
+<td>Dónde está el recurso</td>
+<td>Un nombre estable se traduce a una dirección variable</td>
+</tr>
+<tr>
+<td>Migración</td>
+<td>Que el recurso ha cambiado de lugar</td>
+<td>Un buzón se mueve a otro servidor sin cambiar su dirección</td>
+</tr>
+<tr>
+<td>Reubicación</td>
+<td>Que se mueve mientras está siendo utilizado</td>
+<td>Una llamada continúa al cambiar de estación base</td>
+</tr>
+<tr>
+<td>Replicación</td>
+<td>Que existen varias copias</td>
+<td>Se entrega el vídeo desde la réplica más cercana</td>
+</tr>
+<tr>
+<td>Concurrencia</td>
+<td>Que otros usuarios comparten el recurso</td>
+<td>Dos transacciones quedan aisladas entre sí</td>
+</tr>
+<tr>
+<td>Fallo</td>
+<td>Que un componente falló y se recuperó</td>
+<td>Se retransmite un segmento perdido sin interrumpir la descarga</td>
+</tr>
+</tbody>
+</table>
+<p>La transparencia nunca es perfecta. Si un servidor está a 80 ms de distancia, una API puede ocultar su ubicación, pero no eliminar esos 80 ms.</p>
+<p><strong>Ampliación conceptual:</strong> ocultar demasiado también puede perjudicar. Si una llamada remota parece idéntica a una función local, el programador podría olvidar que la operación puede tardar, fallar o ejecutarse más de una vez.</p>
+<h3 id="19-escalabilidad-y-apertura">1.9. Escalabilidad y apertura<a class="headerlink" href="#19-escalabilidad-y-apertura" title="Permanent link">&para;</a></h3>
+<p>El documento distingue tres dimensiones independientes de escalabilidad:</p>
+<h4 id="escalabilidad-de-tamano">Escalabilidad de tamaño<a class="headerlink" href="#escalabilidad-de-tamano" title="Permanent link">&para;</a></h4>
+<p>Aumentan los usuarios o los datos. El límite habitual es algún componente central por el que deben pasar todas las solicitudes.</p>
+<h4 id="escalabilidad-geografica">Escalabilidad geográfica<a class="headerlink" href="#escalabilidad-geografica" title="Permanent link">&para;</a></h4>
+<p>Los nodos se distribuyen entre países o continentes. La latencia deja de ser despreciable y cada viaje adicional de ida y vuelta se vuelve visible.</p>
+<h4 id="escalabilidad-administrativa">Escalabilidad administrativa<a class="headerlink" href="#escalabilidad-administrativa" title="Permanent link">&para;</a></h4>
+<p>Participan varias organizaciones con políticas distintas. Se necesitan acuerdos sobre identidad, seguridad, responsabilidad y acceso.</p>
+<p>Un sistema puede escalar bien en una dimensión y mal en otra. Por ejemplo, puede soportar millones de usuarios dentro de un único centro de datos, pero funcionar mal cuando se despliega entre continentes.</p>
+<p>La apertura significa publicar interfaces con precisión suficiente para que otro equipo pueda construir componentes compatibles. No debe confundirse con que el código sea abierto.</p>
+<h3 id="110-concurrencia-y-recursos-compartidos">1.10. Concurrencia y recursos compartidos<a class="headerlink" href="#110-concurrencia-y-recursos-compartidos" title="Permanent link">&para;</a></h3>
+<p>El documento presenta una actualización perdida:</p>
+<ol>
+<li>Dos clientes leen el valor 100.</li>
+<li>El cliente A suma 50 y escribe 150.</li>
+<li>El cliente B suma 30 usando todavía su lectura antigua y escribe 130.</li>
+<li>El resultado correcto debería ser 180, pero queda almacenado 130.</li>
+</ol>
+<p>Un mutex local no resuelve el problema si los clientes están en máquinas diferentes: no comparten ni memoria ni bloqueo.</p>
+<p>Para resolverlo se necesitan mecanismos distribuidos de ordenación, transacciones, control de concurrencia o acuerdo.</p>
+<p><strong>Ampliación conceptual:</strong> una solución de base de datos podría representar la operación como <code>saldo = saldo + cantidad</code>, ejecutarla dentro de una transacción o utilizar control de versiones para rechazar una escritura basada en un valor antiguo.</p>
+<h3 id="111-sistema-paralelo-frente-a-sistema-distribuido">1.11. Sistema paralelo frente a sistema distribuido<a class="headerlink" href="#111-sistema-paralelo-frente-a-sistema-distribuido" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Computador paralelo</th>
+<th>Sistema distribuido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memoria</td>
+<td>Compartida entre procesadores</td>
+<td>Privada para cada computador</td>
+</tr>
+<tr>
+<td>Reloj</td>
+<td>Referencia común</td>
+<td>Relojes independientes</td>
+</tr>
+<tr>
+<td>Comunicación</td>
+<td>Lecturas y escrituras en memoria</td>
+<td>Envío y recepción de mensajes</td>
+</tr>
+<tr>
+<td>Retardo</td>
+<td>Habitualmente nanosegundos</td>
+<td>Microsegundos o milisegundos</td>
+</tr>
+<tr>
+<td>Fallo</td>
+<td>Puede detenerse el conjunto</td>
+<td>Una parte puede fallar mientras las demás siguen</td>
+</tr>
+<tr>
+<td>Herramientas habituales</td>
+<td>Hilos, OpenMP</td>
+<td>Sockets, MPI, HTTP</td>
+</tr>
+</tbody>
+</table>
+<p>La característica distintiva es el fallo parcial. Desde fuera, una máquina lenta, una conexión interrumpida y una máquina detenida pueden producir el mismo síntoma: silencio.</p>
+<p>Por ello, cualquier detector práctico termina dependiendo de un tiempo límite. Un timeout no demuestra que el otro nodo esté muerto; únicamente indica que no respondió a tiempo.</p>
+<h3 id="112-las-ocho-falacias">1.12. Las ocho falacias<a class="headerlink" href="#112-las-ocho-falacias" title="Permanent link">&para;</a></h3>
+<p>El documento enumera ocho suposiciones falsas:</p>
+<ol>
+<li>La red es fiable.</li>
+<li>La latencia es cero.</li>
+<li>El ancho de banda es infinito.</li>
+<li>La red es segura.</li>
+<li>La topología no cambia.</li>
+<li>Existe un solo administrador.</li>
+<li>El transporte no cuesta nada.</li>
+<li>La red es homogénea.</li>
+</ol>
+<p>Estas suposiciones suelen parecer razonables dentro de una máquina, pero son falsas al cruzar una red.</p>
+<p>El PDF ofrece órdenes de magnitud de ida y vuelta:</p>
+<ul>
+<li>Dentro de un centro de datos: aproximadamente 0,5 ms.</li>
+<li>Dentro del mismo país: aproximadamente 12 ms.</li>
+<li>Europa–Estados Unidos: aproximadamente 80 ms.</li>
+<li>Europa–Asia: aproximadamente 250 ms.</li>
+</ul>
+<p>Son cifras ilustrativas, no garantías universales. Su mensaje es que la distancia física forma parte del diseño.</p>
+<h3 id="113-problemas-esenciales">1.13. Problemas esenciales<a class="headerlink" href="#113-problemas-esenciales" title="Permanent link">&para;</a></h3>
+<p>El bloque concluye con tres grandes problemas:</p>
+<ul>
+<li><strong>Estado global:</strong> ningún computador ve instantáneamente todo el sistema.</li>
+<li><strong>Gestión de fallos:</strong> hay que detectar, ocultar y recuperar fallos sin certeza perfecta.</li>
+<li><strong>Acuerdo:</strong> varios computadores deben aceptar el mismo valor, orden o conjunto de miembros.</li>
+</ul>
+<p>Los tres proceden de la ausencia de memoria compartida, reloj común y conocimiento completo.</p>
+<hr />
+<h2 id="2-la-perspectiva-del-cliente">2. La perspectiva del cliente<a class="headerlink" href="#2-la-perspectiva-del-cliente" title="Permanent link">&para;</a></h2>
+<h3 id="21-peticion-y-respuesta">2.1. Petición y respuesta<a class="headerlink" href="#21-peticion-y-respuesta" title="Permanent link">&para;</a></h3>
+<p>El servidor comienza a ejecutarse y espera. El cliente inicia la interacción enviando una petición.</p>
+<p>La comunicación puede ser:</p>
+<ul>
+<li><strong>Síncrona:</strong> el cliente espera la respuesta.</li>
+<li><strong>Asíncrona:</strong> continúa trabajando y recoge la respuesta posteriormente.</li>
+</ul>
+<p>Existen tres puntos básicos de fallo:</p>
+<ol>
+<li>Se pierde la petición.</li>
+<li>El servidor falla mientras trabaja.</li>
+<li>Se pierde la respuesta.</li>
+</ol>
+<p>En los tres casos, el cliente observa silencio.</p>
+<p>Reintentar no es neutral. Si el servidor ejecutó la operación pero se perdió la respuesta, una repetición puede ejecutar la operación dos veces.</p>
+<p>Caso real: repetir automáticamente una orden de pago podría producir dos cargos.</p>
+<p><strong>Ampliación conceptual:</strong> una técnica habitual es asignar a cada operación un identificador único. El servidor registra los identificadores procesados y devuelve el resultado anterior cuando recibe un duplicado. Esto proporciona deduplicación, no una certeza mágica de “ejecución exactamente una vez”.</p>
+<h3 id="22-las-tres-capas-logicas">2.2. Las tres capas lógicas<a class="headerlink" href="#22-las-tres-capas-logicas" title="Permanent link">&para;</a></h3>
+<h4 id="interfaz-de-usuario">Interfaz de usuario<a class="headerlink" href="#interfaz-de-usuario" title="Permanent link">&para;</a></h4>
+<p>Incluye pantallas, formularios, menús y representación visual.</p>
+<h4 id="procesamiento">Procesamiento<a class="headerlink" href="#procesamiento" title="Permanent link">&para;</a></h4>
+<p>Contiene reglas de negocio, cálculos y búsquedas. El documento la presenta como una capa que no guarda datos permanentes.</p>
+<h4 id="datos">Datos<a class="headerlink" href="#datos" title="Permanent link">&para;</a></h4>
+<p>Incluye archivos, bases de datos, índices y mecanismos para conservar la información de manera consistente.</p>
+<p>En un buscador:</p>
+<ul>
+<li>La caja de búsqueda pertenece a la interfaz.</li>
+<li>La generación de consultas y el ranking pertenecen al procesamiento.</li>
+<li>El índice de páginas pertenece a los datos.</li>
+</ul>
+<p>La frontera cliente-servidor puede colocarse en diferentes puntos de esta cadena.</p>
+<h3 id="23-cliente-ligero-y-cliente-pesado">2.3. Cliente ligero y cliente pesado<a class="headerlink" href="#23-cliente-ligero-y-cliente-pesado" title="Permanent link">&para;</a></h3>
+<p>El documento presenta cinco posibles repartos, desde un terminal que solo muestra la interfaz hasta un cliente que conserva incluso datos locales.</p>
+<h4 id="cliente-ligero">Cliente ligero<a class="headerlink" href="#cliente-ligero" title="Permanent link">&para;</a></h4>
+<p>Ejecuta poco trabajo local. Es sencillo de actualizar y administrar, pero casi toda acción necesita un viaje por la red.</p>
+<p>Ejemplo: un terminal remoto que únicamente muestra una pantalla generada en el servidor.</p>
+<h4 id="cliente-pesado">Cliente pesado<a class="headerlink" href="#cliente-pesado" title="Permanent link">&para;</a></h4>
+<p>Ejecuta parte importante del procesamiento y puede guardar datos localmente. Tolera mejor redes lentas o ausentes, pero resulta más difícil mantener todas sus instalaciones actualizadas.</p>
+<p>Ejemplo: una aplicación móvil con base de datos local que sincroniza sus cambios cuando recupera conectividad.</p>
+<p>Un gateway IoT también se acerca al extremo “pesado”, porque filtra, transforma y almacena temporalmente datos cerca de los dispositivos.</p>
+<h3 id="24-software-cliente-para-proporcionar-transparencia">2.4. Software cliente para proporcionar transparencia<a class="headerlink" href="#24-software-cliente-para-proporcionar-transparencia" title="Permanent link">&para;</a></h3>
+<p>El cliente puede ocultar:</p>
+<ul>
+<li>Cuántos servidores existen.</li>
+<li>En qué dirección está cada uno.</li>
+<li>Qué protocolo utiliza.</li>
+<li>Cuándo se selecciona otra réplica.</li>
+</ul>
+<p>Un <strong>stub</strong> es una pieza de software que presenta una llamada aparentemente normal y transforma sus parámetros en mensajes de red.</p>
+<p>Puede aportar:</p>
+<ul>
+<li>Transparencia de localización, resolviendo un nombre.</li>
+<li>Transparencia de fallos, probando otro servidor.</li>
+<li>Transparencia de replicación, seleccionando una de varias copias.</li>
+</ul>
+<p>Desde la aplicación puede parecer una llamada; en la red pueden producirse varias.</p>
+<h3 id="25-el-ejemplo-de-x-window-system">2.5. El ejemplo de X Window System<a class="headerlink" href="#25-el-ejemplo-de-x-window-system" title="Permanent link">&para;</a></h3>
+<p>En X Window los nombres pueden parecer invertidos:</p>
+<ul>
+<li>El servidor X se ejecuta delante del usuario y controla pantalla, teclado y ratón.</li>
+<li>La aplicación remota es el cliente y solicita al servidor que dibuje.</li>
+</ul>
+<p>Esto demuestra que “cliente” y “servidor” describen roles en una interacción, no el tamaño o potencia de las máquinas.</p>
+<h3 id="26-servidores-con-estado-y-sin-estado">2.6. Servidores con estado y sin estado<a class="headerlink" href="#26-servidores-con-estado-y-sin-estado" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Sin estado</th>
+<th>Con estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Información entre peticiones</td>
+<td>Ninguna</td>
+<td>Guarda información del cliente</td>
+</tr>
+<tr>
+<td>Contenido de cada petición</td>
+<td>Todo lo necesario</td>
+<td>Puede ser más breve</td>
+</tr>
+<tr>
+<td>Reinicio</td>
+<td>El cliente apenas lo nota</td>
+<td>Puede perderse la sesión</td>
+</tr>
+<tr>
+<td>Escalado</td>
+<td>Cualquier servidor puede responder</td>
+<td>Hay que volver al mismo o compartir el estado</td>
+</tr>
+<tr>
+<td>Ejemplo</td>
+<td>Lectura web independiente</td>
+<td>Servidor con archivos abiertos por cliente</td>
+</tr>
+</tbody>
+</table>
+<p>Un diseño sin estado suele escalar y recuperarse mejor, porque una petición puede enviarse a cualquier instancia.</p>
+<p>“Sin estado” no significa que el sistema no tenga datos. Significa que el proceso que atiende la petición no conserva contexto privado imprescindible entre peticiones.</p>
+<h3 id="27-estado-de-sesion">2.7. Estado de sesión<a class="headerlink" href="#27-estado-de-sesion" title="Permanent link">&para;</a></h3>
+<p>Una cesta de compra necesita persistir entre varias peticiones. Si el servidor de aplicación es stateless, el estado puede situarse en tres lugares:</p>
+<h4 id="identificador-en-una-cookie-y-estado-en-un-almacen-compartido">Identificador en una cookie y estado en un almacén compartido<a class="headerlink" href="#identificador-en-una-cookie-y-estado-en-un-almacen-compartido" title="Permanent link">&para;</a></h4>
+<p>El cliente devuelve un identificador; todos los servidores consultan con él una base común.</p>
+<h4 id="estado-en-el-cliente">Estado en el cliente<a class="headerlink" href="#estado-en-el-cliente" title="Permanent link">&para;</a></h4>
+<p>El cliente conserva y reenvía los datos. El servidor permanece completamente sin estado, pero los mensajes aumentan.</p>
+<h4 id="estado-en-el-servidor">Estado en el servidor<a class="headerlink" href="#estado-en-el-servidor" title="Permanent link">&para;</a></h4>
+<p>Reduce la información enviada, pero complica el reparto entre servidores y la recuperación tras fallos.</p>
+<p>La cookie suele ser solo una referencia. No tiene por qué contener toda la cesta.</p>
+<h3 id="28-latencia-y-throughput">2.8. Latencia y throughput<a class="headerlink" href="#28-latencia-y-throughput" title="Permanent link">&para;</a></h3>
+<h4 id="latencia">Latencia<a class="headerlink" href="#latencia" title="Permanent link">&para;</a></h4>
+<p>Tiempo que transcurre desde una petición hasta su respuesta. Normalmente se expresa en milisegundos.</p>
+<h4 id="throughput-o-rendimiento-agregado">Throughput o rendimiento agregado<a class="headerlink" href="#throughput-o-rendimiento-agregado" title="Permanent link">&para;</a></h4>
+<p>Trabajo completado por unidad de tiempo: solicitudes por segundo o megabytes por segundo.</p>
+<p>Una red con mayor ancho de banda puede transferir más datos sin reducir necesariamente el tiempo de ida y vuelta. Por eso:</p>
+<ul>
+<li>El ancho de banda importa para mover grandes volúmenes.</li>
+<li>La latencia importa en protocolos con muchas interacciones pequeñas.</li>
+</ul>
+<p>Si un diálogo necesita seis viajes Madrid–Tokio, el retardo acumulado puede superar un segundo antes de entregar información útil.</p>
+<h3 id="29-disponibilidad">2.9. Disponibilidad<a class="headerlink" href="#29-disponibilidad" title="Permanent link">&para;</a></h3>
+<p>El documento usa:</p>
+<div class="arithmatex">\[
+Disponibilidad = \frac{MTBF}{MTBF + MTTR}
+\]</div>
+<ul>
+<li><strong>MTBF:</strong> tiempo medio entre fallos.</li>
+<li><strong>MTTR:</strong> tiempo medio de reparación.</li>
+</ul>
+<p>Ejemplo del PDF:</p>
+<div class="arithmatex">\[
+\frac{200}{200+4}\approx 98\%
+\]</div>
+<p>La disponibilidad puede mejorarse haciendo que el componente falle con menor frecuencia o reparándolo más deprisa. La recuperación automática suele ser más económica que intentar construir hardware que nunca falle.</p>
+<p>Tiempos de indisponibilidad aproximados por año:</p>
+<ul>
+<li>99 %: 5.256 minutos.</li>
+<li>99,9 %: 526 minutos.</li>
+<li>99,99 %: 53 minutos.</li>
+<li>99,999 %: 5 minutos.</li>
+</ul>
+<p>Cada nueve adicional elimina aproximadamente nueve décimas partes del tiempo de caída y suele exigir combatir nuevas clases de fallos.</p>
+<h3 id="210-modelos-de-consistencia">2.10. Modelos de consistencia<a class="headerlink" href="#210-modelos-de-consistencia" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Promesa</th>
+<th>Experiencia observable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fuerte</td>
+<td>Cada lectura ve la última escritura</td>
+<td>Comportamiento intuitivo, con mayor coordinación</td>
+</tr>
+<tr>
+<td>Read-your-writes</td>
+<td>Un cliente ve siempre sus propios cambios</td>
+<td>El comentario propio aparece enseguida</td>
+</tr>
+<tr>
+<td>Lecturas monotónicas</td>
+<td>Tras ver un valor nuevo no se vuelve a uno antiguo</td>
+<td>La interfaz no “retrocede en el tiempo”</td>
+</tr>
+<tr>
+<td>Causal</td>
+<td>Un efecto no aparece antes que su causa</td>
+<td>Una respuesta no precede al mensaje respondido</td>
+</tr>
+<tr>
+<td>Eventual</td>
+<td>Las réplicas convergen cuando cesan las actualizaciones</td>
+<td>Dos dispositivos pueden discrepar temporalmente</td>
+</tr>
+</tbody>
+</table>
+<p>Toda garantía requiere cierto grado de coordinación entre copias; esa coordinación consume viajes de red. Utilizar una consistencia más débil puede ser una decisión correcta si la aplicación tolera discrepancias temporales.</p>
+<p>Ejemplos:</p>
+<ul>
+<li>Saldo bancario: suele necesitar garantías fuertes en las operaciones críticas.</li>
+<li>Contador aproximado de visualizaciones: puede aceptar consistencia eventual.</li>
+<li>Conversación: requiere al menos preservar causalidad para no mostrar respuestas antes que preguntas.</li>
+</ul>
+<p><strong>Ampliación conceptual:</strong> “consistencia fuerte” se usa aquí de manera introductoria. En literatura técnica existen definiciones más precisas, como linealizabilidad, consistencia secuencial y serialización de transacciones.</p>
+<h3 id="211-cache-del-lado-del-cliente">2.11. Caché del lado del cliente<a class="headerlink" href="#211-cache-del-lado-del-cliente" title="Permanent link">&para;</a></h3>
+<p>Una caché conserva respuestas recientes. Un acierto evita utilizar la red; un fallo obliga a consultar el servidor.</p>
+<p>El documento aproxima la latencia media así:</p>
+<div class="arithmatex">\[
+L_{media} \approx proporción\ de\ fallos \times RTT
+\]</div>
+<p>Con un 90 % de aciertos y un RTT de 80 ms:</p>
+<div class="arithmatex">\[
+0,1 \times 80 = 8\ ms
+\]</div>
+<p>La contrapartida es la obsolescencia: una copia local puede dejar de reflejar el servidor.</p>
+<p>Las políticas mencionadas son:</p>
+<ul>
+<li>Caducidad tras un tiempo.</li>
+<li>Validación con el servidor.</li>
+</ul>
+<p>Ejemplos:</p>
+<ul>
+<li>Caché del navegador.</li>
+<li>Caché de resolución de nombres.</li>
+<li>Base local de una aplicación móvil.</li>
+</ul>
+<p><strong>Ampliación conceptual:</strong> invalidar cachés es difícil porque hay que equilibrar frescura, disponibilidad y tráfico. Entre las estrategias habituales están TTL, validación condicional, versiones e invalidaciones enviadas por el servidor.</p>
+<h3 id="212-clientes-sincronos-y-asincronos">2.12. Clientes síncronos y asíncronos<a class="headerlink" href="#212-clientes-sincronos-y-asincronos" title="Permanent link">&para;</a></h3>
+<p>Un cliente síncrono se bloquea durante el viaje completo. El código es lineal y sencillo.</p>
+<p>Un cliente asíncrono puede continuar, mostrar progreso o aceptar acciones. La respuesta se recibe mediante:</p>
+<ul>
+<li>Callback.</li>
+<li>Cola.</li>
+<li>Future o promesa.</li>
+</ul>
+<p>Su coste es que debe registrar operaciones pendientes y decidir qué hacer si una respuesta no llega.</p>
+<p>El bloque concluye con tres decisiones independientes:</p>
+<ul>
+<li>Cliente ligero o pesado.</li>
+<li>Servidor con estado o sin estado.</li>
+<li>Uso o no de caché.</li>
+</ul>
+<hr />
+<h2 id="3-la-perspectiva-de-red">3. La perspectiva de red<a class="headerlink" href="#3-la-perspectiva-de-red" title="Permanent link">&para;</a></h2>
+<h3 id="31-capas-osi-y-tcpip">3.1. Capas: OSI y TCP/IP<a class="headerlink" href="#31-capas-osi-y-tcpip" title="Permanent link">&para;</a></h3>
+<p>Las capas separan responsabilidades. Cada capa ofrece un servicio a la superior y oculta parte de su implementación.</p>
+<p>OSI define siete capas:</p>
+<ol>
+<li>Física.</li>
+<li>Enlace de datos.</li>
+<li>Red.</li>
+<li>Transporte.</li>
+<li>Sesión.</li>
+<li>Presentación.</li>
+<li>Aplicación.</li>
+</ol>
+<p>El modelo TCP/IP del documento utiliza cuatro:</p>
+<ul>
+<li>Enlace.</li>
+<li>Internet.</li>
+<li>Transporte.</li>
+<li>Aplicación.</li>
+</ul>
+<p>La capa de aplicación TCP/IP engloba aproximadamente las capas 5–7 de OSI; la capa de enlace engloba las capas 1–2.</p>
+<h3 id="32-encapsulacion">3.2. Encapsulación<a class="headerlink" href="#32-encapsulacion" title="Permanent link">&para;</a></h3>
+<p>Al enviar datos:</p>
+<ol>
+<li>La aplicación produce el contenido.</li>
+<li>Transporte añade su cabecera.</li>
+<li>IP añade otra.</li>
+<li>Enlace añade otra más.</li>
+</ol>
+<p>En recepción, cada capa elimina su cabecera.</p>
+<p>El ejemplo usa aproximadamente:</p>
+<ul>
+<li>Ethernet: 14 bytes.</li>
+<li>IPv4: 20 bytes.</li>
+<li>TCP: 20 bytes.</li>
+</ul>
+<p>Son unos 54 bytes antes de contar cabeceras de aplicación u opciones. Enviar muchos mensajes diminutos multiplica el coste fijo, por lo que agruparlos puede mejorar la eficiencia.</p>
+<h3 id="33-direcciones-puertos-y-conexiones">3.3. Direcciones, puertos y conexiones<a class="headerlink" href="#33-direcciones-puertos-y-conexiones" title="Permanent link">&para;</a></h3>
+<p>La dirección IP identifica una interfaz de red, no estrictamente una máquina ni un programa. Un portátil puede tener una dirección Wi-Fi y otra Ethernet.</p>
+<p>El puerto identifica el punto de comunicación del proceso. Tiene 16 bits:</p>
+<div class="arithmatex">\[
+0 \ldots 65535
+\]</div>
+<p>Una conexión se identifica mediante cinco valores:</p>
+<ul>
+<li>Protocolo.</li>
+<li>Dirección de origen.</li>
+<li>Puerto de origen.</li>
+<li>Dirección de destino.</li>
+<li>Puerto de destino.</li>
+</ul>
+<p>Los servicios usan puertos conocidos; los clientes suelen usar puertos efímeros.</p>
+<p>El documento indica que los puertos inferiores a 1024 son privilegiados y muestra como rangos efímeros 49152–65535 en el estándar y 32768–60999 en Linux.</p>
+<p><strong>Ampliación conceptual:</strong> las restricciones exactas de los puertos privilegiados y los rangos efímeros dependen del sistema operativo y de su configuración.</p>
+<h3 id="34-servicios-conocidos">3.4. Servicios conocidos<a class="headerlink" href="#34-servicios-conocidos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Puerto</th>
+<th>Servicio</th>
+<th>Transporte</th>
+<th>Finalidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">22</td>
+<td>SSH</td>
+<td>TCP</td>
+<td>Acceso remoto y copia segura</td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td>SMTP</td>
+<td>TCP</td>
+<td>Correo entre servidores</td>
+</tr>
+<tr>
+<td style="text-align: right;">53</td>
+<td>DNS</td>
+<td>UDP y TCP</td>
+<td>Traducción de nombres</td>
+</tr>
+<tr>
+<td style="text-align: right;">80</td>
+<td>HTTP</td>
+<td>TCP</td>
+<td>Web sin cifrado</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td>NTP</td>
+<td>UDP</td>
+<td>Sincronización de relojes</td>
+</tr>
+<tr>
+<td style="text-align: right;">443</td>
+<td>HTTPS</td>
+<td>TCP</td>
+<td>Web cifrada con TLS</td>
+</tr>
+<tr>
+<td style="text-align: right;">1883</td>
+<td>MQTT</td>
+<td>TCP</td>
+<td>Publicación/suscripción para dispositivos</td>
+</tr>
+</tbody>
+</table>
+<p>Los puertos fijos resuelven un problema inicial: si el cliente desconoce incluso el puerto del servicio, no puede comenzar a negociar.</p>
+<h3 id="35-tcp">3.5. TCP<a class="headerlink" href="#35-tcp" title="Permanent link">&para;</a></h3>
+<p>TCP establece una conexión mediante:</p>
+<ol>
+<li><code>SYN</code>.</li>
+<li><code>SYN + ACK</code>.</li>
+<li><code>ACK</code>.</li>
+</ol>
+<p>Esto introduce aproximadamente un viaje de ida y vuelta antes de los primeros datos.</p>
+<p>TCP proporciona:</p>
+<ul>
+<li>Entrega ordenada de bytes.</li>
+<li>Retransmisión de segmentos perdidos.</li>
+<li>Notificación de error si no puede recuperarse.</li>
+<li>Control de flujo para no desbordar al receptor.</li>
+<li>Control de congestión para adaptar la velocidad a la red.</li>
+</ul>
+<p>En un intercambio corto, el establecimiento y el cierre pueden representar una parte importante del coste.</p>
+<h4 id="cabecera-tcp">Cabecera TCP<a class="headerlink" href="#cabecera-tcp" title="Permanent link">&para;</a></h4>
+<p>El documento destaca:</p>
+<ul>
+<li>Puerto origen y destino.</li>
+<li>Número de secuencia.</li>
+<li>Número de confirmación.</li>
+<li>Longitud de cabecera.</li>
+<li>Banderas como SYN, ACK, FIN, RST y PSH.</li>
+<li>Ventana de recepción.</li>
+<li>Checksum.</li>
+<li>Opciones.</li>
+</ul>
+<p>La cabecera fija ocupa 20 bytes y puede incluir hasta 40 bytes de opciones.</p>
+<h4 id="tcp-es-un-flujo-de-bytes">TCP es un flujo de bytes<a class="headerlink" href="#tcp-es-un-flujo-de-bytes" title="Permanent link">&para;</a></h4>
+<p>TCP conserva el orden, pero no las fronteras lógicas de los mensajes.</p>
+<p>Tres llamadas a <code>send</code> podrían recibirse mediante:</p>
+<ul>
+<li>Dos llamadas a <code>read</code>.</li>
+<li>Cinco llamadas.</li>
+<li>Una sola llamada.</li>
+</ul>
+<p>La aplicación debe introducir framing:</p>
+<ul>
+<li>Un campo de longitud.</li>
+<li>Un separador.</li>
+<li>Una estructura que permita encontrar el final.</li>
+</ul>
+<p>Este es uno de los errores clásicos al programar sockets: asumir que una escritura corresponde a una lectura.</p>
+<h3 id="36-udp">3.6. UDP<a class="headerlink" href="#36-udp" title="Permanent link">&para;</a></h3>
+<p>UDP tiene una cabecera de 8 bytes:</p>
+<ul>
+<li>Puerto origen.</li>
+<li>Puerto destino.</li>
+<li>Longitud.</li>
+<li>Checksum.</li>
+</ul>
+<p>No establece conexión ni repara pérdidas. Conserva, en cambio, las fronteras entre datagramas: un envío corresponde a un datagrama.</p>
+<p>Resulta apropiado cuando una respuesta tardía es peor que la ausencia de respuesta:</p>
+<ul>
+<li>Voz.</li>
+<li>Vídeo.</li>
+<li>Lecturas periódicas de sensores.</li>
+<li>Sincronización de tiempo.</li>
+</ul>
+<p>Elegir UDP no elimina la necesidad de fiabilidad; la desplaza a la aplicación cuando resulte necesaria.</p>
+<h3 id="37-elegir-tcp-o-udp">3.7. Elegir TCP o UDP<a class="headerlink" href="#37-elegir-tcp-o-udp" title="Permanent link">&para;</a></h3>
+<p>La pregunta guía del documento es:</p>
+<blockquote>
+<p>¿Es preferible una respuesta correcta pero tardía a no recibir respuesta?</p>
+</blockquote>
+<ul>
+<li>Si la respuesta es sí, TCP suele ser adecuado.</li>
+<li>Si es no, UDP puede ser mejor.</li>
+</ul>
+<p>Ejemplos del PDF:</p>
+<ul>
+<li>Página web: TCP, porque importan todos los bytes y su orden.</li>
+<li>Archivo: TCP, porque perder un byte lo corrompe.</li>
+<li>Resolución de nombres: UDP para consultas pequeñas que pueden repetirse.</li>
+<li>Sincronización de reloj: UDP, porque un dato temporal retransmitido puede llegar obsoleto.</li>
+<li>Voz y vídeo: UDP, porque una trama tardía ya no es útil.</li>
+<li>Telemetría: UDP o MQTT sobre TCP, dependiendo de la importancia de cada lectura.</li>
+</ul>
+<p><strong>Ampliación conceptual:</strong> no debe confundirse el transporte con la semántica de la aplicación. Un protocolo puede usar UDP y añadir confirmaciones selectivas, o usar TCP y aun así necesitar deduplicación de operaciones.</p>
+<h3 id="38-api-de-sockets">3.8. API de sockets<a class="headerlink" href="#38-api-de-sockets" title="Permanent link">&para;</a></h3>
+<p>Servidor:</p>
+<ol>
+<li><code>socket()</code></li>
+<li><code>bind()</code></li>
+<li><code>listen()</code></li>
+<li><code>accept()</code></li>
+<li><code>read()</code></li>
+<li><code>write()</code></li>
+<li><code>close()</code></li>
+</ol>
+<p>Cliente:</p>
+<ol>
+<li><code>socket()</code></li>
+<li><code>connect()</code></li>
+<li><code>write()</code></li>
+<li><code>read()</code></li>
+<li><code>close()</code></li>
+</ol>
+<p><code>accept()</code> devuelve un nuevo socket dedicado al cliente. El socket original continúa escuchando nuevas conexiones.</p>
+<p>Cada operación puede fallar y su resultado debe comprobarse.</p>
+<h3 id="39-mtu-y-fragmentacion">3.9. MTU y fragmentación<a class="headerlink" href="#39-mtu-y-fragmentacion" title="Permanent link">&para;</a></h3>
+<p>La MTU es el máximo que puede transportar una trama. En Ethernet suele considerarse 1500 bytes.</p>
+<p>TCP divide automáticamente el flujo. Con cabeceras IPv4 y TCP de 20 bytes cada una, quedan normalmente 1460 bytes; con la opción timestamp de 12 bytes, 1448.</p>
+<p>En UDP, un datagrama excesivamente grande puede fragmentarse en IP. Si desaparece un fragmento, el receptor no puede reconstruir el datagrama completo.</p>
+<p>El PDF recomienda mantener los mensajes UDP por debajo de aproximadamente 1400 bytes, especialmente en protocolos de sensores.</p>
+<h3 id="310-direcciones-privadas-y-nat">3.10. Direcciones privadas y NAT<a class="headerlink" href="#310-direcciones-privadas-y-nat" title="Permanent link">&para;</a></h3>
+<p>Rangos privados citados:</p>
+<ul>
+<li><code>10.0.0.0/8</code></li>
+<li><code>172.16.0.0/12</code></li>
+<li><code>192.168.0.0/16</code></li>
+</ul>
+<p>El router NAT sustituye la dirección y el puerto privados por su dirección pública y un puerto disponible. Mantiene una tabla para devolver cada respuesta al equipo correcto.</p>
+<p>Las conexiones iniciadas desde dentro funcionan naturalmente. Recibir una conexión externa no solicitada es más difícil porque el router no sabe a qué equipo interno enviarla.</p>
+<p>Esto afecta especialmente a:</p>
+<ul>
+<li>P2P.</li>
+<li>Cámaras domésticas.</li>
+<li>Sensores.</li>
+<li>Dispositivos situados detrás de routers residenciales.</li>
+</ul>
+<p>La frase del documento resume el compromiso: NAT conservó direcciones, pero rompió la conectividad directa extremo a extremo.</p>
+<h3 id="311-herramientas-de-diagnostico">3.11. Herramientas de diagnóstico<a class="headerlink" href="#311-herramientas-de-diagnostico" title="Permanent link">&para;</a></h3>
+<p>El documento propone cuatro utilidades:</p>
+<ul>
+<li><code>ping</code>: tiempo de ida y vuelta y pérdida básica.</li>
+<li><code>traceroute</code> o <code>tracepath</code>: routers atravesados.</li>
+<li><code>ss</code>: sockets y estados como <code>LISTEN</code>, <code>ESTABLISHED</code> o <code>TIME_WAIT</code>.</li>
+<li><code>netcat</code>: cliente o servidor mínimo para probar una conexión.</li>
+</ul>
+<p>La idea metodológica es separar primero el problema de red del problema de la aplicación.</p>
+<hr />
+<h2 id="4-arquitecturas">4. Arquitecturas<a class="headerlink" href="#4-arquitecturas" title="Permanent link">&para;</a></h2>
+<h3 id="41-organizacion-logica-y-colocacion-fisica">4.1. Organización lógica y colocación física<a class="headerlink" href="#41-organizacion-logica-y-colocacion-fisica" title="Permanent link">&para;</a></h3>
+<p>Primero se decide qué componentes lógicos existen; después, en qué máquinas se ejecutan.</p>
+<p>El documento distingue dos acoplamientos:</p>
+<h4 id="acoplamiento-espacial">Acoplamiento espacial<a class="headerlink" href="#acoplamiento-espacial" title="Permanent link">&para;</a></h4>
+<p>Un componente debe conocer la identidad o dirección del otro.</p>
+<h4 id="acoplamiento-temporal">Acoplamiento temporal<a class="headerlink" href="#acoplamiento-temporal" title="Permanent link">&para;</a></h4>
+<p>Ambos deben estar activos al mismo tiempo.</p>
+<p>Sus combinaciones producen cuatro estilos:</p>
+<table>
+<thead>
+<tr>
+<th>Espacio</th>
+<th>Tiempo</th>
+<th>Estilo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acoplado</td>
+<td>Acoplado</td>
+<td>Llamada directa</td>
+</tr>
+<tr>
+<td>Acoplado</td>
+<td>Desacoplado</td>
+<td>Cola de mensajes</td>
+</tr>
+<tr>
+<td>Desacoplado</td>
+<td>Acoplado</td>
+<td>Publicación/suscripción</td>
+</tr>
+<tr>
+<td>Desacoplado</td>
+<td>Desacoplado</td>
+<td>Almacén compartido</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo: en una cola, el productor conoce la cola, pero el consumidor puede procesar el mensaje horas después. En publicación/suscripción, emisor y receptores coinciden temporalmente, pero el emisor no necesita conocer a cada receptor.</p>
+<h3 id="42-cliente-servidor">4.2. Cliente-servidor<a class="headerlink" href="#42-cliente-servidor" title="Permanent link">&para;</a></h3>
+<p>Los roles son asimétricos:</p>
+<ul>
+<li>El servidor arranca y espera.</li>
+<li>El cliente inicia la comunicación.</li>
+<li>El servidor escucha en una dirección de transporte conocida.</li>
+</ul>
+<p>Problemas estructurales:</p>
+<ul>
+<li>Todo el tráfico atraviesa el servidor.</li>
+<li>Su capacidad limita el sistema.</li>
+<li>Si es único, constituye un punto único de fallo.</li>
+</ul>
+<p>La replicación y el balanceo horizontal intentan eliminar estas limitaciones.</p>
+<h3 id="43-tres-disenos-de-servidor">4.3. Tres diseños de servidor<a class="headerlink" href="#43-tres-disenos-de-servidor" title="Permanent link">&para;</a></h3>
+<h4 id="iterativo">Iterativo<a class="headerlink" href="#iterativo" title="Permanent link">&para;</a></h4>
+<p>Atiende un cliente hasta terminar antes de aceptar el siguiente.</p>
+<p>Ventajas:</p>
+<ul>
+<li>Muy sencillo.</li>
+<li>Predecible.</li>
+</ul>
+<p>Problema: un cliente lento bloquea a todos los demás.</p>
+<h4 id="un-proceso-o-hilo-por-cliente">Un proceso o hilo por cliente<a class="headerlink" href="#un-proceso-o-hilo-por-cliente" title="Permanent link">&para;</a></h4>
+<p>Cada cliente recibe su propio flujo de ejecución.</p>
+<ul>
+<li>Un proceso ofrece aislamiento.</li>
+<li>Un hilo comparte la memoria del proceso.</li>
+</ul>
+<p>Es fácil de programar, pero miles de clientes consumen una cantidad importante de memoria y planificación.</p>
+<h4 id="dirigido-por-eventos">Dirigido por eventos<a class="headerlink" href="#dirigido-por-eventos" title="Permanent link">&para;</a></h4>
+<p>Un proceso gestiona muchos sockets y pregunta al sistema operativo cuáles están listos mediante mecanismos como <code>select</code>, <code>poll</code> o <code>epoll</code>.</p>
+<p>Consume menos recursos por cliente, pero obliga a estructurar el programa como eventos y estados parciales.</p>
+<p>Caso real: un servicio de chat con decenas de miles de conexiones principalmente inactivas encaja mejor en un diseño dirigido por eventos que en un proceso completo por usuario.</p>
+<h3 id="44-arquitecturas-de-dos-y-tres-niveles">4.4. Arquitecturas de dos y tres niveles<a class="headerlink" href="#44-arquitecturas-de-dos-y-tres-niveles" title="Permanent link">&para;</a></h3>
+<h4 id="dos-niveles">Dos niveles<a class="headerlink" href="#dos-niveles" title="Permanent link">&para;</a></h4>
+<p>Las tres capas lógicas se reparten entre dos máquinas. La frontera puede situarse en distintos puntos.</p>
+<h4 id="tres-niveles">Tres niveles<a class="headerlink" href="#tres-niveles" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Interfaz.</li>
+<li>Procesamiento.</li>
+<li>Datos.</li>
+</ul>
+<p>Cada nivel puede sustituirse o escalarse por separado.</p>
+<p>Cada frontera tiene un coste: una llamada local se convierte en una llamada de red que puede ser lenta, fallar o repetirse.</p>
+<p>Los microservicios prolongan este principio: dividen el procesamiento en numerosos servicios pequeños. Multiplican tanto la independencia como los viajes de red y los modos de fallo.</p>
+<h3 id="45-distribucion-vertical-y-horizontal">4.5. Distribución vertical y horizontal<a class="headerlink" href="#45-distribucion-vertical-y-horizontal" title="Permanent link">&para;</a></h3>
+<h4 id="vertical">Vertical<a class="headerlink" href="#vertical" title="Permanent link">&para;</a></h4>
+<p>Coloca capas diferentes en máquinas diferentes. Su objetivo es organizar y separar responsabilidades.</p>
+<h4 id="horizontal">Horizontal<a class="headerlink" href="#horizontal" title="Permanent link">&para;</a></h4>
+<p>Replica una misma capa en varias máquinas. Cada réplica procesa parte de las peticiones o conserva parte de los datos.</p>
+<p>Su objetivo es aumentar:</p>
+<ul>
+<li>Capacidad.</li>
+<li>Disponibilidad.</li>
+<li>Paralelismo.</li>
+</ul>
+<p>Un sistema real normalmente combina ambas: tres niveles verticales y decenas de instancias horizontales en el nivel de procesamiento detrás de un balanceador.</p>
+<h3 id="46-peer-to-peer">4.6. Peer-to-peer<a class="headerlink" href="#46-peer-to-peer" title="Permanent link">&para;</a></h3>
+<p>En P2P cada nodo puede actuar como cliente y como servidor. No existe por diseño un nodo especial para todas las operaciones.</p>
+<h4 id="redes-estructuradas-y-dht">Redes estructuradas y DHT<a class="headerlink" href="#redes-estructuradas-y-dht" title="Permanent link">&para;</a></h4>
+<p>Una tabla hash distribuida transforma el nombre de un elemento en una posición de un espacio lógico, por ejemplo un anillo.</p>
+<p>Cada peer conserva atajos. La búsqueda requiere aproximadamente:</p>
+<div class="arithmatex">\[
+O(\log N)
+\]</div>
+<p>Con alrededor de un millón de nodos, unas veinte decisiones binarias bastan como orden de magnitud.</p>
+<p>Cada nuevo peer aporta almacenamiento y ancho de banda, al contrario que un servidor central donde cada cliente añade carga pero no capacidad.</p>
+<h4 id="p2p-hibrido">P2P híbrido<a class="headerlink" href="#p2p-hibrido" title="Permanent link">&para;</a></h4>
+<p>Un índice central conserva las direcciones de los peers que tienen un archivo. El archivo se transfiere directamente entre peers y no atraviesa el índice.</p>
+<p>Esto mantiene ligero el componente central, aunque continúa siendo relevante para localizar participantes.</p>
+<p>El cliente puede descargar diferentes fragmentos de varios peers y compartir al mismo tiempo los fragmentos ya recibidos.</p>
+<h4 id="redes-no-estructuradas">Redes no estructuradas<a class="headerlink" href="#redes-no-estructuradas" title="Permanent link">&para;</a></h4>
+<p>Cada peer conoce algunos vecinos aleatorios y propaga las consultas entre ellos.</p>
+<p>Ventajas:</p>
+<ul>
+<li>Simplicidad.</li>
+<li>Robustez ante cambios.</li>
+</ul>
+<p>Coste:</p>
+<ul>
+<li>Se desperdicia ancho de banda difundiendo consultas.</li>
+</ul>
+<p><strong>Ampliación conceptual:</strong> P2P no significa necesariamente ausencia absoluta de servidores. Muchos sistemas combinan coordinación centralizada, descubrimiento mediante terceros y transferencia directa.</p>
+<h3 id="47-migracion-de-codigo">4.7. Migración de código<a class="headerlink" href="#47-migracion-de-codigo" title="Permanent link">&para;</a></h3>
+<p>La regla general es mover el elemento más pequeño:</p>
+<ul>
+<li>Si el código es pequeño y los datos enormes, llevar el código a los datos.</li>
+<li>Si los datos son pequeños, enviarlos al lugar donde se encuentra el procesamiento.</li>
+</ul>
+<h4 id="movilidad-debil">Movilidad débil<a class="headerlink" href="#movilidad-debil" title="Permanent link">&para;</a></h4>
+<p>Solo se mueve el código y comienza desde el inicio en la nueva máquina.</p>
+<p>Ejemplo del documento: un navegador descarga y ejecuta un script.</p>
+<h4 id="movilidad-fuerte">Movilidad fuerte<a class="headerlink" href="#movilidad-fuerte" title="Permanent link">&para;</a></h4>
+<p>Se mueven código, datos y estado de ejecución. El programa continúa donde se detuvo. Es potente, pero poco habitual.</p>
+<h4 id="push-y-pull">Push y pull<a class="headerlink" href="#push-y-pull" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Push:</strong> el emisor inicia el traslado.</li>
+<li><strong>Pull:</strong> el receptor solicita el código.</li>
+</ul>
+<p>Un navegador realiza movilidad débil mediante pull: solicita el código y lo comienza localmente.</p>
+<h4 id="recursos-asociados">Recursos asociados<a class="headerlink" href="#recursos-asociados" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Movilidad</th>
+<th>Ejemplo</th>
+<th>Estrategia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fijo</td>
+<td>No puede moverse</td>
+<td>Pantalla, sensor, hardware local</td>
+<td>Mantener referencia remota</td>
+</tr>
+<tr>
+<td>Fastened</td>
+<td>Moverlo es caro</td>
+<td>Base grande, colección de archivos</td>
+<td>Copiar o mantener referencia</td>
+</tr>
+<tr>
+<td>Unattached</td>
+<td>Fácil de mover</td>
+<td>Caché, archivo temporal, tabla pequeña</td>
+<td>Trasladarlo junto al código</td>
+</tr>
+</tbody>
+</table>
+<p>La verdadera dificultad no suele ser trasladar las instrucciones, sino conservar sus vínculos con recursos que no pueden seguirlas.</p>
+<h3 id="48-memoria-compartida-distribuida">4.8. Memoria compartida distribuida<a class="headerlink" href="#48-memoria-compartida-distribuida" title="Permanent link">&para;</a></h3>
+<p>La memoria compartida distribuida ofrece al programa un único espacio de direcciones aunque las máquinas no compartan memoria física.</p>
+<p>El programa usa variables normales. Una capa inferior:</p>
+<ul>
+<li>Detecta el acceso.</li>
+<li>Localiza los datos.</li>
+<li>Transfiere la página necesaria.</li>
+</ul>
+<p>Ventajas:</p>
+<ul>
+<li>Modelo de programación más simple.</li>
+<li>Referencias en lugar de formatos explícitos de mensajes.</li>
+<li>Uso de hardware ordinario.</li>
+</ul>
+<p>Costes:</p>
+<ul>
+<li>Una lectura aparentemente sencilla puede activar una transferencia de red.</li>
+<li>El rendimiento depende de la localidad.</li>
+<li>El programador deja de ver dónde está el coste.</li>
+</ul>
+<p>La frase clave del PDF es que los mensajes no desaparecen: solamente dejan de ser visibles para el programador.</p>
+<h3 id="49-cloud-iaas-paas-y-saas">4.9. Cloud: IaaS, PaaS y SaaS<a class="headerlink" href="#49-cloud-iaas-paas-y-saas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Administra el usuario</th>
+<th>Administra el proveedor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-premises</td>
+<td>Todo</td>
+<td>Nada</td>
+</tr>
+<tr>
+<td>IaaS</td>
+<td>SO, runtime, aplicación y datos</td>
+<td>Hardware, red y virtualización</td>
+</tr>
+<tr>
+<td>PaaS</td>
+<td>Aplicación y datos</td>
+<td>Todo lo situado bajo la aplicación</td>
+</tr>
+<tr>
+<td>SaaS</td>
+<td>Principalmente sus datos y configuración de uso</td>
+<td>La plataforma completa</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<ul>
+<li>On-premises: servidor en el edificio de la organización.</li>
+<li>IaaS: máquinas virtuales alquiladas.</li>
+<li>PaaS: plataforma administrada para desplegar aplicaciones.</li>
+<li>SaaS: correo o herramientas ofimáticas web.</li>
+</ul>
+<p>Cuanto más alto es el nivel:</p>
+<ul>
+<li>Menos administra el cliente.</li>
+<li>Menos control tiene sobre los detalles internos.</li>
+</ul>
+<p>El producto decisivo es la elasticidad: la capacidad puede aparecer en minutos y retirarse cuando baja la demanda.</p>
+<h3 id="410-iot-edge-y-cloud">4.10. IoT, Edge y Cloud<a class="headerlink" href="#410-iot-edge-y-cloud" title="Permanent link">&para;</a></h3>
+<p>El documento distribuye las responsabilidades según dos variables:</p>
+<ol>
+<li>¿Con qué rapidez debe producirse la respuesta?</li>
+<li>¿Cuántos datos habría que transportar?</li>
+</ol>
+<h4 id="dispositivo">Dispositivo<a class="headerlink" href="#dispositivo" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Sensores y actuadores.</li>
+<li>Memoria pequeña.</li>
+<li>Alimentación por batería.</li>
+<li>Desconexiones frecuentes.</li>
+<li>Reacciones en milisegundos.</li>
+</ul>
+<h4 id="edge">Edge<a class="headerlink" href="#edge" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Está cerca de los dispositivos.</li>
+<li>Filtra y agrega información.</li>
+<li>Mantiene un búfer local.</li>
+<li>Puede actuar sin conexión a la nube.</li>
+<li>Responde en decenas de milisegundos.</li>
+</ul>
+<h4 id="cloud">Cloud<a class="headerlink" href="#cloud" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Conserva históricos.</li>
+<li>Construye paneles.</li>
+<li>Compara muchos dispositivos.</li>
+<li>Entrena modelos.</li>
+<li>Proporciona almacenamiento muy amplio.</li>
+<li>Tolera respuestas de segundos u horas.</li>
+</ul>
+<p>El volumen de datos disminuye desde dispositivo hacia cloud, porque el edge filtra y resume. Al mismo tiempo, la latencia aceptable aumenta.</p>
+<p>Caso de uso: una cámara produce 20 Mbit/s.</p>
+<ul>
+<li>El dispositivo captura vídeo.</li>
+<li>El edge detecta movimiento o identifica eventos.</li>
+<li>Solo los fragmentos relevantes y metadatos viajan a la nube.</li>
+<li>La nube almacena históricos y entrena nuevos modelos.</li>
+<li>El modelo actualizado puede desplegarse de nuevo al edge.</li>
+</ul>
+<p>Si se dependiera exclusivamente de la nube, una caída de conexión impediría una reacción inmediata. Si todo se hiciera en el dispositivo, faltarían almacenamiento y capacidad de análisis global.</p>
+<hr />
+<h2 id="5-conexion-entre-los-conceptos">5. Conexión entre los conceptos<a class="headerlink" href="#5-conexion-entre-los-conceptos" title="Permanent link">&para;</a></h2>
+<p>El documento presenta decisiones que no son independientes:</p>
+<ul>
+<li>Una aplicación global aumenta la latencia.</li>
+<li>Para reducirla se introducen réplicas y cachés.</li>
+<li>Las copias generan problemas de consistencia.</li>
+<li>Mantener consistencia requiere coordinación.</li>
+<li>La coordinación añade viajes de red y reduce disponibilidad durante fallos.</li>
+<li>Para crecer se replica horizontalmente.</li>
+<li>La replicación obliga a decidir dónde reside el estado de sesión.</li>
+<li>P2P elimina parte del cuello central, pero introduce descubrimiento, churn y problemas de NAT.</li>
+<li>IoT necesita tolerar desconexiones, por lo que desplaza procesamiento y caché al edge.</li>
+<li>TCP simplifica la entrega fiable de bytes, pero no resuelve las fronteras de mensajes, la duplicación de operaciones ni la consistencia de datos.</li>
+<li>UDP reduce establecimiento y conserva datagramas, pero la aplicación debe aceptar o reparar pérdidas.</li>
+</ul>
+<p>Un diseño distribuido es, por tanto, un conjunto de compromisos. No existe una arquitectura que maximice simultáneamente latencia, consistencia, disponibilidad, simplicidad, control y coste.</p>
+<h2 id="6-caso-integrador-una-fabrica-conectada">6. Caso integrador: una fábrica conectada<a class="headerlink" href="#6-caso-integrador-una-fabrica-conectada" title="Permanent link">&para;</a></h2>
+<p>Una fábrica permite relacionar casi todo el bloque:</p>
+<ol>
+<li>Los sensores son sistemas pervasivos y pueden desconectarse.</li>
+<li>Envían telemetría pequeña mediante UDP o MQTT sobre TCP.</li>
+<li>El edge controla maquinaria con latencia de milisegundos.</li>
+<li>Mantiene un búfer si la nube queda inaccesible.</li>
+<li>La nube conserva históricos y entrena modelos predictivos.</li>
+<li>Las interfaces web utilizan una arquitectura de tres niveles.</li>
+<li>El procesamiento se replica horizontalmente tras un balanceador.</li>
+<li>Los servidores de aplicación son stateless; las sesiones se guardan en un almacén compartido.</li>
+<li>Los paneles almacenan datos recientes en caché.</li>
+<li>La telemetría puede aceptar consistencia eventual, pero una orden de parada requiere garantías más fuertes.</li>
+<li>Los timeouts detectan ausencia de respuesta, aunque no pueden distinguir perfectamente entre avería y lentitud.</li>
+<li>La transparencia permite sustituir una instancia sin afectar al operador, pero no elimina el retardo físico.</li>
+<li>La disponibilidad depende tanto de evitar fallos como de recuperar rápidamente.</li>
+<li>El sistema debe seguir funcionando parcialmente cuando fallen la red, un sensor o un servicio cloud.</li>
+</ol>
+<p>Este ejemplo refleja la tesis esencial del PDF: distribuir permite situar cada función donde resulta más útil, pero obliga a diseñar explícitamente comunicación, estado, consistencia, concurrencia y fallos.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="./.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Universidad">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Universidad
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tabs","navigation.sections","navigation.indexes","navigation.path","navigation.top","navigation.footer","content.code.annotate","content.code.copy","content.code.select","search.highlight","toc.follow"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
+      
+        <script src="../javascripts/shortcuts.js"></script>
+      
+    
+  </body>
+</html>
