@@ -10,6 +10,7 @@ extra_css = ["stylesheets/extra.css"]
 extra_javascript = [
   "javascripts/shortcuts.js",
   "javascripts/mathjax.js",
+  "javascripts/pwa.js",
   "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
 ]
 
@@ -21,6 +22,7 @@ logo = "lucide/graduation-cap"
 repo = "fontawesome/brands/github"
 
 [project.theme]
+custom_dir = "overrides"
 variant = "modern"
 font.text = "Inter"
 font.code = "JetBrains Mono"
