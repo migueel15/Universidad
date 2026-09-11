@@ -7,7 +7,14 @@ repo_url = "https://github.com/migueel15/Universidad"
 docs_dir = "src"
 site_dir = "site"
 extra_css = ["stylesheets/extra.css"]
-extra_javascript = ["javascripts/shortcuts.js"]
+extra_javascript = [
+  "javascripts/shortcuts.js",
+  "javascripts/mathjax.js",
+  "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
+]
+
+[project.markdown_extensions]
+pymdownx.arithmatex.generic = true
 
 [project.theme.icon]
 logo = "lucide/graduation-cap"
