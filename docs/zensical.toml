@@ -9,6 +9,10 @@ site_dir = "site"
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = ["javascripts/shortcuts.js"]
 
+[project.theme.icon]
+logo = "lucide/graduation-cap"
+repo = "fontawesome/brands/github"
+
 [project.theme]
 variant = "modern"
 font.text = "Inter"

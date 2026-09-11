@@ -195,13 +195,13 @@ El programador debe resolver problemas que no aparecen de la misma forma en un p
 
 ### 1.7. Ventajas y desventajas
 
-| Aspecto | Ventaja | Coste o dificultad |
-|---|---|---|
-| Coste | Máquinas ordinarias pueden sustituir a una máquina enorme | Hay más equipos que administrar y alimentar |
-| Rendimiento | Existe paralelismo físico real | La comunicación puede anular la ganancia |
-| Crecimiento | Se pueden añadir nodos | El software debe estar diseñado para aprovecharlos |
-| Disponibilidad | El servicio puede sobrevivir a la pérdida de un nodo | Solo ocurre si se preparó explícitamente para ello |
-| Compartición | Datos y dispositivos son accesibles desde distintos lugares | Seguridad y privacidad se complican |
+| Aspecto                | Ventaja                                                       | Coste o dificultad                                   |
+| ---------------------- | ------------------------------------------------------------- | ---------------------------------------------------- |
+| Coste                  | Máquinas ordinarias pueden sustituir a una máquina enorme     | Hay más equipos que administrar y alimentar          |
+| Rendimiento            | Existe paralelismo físico real                                | La comunicación puede anular la ganancia             |
+| Crecimiento            | Se pueden añadir nodos                                        | El software debe estar diseñado para aprovecharlos   |
+| Disponibilidad         | El servicio puede sobrevivir a la pérdida de un nodo          | Solo ocurre si se preparó explícitamente para ello   |
+| Compartición           | Datos y dispositivos son accesibles desde distintos lugares   | Seguridad y privacidad se complican                  |
 | Adaptación al problema | Muchos problemas reales ya están geográficamente distribuidos | Programación, pruebas y depuración son más difíciles |
 
 Añadir computadores no acelera automáticamente una aplicación. Si todos esperan continuamente datos de los demás, el sistema puede dedicar más tiempo a comunicarse que a trabajar.
@@ -210,15 +210,15 @@ Añadir computadores no acelera automáticamente una aplicación. Si todos esper
 
 La transparencia consiste en ocultar ciertos detalles de la distribución.
 
-| Tipo | Qué oculta | Ejemplo |
-|---|---|---|
-| Acceso | Cómo se representa o alcanza un recurso | Leer un archivo remoto mediante una interfaz similar a la local |
-| Localización | Dónde está el recurso | Un nombre estable se traduce a una dirección variable |
-| Migración | Que el recurso ha cambiado de lugar | Un buzón se mueve a otro servidor sin cambiar su dirección |
-| Reubicación | Que se mueve mientras está siendo utilizado | Una llamada continúa al cambiar de estación base |
-| Replicación | Que existen varias copias | Se entrega el vídeo desde la réplica más cercana |
-| Concurrencia | Que otros usuarios comparten el recurso | Dos transacciones quedan aisladas entre sí |
-| Fallo | Que un componente falló y se recuperó | Se retransmite un segmento perdido sin interrumpir la descarga |
+| Tipo         | Qué oculta                                  | Ejemplo                                                         |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------- |
+| Acceso       | Cómo se representa o alcanza un recurso     | Leer un archivo remoto mediante una interfaz similar a la local |
+| Localización | Dónde está el recurso                       | Un nombre estable se traduce a una dirección variable           |
+| Migración    | Que el recurso ha cambiado de lugar         | Un buzón se mueve a otro servidor sin cambiar su dirección      |
+| Reubicación  | Que se mueve mientras está siendo utilizado | Una llamada continúa al cambiar de estación base                |
+| Replicación  | Que existen varias copias                   | Se entrega el vídeo desde la réplica más cercana                |
+| Concurrencia | Que otros usuarios comparten el recurso     | Dos transacciones quedan aisladas entre sí                      |
+| Fallo        | Que un componente falló y se recuperó       | Se retransmite un segmento perdido sin interrumpir la descarga  |
 
 La transparencia nunca es perfecta. Si un servidor está a 80 ms de distancia, una API puede ocultar su ubicación, pero no eliminar esos 80 ms.
 
@@ -261,14 +261,14 @@ Para resolverlo se necesitan mecanismos distribuidos de ordenación, transaccion
 
 ### 1.11. Sistema paralelo frente a sistema distribuido
 
-| Propiedad | Computador paralelo | Sistema distribuido |
-|---|---|---|
-| Memoria | Compartida entre procesadores | Privada para cada computador |
-| Reloj | Referencia común | Relojes independientes |
-| Comunicación | Lecturas y escrituras en memoria | Envío y recepción de mensajes |
-| Retardo | Habitualmente nanosegundos | Microsegundos o milisegundos |
-| Fallo | Puede detenerse el conjunto | Una parte puede fallar mientras las demás siguen |
-| Herramientas habituales | Hilos, OpenMP | Sockets, MPI, HTTP |
+| Propiedad               | Computador paralelo              | Sistema distribuido                              |
+| ----------------------- | -------------------------------- | ------------------------------------------------ |
+| Memoria                 | Compartida entre procesadores    | Privada para cada computador                     |
+| Reloj                   | Referencia común                 | Relojes independientes                           |
+| Comunicación            | Lecturas y escrituras en memoria | Envío y recepción de mensajes                    |
+| Retardo                 | Habitualmente nanosegundos       | Microsegundos o milisegundos                     |
+| Fallo                   | Puede detenerse el conjunto      | Una parte puede fallar mientras las demás siguen |
+| Herramientas habituales | Hilos, OpenMP                    | Sockets, MPI, HTTP                               |
 
 La característica distintiva es el fallo parcial. Desde fuera, una máquina lenta, una conexión interrumpida y una máquina detenida pueden producir el mismo síntoma: silencio.
 
@@ -336,6 +336,7 @@ Caso real: repetir automáticamente una orden de pago podría producir dos cargo
 **Ampliación conceptual:** una técnica habitual es asignar a cada operación un identificador único. El servidor registra los identificadores procesados y devuelve el resultado anterior cuando recibe un duplicado. Esto proporciona deduplicación, no una certeza mágica de “ejecución exactamente una vez”.
 
 ### 2.2. Las tres capas lógicas
+
 #### Interfaz de usuario
 
 Incluye pantallas, formularios, menús y representación visual.
@@ -404,13 +405,13 @@ Esto demuestra que “cliente” y “servidor” describen roles en una interac
 
 ### 2.6. Servidores con estado y sin estado
 
-| Aspecto | Sin estado | Con estado |
-|---|---|---|
-| Información entre peticiones | Ninguna | Guarda información del cliente |
-| Contenido de cada petición | Todo lo necesario | Puede ser más breve |
-| Reinicio | El cliente apenas lo nota | Puede perderse la sesión |
-| Escalado | Cualquier servidor puede responder | Hay que volver al mismo o compartir el estado |
-| Ejemplo | Lectura web independiente | Servidor con archivos abiertos por cliente |
+| Aspecto                      | Sin estado                         | Con estado                                    |
+| ---------------------------- | ---------------------------------- | --------------------------------------------- |
+| Información entre peticiones | Ninguna                            | Guarda información del cliente                |
+| Contenido de cada petición   | Todo lo necesario                  | Puede ser más breve                           |
+| Reinicio                     | El cliente apenas lo nota          | Puede perderse la sesión                      |
+| Escalado                     | Cualquier servidor puede responder | Hay que volver al mismo o compartir el estado |
+| Ejemplo                      | Lectura web independiente          | Servidor con archivos abiertos por cliente    |
 
 Un diseño sin estado suele escalar y recuperarse mejor, porque una petición puede enviarse a cualquier instancia.
 
@@ -481,13 +482,13 @@ Cada nueve adicional elimina aproximadamente nueve décimas partes del tiempo de
 
 ### 2.10. Modelos de consistencia
 
-| Modelo | Promesa | Experiencia observable |
-|---|---|---|
-| Fuerte | Cada lectura ve la última escritura | Comportamiento intuitivo, con mayor coordinación |
-| Read-your-writes | Un cliente ve siempre sus propios cambios | El comentario propio aparece enseguida |
-| Lecturas monotónicas | Tras ver un valor nuevo no se vuelve a uno antiguo | La interfaz no “retrocede en el tiempo” |
-| Causal | Un efecto no aparece antes que su causa | Una respuesta no precede al mensaje respondido |
-| Eventual | Las réplicas convergen cuando cesan las actualizaciones | Dos dispositivos pueden discrepar temporalmente |
+| Modelo               | Promesa                                                 | Experiencia observable                           |
+| -------------------- | ------------------------------------------------------- | ------------------------------------------------ |
+| Fuerte               | Cada lectura ve la última escritura                     | Comportamiento intuitivo, con mayor coordinación |
+| Read-your-writes     | Un cliente ve siempre sus propios cambios               | El comentario propio aparece enseguida           |
+| Lecturas monotónicas | Tras ver un valor nuevo no se vuelve a uno antiguo      | La interfaz no “retrocede en el tiempo”          |
+| Causal               | Un efecto no aparece antes que su causa                 | Una respuesta no precede al mensaje respondido   |
+| Eventual             | Las réplicas convergen cuando cesan las actualizaciones | Dos dispositivos pueden discrepar temporalmente  |
 
 Toda garantía requiere cierto grado de coordinación entre copias; esa coordinación consume viajes de red. Utilizar una consistencia más débil puede ser una decisión correcta si la aplicación tolera discrepancias temporales.
 
@@ -620,15 +621,15 @@ El documento indica que los puertos inferiores a 1024 son privilegiados y muestr
 
 ### 3.4. Servicios conocidos
 
-| Puerto | Servicio | Transporte | Finalidad |
-|---:|---|---|---|
-| 22 | SSH | TCP | Acceso remoto y copia segura |
-| 25 | SMTP | TCP | Correo entre servidores |
-| 53 | DNS | UDP y TCP | Traducción de nombres |
-| 80 | HTTP | TCP | Web sin cifrado |
-| 123 | NTP | UDP | Sincronización de relojes |
-| 443 | HTTPS | TCP | Web cifrada con TLS |
-| 1883 | MQTT | TCP | Publicación/suscripción para dispositivos |
+| Puerto | Servicio | Transporte | Finalidad                                 |
+| -----: | -------- | ---------- | ----------------------------------------- |
+|     22 | SSH      | TCP        | Acceso remoto y copia segura              |
+|     25 | SMTP     | TCP        | Correo entre servidores                   |
+|     53 | DNS      | UDP y TCP  | Traducción de nombres                     |
+|     80 | HTTP     | TCP        | Web sin cifrado                           |
+|    123 | NTP      | UDP        | Sincronización de relojes                 |
+|    443 | HTTPS    | TCP        | Web cifrada con TLS                       |
+|   1883 | MQTT     | TCP        | Publicación/suscripción para dispositivos |
 
 Los puertos fijos resuelven un problema inicial: si el cliente desconoce incluso el puerto del servicio, no puede comenzar a negociar.
 
@@ -811,12 +812,12 @@ Ambos deben estar activos al mismo tiempo.
 
 Sus combinaciones producen cuatro estilos:
 
-| Espacio | Tiempo | Estilo |
-|---|---|---|
-| Acoplado | Acoplado | Llamada directa |
-| Acoplado | Desacoplado | Cola de mensajes |
-| Desacoplado | Acoplado | Publicación/suscripción |
-| Desacoplado | Desacoplado | Almacén compartido |
+| Espacio     | Tiempo      | Estilo                  |
+| ----------- | ----------- | ----------------------- |
+| Acoplado    | Acoplado    | Llamada directa         |
+| Acoplado    | Desacoplado | Cola de mensajes        |
+| Desacoplado | Acoplado    | Publicación/suscripción |
+| Desacoplado | Desacoplado | Almacén compartido      |
 
 Ejemplo: en una cola, el productor conoce la cola, pero el consumidor puede procesar el mensaje horas después. En publicación/suscripción, emisor y receptores coinciden temporalmente, pero el emisor no necesita conocer a cada receptor.
 
@@ -969,11 +970,11 @@ Un navegador realiza movilidad débil mediante pull: solicita el código y lo co
 
 #### Recursos asociados
 
-| Recurso | Movilidad | Ejemplo | Estrategia |
-|---|---|---|---|
-| Fijo | No puede moverse | Pantalla, sensor, hardware local | Mantener referencia remota |
-| Fastened | Moverlo es caro | Base grande, colección de archivos | Copiar o mantener referencia |
-| Unattached | Fácil de mover | Caché, archivo temporal, tabla pequeña | Trasladarlo junto al código |
+| Recurso    | Movilidad        | Ejemplo                                | Estrategia                   |
+| ---------- | ---------------- | -------------------------------------- | ---------------------------- |
+| Fijo       | No puede moverse | Pantalla, sensor, hardware local       | Mantener referencia remota   |
+| Fastened   | Moverlo es caro  | Base grande, colección de archivos     | Copiar o mantener referencia |
+| Unattached | Fácil de mover   | Caché, archivo temporal, tabla pequeña | Trasladarlo junto al código  |
 
 La verdadera dificultad no suele ser trasladar las instrucciones, sino conservar sus vínculos con recursos que no pueden seguirlas.
 
@@ -1003,12 +1004,12 @@ La frase clave del PDF es que los mensajes no desaparecen: solamente dejan de se
 
 ### 4.9. Cloud: IaaS, PaaS y SaaS
 
-| Modelo | Administra el usuario | Administra el proveedor |
-|---|---|---|
-| On-premises | Todo | Nada |
-| IaaS | SO, runtime, aplicación y datos | Hardware, red y virtualización |
-| PaaS | Aplicación y datos | Todo lo situado bajo la aplicación |
-| SaaS | Principalmente sus datos y configuración de uso | La plataforma completa |
+| Modelo      | Administra el usuario                           | Administra el proveedor            |
+| ----------- | ----------------------------------------------- | ---------------------------------- |
+| On-premises | Todo                                            | Nada                               |
+| IaaS        | SO, runtime, aplicación y datos                 | Hardware, red y virtualización     |
+| PaaS        | Aplicación y datos                              | Todo lo situado bajo la aplicación |
+| SaaS        | Principalmente sus datos y configuración de uso | La plataforma completa             |
 
 Ejemplos:
 
