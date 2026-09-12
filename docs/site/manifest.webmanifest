@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "Universidad",
+  "short_name": "Universidad",
+  "description": "Apuntes y documentación de Universidad",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "background_color": "#212121",
+  "theme_color": "#212121",
+  "icons": [
+    {
+      "src": "./icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/app-icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
