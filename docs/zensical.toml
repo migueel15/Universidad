@@ -15,7 +15,12 @@ extra_javascript = [
 ]
 
 [project.markdown_extensions]
+admonition = {}
+tables = {}
 pymdownx.arithmatex.generic = true
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
 
 [project.theme.icon]
 logo = "lucide/graduation-cap"
