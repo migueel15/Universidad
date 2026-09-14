@@ -47,7 +47,7 @@ flowchart LR
     A["Móvil A"] <--> B["Portátil B"]
     B <--> C["Móvil C"]
     C <--> D["Sensor D"]
-    A -. "sin enlace directo" .- D
+    A -. "sin enlace directo" .-> D
 ```
 
 !!! example "Ejemplo"
