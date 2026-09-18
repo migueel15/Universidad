@@ -1,3 +1,14 @@
+# Sistemas Distribuidos e IoT
+
+## Notas de clase
+
+Las transcripciones y apuntes de cada sesión están organizados cronológicamente en la carpeta `notas-clase`.
+
+- [Índice de notas de clase](notas-clase/index.md)
+- [16 de septiembre de 2026 — Modelos de red y protocolos](notas-clase/clase-2026-09-16.md)
+
+---
+
 # Análisis de la evolución de los sistemas distribuidos
 
 ## Visión general
