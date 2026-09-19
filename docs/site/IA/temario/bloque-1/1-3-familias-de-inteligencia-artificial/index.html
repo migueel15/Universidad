@@ -1,0 +1,3382 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uni docs">
+      
+      
+      
+        <link rel="canonical" href="/IA/temario/bloque-1/1-3-familias-de-inteligencia-artificial/">
+      
+      
+        <link rel="prev" href="../1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/">
+      
+      
+        <link rel="next" href="../../../../IoT/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.58">
+    
+    
+      
+        <title>1.3. AI Families - Universidad</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/modern/main.5da3a30f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <meta name="theme-color" content="#212121">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Universidad">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#13-ai-families" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Universidad" class="md-header__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Universidad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.3. AI Families
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Activar tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Activar tema oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  Universidad
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  IA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../IoT/" class="md-tabs__link">
+          
+  
+  IoT
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Universidad" class="md-nav__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    Universidad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Universidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IA
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IA
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notas-clase/clase-2026-09-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Viernes 18 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Bloque 1
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.1. AI-Based Software Requirements
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.2. Challenges in Developing AI-Based Applications
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.3. AI Families
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.3. AI Families
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Learning Objectives
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Key terminology
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-symbolic-software-vs-connectionist-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Symbolic Software vs. Connectionist Software
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Symbolic Software vs. Connectionist Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-symbolic-and-deterministic-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1. Symbolic and Deterministic Approach
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-connectionist-and-data-driven-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2. Connectionist and Data-Driven Approach
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ai-family-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. AI Family Map
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rule-based-systems-and-expert-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Rule-Based Systems and Expert Engines
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Rule-Based Systems and Expert Engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-forward-chaining-data-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1. Forward Chaining (Data-Driven)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-backward-chaining-goal-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2. Backward Chaining (Goal-Driven)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-strengths-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3. Strengths and Limitations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-search-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Search and Planning
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Search and Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-a-and-heuristic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1. A* and Heuristic Search
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-when-to-use-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. When to Use Search
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-classical-continuous-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Classical Continuous Optimization
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Classical Continuous Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-first-order-gradient-descent" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1. First-Order Gradient Descent
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-second-order-newton-raphson" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2. Second-Order Newton-Raphson
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-discrete-optimization-and-branch-and-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Discrete Optimization and Branch and Bound
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Discrete Optimization and Branch and Bound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-core-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1. Core Elements
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-worked-example-01-knapsack" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2. Worked Example: 0/1 Knapsack
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-metaheuristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Metaheuristics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Metaheuristics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-simulated-annealing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1. Simulated Annealing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-genetic-algorithms-ga" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2. Genetic Algorithms (GA)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-particle-swarm-optimization-pso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3. Particle Swarm Optimization (PSO)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-ant-colony-optimization-aco" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4. Ant Colony Optimization (ACO)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-machine-learning-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Machine Learning Paradigms
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Machine Learning Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1. Supervised Learning
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2. Unsupervised Learning
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-reinforcement-learning-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3. Reinforcement Learning (RL)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-tabular-q-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Tabular Q-Learning
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Tabular Q-Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-value-backpropagation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Q-Value Backpropagation Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Neural Networks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-multilayer-perceptron-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.1. Multilayer Perceptron (MLP)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.2. Activation Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.3. Backpropagation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-adam-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Adam Optimizer
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-deep-learning-and-foundation-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Deep Learning and Foundation Models
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Deep Learning and Foundation Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12.1. Self-attention
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-autoregressive-generation-and-softmax-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12.2. Autoregressive Generation and Softmax Temperature
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-library-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Library Ecosystem
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-architectural-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        14. Architectural Choice
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Architectural Choice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choice-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Choice Scenarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-final-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        15. Final Comparison
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Source Material
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../IoT/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IoT
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IoT
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../IoT/notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/notas-clase/clase-2026-09-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Lunes 14 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/notas-clase/clase-2026-09-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Miércoles 16 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/temario/bloque-1-evolucion-de-los-sistemas-distribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1 — Evolución de los sistemas distribuidos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Learning Objectives
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Key terminology
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-symbolic-software-vs-connectionist-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Symbolic Software vs. Connectionist Software
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Symbolic Software vs. Connectionist Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-symbolic-and-deterministic-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1. Symbolic and Deterministic Approach
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-connectionist-and-data-driven-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2. Connectionist and Data-Driven Approach
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ai-family-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. AI Family Map
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rule-based-systems-and-expert-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Rule-Based Systems and Expert Engines
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Rule-Based Systems and Expert Engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-forward-chaining-data-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1. Forward Chaining (Data-Driven)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-backward-chaining-goal-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2. Backward Chaining (Goal-Driven)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-strengths-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3. Strengths and Limitations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-search-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Search and Planning
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Search and Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-a-and-heuristic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1. A* and Heuristic Search
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-when-to-use-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. When to Use Search
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-classical-continuous-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Classical Continuous Optimization
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Classical Continuous Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-first-order-gradient-descent" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1. First-Order Gradient Descent
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-second-order-newton-raphson" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2. Second-Order Newton-Raphson
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-discrete-optimization-and-branch-and-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Discrete Optimization and Branch and Bound
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Discrete Optimization and Branch and Bound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-core-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1. Core Elements
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-worked-example-01-knapsack" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2. Worked Example: 0/1 Knapsack
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-metaheuristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Metaheuristics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Metaheuristics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-simulated-annealing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1. Simulated Annealing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-genetic-algorithms-ga" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2. Genetic Algorithms (GA)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-particle-swarm-optimization-pso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3. Particle Swarm Optimization (PSO)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-ant-colony-optimization-aco" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4. Ant Colony Optimization (ACO)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-machine-learning-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Machine Learning Paradigms
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Machine Learning Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1. Supervised Learning
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2. Unsupervised Learning
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-reinforcement-learning-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3. Reinforcement Learning (RL)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-tabular-q-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Tabular Q-Learning
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Tabular Q-Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-value-backpropagation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Q-Value Backpropagation Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Neural Networks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-multilayer-perceptron-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.1. Multilayer Perceptron (MLP)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.2. Activation Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.3. Backpropagation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-adam-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Adam Optimizer
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-deep-learning-and-foundation-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Deep Learning and Foundation Models
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Deep Learning and Foundation Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12.1. Self-attention
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-autoregressive-generation-and-softmax-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12.2. Autoregressive Generation and Softmax Temperature
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-library-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Library Ecosystem
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-architectural-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        14. Architectural Choice
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Architectural Choice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choice-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Choice Scenarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-final-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        15. Final Comparison
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Source Material
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Universidad
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    IA
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Temario
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Bloque 1
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="13-ai-families">1.3. AI Families</h1>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>La inteligencia artificial no es una técnica única. Distintas familias representan el conocimiento, buscan soluciones y aprenden de formas diferentes. Elegir una arquitectura adecuada exige identificar:</p>
+<ul>
+<li>qué información entra en el sistema;</li>
+<li>qué forma tiene una solución;</li>
+<li>si existe una <strong>Objective Function</strong>;</li>
+<li>si hay <strong>Labels</strong> o <strong>Rewards</strong>;</li>
+<li>qué garantías se necesitan;</li>
+<li>qué límites de tiempo, memoria y explicabilidad existen.</li>
+</ul>
+<p>La regla fundamental es: <strong>no se debe forzar Deep Learning en todos los problemas; se debe hacer coincidir la estructura matemática del problema con las restricciones del sistema</strong>.</p>
+<hr />
+<h2 id="key-terminology">Key terminology</h2>
+<table>
+<thead>
+<tr>
+<th>English term</th>
+<th>Acronym</th>
+<th>Significado en este tema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artificial Intelligence</td>
+<td><strong>AI</strong></td>
+<td>Campo que reúne técnicas simbólicas, de búsqueda, optimización y aprendizaje</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td><strong>ML</strong></td>
+<td>Familia que aprende parámetros o patrones a partir de datos</td>
+</tr>
+<tr>
+<td>Reinforcement Learning</td>
+<td><strong>RL</strong></td>
+<td>Aprendizaje basado en interacción, actions y rewards acumuladas</td>
+</tr>
+<tr>
+<td>Rule-Based System</td>
+<td><strong>RBS</strong></td>
+<td>Sistema que representa conocimiento mediante facts y rules explícitas</td>
+</tr>
+<tr>
+<td>Inference Engine</td>
+<td>-</td>
+<td>Componente que decide qué reglas pueden aplicarse y deriva conclusiones</td>
+</tr>
+<tr>
+<td>Search Space / State Space</td>
+<td>-</td>
+<td>Conjunto de estados o soluciones que un algoritmo puede explorar</td>
+</tr>
+<tr>
+<td>Heuristic</td>
+<td>-</td>
+<td>Estimación que guía la búsqueda hacia estados prometedores</td>
+</tr>
+<tr>
+<td>Objective Function</td>
+<td>-</td>
+<td>Función matemática que se intenta minimizar o maximizar</td>
+</tr>
+<tr>
+<td>Metaheuristic</td>
+<td>-</td>
+<td>Estrategia general de búsqueda aproximada sin garantía de óptimo</td>
+</tr>
+<tr>
+<td>Multilayer Perceptron</td>
+<td><strong>MLP</strong></td>
+<td>Neural Network formada por capas densamente conectadas</td>
+</tr>
+<tr>
+<td>Convolutional Neural Network</td>
+<td><strong>CNN</strong></td>
+<td>Neural Network especializada en datos espaciales, especialmente imágenes</td>
+</tr>
+<tr>
+<td>Particle Swarm Optimization</td>
+<td><strong>PSO</strong></td>
+<td>Metaheuristic inspirada en el movimiento colectivo de partículas</td>
+</tr>
+<tr>
+<td>Ant Colony Optimization</td>
+<td><strong>ACO</strong></td>
+<td>Metaheuristic inspirada en rastros de feromonas sobre grafos</td>
+</tr>
+<tr>
+<td>Upper Bound</td>
+<td><strong>UB</strong></td>
+<td>Cota máxima optimista utilizada para decidir si una rama puede podarse</td>
+</tr>
+<tr>
+<td>Temporal-Difference Error</td>
+<td><strong>TD Error</strong></td>
+<td>Diferencia entre el valor estimado y el objetivo actualizado en RL</td>
+</tr>
+<tr>
+<td>Foundation Model</td>
+<td>-</td>
+<td>Modelo de gran escala preentrenado que puede adaptarse a muchas tareas</td>
+</tr>
+<tr>
+<td>Genetic Algorithm</td>
+<td><strong>GA</strong></td>
+<td>Metaheuristic que evoluciona una población mediante selection, crossover y mutation</td>
+</tr>
+<tr>
+<td>Rectified Linear Unit</td>
+<td><strong>ReLU</strong></td>
+<td>Activation Function definida como <span class="arithmatex">\(\max(0,z)\)</span></td>
+</tr>
+<tr>
+<td>Adaptive Moment Estimation</td>
+<td><strong>Adam</strong></td>
+<td>Optimizer que adapta cada actualización mediante momentos del gradient</td>
+</tr>
+<tr>
+<td>Video Random-Access Memory</td>
+<td><strong>VRAM</strong></td>
+<td>Memoria de la GPU utilizada por parameters, activations, gradients y optimizer states</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-symbolic-software-vs-connectionist-software">1. Symbolic Software vs. Connectionist Software</h2>
+<h3 id="11-symbolic-and-deterministic-approach">1.1. Symbolic and Deterministic Approach</h3>
+<p>El conocimiento se codifica explícitamente mediante <strong>Facts</strong>, <strong>Rules</strong>, <strong>States</strong>, <strong>Operators</strong> o <strong>Constraints</strong>.</p>
+<div class="arithmatex">\[
+\text{Facts} + \text{Logic} \longrightarrow \text{Answers}
+\]</div>
+<p>Características:</p>
+<ul>
+<li>razonamiento trazable;</li>
+<li><strong>Rules</strong> verificables;</li>
+<li>posibilidad de garantías exactas en espacios acotados;</li>
+<li>fragilidad frente a casos no previstos;</li>
+<li>elevado coste de capturar manualmente todo el conocimiento.</li>
+</ul>
+<h3 id="12-connectionist-and-data-driven-approach">1.2. Connectionist and Data-Driven Approach</h3>
+<p>Las reglas internas se ajustan mediante <strong>Optimization</strong>:</p>
+<div class="arithmatex">\[
+\text{Data} + \text{Expected Answers}
+\longrightarrow
+\text{Optimization}
+\longrightarrow
+\text{Weights}
+\]</div>
+<p>Características:</p>
+<ul>
+<li>adaptación a patrones complejos y ambiguos;</li>
+<li>escalabilidad a datos de alta dimensión;</li>
+<li>comportamiento estadístico, no lógico absoluto;</li>
+<li>menor explicabilidad directa;</li>
+<li>dependencia de datos representativos y <strong>Monitoring</strong>.</li>
+</ul>
+<p>Ambos enfoques pueden combinarse. Por ejemplo, una <strong>Neural Network</strong> reconoce señales visuales y un <strong>Rule Engine</strong> aplica restricciones legales o de seguridad sobre sus resultados.</p>
+<hr />
+<h2 id="2-ai-family-map">2. AI Family Map</h2>
+<pre class="mermaid"><code>flowchart TD
+    AI[Artificial Intelligence]
+
+    AI --&gt; S[Symbolic / Search]
+    AI --&gt; O[Optimization]
+    AI --&gt; L[Learning]
+
+    S --&gt; R[Rule-Based Systems]
+    S --&gt; P[Search and Planning]
+
+    O --&gt; CO[Classical Optimization]
+    O --&gt; MH[Metaheuristics]
+    MH --&gt; SA[Simulated Annealing]
+    MH --&gt; GA[Genetic Algorithms]
+    MH --&gt; SW[Swarm Intelligence]
+
+    L --&gt; ML[Machine Learning]
+    L --&gt; RL[Reinforcement Learning]
+    L --&gt; DL[Deep Learning and Foundation Models]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Entrada típica</th>
+<th>Mecanismo</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rule-Based Systems</td>
+<td>Facts y Rules</td>
+<td>Inference Engine</td>
+<td>Deductive proof o action</td>
+</tr>
+<tr>
+<td>Search and Planning</td>
+<td>State Space y operators</td>
+<td>Pathfinding</td>
+<td>Action sequence</td>
+</tr>
+<tr>
+<td>Classical Optimization</td>
+<td>Objective y constraints</td>
+<td>Exact mathematical methods</td>
+<td>Mathematical optimum bajo ciertos supuestos</td>
+</tr>
+<tr>
+<td>Metaheuristics</td>
+<td>Candidate solutions</td>
+<td>Stochastic search</td>
+<td>Best approximation encontrada</td>
+</tr>
+<tr>
+<td>Supervised Learning</td>
+<td>Features y Labels</td>
+<td>Parameter fitting</td>
+<td>Prediction</td>
+</tr>
+<tr>
+<td>Unsupervised Learning</td>
+<td>Features sin Labels</td>
+<td>Structure discovery</td>
+<td>Clusters o representations</td>
+</tr>
+<tr>
+<td>Reinforcement Learning</td>
+<td>State, Action y Reward</td>
+<td>Policy / Value update</td>
+<td>Optimal action o policy</td>
+</tr>
+<tr>
+<td>Deep Learning</td>
+<td>High-dimensional data</td>
+<td>Neural Networks y Gradient Descent</td>
+<td>Learned representations o generated content</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-rule-based-systems-and-expert-engines">3. Rule-Based Systems and Expert Engines</h2>
+<p>Un <strong>Expert System</strong> contiene:</p>
+<ul>
+<li><strong>Facts</strong>, que describen el estado conocido;</li>
+<li><strong>Rules</strong>, normalmente <code>IF condition THEN conclusion</code>;</li>
+<li>un <strong>Inference Engine</strong>, que decide qué rules ejecutar;</li>
+<li>una <strong>Working Memory</strong> con facts derivados.</li>
+</ul>
+<h3 id="31-forward-chaining-data-driven">3.1. Forward Chaining (Data-Driven)</h3>
+<p>Es <strong>Data-Driven</strong>. Parte de <strong>Known Facts</strong> y aplica <strong>Rules</strong> hasta alcanzar conclusiones.</p>
+<pre class="mermaid"><code>flowchart LR
+    F[Known Facts] --&gt; C[Find Satisfied Conditions]
+    C --&gt; R[Fire Rule]
+    R --&gt; N[Add Derived Facts]
+    N --&gt; C
+    N --&gt; Z[Conclusion]</code></pre>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code>Fact: temperature &gt; 90 °C
+Fact: fan = OFF
+Rule: IF temperature &gt; 90 °C AND fan = OFF
+      THEN activate fan
+</code></pre></div>
+<p>Es apropiado para <strong>Monitoring</strong> y reacción continua.</p>
+<h3 id="32-backward-chaining-goal-driven">3.2. Backward Chaining (Goal-Driven)</h3>
+<p>Es dirigido por objetivos. Parte de una hipótesis y busca qué condiciones tendrían que cumplirse.</p>
+<pre class="mermaid"><code>flowchart RL
+    G[Goal Hypothesis] --&gt; R[Rules that could Prove It]
+    R --&gt; S[Required Subgoals]
+    S --&gt; F[Check Known Facts]</code></pre>
+<p>Es útil en diagnóstico: «¿El paciente tiene la enfermedad X?» conduce a investigar síntomas y pruebas requeridas.</p>
+<h3 id="33-strengths-and-limitations">3.3. Strengths and Limitations</h3>
+<table>
+<thead>
+<tr>
+<th>Ventajas</th>
+<th>Limitaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explicación explícita</td>
+<td>Reglas difíciles de mantener a gran escala</td>
+</tr>
+<tr>
+<td>Auditoría y cumplimiento</td>
+<td>No generaliza a casos no codificados</td>
+</tr>
+<tr>
+<td>Comportamiento determinista</td>
+<td><strong>Rule Conflicts</strong></td>
+</tr>
+<tr>
+<td>Adecuado para restricciones duras</td>
+<td>Adquisición manual de conocimiento</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-search-and-planning">4. Search and Planning</h2>
+<p>Un problema de búsqueda define:</p>
+<ul>
+<li>estado inicial;</li>
+<li>acciones disponibles;</li>
+<li>función de transición;</li>
+<li>prueba de objetivo;</li>
+<li>coste de las acciones.</li>
+</ul>
+<h3 id="41-a-and-heuristic-search">4.1. A* and Heuristic Search</h3>
+<p>El algoritmo A* evalúa cada nodo con:</p>
+<div class="arithmatex">\[
+f(n) = g(n) + h(n)
+\]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\(g(n)\)</span>: coste exacto desde el origen hasta <span class="arithmatex">\(n\)</span>;</li>
+<li><span class="arithmatex">\(h(n)\)</span>: estimación desde <span class="arithmatex">\(n\)</span> hasta el objetivo;</li>
+<li><span class="arithmatex">\(f(n)\)</span>: coste total estimado del camino que pasa por <span class="arithmatex">\(n\)</span>.</li>
+</ul>
+<p>Para garantizar optimalidad en <strong>Tree Search</strong>, la <strong>Heuristic</strong> debe ser <strong>Admissible</strong>:</p>
+<div class="arithmatex">\[
+0 \leq h(n) \leq h^*(n)
+\]</div>
+<p>Es decir, nunca debe sobreestimar el coste real restante.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo de navegación</p>
+<p>La distancia en línea recta hasta el destino es una <strong>Admissible Heuristic</strong> cuando el coste real es la distancia recorrida por carretera: normalmente no puede ser mayor que la ruta disponible. Una heurística más informativa reduce nodos explorados, pero una sobreestimación puede perder la garantía de encontrar la ruta óptima.</p>
+</div>
+<h3 id="42-when-to-use-search">4.2. When to Use Search</h3>
+<ul>
+<li>planificación de rutas y tareas;</li>
+<li>juegos con estados discretos;</li>
+<li>secuenciación de operaciones;</li>
+<li>resolución de puzles;</li>
+<li>problemas en los que se necesita una secuencia explícita de acciones.</li>
+</ul>
+<p>Su limitación principal es la explosión combinatoria del <strong>State Space</strong>.</p>
+<hr />
+<h2 id="5-classical-continuous-optimization">5. Classical Continuous Optimization</h2>
+<p>Se busca minimizar o maximizar una función definida sobre variables continuas.</p>
+<h3 id="51-first-order-gradient-descent">5.1. First-Order Gradient Descent</h3>
+<div class="arithmatex">\[
+x_{k+1} = x_k - \eta \nabla f(x_k)
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\eta\)</span>: <strong>Learning Rate</strong> o <strong>Step Size</strong>;</li>
+<li><span class="arithmatex">\(\nabla f(x_k)\)</span>: <strong>Gradient</strong>, dirección de máxima subida; su negativo indica descenso.</li>
+</ul>
+<p>Es barato por iteración y escala a muchos parámetros, pero puede necesitar numerosos pasos. Un <span class="arithmatex">\(\eta\)</span> demasiado grande provoca oscilación o divergencia; uno demasiado pequeño ralentiza el proceso.</p>
+<h3 id="52-second-order-newton-raphson">5.2. Second-Order Newton-Raphson</h3>
+<div class="arithmatex">\[
+x_{k+1}
+=
+x_k - H_f(x_k)^{-1}\nabla f(x_k)
+\]</div>
+<p>La matriz Hessiana <span class="arithmatex">\(H_f\)</span> contiene segundas derivadas y representa la curvatura local. Puede converger en menos pasos cerca del óptimo, pero calcular, almacenar e invertir la Hessiana resulta muy costoso en alta dimensión.</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Información</th>
+<th>Coste por paso</th>
+<th>Comportamiento típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gradient Descent</td>
+<td>Primera derivada</td>
+<td>Bajo</td>
+<td>Muchos pasos, sensible al Learning Rate <span class="arithmatex">\(\eta\)</span></td>
+</tr>
+<tr>
+<td>Newton</td>
+<td>Primera y segunda derivada</td>
+<td>Alto</td>
+<td>Pasos más informados por la curvatura</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-discrete-optimization-and-branch-and-bound">6. Discrete Optimization and Branch and Bound</h2>
+<p>Cuando las decisiones son discretas, no siempre se puede aplicar cálculo diferencial. <strong>Branch and Bound</strong> divide el espacio de soluciones y elimina ramas que no pueden superar la mejor solución conocida.</p>
+<h3 id="61-core-elements">6.1. Core Elements</h3>
+<ul>
+<li><strong>Branch:</strong> crear subproblemas tomando decisiones parciales.</li>
+<li><strong>Bound:</strong> calcular una cota optimista del mejor valor que podría alcanzar una rama.</li>
+<li><strong>Incumbent:</strong> mejor solución factible encontrada.</li>
+<li><strong>Prune:</strong> descartar la rama si su cota no supera al incumbent.</li>
+</ul>
+<p>Para maximización:</p>
+<div class="arithmatex">\[
+UB \leq V_{incumbent}
+\quad \Longrightarrow \quad
+\text{Prune Branch}
+\]</div>
+<h3 id="62-worked-example-01-knapsack">6.2. Worked Example: 0/1 Knapsack</h3>
+<p>Con capacidad de 7 kg:</p>
+<table>
+<thead>
+<tr>
+<th>Objeto</th>
+<th style="text-align: right;">Peso</th>
+<th style="text-align: right;">Valor</th>
+<th style="text-align: right;">Valor/peso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">2 kg</td>
+<td style="text-align: right;">40 €</td>
+<td style="text-align: right;">20,0</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">3 kg</td>
+<td style="text-align: right;">50 €</td>
+<td style="text-align: right;">16,7</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">4 kg</td>
+<td style="text-align: right;">60 €</td>
+<td style="text-align: right;">15,0</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">5 kg</td>
+<td style="text-align: right;">70 €</td>
+<td style="text-align: right;">14,0</td>
+</tr>
+</tbody>
+</table>
+<p>Una relajación fraccional permite obtener una cota superior, aunque la solución final solo admita objetos completos.</p>
+<div class="admonition note">
+<p class="admonition-title">Comprobación del ejemplo</p>
+<p>La combinación de los objetos 1 y 4 pesa exactamente 7 kg y vale 110 €. También los objetos 2 y 3 pesan 7 kg y valen 110 €. Una traza de poda solo es correcta si sus cotas nunca descartan una rama capaz de alcanzar ese valor.</p>
+</div>
+<p>Branch and Bound puede garantizar el óptimo, pero en el peor caso continúa siendo exponencial. Su eficacia depende de la calidad de las cotas y del orden de exploración.</p>
+<hr />
+<h2 id="7-metaheuristics">7. Metaheuristics</h2>
+<p>Las <strong>Metaheuristics</strong> sacrifican garantías exactas para explorar espacios demasiado grandes o irregulares. Producen soluciones buenas dentro de un <strong>Time Budget</strong>.</p>
+<h3 id="71-simulated-annealing">7.1. Simulated Annealing</h3>
+<p>Se inspira en el enfriamiento de metales. Al principio acepta movimientos peores para escapar de mínimos locales; con el tiempo se vuelve más conservador.</p>
+<p>Si el nuevo estado mejora el objetivo:</p>
+<div class="arithmatex">\[
+P(aceptar)=1
+\]</div>
+<p>Si empeora en <span class="arithmatex">\(\Delta E &gt; 0\)</span>:</p>
+<div class="arithmatex">\[
+P(aceptar)=e^{-\Delta E/T}
+\]</div>
+<p>Cuando <span class="arithmatex">\(T\)</span> es alta, todavía son probables saltos grandes. Cuando <span class="arithmatex">\(T \to 0\)</span>, el algoritmo se aproxima a una búsqueda codiciosa.</p>
+<h3 id="72-genetic-algorithms-ga">7.2. Genetic Algorithms (GA)</h3>
+<pre class="mermaid"><code>flowchart LR
+    P[Population] --&gt; E[Fitness Evaluation]
+    E --&gt; S[Selection]
+    S --&gt; C[Crossover]
+    C --&gt; M[Mutation]
+    M --&gt; R[Replacement and Elitism]
+    R --&gt; P</code></pre>
+<p>Componentes:</p>
+<ul>
+<li>representación del individuo;</li>
+<li>función de fitness;</li>
+<li>selección;</li>
+<li>cruce;</li>
+<li>mutación;</li>
+<li>elitismo y criterio de parada.</li>
+</ul>
+<p>El coste no está únicamente en evaluar el fitness. Copiar poblaciones y aplicar mutaciones puede dominar el tiempo de ejecución; por eso es necesario perfilar la implementación real.</p>
+<h3 id="73-particle-swarm-optimization-pso">7.3. Particle Swarm Optimization (PSO)</h3>
+<p>Cada partícula conserva su mejor posición personal y conoce la mejor posición global:</p>
+<div class="arithmatex">\[
+v_i(t+1)
+=
+w v_i(t)
++ c_1r_1(p_{best}-x_i)
++ c_2r_2(g_{best}-x_i)
+\]</div>
+<div class="arithmatex">\[
+x_i(t+1)=x_i(t)+v_i(t+1)
+\]</div>
+<ul>
+<li><span class="arithmatex">\(w\)</span>: inercia;</li>
+<li><span class="arithmatex">\(c_1\)</span>: influencia de la experiencia individual;</li>
+<li><span class="arithmatex">\(c_2\)</span>: influencia social;</li>
+<li><span class="arithmatex">\(r_1,r_2\)</span>: factores aleatorios.</li>
+</ul>
+<h3 id="74-ant-colony-optimization-aco">7.4. Ant Colony Optimization (ACO)</h3>
+<p>Las hormigas artificiales refuerzan rutas cortas mediante feromonas:</p>
+<div class="arithmatex">\[
+\tau_{ij}(t+1)
+=
+(1-\rho)\tau_{ij}(t) + \Delta\tau_{ij}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\rho\)</span>: evaporación que evita convergencia prematura;</li>
+<li><span class="arithmatex">\(\Delta\tau_{ij}\)</span>: depósito, normalmente mayor en rutas mejores.</li>
+</ul>
+<p>ACO es especialmente natural en rutas, grafos y problemas combinatorios.</p>
+<hr />
+<h2 id="8-machine-learning-paradigms">8. Machine Learning Paradigms</h2>
+<h3 id="81-supervised-learning">8.1. Supervised Learning</h3>
+<p>Entrada: <strong>Features</strong> <span class="arithmatex">\(X\)</span> y <strong>Labels</strong> <span class="arithmatex">\(y\)</span>.</p>
+<p>Objetivo: minimizar la <strong>Prediction Error</strong> sobre <strong>Labeled Examples</strong>.</p>
+<p>Ejemplos:</p>
+<ul>
+<li>clasificación de fraude;</li>
+<li>predicción de averías;</li>
+<li>regresión de demanda;</li>
+<li>reconocimiento de imágenes.</li>
+</ul>
+<h3 id="82-unsupervised-learning">8.2. Unsupervised Learning</h3>
+<p>Entrada: <span class="arithmatex">\(X\)</span>, sin <strong>Labels</strong>.</p>
+<p>Objetivo: descubrir estructura interna, grupos, factores latentes o anomalías.</p>
+<p>Ejemplos:</p>
+<ul>
+<li>segmentación de clientes;</li>
+<li>reducción de dimensionalidad;</li>
+<li>detección exploratoria de comportamientos atípicos.</li>
+</ul>
+<h3 id="83-reinforcement-learning-rl">8.3. Reinforcement Learning (RL)</h3>
+<p>Entrada: <strong>State</strong> <span class="arithmatex">\(s\)</span>, <strong>Action</strong> <span class="arithmatex">\(a\)</span> y <strong>Reward</strong> <span class="arithmatex">\(r\)</span>.</p>
+<p>Objetivo: aprender una <strong>Policy</strong> que maximice la <strong>Cumulative Reward</strong>, teniendo en cuenta consecuencias futuras.</p>
+<p>La diferencia esencial es que las acciones del agente cambian los datos que observará posteriormente.</p>
+<hr />
+<h2 id="9-tabular-q-learning">9. Tabular Q-Learning</h2>
+<p>Q-learning aprende el valor esperado de ejecutar una acción <span class="arithmatex">\(a\)</span> en un estado <span class="arithmatex">\(s\)</span>:</p>
+<div class="arithmatex">\[
+Q(s,a)
+\leftarrow
+Q(s,a)
++
+\alpha
+\left[
+r + \gamma \max_{a'}Q(s',a') - Q(s,a)
+\right]
+\]</div>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(Q(s,a)\)</span></td>
+<td>Valor actual estimado</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\alpha\)</span></td>
+<td><strong>Learning Rate</strong>: cuánto modifica cada experiencia el valor actual</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(r\)</span></td>
+<td><strong>Immediate Reward</strong> recibida después de ejecutar la acción</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma\)</span></td>
+<td><strong>Discount Factor</strong>: importancia asignada a recompensas futuras</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s'\)</span></td>
+<td><strong>Next State</strong> alcanzado tras la transición</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\max Q(s',a')\)</span></td>
+<td><strong>Highest Q-Value</strong> disponible desde el siguiente estado</td>
+</tr>
+</tbody>
+</table>
+<p>La expresión entre corchetes es el <strong>Temporal-Difference Error (TD Error)</strong>.</p>
+<h3 id="q-value-backpropagation-example">Q-Value Backpropagation Example</h3>
+<p>Con <span class="arithmatex">\(\alpha = 0,5\)</span>, <span class="arithmatex">\(\gamma = 0,9\)</span> y <strong>Terminal Reward</strong> <span class="arithmatex">\(r=10\)</span>:</p>
+<ol>
+<li>al entrar en la meta desde A, si los valores eran cero:</li>
+</ol>
+<div class="arithmatex">\[
+Q(A, derecha) = 0 + 0,5[10 + 0,9(0)-0] = 5
+\]</div>
+<ol>
+<li>al entrar en A desde B sin <strong>Immediate Reward</strong>:</li>
+</ol>
+<div class="arithmatex">\[
+Q(B, derecha) = 0 + 0,5[0 + 0,9(5)-0] = 2,25
+\]</div>
+<p>El valor de la meta se propaga hacia estados anteriores.</p>
+<hr />
+<h2 id="10-neural-networks">10. Neural Networks</h2>
+<h3 id="101-multilayer-perceptron-mlp">10.1. Multilayer Perceptron (MLP)</h3>
+<p>Una <strong>Layer</strong> ejecuta un <strong>Forward Pass</strong> y calcula:</p>
+<div class="arithmatex">\[
+z = W^TX + b
+\]</div>
+<p>y aplica una función no lineal:</p>
+<div class="arithmatex">\[
+a = f(z)
+\]</div>
+<p>Aquí <span class="arithmatex">\(W\)</span> es la <strong>Weight Matrix</strong>, <span class="arithmatex">\(b\)</span> el <strong>Bias</strong> y <span class="arithmatex">\(f\)</span> la <strong>Activation Function</strong>. Sin no linealidad, apilar capas lineales seguiría siendo equivalente a una única transformación lineal.</p>
+<h3 id="102-activation-functions">10.2. Activation Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Activación</th>
+<th>Expresión o rango</th>
+<th>Uso y limitación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sigmoid</td>
+<td><span class="arithmatex">\(1/(1+e^{-z})\)</span>, rango [0,1]</td>
+<td>Probabilidades binarias; puede sufrir <strong>Vanishing Gradient</strong></td>
+</tr>
+<tr>
+<td>Tanh</td>
+<td>Rango [-1,1]</td>
+<td>Centrada en cero; también puede saturarse</td>
+</tr>
+<tr>
+<td>ReLU</td>
+<td><span class="arithmatex">\(\max(0,z)\)</span></td>
+<td>Simple y eficiente; estándar en capas ocultas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="103-backpropagation">10.3. Backpropagation</h3>
+<p>La <strong>Chain Rule</strong> permite calcular cómo afecta cada <strong>Weight</strong> a la <strong>Loss Function</strong>:</p>
+<div class="arithmatex">\[
+\frac{\partial L}{\partial W}
+=
+\frac{\partial L}{\partial a}
+\cdot
+\frac{\partial a}{\partial z}
+\cdot
+\frac{\partial z}{\partial W}
+\]</div>
+<p>Durante <strong>Training</strong> se almacenan <strong>Intermediate Activations</strong> para calcular <strong>Gradients</strong>. Por eso Training suele requerir bastante más memoria que <strong>Inference</strong>.</p>
+<hr />
+<h2 id="11-adam-optimizer">11. Adam Optimizer</h2>
+<p><strong>Adaptive Moment Estimation (Adam)</strong> combina una media móvil del <strong>Gradient</strong> con una media móvil de su cuadrado.</p>
+<p>Primer momento:</p>
+<div class="arithmatex">\[
+m_t = \beta_1m_{t-1} + (1-\beta_1)g_t
+\]</div>
+<p>Segundo momento:</p>
+<div class="arithmatex">\[
+v_t = \beta_2v_{t-1} + (1-\beta_2)g_t^2
+\]</div>
+<p><strong>Bias Correction</strong>:</p>
+<div class="arithmatex">\[
+\hat{m}_t = \frac{m_t}{1-\beta_1^t},
+\qquad
+\hat{v}_t = \frac{v_t}{1-\beta_2^t}
+\]</div>
+<p>Actualización:</p>
+<div class="arithmatex">\[
+\theta_t
+=
+\theta_{t-1}
+-
+\alpha\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\varepsilon}
+\]</div>
+<p>Adam mantiene dos <strong>Optimizer States</strong> adicionales por parámetro. En modelos grandes, estos estados y los <strong>Gradients</strong> elevan notablemente el consumo de <strong>Video Random-Access Memory (VRAM)</strong>.</p>
+<hr />
+<h2 id="12-deep-learning-and-foundation-models">12. Deep Learning and Foundation Models</h2>
+<h3 id="121-self-attention">12.1. Self-attention</h3>
+<div class="arithmatex">\[
+\operatorname{Attention}(Q,K,V)
+=
+\operatorname{softmax}
+\left(
+\frac{QK^T}{\sqrt{d_k}}
+\right)V
+\]</div>
+<ul>
+<li><strong>Queries <span class="arithmatex">\(Q\)</span>:</strong> qué busca cada token.</li>
+<li><strong>Keys <span class="arithmatex">\(K\)</span>:</strong> con qué contenido puede compararse.</li>
+<li><strong>Values <span class="arithmatex">\(V\)</span>:</strong> información que se combina.</li>
+<li><strong><span class="arithmatex">\(d_k\)</span>:</strong> dimensión de las claves.</li>
+</ul>
+<p>La escala <span class="arithmatex">\(1/\sqrt{d_k}\)</span> evita que los productos escalares crezcan demasiado y saturen <strong>Softmax</strong>, lo que produciría <strong>Gradients</strong> poco útiles.</p>
+<p>La matriz <span class="arithmatex">\(QK^T\)</span> compara cada token con los demás. En <strong>Dense Attention</strong>, su memoria y tiempo crecen aproximadamente de forma cuadrática con la longitud de la secuencia.</p>
+<h3 id="122-autoregressive-generation-and-softmax-temperature">12.2. Autoregressive Generation and Softmax Temperature</h3>
+<p>Un modelo generativo repite:</p>
+<pre class="mermaid"><code>flowchart LR
+    I[Input Tokens] --&gt; M[Model]
+    M --&gt; L[Logits]
+    L --&gt; S[Softmax]
+    S --&gt; T[Sample Next Token]
+    T --&gt; A[Append to Input]
+    A --&gt; M</code></pre>
+<p>La temperatura modifica la distribución:</p>
+<div class="arithmatex">\[
+p_i
+=
+\frac{\exp(z_i/T)}{\sum_j \exp(z_j/T)}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(T=1\)</span>: distribución original.</li>
+<li><span class="arithmatex">\(T&lt;1\)</span>: distribución más concentrada y predecible.</li>
+<li><span class="arithmatex">\(T&gt;1\)</span>: distribución más plana y diversa.</li>
+</ul>
+<p>Temperatura baja no garantiza corrección; solo reduce la aleatoriedad. El modelo puede repetir con gran confianza una respuesta equivocada.</p>
+<hr />
+<h2 id="13-library-ecosystem">13. Library Ecosystem</h2>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Herramientas representativas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rule-Based Systems</td>
+<td>Experta, Drools</td>
+</tr>
+<tr>
+<td>Search and Graphs</td>
+<td>NetworkX, implementaciones específicas de A*</td>
+</tr>
+<tr>
+<td>Classical Optimization</td>
+<td>SciPy Optimize, L-BFGS</td>
+</tr>
+<tr>
+<td>Evolutionary Algorithms</td>
+<td>DEAP</td>
+</tr>
+<tr>
+<td>Traditional Machine Learning</td>
+<td>scikit-learn, XGBoost</td>
+</tr>
+<tr>
+<td>Reinforcement Learning</td>
+<td>Ray RLlib, Stable-Baselines3</td>
+</tr>
+<tr>
+<td>Deep and Generative Learning</td>
+<td>PyTorch, Hugging Face Transformers</td>
+</tr>
+</tbody>
+</table>
+<p>La biblioteca debe elegirse después de identificar la estructura matemática. Que una herramienta sea popular no la convierte en adecuada para todos los problemas.</p>
+<hr />
+<h2 id="14-architectural-choice">14. Architectural Choice</h2>
+<table>
+<thead>
+<tr>
+<th>Necesidad dominante</th>
+<th>Familia adecuada</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explicación absoluta y reglas regulatorias</td>
+<td>Rule-Based System</td>
+<td>Razonamiento trazable y verificable</td>
+</tr>
+<tr>
+<td>Ruta óptima en un grafo con buena Heuristic</td>
+<td>A*</td>
+<td>Puede garantizar optimalidad</td>
+</tr>
+<tr>
+<td>Función continua y diferenciable</td>
+<td>Classical Optimization</td>
+<td>Aprovecha Gradients y curvatura</td>
+</tr>
+<tr>
+<td>Restricciones combinatorias exactas</td>
+<td>Branch and Bound</td>
+<td>Bounds y Pruning con garantía</td>
+</tr>
+<tr>
+<td>Espacio enorme, irregular y presupuesto limitado</td>
+<td>Metaheuristic</td>
+<td>Busca aproximaciones útiles</td>
+</tr>
+<tr>
+<td>Labeled Data y predicción</td>
+<td>Supervised Learning</td>
+<td>Aprende relación <span class="arithmatex">\(X \to y\)</span></td>
+</tr>
+<tr>
+<td>Estructura sin Labels</td>
+<td>Unsupervised Learning</td>
+<td>Descubre Clusters o Representations</td>
+</tr>
+<tr>
+<td>Decisiones secuenciales con Reward</td>
+<td>Reinforcement Learning</td>
+<td>Optimiza consecuencias acumuladas</td>
+</tr>
+<tr>
+<td>Visión, lenguaje o señales de alta dimensión</td>
+<td>Deep Learning</td>
+<td>Aprende representaciones jerárquicas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="choice-scenarios">Choice Scenarios</h3>
+<ol>
+<li><strong>Triaje clínico con reglas estrictas y auditoría:</strong> <strong>Rule Engine</strong> y <strong>Forward Chaining</strong>.</li>
+<li><strong>Rutas logísticas globales con límites de capacidad:</strong> <strong>Discrete Optimization</strong> o <strong>Swarm Metaheuristics</strong>.</li>
+<li><strong>Reconocimiento visual en tiempo real:</strong> <strong>Deep Neural Network</strong>, siempre que cumpla latencia, memoria y regulación.</li>
+</ol>
+<p>En sistemas reales es frecuente una <strong>Hybrid Architecture</strong>: una <strong>Neural Network</strong> estima probabilidades, un <strong>Optimizer</strong> asigna recursos y un <strong>Rule Engine</strong> impone <strong>Hard Constraints</strong>.</p>
+<hr />
+<h2 id="15-final-comparison">15. Final Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Garantía</th>
+<th>Explicabilidad</th>
+<th>Datos necesarios</th>
+<th>Escala típica</th>
+<th>Riesgo principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rule-Based Systems</td>
+<td>Alta dentro de Rules</td>
+<td>Alta</td>
+<td>Structured Facts</td>
+<td>Media</td>
+<td>Fragilidad y mantenimiento</td>
+</tr>
+<tr>
+<td>A*</td>
+<td>Óptimo con condiciones</td>
+<td>Alta</td>
+<td>Modelo de estados</td>
+<td>Limitada por combinatoria</td>
+<td>Memoria y explosión de nodos</td>
+</tr>
+<tr>
+<td>Classical Optimization</td>
+<td>Depende de convexidad</td>
+<td>Media-alta</td>
+<td>Objective Function</td>
+<td>Alta en continuo</td>
+<td>Local Minima o coste Hessiano</td>
+</tr>
+<tr>
+<td>Branch and Bound</td>
+<td>Óptimo si termina</td>
+<td>Alta</td>
+<td>Restricciones discretas</td>
+<td>Pequeña-media</td>
+<td>Peor caso exponencial</td>
+</tr>
+<tr>
+<td>Metaheuristics</td>
+<td>Sin garantía exacta</td>
+<td>Media</td>
+<td>Fitness / Objective Function</td>
+<td>Espacios grandes</td>
+<td>Sensibilidad a Hyperparameters</td>
+</tr>
+<tr>
+<td>Supervised Learning</td>
+<td>Estadística</td>
+<td>Variable</td>
+<td>Labeled Data</td>
+<td>Alta</td>
+<td>Bias, Drift y mala Generalization</td>
+</tr>
+<tr>
+<td>Reinforcement Learning</td>
+<td>Policy aproximada</td>
+<td>Baja-media</td>
+<td>Interacción o simulador</td>
+<td>Costosa</td>
+<td>Unsafe Exploration y Reward mal diseñada</td>
+</tr>
+<tr>
+<td>Deep / Generative Learning</td>
+<td>Estadística</td>
+<td>Baja</td>
+<td>Grandes volúmenes de Data</td>
+<td>Muy alta</td>
+<td>Coste, opacidad y salidas no fiables</td>
+</tr>
+</tbody>
+</table>
+<h2 id="source-material">Source Material</h2>
+<ul>
+<li><strong>B1.3 AI Families.pdf</strong>, diapositivas 1-21 del PDF, numeradas como 4-24 en el diseño de la presentación.</li>
+<li>Las restricciones de recursos y verificación deben interpretarse junto con <strong>B1.1 Engineering_AI_Software_Requirements.pdf</strong> y <strong>B1.2 Challenges in Developing AI Based Applications.pdf</strong>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1.2. Challenges in Developing AI-Based Applications">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1.2. Challenges in Developing AI-Based Applications
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../../IoT/" class="md-footer__link md-footer__link--next" aria-label="Next: Index">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Index
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["navigation.tabs","navigation.sections","navigation.indexes","navigation.path","navigation.top","navigation.footer","content.code.annotate","content.code.copy","content.code.select","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6970bfe9.min.js"></script>
+      
+        <script src="../../../../javascripts/shortcuts.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../javascripts/pwa.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

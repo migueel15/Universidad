@@ -1,0 +1,3067 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uni docs">
+      
+      
+      
+        <link rel="canonical" href="/IoT/notas-clase/clase-2026-09-16/">
+      
+      
+        <link rel="prev" href="../clase-2026-09-14/">
+      
+      
+        <link rel="next" href="../../temario/bloque-1-evolucion-de-los-sistemas-distribuidos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.58">
+    
+    
+      
+        <title>Apuntes de clase — Miércoles 16 de septiembre de 2026 - Universidad</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.5da3a30f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <meta name="theme-color" content="#212121">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Universidad">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#apuntes-de-clase-miercoles-16-de-septiembre-de-2026" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Universidad" class="md-header__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Universidad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Apuntes de clase — Miércoles 16 de septiembre de 2026
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Activar tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Activar tema oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  Universidad
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../IA/" class="md-tabs__link">
+          
+  
+  IA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  IoT
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Universidad" class="md-nav__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    Universidad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Universidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../IA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IA
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IA
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../IA/notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IA/notas-clase/clase-2026-09-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Viernes 18 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Bloque 1
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IA/temario/bloque-1/1-1-requisitos-de-software-basado-en-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.1. AI-Based Software Requirements
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IA/temario/bloque-1/1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.2. Challenges in Developing AI-Based Applications
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IA/temario/bloque-1/1-3-familias-de-inteligencia-artificial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.3. AI Families
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IoT
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IoT
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clase-2026-09-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Lunes 14 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Miércoles 16 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Miércoles 16 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-red-y-protocolos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelos de red y protocolos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-modelo-por-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El modelo por capas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. El modelo por capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdu-protocol-data-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PDU (<em>Protocol Data Unit</em>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-encapsulacion-y-cabeceras" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Encapsulación y cabeceras
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Encapsulación y cabeceras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Overhead
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-osi-y-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Modelo OSI y modelo TCP/IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo OSI y modelo TCP&#x2f;IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-ocurre-en-los-routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Qué ocurre en los routers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-service-access-point-direcciones-y-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Service Access Point: direcciones y puertos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ip-servicio-de-datagramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. IP: servicio de datagramas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. TCP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-apertura-de-conexion-three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1. Apertura de conexión: three-way handshake
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-numeros-de-secuencia-y-ack" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2. Números de secuencia y ACK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-control-de-flujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3. Control de flujo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-cierre-de-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4. Cierre de conexión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cabecera-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cabecera TCP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cabecera TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-urgentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Datos urgentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. UDP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilidad-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Responsabilidad de la aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-tcp-frente-a-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. TCP frente a UDP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. TCP frente a UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casos-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Casos habituales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Puertos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Puertos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puertos-y-servicios-conocidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Puertos y servicios conocidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-timeouts-y-errores-en-sistemas-distribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Timeouts y errores en sistemas distribuidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-estado-de-los-puertos-y-time_wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Estado de los puertos y <code>TIME_WAIT</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-ethernet-y-deteccion-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Ethernet y detección de errores
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-checksum-en-tcp-y-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        14. Checksum en TCP y UDP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-mtu-y-fragmentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        15. MTU y fragmentación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        16. NAT
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. NAT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consecuencia-de-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Consecuencia de NAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-icmp-y-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        17. ICMP y <code>ping</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-traceroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        18. <code>traceroute</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-sockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        19. Sockets
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19. Sockets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servidor-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Servidor TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cliente-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cliente TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecturas-y-escrituras-parciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lecturas y escrituras parciales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-seguridad-y-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        20. Seguridad y TLS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-relacion-con-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        21. Relación con IoT
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="21. Relación con IoT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MQTT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-ideas-clave-de-la-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        22. Ideas clave de la clase
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-conceptos-que-conviene-memorizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        23. Conceptos que conviene memorizar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../temario/bloque-1-evolucion-de-los-sistemas-distribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1 — Evolución de los sistemas distribuidos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-red-y-protocolos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modelos de red y protocolos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-modelo-por-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El modelo por capas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. El modelo por capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdu-protocol-data-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PDU (<em>Protocol Data Unit</em>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-encapsulacion-y-cabeceras" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Encapsulación y cabeceras
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Encapsulación y cabeceras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Overhead
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-osi-y-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Modelo OSI y modelo TCP/IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo OSI y modelo TCP&#x2f;IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-ocurre-en-los-routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Qué ocurre en los routers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-service-access-point-direcciones-y-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Service Access Point: direcciones y puertos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ip-servicio-de-datagramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. IP: servicio de datagramas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. TCP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-apertura-de-conexion-three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1. Apertura de conexión: three-way handshake
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-numeros-de-secuencia-y-ack" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2. Números de secuencia y ACK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-control-de-flujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3. Control de flujo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-cierre-de-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4. Cierre de conexión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cabecera-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cabecera TCP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cabecera TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-urgentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Datos urgentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. UDP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilidad-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Responsabilidad de la aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-tcp-frente-a-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. TCP frente a UDP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. TCP frente a UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casos-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Casos habituales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Puertos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Puertos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puertos-y-servicios-conocidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Puertos y servicios conocidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-timeouts-y-errores-en-sistemas-distribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Timeouts y errores en sistemas distribuidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-estado-de-los-puertos-y-time_wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Estado de los puertos y <code>TIME_WAIT</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-ethernet-y-deteccion-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Ethernet y detección de errores
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-checksum-en-tcp-y-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        14. Checksum en TCP y UDP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-mtu-y-fragmentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        15. MTU y fragmentación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        16. NAT
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. NAT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consecuencia-de-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Consecuencia de NAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-icmp-y-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        17. ICMP y <code>ping</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-traceroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        18. <code>traceroute</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-sockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        19. Sockets
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19. Sockets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servidor-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Servidor TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cliente-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cliente TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecturas-y-escrituras-parciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lecturas y escrituras parciales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-seguridad-y-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        20. Seguridad y TLS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-relacion-con-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        21. Relación con IoT
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="21. Relación con IoT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MQTT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-ideas-clave-de-la-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        22. Ideas clave de la clase
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-conceptos-que-conviene-memorizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        23. Conceptos que conviene memorizar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Universidad
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Notas clase
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="apuntes-de-clase-miercoles-16-de-septiembre-de-2026">Apuntes de clase — Miércoles 16 de septiembre de 2026</h1>
+<h2 id="modelos-de-red-y-protocolos">Modelos de red y protocolos</h2>
+<p>Esta clase profundiza en cómo se organizan las comunicaciones de red, especialmente en el modelo por capas y en la pila TCP/IP. El objetivo principal es entender qué responsabilidad tiene cada capa, cómo se encapsulan los datos y qué diferencias existen entre protocolos como IP, TCP y UDP.</p>
+<div class="admonition note">
+<p class="admonition-title">Idea principal</p>
+<p>Una red funciona porque todos los participantes comparten <strong>convenciones y protocolos</strong>. Direcciones, puertos, formatos de cabecera y reglas de comunicación permiten que sistemas distintos se entiendan entre sí.</p>
+</div>
+<hr />
+<h2 id="1-el-modelo-por-capas">1. El modelo por capas</h2>
+<p>Las comunicaciones se estructuran en <strong>capas</strong>. Cada capa ofrece un servicio a la capa superior y utiliza los servicios de la capa inferior.</p>
+<p>Cuando una aplicación envía información, los datos bajan por la pila de protocolos. Cada capa añade información de control antes de entregar el resultado a la siguiente capa. En el receptor sucede el proceso inverso.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Aplicación&lt;br/&gt;Datos"] --&gt; B["Transporte&lt;br/&gt;TCP / UDP"]
+    B --&gt; C["Red&lt;br/&gt;IP"]
+    C --&gt; D["Enlace&lt;br/&gt;Ethernet"]
+    D --&gt; E["Física&lt;br/&gt;Bits / señal"]
+
+    E --&gt; F["Medio de transmisión"]
+
+    F --&gt; G["Física"]
+    G --&gt; H["Enlace"]
+    H --&gt; I["Red"]
+    I --&gt; J["Transporte"]
+    J --&gt; K["Aplicación"]</code></pre>
+<p>Este proceso se denomina <strong>encapsulación</strong>.</p>
+<h3 id="pdu-protocol-data-unit">PDU (<em>Protocol Data Unit</em>)</h3>
+<p>La unidad de información utilizada por una capa se denomina <strong>PDU</strong>.</p>
+<p>Cada protocolo utiliza un nombre concreto para su PDU:</p>
+<table>
+<thead>
+<tr>
+<th>Protocolo / capa</th>
+<th>PDU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethernet</td>
+<td>Trama (<em>frame</em>)</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>Datagrama IP</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Segmento</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>Datagrama UDP</td>
+</tr>
+</tbody>
+</table>
+<p>La terminología importa porque cada una de estas estructuras tiene un formato y unas propiedades concretas.</p>
+<hr />
+<h2 id="2-encapsulacion-y-cabeceras">2. Encapsulación y cabeceras</h2>
+<p>Cada protocolo añade una <strong>cabecera</strong> con la información necesaria para realizar su trabajo.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li>IP añade las direcciones IP de origen y destino.</li>
+<li>TCP añade puertos, números de secuencia, confirmaciones y otros campos de control.</li>
+<li>UDP añade puertos, longitud y checksum.</li>
+<li>Ethernet añade la información necesaria para transportar la trama por el enlace.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A["Datos de aplicación"] --&gt; B["Cabecera TCP + datos"]
+    B --&gt; C["Cabecera IP + segmento TCP"]
+    C --&gt; D["Cabecera Ethernet + datagrama IP + FCS"]</code></pre>
+<h3 id="overhead">Overhead</h3>
+<p>Las cabeceras consumen ancho de banda y generan <strong>overhead</strong>.</p>
+<p>Si una aplicación envía mensajes extremadamente pequeños, la proporción de bytes utilizados para control puede ser muy alta respecto a los datos útiles.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo</p>
+<p>Enviar 4 bytes de información dentro de una estructura que añade decenas de bytes de cabeceras resulta mucho menos eficiente que agrupar una cantidad mayor de información en cada envío.</p>
+</div>
+<p>Por eso, cuando se transmiten cantidades grandes de datos, el tamaño de los mensajes tiene impacto en el rendimiento global.</p>
+<hr />
+<h2 id="3-modelo-osi-y-modelo-tcpip">3. Modelo OSI y modelo TCP/IP</h2>
+<p>El modelo <strong>OSI</strong> define siete capas:</p>
+<ol>
+<li>Física.</li>
+<li>Enlace.</li>
+<li>Red.</li>
+<li>Transporte.</li>
+<li>Sesión.</li>
+<li>Presentación.</li>
+<li>Aplicación.</li>
+</ol>
+<p>TCP/IP utiliza una organización más compacta y agrupa varias de las funciones de OSI.</p>
+<table>
+<thead>
+<tr>
+<th>OSI</th>
+<th>Función principal</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7. Aplicación</td>
+<td>Servicios utilizados por las aplicaciones</td>
+<td>HTTP, DNS, SMTP, MQTT</td>
+</tr>
+<tr>
+<td>6. Presentación</td>
+<td>Representación y transformación de datos</td>
+<td>Codificación, serialización, formatos</td>
+</tr>
+<tr>
+<td>5. Sesión</td>
+<td>Gestión de sesiones</td>
+<td>Apertura, negociación y control de sesión</td>
+</tr>
+<tr>
+<td>4. Transporte</td>
+<td>Comunicación entre procesos</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td>3. Red</td>
+<td>Comunicación entre redes</td>
+<td>IP</td>
+</tr>
+<tr>
+<td>2. Enlace</td>
+<td>Comunicación dentro de un enlace</td>
+<td>Ethernet, Wi-Fi</td>
+</tr>
+<tr>
+<td>1. Física</td>
+<td>Transmisión física de bits</td>
+<td>Cable, fibra, radio</td>
+</tr>
+</tbody>
+</table>
+<h3 id="que-ocurre-en-los-routers">Qué ocurre en los routers</h3>
+<p>Un router trabaja principalmente en la <strong>capa 3</strong>.</p>
+<p>El datagrama IP puede atravesar varios routers antes de llegar al destino. En cada salto se elimina la trama de enlace recibida, se procesa IP y después se crea una nueva trama para el siguiente enlace.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Host origen"] --&gt; R1["Router 1&lt;br/&gt;hasta capa 3"]
+    R1 --&gt; R2["Router 2&lt;br/&gt;hasta capa 3"]
+    R2 --&gt; B["Host destino"]</code></pre>
+<p>Las capas de transporte y aplicación normalmente solo se procesan en los extremos de la comunicación.</p>
+<hr />
+<h2 id="4-service-access-point-direcciones-y-puertos">4. Service Access Point: direcciones y puertos</h2>
+<p>Cada capa necesita alguna forma de identificar el punto al que debe entregar la información.</p>
+<p>En este contexto aparece el concepto de <strong>SAP (<em>Service Access Point</em>)</strong>.</p>
+<p>En Internet:</p>
+<ul>
+<li>La capa IP utiliza <strong>direcciones IP</strong>.</li>
+<li>TCP y UDP utilizan <strong>puertos</strong>.</li>
+</ul>
+<p>Para identificar de forma práctica una comunicación se utiliza la llamada <strong>5-tupla</strong>:</p>
+<ul>
+<li>protocolo de transporte;</li>
+<li>IP origen;</li>
+<li>puerto origen;</li>
+<li>IP destino;</li>
+<li>puerto destino.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A["192.168.1.20:52341"] --&gt;|"TCP"| B["203.0.113.10:443"]</code></pre>
+<p>Esta combinación permite al sistema operativo distinguir muchas conexiones simultáneas.</p>
+<hr />
+<h2 id="5-ip-servicio-de-datagramas">5. IP: servicio de datagramas</h2>
+<p>IP proporciona un servicio basado en <strong>datagramas</strong>.</p>
+<p>Un datagrama es una unidad independiente que se intenta transportar desde el origen hasta el destino.</p>
+<p>IP ofrece un servicio <strong>best effort</strong>:</p>
+<ul>
+<li>intenta entregar el datagrama;</li>
+<li>no garantiza que llegue;</li>
+<li>no garantiza que llegue una sola vez;</li>
+<li>no garantiza el orden;</li>
+<li>no establece una conexión antes de enviar datos.</li>
+</ul>
+<p>Por tanto, IP por sí solo no proporciona una comunicación fiable.</p>
+<hr />
+<h2 id="6-tcp">6. TCP</h2>
+<p><strong>TCP (<em>Transmission Control Protocol</em>)</strong> proporciona un servicio <strong>orientado a conexión y fiable</strong> sobre IP.</p>
+<p>Esto es especialmente importante porque TCP construye una comunicación fiable encima de una red IP que, por sí misma, no ofrece esas garantías.</p>
+<p>TCP proporciona:</p>
+<ul>
+<li>establecimiento de conexión;</li>
+<li>entrega ordenada;</li>
+<li>retransmisión de datos perdidos;</li>
+<li>números de secuencia;</li>
+<li>ACK (<em>acknowledgements</em>);</li>
+<li>control de flujo;</li>
+<li>mecanismos de control de congestión;</li>
+<li>detección de errores mediante checksum;</li>
+<li>comunicación bidireccional (<em>full duplex</em>).</li>
+</ul>
+<h3 id="61-apertura-de-conexion-three-way-handshake">6.1. Apertura de conexión: three-way handshake</h3>
+<p>TCP establece la conexión mediante tres segmentos:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Cliente
+    participant S as Servidor
+
+    C-&gt;&gt;S: SYN
+    S-&gt;&gt;C: SYN + ACK
+    C-&gt;&gt;S: ACK
+    Note over C,S: Conexión establecida</code></pre>
+<p>Durante este proceso también se sincronizan los <strong>números iniciales de secuencia</strong> de ambos extremos.</p>
+<h3 id="62-numeros-de-secuencia-y-ack">6.2. Números de secuencia y ACK</h3>
+<p>TCP numera los bytes enviados.</p>
+<p>El receptor utiliza los ACK para indicar cuál es el siguiente byte que espera recibir.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo conceptual</p>
+<p>Si el receptor confirma <code>ACK = 900</code>, está indicando que ha recibido correctamente todo lo anterior y espera que la transmisión continúe desde el byte 900.</p>
+</div>
+<p>Si se detecta una pérdida, TCP puede retransmitir la información necesaria sin que la aplicación tenga que gestionar el problema directamente.</p>
+<h3 id="63-control-de-flujo">6.3. Control de flujo</h3>
+<p>El receptor dispone de buffers limitados.</p>
+<p>TCP utiliza una <strong>ventana de recepción</strong> para indicar al emisor cuánto puede seguir enviando. Si el receptor no puede aceptar más datos, puede anunciar una ventana de tamaño cero y el emisor debe detener temporalmente la transmisión.</p>
+<h3 id="64-cierre-de-conexion">6.4. Cierre de conexión</h3>
+<p>El cierre utiliza principalmente las banderas <code>FIN</code> y <code>ACK</code>.</p>
+<p>Como TCP es full duplex, cada dirección puede cerrarse independientemente.</p>
+<p>Un cierre típico puede requerir cuatro segmentos:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant A as Host A
+    participant B as Host B
+
+    A-&gt;&gt;B: FIN
+    B-&gt;&gt;A: ACK
+    B-&gt;&gt;A: FIN
+    A-&gt;&gt;B: ACK</code></pre>
+<p>Si algunas respuestas pueden combinarse, el cierre puede completarse con menos segmentos.</p>
+<hr />
+<h2 id="7-cabecera-tcp">7. Cabecera TCP</h2>
+<p>La cabecera TCP es relativamente compleja porque debe implementar todas las garantías anteriores.</p>
+<p>Entre sus campos principales aparecen:</p>
+<ul>
+<li>puerto origen;</li>
+<li>puerto destino;</li>
+<li>número de secuencia;</li>
+<li>número de ACK;</li>
+<li>tamaño de cabecera;</li>
+<li>flags como <code>SYN</code>, <code>ACK</code>, <code>FIN</code>, <code>RST</code>, <code>URG</code>;</li>
+<li>tamaño de ventana;</li>
+<li>checksum;</li>
+<li>puntero urgente;</li>
+<li>opciones.</li>
+</ul>
+<h3 id="datos-urgentes">Datos urgentes</h3>
+<p>TCP contempla mecanismos para indicar información urgente o fuera del flujo normal mediante el bit <code>URG</code> y el <strong>urgent pointer</strong>.</p>
+<p>La idea es poder señalar determinados datos de control sin esperar necesariamente a procesar todo el flujo anterior.</p>
+<hr />
+<h2 id="8-udp">8. UDP</h2>
+<p><strong>UDP (<em>User Datagram Protocol</em>)</strong> ofrece un servicio mucho más sencillo que TCP.</p>
+<p>No establece una conexión previa y no garantiza:</p>
+<ul>
+<li>entrega;</li>
+<li>orden;</li>
+<li>ausencia de duplicados;</li>
+<li>retransmisión automática.</li>
+</ul>
+<p>Su cabecera contiene fundamentalmente:</p>
+<ul>
+<li>puerto origen;</li>
+<li>puerto destino;</li>
+<li>longitud;</li>
+<li>checksum.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A["Aplicación"] --&gt; B["Datagrama UDP"]
+    B --&gt; C["IP"]
+    C --&gt; D["Red"]
+
+    D -. "Puede perderse" .-&gt; E["Destino"]</code></pre>
+<h3 id="responsabilidad-de-la-aplicacion">Responsabilidad de la aplicación</h3>
+<p>Al utilizar UDP, cualquier mecanismo adicional de fiabilidad debe implementarlo la propia aplicación si lo necesita.</p>
+<div class="admonition example">
+<p class="admonition-title">Sensor IoT</p>
+<p>Un sensor que envía la temperatura una vez por segundo puede utilizar UDP. Si se pierde una lectura de <code>25 °C</code>, probablemente un segundo después llegará otra lectura actualizada y la retransmisión de la anterior ya no aporta demasiado valor.</p>
+</div>
+<p>En cambio, para datos críticos donde perder una medida puede tener consecuencias importantes, la aplicación necesita garantías adicionales.</p>
+<hr />
+<h2 id="9-tcp-frente-a-udp">9. TCP frente a UDP</h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orientado a conexión</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Garantiza entrega</td>
+<td>Sí, mientras la conexión sea viable</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Mantiene el orden</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Retransmisiones</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Control de flujo</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Control de congestión</td>
+<td>Sí</td>
+<td>No incorporado como TCP</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>Mayor</td>
+<td>Menor</td>
+</tr>
+<tr>
+<td>Unidad</td>
+<td>Segmento</td>
+<td>Datagrama</td>
+</tr>
+<tr>
+<td>Uso típico</td>
+<td>Ficheros, web, SSH</td>
+<td>DNS, telemetría, tiempo real</td>
+</tr>
+</tbody>
+</table>
+<p>La elección no depende de cuál sea "mejor", sino de las necesidades de la aplicación.</p>
+<h3 id="casos-habituales">Casos habituales</h3>
+<p>TCP resulta apropiado cuando todos los datos deben llegar correctamente, como:</p>
+<ul>
+<li>transferencia de ficheros;</li>
+<li>SSH;</li>
+<li>páginas web tradicionales;</li>
+<li>correo electrónico.</li>
+</ul>
+<p>UDP puede ser útil cuando prima la baja latencia o un dato antiguo deja de tener valor, como:</p>
+<ul>
+<li>determinadas consultas DNS;</li>
+<li>telemetría;</li>
+<li>sensores IoT;</li>
+<li>determinados protocolos multimedia y de tiempo real.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Audio y vídeo no implican siempre UDP</p>
+<p>Aplicaciones como servicios de vídeo bajo demanda pueden utilizar buffers grandes y protocolos fiables. La elección del transporte depende del comportamiento que se quiera conseguir.</p>
+</div>
+<hr />
+<h2 id="10-puertos">10. Puertos</h2>
+<p>Los puertos identifican servicios o procesos dentro de una máquina.</p>
+<p>Los servicios conocidos utilizan convencionalmente números de puerto concretos.</p>
+<table>
+<thead>
+<tr>
+<th>Servicio</th>
+<th>Transporte habitual</th>
+<th style="text-align: right;">Puerto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH</td>
+<td>TCP</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>TCP</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>UDP / TCP</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>TCP</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>TCP</td>
+<td style="text-align: right;">443</td>
+</tr>
+<tr>
+<td>MQTT</td>
+<td>TCP</td>
+<td style="text-align: right;">1883</td>
+</tr>
+</tbody>
+</table>
+<p>Los clientes suelen utilizar <strong>puertos efímeros</strong>, asignados temporalmente por el sistema operativo.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El mismo número de puerto puede existir tanto en TCP como en UDP porque ambos protocolos mantienen espacios de puertos independientes.</p>
+</div>
+<h3 id="puertos-y-servicios-conocidos">Puertos y servicios conocidos</h3>
+<p>Los números estándar permiten que un cliente sepa dónde encontrar determinados servicios sin tener que preguntar previamente por su ubicación.</p>
+<p>En sistemas Unix y Linux existe, por ejemplo, el fichero <code>/etc/services</code>, que mantiene asociaciones entre nombres de servicios, números de puerto y protocolos.</p>
+<hr />
+<h2 id="11-timeouts-y-errores-en-sistemas-distribuidos">11. Timeouts y errores en sistemas distribuidos</h2>
+<p>En una interacción cliente-servidor pueden fallar diferentes etapas:</p>
+<ol>
+<li>La petición no llega al servidor.</li>
+<li>El servidor falla o tarda durante el procesamiento.</li>
+<li>La respuesta no llega al cliente.</li>
+</ol>
+<p>Desde la perspectiva del cliente, los tres casos pueden parecer exactamente iguales: <strong>no se recibe respuesta</strong>.</p>
+<p>Por ello los sistemas distribuidos utilizan <strong>timeouts</strong>.</p>
+<pre class="mermaid"><code>flowchart LR
+    C["Cliente"] --&gt;|"Petición"| S["Servidor"]
+    S --&gt;|"Procesamiento"| S
+    S --&gt;|"Respuesta"| C
+
+    P1["Puede fallar"] -.-&gt; C
+    P2["Puede fallar"] -.-&gt; S
+    P3["Puede fallar"] -.-&gt; C</code></pre>
+<p>Los timeouts suelen combinarse con políticas de reintento.</p>
+<p>Esto hace que los programas distribuidos tengan más estados de error que un programa puramente secuencial o local.</p>
+<hr />
+<h2 id="12-estado-de-los-puertos-y-time_wait">12. Estado de los puertos y <code>TIME_WAIT</code></h2>
+<p>Cuando una conexión TCP termina, el sistema operativo no siempre elimina inmediatamente todo su estado interno.</p>
+<p>Una conexión puede permanecer temporalmente en estados como <strong><code>TIME_WAIT</code></strong> para evitar que segmentos antiguos de una conexión anterior interfieran con una nueva conexión que utilice los mismos identificadores.</p>
+<p>Por eso, al desarrollar servidores, es posible cerrar un programa e intentar volver a lanzarlo inmediatamente y recibir un error indicando que la dirección o el puerto todavía está en uso.</p>
+<hr />
+<h2 id="13-ethernet-y-deteccion-de-errores">13. Ethernet y detección de errores</h2>
+<p>Ethernet trabaja con <strong>tramas</strong>.</p>
+<p>Además de cabeceras, una trama Ethernet incluye un mecanismo de comprobación mediante <strong>FCS (<em>Frame Check Sequence</em>)</strong>, calculado normalmente a partir de un CRC.</p>
+<p>El emisor calcula el valor antes de enviar la trama y el receptor lo vuelve a calcular al recibirla.</p>
+<p>Si ambos valores no coinciden, se detecta que la trama ha sufrido corrupción.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Detectar un error no implica necesariamente que esa misma capa sea responsable de retransmitir la información. La política de recuperación depende del protocolo y de la tecnología utilizada.</p>
+</div>
+<hr />
+<h2 id="14-checksum-en-tcp-y-udp">14. Checksum en TCP y UDP</h2>
+<p>TCP y UDP incorporan su propio <strong>checksum</strong>.</p>
+<p>En ambos casos se utiliza para detectar corrupción en la información transportada.</p>
+<p>El cálculo incluye información de la cabecera, los datos y una <strong>pseudo-cabecera IP</strong> con información como las direcciones IP.</p>
+<p>Este último detalle muestra que los modelos por capas son una abstracción útil, pero en implementaciones reales existen dependencias entre capas cuando son necesarias para garantizar determinadas propiedades.</p>
+<hr />
+<h2 id="15-mtu-y-fragmentacion">15. MTU y fragmentación</h2>
+<p>Cada tecnología de red impone límites sobre el tamaño máximo de los datos que puede transportar una trama.</p>
+<p>En Ethernet es habitual una <strong>MTU de 1500 bytes</strong>.</p>
+<p>Cuando una cantidad de información supera los límites de la red es necesario dividirla.</p>
+<p>TCP segmenta el flujo de datos antes de enviarlo. IPv4 también puede fragmentar datagramas, aunque en redes modernas normalmente se intenta evitar la fragmentación IP mediante mecanismos como el descubrimiento de MTU del camino.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Enviar bloques razonablemente grandes suele ser más eficiente que realizar enormes cantidades de transmisiones diminutas, porque cada unidad transportada tiene su propio overhead.</p>
+</div>
+<hr />
+<h2 id="16-nat">16. NAT</h2>
+<p><strong>NAT (<em>Network Address Translation</em>)</strong> permite que varias máquinas de una red privada compartan una misma dirección IPv4 pública.</p>
+<p>El router mantiene asociaciones entre conexiones internas y externas.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["192.168.1.10:51000"] --&gt; N["Router NAT&lt;br/&gt;203.0.113.5:40001"]
+    B["192.168.1.20:52000"] --&gt; N
+    N --&gt; I["Internet"]</code></pre>
+<p>De forma simplificada, el router mantiene una tabla similar a:</p>
+<table>
+<thead>
+<tr>
+<th>IP privada</th>
+<th style="text-align: right;">Puerto privado</th>
+<th>IP pública</th>
+<th style="text-align: right;">Puerto externo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.1.10</td>
+<td style="text-align: right;">51000</td>
+<td>203.0.113.5</td>
+<td style="text-align: right;">40001</td>
+</tr>
+<tr>
+<td>192.168.1.20</td>
+<td style="text-align: right;">52000</td>
+<td>203.0.113.5</td>
+<td style="text-align: right;">40002</td>
+</tr>
+</tbody>
+</table>
+<p>El puerto externo permite distinguir las conexiones de los diferentes dispositivos internos.</p>
+<h3 id="consecuencia-de-nat">Consecuencia de NAT</h3>
+<p>Normalmente es sencillo iniciar una comunicación <strong>desde dentro hacia fuera</strong>, porque el router puede crear la asociación correspondiente.</p>
+<p>En cambio, recibir conexiones iniciadas espontáneamente desde Internet requiere que el router sepa previamente a qué dispositivo interno debe enviarlas, por ejemplo mediante reglas explícitas de redirección de puertos o mecanismos equivalentes.</p>
+<hr />
+<h2 id="17-icmp-y-ping">17. ICMP y <code>ping</code></h2>
+<p><strong>ICMP (<em>Internet Control Message Protocol</em>)</strong> se utiliza para transmitir mensajes de control y errores relacionados con IP.</p>
+<p>La herramienta <code>ping</code> suele utilizar:</p>
+<ul>
+<li><code>ICMP Echo Request</code>;</li>
+<li><code>ICMP Echo Reply</code>.</li>
+</ul>
+<p>Esto permite comprobar si un host responde y medir aproximadamente el <strong>RTT (<em>Round Trip Time</em>)</strong>.</p>
+<p>Que un host no responda a <code>ping</code> no demuestra necesariamente que esté desconectado, porque los mensajes ICMP pueden estar filtrados.</p>
+<hr />
+<h2 id="18-traceroute">18. <code>traceroute</code></h2>
+<p><code>traceroute</code> permite descubrir los routers atravesados hasta alcanzar un destino aprovechando el campo <strong>TTL (<em>Time To Live</em>)</strong> de IP.</p>
+<p>El proceso básico consiste en enviar paquetes con valores crecientes de TTL:</p>
+<div class="highlight"><pre><span></span><code>TTL = 1
+TTL = 2
+TTL = 3
+...
+</code></pre></div>
+<p>Cada router reduce el TTL en uno. Cuando alcanza cero, el paquete se descarta y normalmente se devuelve un mensaje ICMP indicando que el tiempo de vida ha expirado.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Origen"] --&gt; R1["Router 1"] --&gt; R2["Router 2"] --&gt; R3["Router 3"] --&gt; D["Destino"]</code></pre>
+<p>Repitiendo el envío con TTL crecientes se pueden descubrir progresivamente los saltos de la ruta.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Existen implementaciones de <code>traceroute</code> que utilizan UDP, ICMP o incluso TCP dependiendo del sistema y de las opciones utilizadas.</p>
+</div>
+<hr />
+<h2 id="19-sockets">19. Sockets</h2>
+<p>Desde el punto de vista del programador, la comunicación de red se maneja habitualmente mediante <strong>sockets</strong>.</p>
+<h3 id="servidor-tcp">Servidor TCP</h3>
+<p>El flujo básico de un servidor es:</p>
+<pre class="mermaid"><code>flowchart LR
+    A["socket"] --&gt; B["bind"] --&gt; C["listen"] --&gt; D["accept"] --&gt; E["read / write"] --&gt; F["close"]</code></pre>
+<ul>
+<li><code>socket</code>: crea el punto de comunicación.</li>
+<li><code>bind</code>: asocia el socket a una dirección y un puerto local.</li>
+<li><code>listen</code>: pone el socket en modo escucha.</li>
+<li><code>accept</code>: acepta una conexión entrante.</li>
+<li><code>read/write</code> o equivalentes: intercambian información.</li>
+<li><code>close</code>: cierra el socket.</li>
+</ul>
+<h3 id="cliente-tcp">Cliente TCP</h3>
+<pre class="mermaid"><code>flowchart LR
+    A["socket"] --&gt; B["connect"] --&gt; C["read / write"] --&gt; D["close"]</code></pre>
+<h3 id="lecturas-y-escrituras-parciales">Lecturas y escrituras parciales</h3>
+<p>Una llamada a <code>read()</code> o <code>write()</code> <strong>no garantiza procesar todos los bytes solicitados</strong>.</p>
+<p>La aplicación debe comprobar el valor devuelto y repetir las operaciones cuando sea necesario.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Asumir que un único <code>read</code> recibe todo un mensaje o que un único <code>write</code> envía todos sus bytes es un error frecuente en programación de red.</p>
+</div>
+<hr />
+<h2 id="20-seguridad-y-tls">20. Seguridad y TLS</h2>
+<p>La seguridad es un aspecto fundamental de cualquier sistema distribuido.</p>
+<p><strong>TLS (<em>Transport Layer Security</em>)</strong> proporciona mecanismos como:</p>
+<ul>
+<li>confidencialidad;</li>
+<li>integridad;</li>
+<li>autenticación.</li>
+</ul>
+<p>HTTPS combina HTTP con TLS.</p>
+<p>En criptografía aparecen dos grandes familias:</p>
+<ul>
+<li><strong>criptografía simétrica</strong>, como AES;</li>
+<li><strong>criptografía asimétrica</strong>, como RSA.</li>
+</ul>
+<p>En los sistemas reales suelen combinarse ambas técnicas: la criptografía asimétrica facilita procesos como autenticación e intercambio de secretos, mientras que la criptografía simétrica permite cifrar grandes cantidades de información de forma eficiente.</p>
+<p>La evolución de la computación cuántica también motiva el desarrollo y la adopción de <strong>criptografía poscuántica</strong>.</p>
+<hr />
+<h2 id="21-relacion-con-iot">21. Relación con IoT</h2>
+<p>Muchos de los conceptos anteriores tienen impacto directo en IoT.</p>
+<p>Los dispositivos IoT suelen estar condicionados por:</p>
+<ul>
+<li>poca memoria;</li>
+<li>CPU limitada;</li>
+<li>consumo energético;</li>
+<li>conexiones inestables;</li>
+<li>poco ancho de banda;</li>
+<li>necesidad de baja latencia.</li>
+</ul>
+<p>Por ello, elegir entre TCP y UDP o decidir con qué frecuencia se transmiten datos puede afectar directamente al consumo y al funcionamiento del dispositivo.</p>
+<h3 id="mqtt">MQTT</h3>
+<p><strong>MQTT</strong> es un protocolo muy utilizado en IoT y tradicionalmente utiliza TCP, normalmente en el puerto <code>1883</code> cuando no hay TLS.</p>
+<p>Permite desacoplar productores y consumidores mediante un modelo <strong>publish/subscribe</strong> y un broker intermedio.</p>
+<pre class="mermaid"><code>flowchart LR
+    S1["Sensor"] --&gt;|"publish"| B["Broker MQTT"]
+    S2["Sensor"] --&gt;|"publish"| B
+    B --&gt;|"subscribe"| A["Aplicación"]
+    B --&gt;|"subscribe"| D["Dashboard"]</code></pre>
+<hr />
+<h2 id="22-ideas-clave-de-la-clase">22. Ideas clave de la clase</h2>
+<ol>
+<li>Internet funciona gracias a protocolos y convenciones compartidas.</li>
+<li>Las redes se organizan mediante capas que encapsulan información.</li>
+<li>Cada capa tiene su propia PDU.</li>
+<li>IP trabaja con datagramas y ofrece un servicio <em>best effort</em>.</li>
+<li>TCP construye una comunicación fiable y orientada a conexión sobre IP.</li>
+<li>UDP ofrece un mecanismo simple y sin conexión, delegando más responsabilidad en la aplicación.</li>
+<li>IP identifica máquinas o interfaces; los puertos identifican servicios o procesos.</li>
+<li>La 5-tupla permite distinguir comunicaciones individuales.</li>
+<li>Las cabeceras producen overhead y afectan al rendimiento.</li>
+<li>Los sistemas distribuidos necesitan timeouts porque la ausencia de respuesta puede tener múltiples causas.</li>
+<li>NAT permite compartir una IPv4 pública entre múltiples dispositivos privados.</li>
+<li>ICMP, <code>ping</code> y <code>traceroute</code> permiten diagnosticar el comportamiento de la red.</li>
+<li>Los sockets son la interfaz habitual que utilizan los programas para comunicarse mediante TCP o UDP.</li>
+<li>La seguridad debe formar parte del diseño desde el principio.</li>
+</ol>
+<hr />
+<h2 id="23-conceptos-que-conviene-memorizar">23. Conceptos que conviene memorizar</h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDU</td>
+<td>Unidad de datos manejada por una capa</td>
+</tr>
+<tr>
+<td>Trama</td>
+<td>PDU de Ethernet</td>
+</tr>
+<tr>
+<td>Datagrama IP</td>
+<td>PDU de IP</td>
+</tr>
+<tr>
+<td>Segmento</td>
+<td>PDU de TCP</td>
+</tr>
+<tr>
+<td>Datagrama UDP</td>
+<td>PDU de UDP</td>
+</tr>
+<tr>
+<td>SAP</td>
+<td>Punto de acceso a un servicio de una capa</td>
+</tr>
+<tr>
+<td>Puerto</td>
+<td>Identificador de un servicio/proceso en TCP o UDP</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Transporte fiable y orientado a conexión</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>Transporte sin conexión y sin garantías de entrega</td>
+</tr>
+<tr>
+<td>SYN</td>
+<td>Inicio/sincronización de conexión TCP</td>
+</tr>
+<tr>
+<td>ACK</td>
+<td>Confirmación TCP</td>
+</tr>
+<tr>
+<td>FIN</td>
+<td>Solicitud de cierre TCP</td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>Comprobación para detectar corrupción</td>
+</tr>
+<tr>
+<td>MTU</td>
+<td>Tamaño máximo permitido por un enlace</td>
+</tr>
+<tr>
+<td>NAT</td>
+<td>Traducción entre direcciones/conexiones privadas y públicas</td>
+</tr>
+<tr>
+<td>ICMP</td>
+<td>Mensajes de control y error de IP</td>
+</tr>
+<tr>
+<td>TTL</td>
+<td>Límite de saltos de un datagrama IP</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td>Interfaz de programación para comunicaciones de red</td>
+</tr>
+<tr>
+<td>Timeout</td>
+<td>Tiempo máximo de espera antes de considerar que una operación puede haber fallado</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../clase-2026-09-14/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Apuntes de clase — Lunes 14 de septiembre de 2026">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Apuntes de clase — Lunes 14 de septiembre de 2026
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../temario/bloque-1-evolucion-de-los-sistemas-distribuidos/" class="md-footer__link md-footer__link--next" aria-label="Next: Bloque 1 — Evolución de los sistemas distribuidos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Bloque 1 — Evolución de los sistemas distribuidos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.tabs","navigation.sections","navigation.indexes","navigation.path","navigation.top","navigation.footer","content.code.annotate","content.code.copy","content.code.select","search.highlight","toc.follow"],"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6970bfe9.min.js"></script>
+      
+        <script src="../../../javascripts/shortcuts.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/pwa.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

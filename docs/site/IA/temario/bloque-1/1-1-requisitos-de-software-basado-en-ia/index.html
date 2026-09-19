@@ -1,0 +1,2915 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uni docs">
+      
+      
+      
+        <link rel="canonical" href="/IA/temario/bloque-1/1-1-requisitos-de-software-basado-en-ia/">
+      
+      
+        <link rel="prev" href="../../../notas-clase/clase-2026-09-18/">
+      
+      
+        <link rel="next" href="../1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.58">
+    
+    
+      
+        <title>1.1. AI-Based Software Requirements - Universidad</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/modern/main.5da3a30f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <meta name="theme-color" content="#212121">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Universidad">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-ai-based-software-requirements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Universidad" class="md-header__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Universidad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.1. AI-Based Software Requirements
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Activar tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Activar tema oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  Universidad
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  IA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../IoT/" class="md-tabs__link">
+          
+  
+  IoT
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Universidad" class="md-nav__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    Universidad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Universidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IA
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IA
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notas-clase/clase-2026-09-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Viernes 18 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Bloque 1
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.1. AI-Based Software Requirements
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.1. AI-Based Software Requirements
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Learning Objectives
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Key terminology
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-traditional-software-vs-data-driven-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Traditional Software vs. Data-Driven Software
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Traditional Software vs. Data-Driven Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-software-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1. Software 1.0
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-software-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2. Software 2.0
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-verification-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3. Verification Gap
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-abstraction-stack-and-requirement-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Abstraction Stack and Requirement Allocation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-eight-class-requirement-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Eight-Class Requirement Taxonomy
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-case-study-predictive-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Case Study: Predictive Maintenance
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Case Study: Predictive Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1. Contexto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-stakeholders-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. Stakeholders and Responsibilities
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-false-positives-vs-false-negatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3. False Positives vs. False Negatives
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-functional-requirements-data-contracts-and-evidence-expiry" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Functional Requirements, Data Contracts and Evidence Expiry
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Functional Requirements, Data Contracts and Evidence Expiry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-complete-functional-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1. Complete Functional Requirement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-population-and-label-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2. Population and Label Contract
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-evidence-expiry" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3. Evidence Expiry
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-confusion-matrix-and-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Confusion Matrix and Evaluation Metrics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Confusion Matrix and Evaluation Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1. Confusion Matrix
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-core-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2. Core Evaluation Metrics
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-why-accuracy-fails-on-rare-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3. Why Accuracy Fails on Rare Events
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-metric-admissibility-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4. Metric Admissibility Test
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-baselines-candidates-and-economic-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Baselines, Candidates and Economic Decision
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Baselines, Candidates and Economic Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-hand-written-rule-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1. Hand-Written Rule Baseline
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-candidate-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2. Candidate Comparison
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-decision-threshold-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3. Decision Threshold Selection
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-performance-and-deployment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Performance and Deployment Requirements
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Performance and Deployment Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-inference-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1. Inference Latency
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-model-memory-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2. Model Memory Footprint
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-hard-acceptance-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3. Hard Acceptance Gates
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-verifiable-engineering-requirement-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Verifiable Engineering Requirement Template
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-technical-constraints-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Technical Constraints Checklist
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Source Material
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.2. Challenges in Developing AI-Based Applications
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-3-familias-de-inteligencia-artificial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.3. AI Families
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../IoT/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IoT
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IoT
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../IoT/notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/notas-clase/clase-2026-09-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Lunes 14 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/notas-clase/clase-2026-09-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Miércoles 16 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/temario/bloque-1-evolucion-de-los-sistemas-distribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1 — Evolución de los sistemas distribuidos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Learning Objectives
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Key terminology
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-traditional-software-vs-data-driven-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Traditional Software vs. Data-Driven Software
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Traditional Software vs. Data-Driven Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-software-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1. Software 1.0
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-software-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2. Software 2.0
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-verification-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3. Verification Gap
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-abstraction-stack-and-requirement-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Abstraction Stack and Requirement Allocation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-eight-class-requirement-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Eight-Class Requirement Taxonomy
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-case-study-predictive-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Case Study: Predictive Maintenance
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Case Study: Predictive Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1. Contexto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-stakeholders-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. Stakeholders and Responsibilities
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-false-positives-vs-false-negatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3. False Positives vs. False Negatives
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-functional-requirements-data-contracts-and-evidence-expiry" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Functional Requirements, Data Contracts and Evidence Expiry
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Functional Requirements, Data Contracts and Evidence Expiry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-complete-functional-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1. Complete Functional Requirement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-population-and-label-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2. Population and Label Contract
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-evidence-expiry" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3. Evidence Expiry
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-confusion-matrix-and-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Confusion Matrix and Evaluation Metrics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Confusion Matrix and Evaluation Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1. Confusion Matrix
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-core-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2. Core Evaluation Metrics
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-why-accuracy-fails-on-rare-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3. Why Accuracy Fails on Rare Events
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-metric-admissibility-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4. Metric Admissibility Test
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-baselines-candidates-and-economic-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Baselines, Candidates and Economic Decision
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Baselines, Candidates and Economic Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-hand-written-rule-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1. Hand-Written Rule Baseline
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-candidate-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2. Candidate Comparison
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-decision-threshold-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3. Decision Threshold Selection
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-performance-and-deployment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Performance and Deployment Requirements
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Performance and Deployment Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-inference-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1. Inference Latency
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-model-memory-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2. Model Memory Footprint
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-hard-acceptance-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3. Hard Acceptance Gates
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-verifiable-engineering-requirement-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Verifiable Engineering Requirement Template
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-technical-constraints-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Technical Constraints Checklist
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Source Material
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Universidad
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    IA
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Temario
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Bloque 1
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="11-ai-based-software-requirements">1.1. AI-Based Software Requirements</h1>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>Este apartado explica por qué los requisitos de un sistema basado en IA no pueden limitarse a frases como «el modelo debe ser preciso» o «la predicción debe ser buena». Un sistema de IA debe transformarse en un <strong>contrato verificable</strong> que especifique:</p>
+<ul>
+<li>sobre qué población y ventana temporal opera;</li>
+<li>qué entrada recibe y qué decisión observable produce;</li>
+<li>con qué <strong>Metric</strong>, <strong>Decision Threshold</strong> y <strong>Evaluation Dataset</strong> se acepta;</li>
+<li>qué costes y restricciones operativas debe respetar;</li>
+<li>cuándo caduca la <strong>Validation Evidence</strong>;</li>
+<li>qué <strong>Fallback</strong> se activa cuando el sistema deja de ser fiable;</li>
+<li>quién es responsable de aprobarlo y operarlo.</li>
+</ul>
+<p>La idea central es que <strong>el modelo es solo una parte del sistema</strong>. El producto real incluye <strong>Data</strong>, <strong>Preprocessing</strong>, <strong>Decision Policy</strong>, infraestructura, personas, <strong>Monitoring</strong> y procedimientos de contingencia.</p>
+<hr />
+<h2 id="key-terminology">Key terminology</h2>
+<table>
+<thead>
+<tr>
+<th>English term</th>
+<th>Acronym</th>
+<th>Significado en este tema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artificial Intelligence</td>
+<td><strong>AI</strong></td>
+<td>Sistemas que realizan tareas asociadas con percepción, razonamiento, aprendizaje u optimización</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td><strong>ML</strong></td>
+<td>Subcampo de AI en el que el comportamiento se ajusta a partir de datos</td>
+</tr>
+<tr>
+<td>Requirement</td>
+<td>-</td>
+<td>Condición verificable que el sistema debe cumplir</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>-</td>
+<td>Comprobación de que el sistema se construyó conforme a su especificación</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>-</td>
+<td>Comprobación de que el sistema resuelve el problema real para el que fue diseñado</td>
+</tr>
+<tr>
+<td>Dataset</td>
+<td>-</td>
+<td>Colección estructurada de ejemplos utilizada para entrenar o evaluar</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>-</td>
+<td>Variable de entrada que utiliza el modelo</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>-</td>
+<td>Resultado correcto o variable objetivo asociada a un ejemplo</td>
+</tr>
+<tr>
+<td>Training / Validation / Test Split</td>
+<td>-</td>
+<td>Separación de datos para ajustar, seleccionar y evaluar el modelo sin reutilizar la misma evidencia</td>
+</tr>
+<tr>
+<td>Fitted Model</td>
+<td>-</td>
+<td>Modelo cuyos parámetros ya han sido aprendidos a partir de datos</td>
+</tr>
+<tr>
+<td>Inference</td>
+<td>-</td>
+<td>Ejecución del modelo entrenado para producir una predicción</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>-</td>
+<td>Sistema existente o referencia mínima que un candidato debe superar</td>
+</tr>
+<tr>
+<td>Decision Threshold</td>
+<td>-</td>
+<td>Valor que convierte una puntuación continua en una decisión discreta</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>-</td>
+<td>Observación continua de entradas, salidas, rendimiento y degradación</td>
+</tr>
+<tr>
+<td>Evidence Expiry</td>
+<td>-</td>
+<td>Condición bajo la que la validación histórica deja de considerarse vigente</td>
+</tr>
+<tr>
+<td>Fallback</td>
+<td>-</td>
+<td>Comportamiento alternativo seguro cuando el flujo principal no puede utilizarse</td>
+</tr>
+<tr>
+<td>Service-Level Agreement</td>
+<td><strong>SLA</strong></td>
+<td>Compromiso medible de servicio, por ejemplo una latencia máxima</td>
+</tr>
+<tr>
+<td>Chief Operating Officer</td>
+<td><strong>COO</strong></td>
+<td>Responsable ejecutivo de operaciones y propietario de determinadas decisiones de negocio</td>
+</tr>
+<tr>
+<td>Floating-Point 32 / 16-bit</td>
+<td><strong>FP32 / FP16</strong></td>
+<td>Formatos numéricos de 32 y 16 bits utilizados para almacenar parámetros y ejecutar cálculos</td>
+</tr>
+<tr>
+<td>8-bit Integer</td>
+<td><strong>INT8</strong></td>
+<td>Formato entero de 8 bits habitual en modelos cuantizados para reducir memoria y latencia</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-traditional-software-vs-data-driven-software">1. Traditional Software vs. Data-Driven Software</h2>
+<h3 id="11-software-10">1.1. Software 1.0</h3>
+<p>En el software tradicional, una persona escribe explícitamente las reglas que transforman entradas en salidas. Cuando el programa recibe una entrada concreta, se puede seguir el flujo de control y comprobar una condición exacta.</p>
+<pre class="mermaid"><code>flowchart LR
+    R[Requirements] --&gt; C[Human-Written Code]
+    C --&gt; T[Tests with Exact Assertions]
+    T --&gt; P[Released Version]</code></pre>
+<p>La lógica permanece estable hasta que se modifica el código. Los fallos suelen manifestarse de forma visible: una excepción, un bloqueo o una salida claramente inválida.</p>
+<h3 id="12-software-20">1.2. Software 2.0</h3>
+<p>En un sistema basado en IA, parte de la lógica se obtiene ajustando parámetros a partir de datos o buscando una solución que optimice un objetivo.</p>
+<pre class="mermaid"><code>flowchart LR
+    R[Requirements] --&gt; D[Data and Objective]
+    D --&gt; E[Training or Search]
+    E --&gt; V[Statistical Evidence]
+    V --&gt; P[Deployment and Monitoring]
+    P --&gt;|Environment changes| D</code></pre>
+<p>La salida ya no depende únicamente del código fuente. También depende de:</p>
+<ul>
+<li>la instantánea de datos utilizada;</li>
+<li>los <strong>Labels</strong> y su calidad;</li>
+<li>el <strong>Training / Validation / Test Split</strong>;</li>
+<li>las transformaciones aplicadas;</li>
+<li>los <strong>Learned Weights</strong>;</li>
+<li>la semilla y el entorno de ejecución;</li>
+<li>la población real sobre la que se despliega.</li>
+</ul>
+<p>Por eso, la verificación pasa de «esta entrada siempre produce exactamente esta salida» a «sobre esta población y este periodo, el sistema alcanza una calidad mínima con un nivel de evidencia aceptable».</p>
+<h3 id="13-verification-gap">1.3. Verification Gap</h3>
+<p>El espacio de entradas reales suele ser demasiado grande para probarlo exhaustivamente. Una imagen RGB de <span class="arithmatex">\(224 \times 224\)</span> píxeles puede adoptar:</p>
+<div class="arithmatex">\[
+256^{224 \cdot 224 \cdot 3}
+\]</div>
+<p>combinaciones distintas. Un conjunto de prueba de decenas de miles de imágenes cubre una fracción despreciable de ese espacio.</p>
+<p>La <strong>Verification Gap</strong> es la parte del espacio de entradas que no queda cubierta por las pruebas. Por tanto:</p>
+<div class="arithmatex">\[
+\text{Brecha de verificación}
+=
+\text{espacio total de entradas}
+-
+\text{cobertura del conjunto de prueba}
+\]</div>
+<p>No se puede garantizar el comportamiento para todas las entradas posibles. La ingeniería sustituye esa garantía imposible por:</p>
+<ol>
+<li>evidencia estadística acotada;</li>
+<li>límites físicos y operativos;</li>
+<li><strong>Continuous Monitoring</strong>;</li>
+<li>condiciones explícitas de caducidad;</li>
+<li>mecanismos de <strong>Safe Fallback</strong>.</li>
+</ol>
+<hr />
+<h2 id="2-abstraction-stack-and-requirement-allocation">2. Abstraction Stack and Requirement Allocation</h2>
+<p>Un error frecuente consiste en atribuir al modelo propiedades que pertenecen al componente completo o al sistema sociotécnico.</p>
+<pre class="mermaid"><code>flowchart TD
+    I[Input Contract] --&gt; P[Deterministic Preprocessing]
+    P --&gt; M[Fitted Model]
+    M --&gt; R[Policy, Thresholds and Constraints]
+    R --&gt; A[Action delivered to a person or system]
+
+    MON[Monitoring] -. observes .-&gt; I
+    MON -. observes .-&gt; P
+    MON -. observes .-&gt; M
+    MON -. observes .-&gt; R
+    MON -. observes .-&gt; A</code></pre>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Responsabilidad típica</th>
+<th>Ejemplo de requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input Contract</td>
+<td>Esquema, tipos, rango, frescura</td>
+<td>«La vibración se recibe en mm/s y tiene menos de 24 horas»</td>
+</tr>
+<tr>
+<td>Preprocessing</td>
+<td>Transformaciones reproducibles</td>
+<td>«La <em>rolling mean</em> usa exactamente los últimos 30 días»</td>
+</tr>
+<tr>
+<td>Fitted Model</td>
+<td>Producción de <em>scores</em> o predicciones</td>
+<td>«Devuelve un <em>risk score</em> entre 0 y 1»</td>
+</tr>
+<tr>
+<td>Policy / Rules</td>
+<td><em>Decision threshold</em>, <em>ranking</em> y restricciones</td>
+<td>«Se seleccionan como máximo 100 máquinas»</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>Comportamiento observable</td>
+<td>«La orden de inspección se publica antes del lunes a las 08:00»</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Detección de degradación</td>
+<td>«Si PSI supera 0,20 se invalida la evidencia»</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>Autoridad, aprobación y respuesta</td>
+<td>«El COO aprueba el cambio de <em>threshold</em>»</td>
+</tr>
+</tbody>
+</table>
+<p>Decir «el modelo inspecciona máquinas» es incorrecto: el modelo produce un <strong>Risk Score</strong>; la <strong>Decision Policy</strong> selecciona máquinas; y una persona realiza la inspección.</p>
+<hr />
+<h2 id="3-eight-class-requirement-taxonomy">3. Eight-Class Requirement Taxonomy</h2>
+<p>El material propone ocho clases que deben revisarse como mínimo.</p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Pregunta principal</th>
+<th>Elementos verificables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Functional</td>
+<td>¿Qué hace el sistema?</td>
+<td>Input, output, decisión y action observables</td>
+</tr>
+<tr>
+<td>2. Data / Input</td>
+<td>¿Sobre qué información opera?</td>
+<td>Population, schema, freshness, provenance, rights y labeling</td>
+</tr>
+<tr>
+<td>3. Predictive Quality</td>
+<td>¿Cómo se mide la utilidad?</td>
+<td>Named metric, threshold y evaluation dataset</td>
+</tr>
+<tr>
+<td>4. Performance / Resource</td>
+<td>¿Cabe y responde a tiempo?</td>
+<td>Latency, throughput, memory, energy y human capacity</td>
+</tr>
+<tr>
+<td>5. Reliability / Safety</td>
+<td>¿Cómo falla?</td>
+<td>Failure behavior, limits, fallback y safe degradation</td>
+</tr>
+<tr>
+<td>6. Security / Privacy</td>
+<td>¿Quién accede y qué daños son posibles?</td>
+<td>Access control, misuse, personal data y threats</td>
+</tr>
+<tr>
+<td>7. Explainability / Governance</td>
+<td>¿Quién puede entender y aprobar?</td>
+<td>Explanations, audit, ownership y traceability</td>
+</tr>
+<tr>
+<td>8. Maintainability / Reproducibility</td>
+<td>¿Puede repetirse y actualizarse?</td>
+<td>Versions, seeds, data, weights y retraining path</td>
+</tr>
+</tbody>
+</table>
+<p>Un requisito aislado rara vez es suficiente. Por ejemplo, aumentar el <em>recall</em> puede incrementar las revisiones humanas, afectar la latencia o exigir más memoria. El contrato debe cubrir el sistema completo.</p>
+<hr />
+<h2 id="4-case-study-predictive-maintenance">4. Case Study: Predictive Maintenance</h2>
+<p>El documento complementario <strong>B1_1_the_case</strong> fija todos los datos del ejemplo utilizado en el apartado 1.1.</p>
+<h3 id="41-contexto">4.1. Contexto</h3>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th style="text-align: right;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máquinas activas</td>
+<td style="text-align: right;">5.000</td>
+</tr>
+<tr>
+<td>Fallos no planificados por semana</td>
+<td style="text-align: right;">46</td>
+</tr>
+<tr>
+<td>Failure Base Rate</td>
+<td style="text-align: right;"><span class="arithmatex">\(46/5000 = 0,0092 = 0,92\%\)</span></td>
+</tr>
+<tr>
+<td>Coste de inspeccionar una máquina sana</td>
+<td style="text-align: right;">2,10 €</td>
+</tr>
+<tr>
+<td>Coste de no detectar un fallo</td>
+<td style="text-align: right;">480 €</td>
+</tr>
+<tr>
+<td>Capacidad del equipo</td>
+<td style="text-align: right;">100 visitas por semana</td>
+</tr>
+</tbody>
+</table>
+<p>Cada máquina transmite diariamente vibración y temperatura de rodamientos. Todos los lunes se asigna a cada máquina una puntuación de riesgo, se ordenan las 5.000 puntuaciones y se visitan las <span class="arithmatex">\(k\)</span> máquinas con mayor riesgo.</p>
+<pre class="mermaid"><code>flowchart LR
+    S[Vibration and Temperature Sensors] --&gt; P[Risk Score 0..1]
+    P --&gt; O[Rank 5,000 Machines]
+    O --&gt; K[Select Top-k]
+    K --&gt; V[Inspector Visit]
+    O --&gt; N[Monitoring without Visit]
+    F[Missing Data] --&gt; B[Keep Previous Decision and Flag Incident]</code></pre>
+<h3 id="42-stakeholders-and-responsibilities">4.2. Stakeholders and Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maintenance Engineer</td>
+<td>Aplica la <strong>Hand-Written Rule</strong> actual; constituye la <strong>Baseline</strong> que el sistema debe superar</td>
+</tr>
+<tr>
+<td>Inspector</td>
+<td>Visita las máquinas; su tiempo determina el coste de las falsas alarmas y la capacidad máxima</td>
+</tr>
+<tr>
+<td>Chief Operating Officer (COO)</td>
+<td>Asume el coste de las paradas y aprueba o rechaza el sistema</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-false-positives-vs-false-negatives">4.3. False Positives vs. False Negatives</h3>
+<ul>
+<li><strong>False Positive (FP):</strong> se visita una máquina que no iba a fallar. Coste: 2,10 €.</li>
+<li><strong>False Negative (FN):</strong> una máquina que iba a fallar no recibe visita. Coste: 480 €.</li>
+</ul>
+<p>Un falso negativo cuesta aproximadamente:</p>
+<div class="arithmatex">\[
+\frac{480}{2,10} \approx 228,57
+\]</div>
+<p>veces más que un falso positivo. Tratar ambos errores como equivalentes conduce a decisiones económicas incorrectas.</p>
+<p>El coste semanal es:</p>
+<div class="arithmatex">\[
+C = 2,10 \cdot FP + 480 \cdot FN
+\]</div>
+<hr />
+<h2 id="5-functional-requirements-data-contracts-and-evidence-expiry">5. Functional Requirements, Data Contracts and Evidence Expiry</h2>
+<h3 id="51-complete-functional-requirement">5.1. Complete Functional Requirement</h3>
+<p>Una formulación verificable sería:</p>
+<blockquote>
+<p>Cada semana, el sistema puntuará todas las máquinas activas. La <strong>Decision Policy</strong> seleccionará como máximo las 100 máquinas con mayor riesgo para inspección. Si faltan datos de una máquina, activará el <strong>Fallback</strong>: conservará la decisión de la semana anterior y marcará la incidencia.</p>
+</blockquote>
+<p>El <strong>Risk Score</strong> no es la <strong>Action</strong>. El <strong>Requirement</strong> debe incluir la <strong>Decision Rule</strong> que conecta ambos.</p>
+<h3 id="52-population-and-label-contract">5.2. Population and Label Contract</h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Formulación comprobable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Population</td>
+<td>Máquinas físicas activas y con transmisión durante los últimos 90 días</td>
+</tr>
+<tr>
+<td>Unit of Analysis</td>
+<td>Una máquina durante una semana</td>
+</tr>
+<tr>
+<td>Input Window</td>
+<td>Telemetría disponible antes de la decisión del lunes</td>
+</tr>
+<tr>
+<td>Positive Label</td>
+<td>Parada no planificada durante los 7 días posteriores</td>
+</tr>
+<tr>
+<td>Exclusions</td>
+<td>Máquinas retiradas, sin historial suficiente o fuera de servicio</td>
+</tr>
+</tbody>
+</table>
+<p>Sin estas definiciones, dos equipos pueden calcular métricas sobre poblaciones distintas y obtener resultados que no son comparables.</p>
+<h3 id="53-evidence-expiry">5.3. Evidence Expiry</h3>
+<p>La <strong>Validation Evidence</strong> no dura para siempre. Si cambia la distribución de entrada, la relación entre entrada y fallo o el proceso de negocio, las <strong>Historical Metrics</strong> dejan de justificar el comportamiento actual.</p>
+<p>Ejemplo de regla:</p>
+<blockquote>
+<p>La <strong>Validation Evidence</strong> caduca cuando el <strong>Population Stability Index (PSI)</strong> supera 0,20. Al caducar, el sistema activa el <strong>Fallback</strong>, conserva la última decisión válida, marca las salidas afectadas y solicita una nueva <strong>Validation</strong>.</p>
+</blockquote>
+<p>El <strong>Decision Threshold</strong> debe quedar fijado por contrato. No basta con decir «si hay mucho <strong>Drift</strong>».</p>
+<hr />
+<h2 id="6-confusion-matrix-and-evaluation-metrics">6. Confusion Matrix and Evaluation Metrics</h2>
+<h3 id="61-confusion-matrix">6.1. Confusion Matrix</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Predice fallo</th>
+<th style="text-align: right;">Predice ausencia de fallo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fallo real</td>
+<td style="text-align: right;"><strong>True Positive (TP):</strong> fallo detectado</td>
+<td style="text-align: right;"><strong>False Negative (FN):</strong> fallo omitido</td>
+</tr>
+<tr>
+<td>Sin fallo real</td>
+<td style="text-align: right;"><strong>False Positive (FP):</strong> falsa alarma</td>
+<td style="text-align: right;"><strong>True Negative (TN):</strong> descarte correcto</td>
+</tr>
+</tbody>
+</table>
+<p>El número total de casos es:</p>
+<div class="arithmatex">\[
+n = TP + FP + FN + TN
+\]</div>
+<h3 id="62-core-evaluation-metrics">6.2. Core Evaluation Metrics</h3>
+<div class="arithmatex">\[
+\text{Accuracy} = \frac{TP + TN}{n}
+\]</div>
+<div class="arithmatex">\[
+\text{Precision} = \frac{TP}{TP + FP}
+\]</div>
+<div class="arithmatex">\[
+\text{Recall} = \frac{TP}{TP + FN}
+\]</div>
+<div class="arithmatex">\[
+F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}
+{\text{Precision} + \text{Recall}}
+\]</div>
+<ul>
+<li><strong>Accuracy</strong> responde: «¿En qué proporción total acertamos?».</li>
+<li><strong>Precision</strong> responde: «De las alarmas generadas, ¿cuántas eran reales?».</li>
+<li><strong>Recall</strong> responde: «De los fallos reales, ¿cuántos detectamos?».</li>
+<li><strong>F1</strong> resume precision y recall mediante su media armónica.</li>
+</ul>
+<h3 id="63-why-accuracy-fails-on-rare-events">6.3. Why Accuracy Fails on Rare Events</h3>
+<p>Un componente que siempre responde «no habrá fallo» produce:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">TP</th>
+<th style="text-align: right;">FP</th>
+<th style="text-align: right;">FN</th>
+<th style="text-align: right;">TN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">4.954</td>
+</tr>
+</tbody>
+</table>
+<p>Su accuracy es:</p>
+<div class="arithmatex">\[
+\frac{0 + 4954}{5000} = 0,9908 = 99,08\%
+\]</div>
+<p>Sin embargo, omite todos los fallos y cuesta:</p>
+<div class="arithmatex">\[
+46 \cdot 480 = 22.080\text{ € por semana}
+\]</div>
+<p>El 99,08 % se obtiene únicamente porque la clase negativa es mayoritaria. No demuestra que el componente aporte valor.</p>
+<h3 id="64-metric-admissibility-test">6.4. Metric Admissibility Test</h3>
+<p>Antes de convertir una <strong>Metric</strong> en <strong>Requirement</strong>:</p>
+<ol>
+<li>se ejecuta el componente trivial que no hace nada sobre los mismos datos;</li>
+<li>se calcula la <strong>Metric</strong>;</li>
+<li>solo se admite si ese componente obtiene una puntuación claramente mala.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th style="text-align: right;">Resultado del sistema trivial</th>
+<th>Valor como requisito aislado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td style="text-align: right;">0,9908</td>
+<td>Rechazada: recompensa no actuar</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td style="text-align: right;">Indefinida (0/0)</td>
+<td>Nunca debe exigirse sola</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td style="text-align: right;">0</td>
+<td>Admisible</td>
+</tr>
+<tr>
+<td>F1</td>
+<td style="text-align: right;">0</td>
+<td>Admisible</td>
+</tr>
+</tbody>
+</table>
+<p>La precision debe acompañarse de recall: un sistema puede aumentar artificialmente la precision generando muy pocas alarmas.</p>
+<hr />
+<h2 id="7-baselines-candidates-and-economic-decision">7. Baselines, Candidates and Economic Decision</h2>
+<h3 id="71-hand-written-rule-baseline">7.1. Hand-Written Rule Baseline</h3>
+<p>La <strong>Hand-Written Rule</strong> inicial marca una máquina si presenta vibración alta durante tres días o picos de temperatura en rodamientos.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">TP</th>
+<th style="text-align: right;">FP</th>
+<th style="text-align: right;">FN</th>
+<th style="text-align: right;">TN</th>
+<th style="text-align: right;">Accuracy</th>
+<th style="text-align: right;">F1</th>
+<th style="text-align: right;">Coste semanal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No hacer nada</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">4.954</td>
+<td style="text-align: right;">0,9908</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22.080,00 €</td>
+</tr>
+<tr>
+<td>Regla manual</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">4.859</td>
+<td style="text-align: right;">0,9762</td>
+<td style="text-align: right;">0,2699</td>
+<td style="text-align: right;">11.719,50 €</td>
+</tr>
+</tbody>
+</table>
+<p>Aunque tiene peor <strong>Accuracy</strong>, la <strong>Hand-Written Rule</strong> reduce el coste semanal en:</p>
+<div class="arithmatex">\[
+22.080 - 11.719,50 = 10.360,50\text{ €}
+\]</div>
+<p>La <strong>Baseline</strong> de un nuevo modelo no debe ser cero: debe ser la regla existente que ya utiliza la organización.</p>
+<h3 id="72-candidate-comparison">7.2. Candidate Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Candidato</th>
+<th style="text-align: right;">TP</th>
+<th style="text-align: right;">FP</th>
+<th style="text-align: right;">FN</th>
+<th style="text-align: right;">TN</th>
+<th style="text-align: right;">F1</th>
+<th style="text-align: right;">Coste semanal</th>
+<th style="text-align: right;">Revisiones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4.914</td>
+<td style="text-align: right;">0,6349</td>
+<td style="text-align: right;">2.964,00 €</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.654</td>
+<td style="text-align: right;">0,2302</td>
+<td style="text-align: right;">1.110,00 €</td>
+<td style="text-align: right;">345</td>
+</tr>
+</tbody>
+</table>
+<p>F1 prefiere A, mientras que el coste económico prefiere B. No existe una elección universal: el requisito debe declarar qué criterio decide.</p>
+<p>Además, B excede la capacidad de 100 visitas semanales. Es económicamente atractivo sobre el papel, pero operacionalmente inviable. Entre los puntos mostrados, A es la mejor alternativa factible.</p>
+<h3 id="73-decision-threshold-selection">7.3. Decision Threshold Selection</h3>
+<p>Cambiar el <strong>Decision Threshold</strong> modifica simultáneamente FP, FN y <span class="arithmatex">\(k\)</span>. El valor óptimo minimiza el coste sujeto a las restricciones:</p>
+<div class="arithmatex">\[
+\min_k\; 2,10 \cdot FP(k) + 480 \cdot FN(k)
+\]</div>
+<p>sujeto a:</p>
+<div class="arithmatex">\[
+k \leq 100
+\]</div>
+<p>No debe elegirse el <strong>Decision Threshold</strong> únicamente para eliminar todos los FN. A partir de cierto punto, cada nueva inspección cuesta más que el fallo adicional que evita.</p>
+<div class="admonition warning">
+<p class="admonition-title">Inconsistencia detectada en las diapositivas</p>
+<p>La diapositiva 13 muestra 1.645,50 € para <span class="arithmatex">\(k=600\)</span>, mientras que la recapitulación indica <span class="arithmatex">\(TP=46\)</span>, <span class="arithmatex">\(FP=554\)</span> y <span class="arithmatex">\(FN=0\)</span>. Aplicando la fórmula declarada, el coste correcto de esas cuentas es <span class="arithmatex">\(554 \cdot 2,10 = 1.163,40\)</span> €. La conclusión general no cambia: <span class="arithmatex">\(k=345\)</span> es el mínimo económico mostrado, pero no es viable con una capacidad de 100 visitas.</p>
+</div>
+<hr />
+<h2 id="8-performance-and-deployment-requirements">8. Performance and Deployment Requirements</h2>
+<h3 id="81-inference-latency">8.1. Inference Latency</h3>
+<p>El tiempo de ejecución puede aproximarse como:</p>
+<div class="arithmatex">\[
+T = \frac{D_{vol}}{BW}
++
+\frac{O}{R_{peak}\eta_{hw}}
++
+L_{lat}
+\]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\(D_{vol}\)</span> es el volumen de datos movidos;</li>
+<li><span class="arithmatex">\(BW\)</span> es el ancho de banda de memoria;</li>
+<li><span class="arithmatex">\(O\)</span> es el número de operaciones;</li>
+<li><span class="arithmatex">\(R_{peak}\)</span> es el rendimiento máximo de cómputo;</li>
+<li><span class="arithmatex">\(\eta_{hw}\)</span> es la eficiencia real del hardware;</li>
+<li><span class="arithmatex">\(L_{lat}\)</span> agrupa latencias adicionales.</li>
+</ul>
+<p>Un modelo puede estar limitado por cómputo o por movimiento de memoria. Comprar una GPU con más operaciones por segundo no resuelve necesariamente un cuello de botella de ancho de banda.</p>
+<h3 id="82-model-memory-footprint">8.2. Model Memory Footprint</h3>
+<p>Si un modelo tiene <span class="arithmatex">\(P\)</span> parámetros y cada parámetro utiliza <span class="arithmatex">\(b\)</span> bits:</p>
+<div class="arithmatex">\[
+M_{modelo} = P \cdot \frac{b}{8}
+\]</div>
+<p>Para 25 millones de parámetros:</p>
+<ul>
+<li>FP32: <span class="arithmatex">\(25.000.000 \cdot 4 = 100\)</span> MB;</li>
+<li>FP16: aproximadamente 50 MB;</li>
+<li>INT8: <span class="arithmatex">\(25.000.000 \cdot 1 = 25\)</span> MB.</li>
+</ul>
+<p>La <strong>Quantization</strong> reduce memoria, pero puede degradar la calidad predictiva. Después de cuantizar es obligatorio volver a ejecutar la <strong>Validation</strong> de las <strong>Metrics</strong>.</p>
+<h3 id="83-hard-acceptance-gates">8.3. Hard Acceptance Gates</h3>
+<table>
+<thead>
+<tr>
+<th>Puerta</th>
+<th style="text-align: right;">Servidor edge</th>
+<th style="text-align: right;">Dispositivo TinyML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memoria</td>
+<td style="text-align: right;">51,2 MB: cumple</td>
+<td style="text-align: right;">3,5 MB: cumple</td>
+</tr>
+<tr>
+<td>Latencia</td>
+<td style="text-align: right;">12 ms: cumple SLA &lt; 100 ms</td>
+<td style="text-align: right;">150 ms: no cumple</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td style="text-align: right;">94 %: cumple objetivo ≥ 90 %</td>
+<td style="text-align: right;">88 %: no cumple</td>
+</tr>
+<tr>
+<td>Veredicto</td>
+<td style="text-align: right;">Aprobado</td>
+<td style="text-align: right;">Rechazado</td>
+</tr>
+</tbody>
+</table>
+<p>Cumplir la memoria no basta. Todas las puertas críticas deben satisfacerse simultáneamente.</p>
+<hr />
+<h2 id="9-verifiable-engineering-requirement-template">9. Verifiable Engineering Requirement Template</h2>
+<blockquote>
+<p>Dada <strong>[Population y Time Window]</strong>, el sistema ejecutará <strong>[Observable Decision]</strong>, alcanzando <strong>[Metric] ≥ [Decision Threshold]</strong> sobre <strong>[Evaluation Dataset]</strong>, mientras mantiene <strong>[Operational, Memory and Latency Constraints]</strong>. Si la evidencia caduca por <strong>[Drift Condition]</strong>, activará <strong>[Fallback Action]</strong>, cuya responsabilidad corresponde a <strong>[Owner]</strong>.</p>
+</blockquote>
+<p>Aplicada al caso:</p>
+<blockquote>
+<p>Para todas las máquinas físicas activas durante los últimos 90 días, el sistema generará cada lunes una lista de como máximo 100 inspecciones. En evaluación temporal alcanzará <span class="arithmatex">\(F1 \geq 0,60\)</span>, mantendrá un coste semanal inferior a 11.719,50 € y cumplirá el presupuesto de memoria y latencia de la plataforma aprobada. Si el PSI supera 0,20, se invalidará la evidencia, se conservará la última decisión válida debidamente marcada y el COO será notificado para autorizar la revalidación.</p>
+</blockquote>
+<p>Esta formulación permite obtener un resultado <strong>PASS/FAIL</strong>, identifica el ámbito de la evidencia y conecta el comportamiento técnico con la operación real.</p>
+<hr />
+<h2 id="10-technical-constraints-checklist">10. Technical Constraints Checklist</h2>
+<ul>
+<li>[ ] Se distingue modelo, componente y sistema.</li>
+<li>[ ] Se define la población, la unidad de análisis y la ventana temporal.</li>
+<li>[ ] El <strong>Label</strong> especifica exactamente qué evento y horizonte representa.</li>
+<li>[ ] La <strong>Metric</strong> supera la prueba del sistema trivial.</li>
+<li>[ ] Se incluye la <strong>Baseline</strong> humana o heurística existente.</li>
+<li>[ ] El <strong>Decision Threshold</strong> se elige según costes y restricciones, no solo por una métrica abstracta.</li>
+<li>[ ] Se comprueba la capacidad humana asociada a FP y alertas.</li>
+<li>[ ] Se fijan límites de memoria, latencia, throughput y energía.</li>
+<li>[ ] Se establece cuándo caduca la evidencia.</li>
+<li>[ ] Existe un fallback verificable y un responsable identificado.</li>
+<li>[ ] Se versionan <strong>Data</strong>, <strong>Code</strong>, <strong>Weights</strong>, <strong>Configuration</strong> y <strong>Environment</strong>.</li>
+</ul>
+<h2 id="source-material">Source Material</h2>
+<ul>
+<li><strong>B1.1 Engineering_AI_Software_Requirements.pdf</strong>, diapositivas 1-20.</li>
+<li><strong>B1_1_the_case.pdf</strong>, caso de la planta con 5.000 máquinas, utilizado para contextualizar y comprobar los cálculos del apartado 1.1.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../notas-clase/clase-2026-09-18/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Apuntes de clase — Viernes 18 de septiembre de 2026">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Apuntes de clase — Viernes 18 de septiembre de 2026
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/" class="md-footer__link md-footer__link--next" aria-label="Next: 1.2. Challenges in Developing AI-Based Applications">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                1.2. Challenges in Developing AI-Based Applications
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["navigation.tabs","navigation.sections","navigation.indexes","navigation.path","navigation.top","navigation.footer","content.code.annotate","content.code.copy","content.code.select","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6970bfe9.min.js"></script>
+      
+        <script src="../../../../javascripts/shortcuts.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../javascripts/pwa.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

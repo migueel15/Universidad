@@ -1,0 +1,2928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uni docs">
+      
+      
+      
+        <link rel="canonical" href="/IA/temario/bloque-1/1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia/">
+      
+      
+        <link rel="prev" href="../1-1-requisitos-de-software-basado-en-ia/">
+      
+      
+        <link rel="next" href="../1-3-familias-de-inteligencia-artificial/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.58">
+    
+    
+      
+        <title>1.2. Challenges in Developing AI-Based Applications - Universidad</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/modern/main.5da3a30f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <meta name="theme-color" content="#212121">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Universidad">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-challenges-in-developing-ai-based-applications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Universidad" class="md-header__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Universidad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.2. Challenges in Developing AI-Based Applications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Activar tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Activar tema oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Activar tema oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  Universidad
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  IA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../IoT/" class="md-tabs__link">
+          
+  
+  IoT
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Universidad" class="md-nav__button md-logo" aria-label="Universidad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+
+    </a>
+    Universidad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/migueel15/Universidad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    migueel15/universidad
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Universidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IA
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IA
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notas-clase/clase-2026-09-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Viernes 18 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Bloque 1
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.1. AI-Based Software Requirements
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.2. Challenges in Developing AI-Based Applications
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.2. Challenges in Developing AI-Based Applications
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Learning Objectives
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Key terminology
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-d-a-m-failure-autopsy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. D-A-M Failure Autopsy
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-class-imbalance-and-metric-illusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Class Imbalance and Metric Illusions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Class Imbalance and Metric Illusions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-fraud-detection-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Fraud Detection Case
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-global-accuracy-vs-balanced-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Global Accuracy vs. Balanced Accuracy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-metric-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3. Metric Selection
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-weighted-cross-entropy-for-class-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Weighted Cross-Entropy for Class Imbalance
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Weighted Cross-Entropy for Class Imbalance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-binary-cross-entropy-bce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1. Binary Cross-Entropy (BCE)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-weighted-binary-cross-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2. Weighted Binary Cross-Entropy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-capabilities-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3. Capabilities and Limitations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-temporal-leakage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Temporal Leakage
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Temporal Leakage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prevention
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-drift-and-concept-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Data Drift and Concept Drift
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Data Drift and Concept Drift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-data-drift-or-covariate-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1. Data Drift or Covariate Shift
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-concept-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2. Concept Drift
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-operational-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3. Operational Difference
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-population-stability-index-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Population Stability Index (PSI)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Population Stability Index (PSI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Worked Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-training-serving-skew" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Training-Serving Skew
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Training-Serving Skew">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mitigation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-hardware-physics-and-performance-sizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Hardware Physics and Performance Sizing
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Hardware Physics and Performance Sizing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-arithmetic-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1. Arithmetic Intensity
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-roofline-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2. Roofline Model
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-deployment-scale-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3. Deployment Scale Limits
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-gpu-non-determinism" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. GPU Non-Determinism
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. GPU Non-Determinism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineering-consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Engineering Consequences
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-cace-changing-anything-changes-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. CACE: Changing Anything Changes Everything
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. CACE: Changing Anything Changes Everything">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Required Controls
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-regulatory-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Regulatory Boundaries
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-nine-failure-causes-across-build-deploy-and-operate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Nine Failure Causes Across Build, Deploy and Operate
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-ml-diagnostic-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. ML Diagnostic Tree
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Source Material
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-3-familias-de-inteligencia-artificial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1.3. AI Families
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../IoT/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  IoT
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  IoT
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../IoT/notas-clase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notas clase
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Notas clase
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/notas-clase/clase-2026-09-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Lunes 14 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/notas-clase/clase-2026-09-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Apuntes de clase — Miércoles 16 de septiembre de 2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Temario
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Temario
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../IoT/temario/bloque-1-evolucion-de-los-sistemas-distribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bloque 1 — Evolución de los sistemas distribuidos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Learning Objectives
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Key terminology
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-d-a-m-failure-autopsy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. D-A-M Failure Autopsy
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-class-imbalance-and-metric-illusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Class Imbalance and Metric Illusions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Class Imbalance and Metric Illusions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-fraud-detection-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Fraud Detection Case
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-global-accuracy-vs-balanced-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Global Accuracy vs. Balanced Accuracy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-metric-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3. Metric Selection
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-weighted-cross-entropy-for-class-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Weighted Cross-Entropy for Class Imbalance
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Weighted Cross-Entropy for Class Imbalance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-binary-cross-entropy-bce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1. Binary Cross-Entropy (BCE)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-weighted-binary-cross-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2. Weighted Binary Cross-Entropy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-capabilities-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3. Capabilities and Limitations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-temporal-leakage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Temporal Leakage
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Temporal Leakage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prevention
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-drift-and-concept-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Data Drift and Concept Drift
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Data Drift and Concept Drift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-data-drift-or-covariate-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1. Data Drift or Covariate Shift
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-concept-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2. Concept Drift
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-operational-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3. Operational Difference
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-population-stability-index-psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Population Stability Index (PSI)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Population Stability Index (PSI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Worked Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-training-serving-skew" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Training-Serving Skew
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Training-Serving Skew">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mitigation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-hardware-physics-and-performance-sizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Hardware Physics and Performance Sizing
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Hardware Physics and Performance Sizing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-arithmetic-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1. Arithmetic Intensity
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-roofline-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2. Roofline Model
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-deployment-scale-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3. Deployment Scale Limits
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-gpu-non-determinism" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. GPU Non-Determinism
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. GPU Non-Determinism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineering-consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Engineering Consequences
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-cace-changing-anything-changes-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. CACE: Changing Anything Changes Everything
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. CACE: Changing Anything Changes Everything">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Required Controls
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-regulatory-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Regulatory Boundaries
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-nine-failure-causes-across-build-deploy-and-operate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Nine Failure Causes Across Build, Deploy and Operate
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-ml-diagnostic-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. ML Diagnostic Tree
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Source Material
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Universidad
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    IA
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Temario
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Bloque 1
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="12-challenges-in-developing-ai-based-applications">1.2. Challenges in Developing AI-Based Applications</h1>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>Un modelo con buena puntuación en el laboratorio todavía no es un producto desplegable. Los fallos de un sistema de IA pueden originarse en tres planos distintos:</p>
+<ol>
+<li><strong>Data:</strong> ingestión, estado y significado de las variables.</li>
+<li><strong>Algorithm / Model:</strong> <strong>Objective Function</strong>, ajuste, <strong>Metrics</strong> y dependencias entre modelos.</li>
+<li><strong>Machine / Operations:</strong> hardware, integración, latencia, reproducibilidad y escala.</li>
+</ol>
+<p>El objetivo es aprender a diagnosticar los fallos por su causa y por el momento del ciclo de vida en el que deben detectarse.</p>
+<h2 id="key-terminology">Key terminology</h2>
+<table>
+<thead>
+<tr>
+<th>English term</th>
+<th>Acronym</th>
+<th>Significado en este tema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data-Algorithm-Machine Failure Autopsy</td>
+<td><strong>D-A-M</strong></td>
+<td>Método que separa las causas de fallo entre datos, lógica del modelo y plataforma física</td>
+</tr>
+<tr>
+<td>Class Imbalance</td>
+<td>-</td>
+<td>Distribución en la que una clase tiene muchos más ejemplos que otra</td>
+</tr>
+<tr>
+<td>Imbalance Ratio</td>
+<td><strong>IR</strong></td>
+<td>Cociente entre el número de ejemplos de la clase mayoritaria y la minoritaria</td>
+</tr>
+<tr>
+<td>Weighted Cross-Entropy</td>
+<td><strong>WCE</strong></td>
+<td>Loss function que asigna más penalización a los errores de clases escasas o importantes</td>
+</tr>
+<tr>
+<td>Temporal Leakage</td>
+<td>-</td>
+<td>Uso durante el training de información que solo existiría después del prediction time</td>
+</tr>
+<tr>
+<td>Data Drift / Covariate Shift</td>
+<td>-</td>
+<td>Cambio en la distribución de inputs entre training y production</td>
+</tr>
+<tr>
+<td>Concept Drift</td>
+<td>-</td>
+<td>Cambio en la relación entre inputs y la variable objetivo</td>
+</tr>
+<tr>
+<td>Population Stability Index</td>
+<td><strong>PSI</strong></td>
+<td>Indicador que compara una distribución actual con una baseline</td>
+</tr>
+<tr>
+<td>Training-Serving Skew</td>
+<td>-</td>
+<td>Diferencia entre las features calculadas en training y las utilizadas en production</td>
+</tr>
+<tr>
+<td>Arithmetic Intensity</td>
+<td><strong>AI</strong></td>
+<td>Número de operaciones de coma flotante ejecutadas por byte movido</td>
+</tr>
+<tr>
+<td>Floating-Point Operations</td>
+<td><strong>FLOPs</strong></td>
+<td>Medida del trabajo numérico realizado por un algoritmo o hardware</td>
+</tr>
+<tr>
+<td>Static Random-Access Memory</td>
+<td><strong>SRAM</strong></td>
+<td>Memoria rápida y limitada habitual en microcontroladores</td>
+</tr>
+<tr>
+<td>Changing Anything Changes Everything</td>
+<td><strong>CACE</strong></td>
+<td>Principio que describe cómo un cambio en un modelo puede degradar modelos dependientes</td>
+</tr>
+<tr>
+<td>Graphics Processing Unit</td>
+<td><strong>GPU</strong></td>
+<td>Procesador paralelo utilizado para ejecutar grandes volúmenes de operaciones numéricas</td>
+</tr>
+<tr>
+<td>Large Language Model</td>
+<td><strong>LLM</strong></td>
+<td>Modelo de lenguaje de gran escala, normalmente basado en Transformer</td>
+</tr>
+<tr>
+<td>Feature Store</td>
+<td>-</td>
+<td>Sistema compartido que define, calcula y sirve features de forma coherente en training y production</td>
+</tr>
+<tr>
+<td>Canary Deployment</td>
+<td>-</td>
+<td>Despliegue gradual sobre una pequeña fracción del tráfico para limitar el riesgo</td>
+</tr>
+<tr>
+<td>Shadow Deployment</td>
+<td>-</td>
+<td>Ejecución del modelo nuevo en paralelo sin que sus salidas controlen todavía el sistema</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Acrónimo contextual</p>
+<p>En este apartado, <strong>AI</strong> puede significar <em>Artificial Intelligence</em> o <em>Arithmetic Intensity</em>. El contexto permite distinguirlos; cuando se hable de rendimiento de hardware se usará <em>Arithmetic Intensity</em> explícitamente.</p>
+</div>
+<pre class="mermaid"><code>flowchart LR
+    D[Data Plane] --&gt; A[Algorithm / Model Plane]
+    A --&gt; M[Machine / Operational Plane]
+
+    D1[Class Imbalance, Temporal Leakage, Data Drift] -.-&gt; D
+    A1[Metric Illusions, Concept Drift, CACE] -.-&gt; A
+    M1[Training-Serving Skew, SRAM Limits, GPU Non-Determinism] -.-&gt; M</code></pre>
+<hr />
+<h2 id="1-d-a-m-failure-autopsy">1. D-A-M Failure Autopsy</h2>
+<table>
+<thead>
+<tr>
+<th>Plano</th>
+<th>Pregunta diagnóstica</th>
+<th>Fallos representativos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Plane</td>
+<td>¿La información representa correctamente la realidad y está disponible a tiempo?</td>
+<td>Class Imbalance, Temporal Leakage, Data Drift</td>
+</tr>
+<tr>
+<td>Algorithm / Model Plane</td>
+<td>¿El objective y la metric reflejan el problema real?</td>
+<td>Metric Illusions, Concept Drift, CACE cascades</td>
+</tr>
+<tr>
+<td>Machine / Operational Plane</td>
+<td>¿El sistema entrenado puede ejecutarse de forma equivalente y dentro de límites físicos?</td>
+<td>Training-Serving Skew, SRAM Limits, GPU Non-Determinism</td>
+</tr>
+</tbody>
+</table>
+<p>Esta clasificación evita buscar todas las soluciones en el modelo. Por ejemplo, aumentar capas no corrige <strong>Label Contamination</strong> causada por información futura, y una mejor <strong>Metric</strong> no hace que el modelo quepa en un microcontrolador.</p>
+<hr />
+<h2 id="2-class-imbalance-and-metric-illusions">2. Class Imbalance and Metric Illusions</h2>
+<h3 id="21-fraud-detection-case">2.1. Fraud Detection Case</h3>
+<p>Se observan 10.000 transacciones:</p>
+<ul>
+<li>9.950 legítimas;</li>
+<li>50 fraudulentas;</li>
+<li>clase positiva: fraude.</li>
+</ul>
+<p>El <strong>Imbalance Ratio (IR)</strong> es:</p>
+<div class="arithmatex">\[
+IR = \frac{N_{majority}}{N_{minority}}
+= \frac{9950}{50} = 199
+\]</div>
+<p>Un sistema trivial que clasifica todo como legítimo obtiene:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Predice fraude</th>
+<th style="text-align: right;">Predice legítima</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraude real</td>
+<td style="text-align: right;">TP = 0</td>
+<td style="text-align: right;">FN = 50</td>
+</tr>
+<tr>
+<td>Legítima real</td>
+<td style="text-align: right;">FP = 0</td>
+<td style="text-align: right;">TN = 9.950</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-global-accuracy-vs-balanced-accuracy">2.2. Global Accuracy vs. Balanced Accuracy</h3>
+<div class="arithmatex">\[
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+= \frac{9950}{10000} = 0,995
+\]</div>
+<p>El resultado aparente es 99,5 %, pero el sistema no detecta ningún fraude.</p>
+<p>La <strong>specificity</strong> mide la proporción de negativos correctamente identificados:</p>
+<div class="arithmatex">\[
+\text{Specificity} = \frac{TN}{TN + FP}
+\]</div>
+<p>La <strong>balanced accuracy</strong> concede el mismo peso a ambas clases:</p>
+<div class="arithmatex">\[
+\text{Balanced Accuracy}
+=
+\frac{\text{Recall} + \text{Specificity}}{2}
+\]</div>
+<p>Para el sistema trivial:</p>
+<div class="arithmatex">\[
+\frac{0 + 1}{2} = 0,5
+\]</div>
+<p>La puntuación revela que su capacidad real equivale a la referencia más básica, no a un sistema fiable.</p>
+<h3 id="23-metric-selection">2.3. Metric Selection</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Fórmula</th>
+<th style="text-align: right;">Sistema trivial</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td><span class="arithmatex">\((TP+TN)/n\)</span></td>
+<td style="text-align: right;">0,995</td>
+<td>Engañosa con <strong>Severe Class Imbalance</strong></td>
+</tr>
+<tr>
+<td>Precision</td>
+<td><span class="arithmatex">\(TP/(TP+FP)\)</span></td>
+<td style="text-align: right;">Indefinida</td>
+<td>Debe combinarse con recall</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td><span class="arithmatex">\(TP/(TP+FN)\)</span></td>
+<td style="text-align: right;">0</td>
+<td>Detecta que se omiten todos los positivos</td>
+</tr>
+<tr>
+<td>Specificity</td>
+<td><span class="arithmatex">\(TN/(TN+FP)\)</span></td>
+<td style="text-align: right;">1</td>
+<td>Solo evalúa la clase negativa</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>Media armónica de precision y recall</td>
+<td style="text-align: right;">0</td>
+<td>Ignora TN y penaliza omitir positivos</td>
+</tr>
+<tr>
+<td>Balanced accuracy</td>
+<td>Media de recall y specificity</td>
+<td style="text-align: right;">0,5</td>
+<td>Equilibra el peso de las clases</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Regla práctica</p>
+<p>Una <strong>Candidate Metric</strong> debe calcularse también para el <strong>Do-Nothing System</strong>. Si ese sistema obtiene una puntuación excelente, la métrica no es adecuada como criterio principal.</p>
+</div>
+<hr />
+<h2 id="3-weighted-cross-entropy-for-class-imbalance">3. Weighted Cross-Entropy for Class Imbalance</h2>
+<h3 id="31-binary-cross-entropy-bce">3.1. Binary Cross-Entropy (BCE)</h3>
+<p>Para un <strong>Label</strong> <span class="arithmatex">\(y \in \{0,1\}\)</span> y una probabilidad estimada <span class="arithmatex">\(\hat{y} \in [0,1]\)</span>:</p>
+<div class="arithmatex">\[
+L = -\left[y\log(\hat{y}) + (1-y)\log(1-\hat{y})\right]
+\]</div>
+<p>Con muchas más observaciones legítimas, la <strong>Majority Class</strong> domina la <strong>Loss Function</strong>. El modelo puede minimizarla aprendiendo a favorecer sistemáticamente la <strong>Negative Class</strong>.</p>
+<h3 id="32-weighted-binary-cross-entropy">3.2. Weighted Binary Cross-Entropy</h3>
+<div class="arithmatex">\[
+L = -\left[w_1 y\log(\hat{y}) + w_0(1-y)\log(1-\hat{y})\right]
+\]</div>
+<p>Una forma de calcular los <strong>Class Weights</strong> es:</p>
+<div class="arithmatex">\[
+w_j = \frac{N}{C \cdot N_j}
+\]</div>
+<p>donde <span class="arithmatex">\(N\)</span> es el número total de observaciones, <span class="arithmatex">\(C\)</span> el número de clases y <span class="arithmatex">\(N_j\)</span> el número de observaciones de la clase <span class="arithmatex">\(j\)</span>.</p>
+<p>En el ejemplo:</p>
+<div class="arithmatex">\[
+w_1 = \frac{10000}{2 \cdot 50} = 100
+\]</div>
+<div class="arithmatex">\[
+w_0 = \frac{10000}{2 \cdot 9950} \approx 0,5025
+\]</div>
+<p>La relación <span class="arithmatex">\(w_1/w_0 \approx 199\)</span> coincide con el <strong>Imbalance Ratio</strong>. Un error sobre un fraude genera un <strong>Gradient</strong> aproximadamente 199 veces mayor que un error sobre una transacción legítima.</p>
+<h3 id="33-capabilities-and-limitations">3.3. Capabilities and Limitations</h3>
+<p>La ponderación cambia la geometría de optimización, pero no crea información nueva. Puede ayudar a que el modelo atienda a la clase minoritaria, aunque también puede:</p>
+<ul>
+<li>elevar los falsos positivos;</li>
+<li>amplificar <strong>Label Noise</strong> en la <strong>Minority Class</strong>;</li>
+<li>producir probabilidades mal calibradas;</li>
+<li>requerir un nuevo ajuste del <strong>Decision Threshold</strong>.</li>
+</ul>
+<p>Por eso deben evaluarse tanto la discriminación como la calibración y el coste operativo.</p>
+<hr />
+<h2 id="4-temporal-leakage">4. Temporal Leakage</h2>
+<p>Existe <strong>Temporal Leakage</strong> cuando el <strong>training</strong> utiliza una variable que no estaría disponible en el <strong>prediction time</strong> real.</p>
+<p>Ejemplo: se quiere predecir si una máquina se detendrá durante los próximos siete días. Son válidos:</p>
+<ul>
+<li>telemetría histórica;</li>
+<li>registros anteriores;</li>
+<li>datos de sensores disponibles antes de <span class="arithmatex">\(t_0\)</span>.</li>
+</ul>
+<p>No es válido usar el tiempo medio de reparación calculado después de producirse el fallo, porque requiere conocer el futuro.</p>
+<pre class="mermaid"><code>flowchart LR
+    P[Past Records] --&gt; T0[Prediction Time t0]
+    S[Available Sensor Data] --&gt; T0
+    T0 --&gt; F[Future Outcome]
+    F -. leakage if fed back .-&gt; T0</code></pre>
+<p>Si se mezclan aleatoriamente filas de diferentes fechas, una variable futura puede aparecer tanto en <strong>Training</strong> como en <strong>Test</strong>. El modelo parece alcanzar un F1 extraordinario en laboratorio, pero falla en <strong>Production</strong>.</p>
+<h3 id="prevention">Prevention</h3>
+<ol>
+<li>documentar qué significa cada columna;</li>
+<li>registrar cuándo se conoce realmente;</li>
+<li>aplicar un <strong>Time-Based Training / Validation / Test Split</strong>;</li>
+<li>simular el estado exacto de los datos en el instante de decisión;</li>
+<li>revisar las transformaciones agregadas, porque también pueden incorporar futuro.</li>
+</ol>
+<hr />
+<h2 id="5-data-drift-and-concept-drift">5. Data Drift and Concept Drift</h2>
+<h3 id="51-data-drift-or-covariate-shift">5.1. Data Drift or Covariate Shift</h3>
+<p>La distribución de las entradas cambia:</p>
+<div class="arithmatex">\[
+P(X_{live}) \neq P(X_{train})
+\]</div>
+<p>mientras que la relación entre entrada y objetivo puede mantenerse:</p>
+<div class="arithmatex">\[
+P(Y \mid X)_{live} = P(Y \mid X)_{train}
+\]</div>
+<p>Ejemplo: un sensor envejece y empieza a producir voltajes con una distribución distinta, aunque la relación física entre vibración y avería no haya cambiado.</p>
+<h3 id="52-concept-drift">5.2. Concept Drift</h3>
+<p>Cambia la relación condicional:</p>
+<div class="arithmatex">\[
+P(Y \mid X)_{live} \neq P(Y \mid X)_{train}
+\]</div>
+<p>Ejemplo: una modificación del proceso de fabricación hace que una misma vibración deje de indicar el mismo riesgo de fallo.</p>
+<h3 id="53-operational-difference">5.3. Operational Difference</h3>
+<table>
+<thead>
+<tr>
+<th>Señal</th>
+<th>Data drift</th>
+<th>Concept drift</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distribución de entrada</td>
+<td>Cambia</td>
+<td>Puede no cambiar</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong> con <strong>Recent Labels</strong></td>
+<td>Pueden degradarse</td>
+<td>Se degradan</td>
+</tr>
+<tr>
+<td>PSI sobre entradas</td>
+<td>Puede detectarlo</td>
+<td>Puede permanecer estable</td>
+</tr>
+<tr>
+<td>Typical Action</td>
+<td>Investigar el input, recalibrar o ejecutar <strong>Retraining</strong></td>
+<td>Obtener <strong>New Labels</strong> y reaprender la relación</td>
+</tr>
+</tbody>
+</table>
+<p>Un PSI estable no demuestra ausencia de <strong>Concept Drift</strong>. Para detectarlo hacen falta <strong>Recent Labels</strong> y <strong>Outcome Metrics</strong>.</p>
+<hr />
+<h2 id="6-population-stability-index-psi">6. Population Stability Index (PSI)</h2>
+<p>El PSI compara la proporción de observaciones que cae en cada intervalo antes y después del despliegue:</p>
+<div class="arithmatex">\[
+PSI = \sum_{i=1}^{B}(A_i-E_i)\ln\left(\frac{A_i}{E_i}\right)
+\]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\(E_i\)</span>: proporción esperada o de referencia en el intervalo <span class="arithmatex">\(i\)</span>;</li>
+<li><span class="arithmatex">\(A_i\)</span>: proporción actual en <strong>Production</strong>;</li>
+<li><span class="arithmatex">\(B\)</span>: número de intervalos.</li>
+</ul>
+<h3 id="worked-example">Worked Example</h3>
+<table>
+<thead>
+<tr>
+<th>Intervalo</th>
+<th style="text-align: right;">Esperado <span class="arithmatex">\(E\)</span></th>
+<th style="text-align: right;">Actual <span class="arithmatex">\(A\)</span></th>
+<th style="text-align: right;">Componente mostrado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">0,50</td>
+<td style="text-align: right;">0,30</td>
+<td style="text-align: right;">0,1022</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">0,30</td>
+<td style="text-align: right;">0,20</td>
+<td style="text-align: right;">0,0405</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">0,20</td>
+<td style="text-align: right;">0,50</td>
+<td style="text-align: right;">0,2749</td>
+</tr>
+</tbody>
+</table>
+<p>La suma directa de los componentes mostrados es:</p>
+<div class="arithmatex">\[
+0,1022 + 0,0405 + 0,2749 = 0,4176
+\]</div>
+<p>Los <strong>Conventional Thresholds</strong> incluidos en el material son:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">PSI</th>
+<th>Interpretación orientativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">(&lt; 0,10)</td>
+<td>Población estable</td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(0,10 \leq PSI &lt; 0,25\)</span></td>
+<td>Cambio moderado; investigar y monitorizar</td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(PSI \geq 0,25\)</span></td>
+<td>Cambio crítico; ejecutar <strong>Revalidation</strong> y valorar <strong>Retraining</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Dos matices importantes</p>
+<p>La diapositiva de cálculo muestra un resultado final de 0,4410, pero los tres componentes visibles suman 0,4176. Ambos superan 0,25, por lo que la decisión cualitativa no cambia. Además, 0,10 y 0,25 son convenciones, no leyes universales: el <strong>System Requirement</strong> debe fijar sus propios <strong>Thresholds</strong>, <strong>Bins</strong>, <strong>Reference Population</strong> y respuesta.</p>
+</div>
+<p>El PSI tampoco indica por qué cambió una variable ni si el cambio perjudica al modelo. Es una alarma, no un diagnóstico completo.</p>
+<hr />
+<h2 id="7-training-serving-skew">7. Training-Serving Skew</h2>
+<p>Hay <strong>Training-Serving Skew</strong> cuando el cálculo de <strong>Features</strong> durante <strong>Training</strong> difiere del utilizado en <strong>Production</strong>.</p>
+<p>Ejemplo:</p>
+<ul>
+<li>laboratorio: Pandas calcula de forma instantánea una media móvil exacta de 30 días sobre un CSV completo;</li>
+<li><strong>Production:</strong> un servicio en tiempo real recibe eventos individuales, maneja retrasos y quizá no conserva 30 días de estado.</li>
+</ul>
+<p>Aunque ambas variables se llamen <code>rolling_mean_30d</code>, no representan necesariamente lo mismo.</p>
+<h3 id="mitigation">Mitigation</h3>
+<ul>
+<li>compartir el mismo código de transformación;</li>
+<li>utilizar un <strong>Feature Store</strong> común;</li>
+<li>versionar definiciones y ventanas;</li>
+<li>ejecutar pruebas de paridad con datos reales;</li>
+<li>definir fallbacks cuando falta historial;</li>
+<li>medir diferencias entre <strong>Offline Features</strong> y <strong>Online Features</strong>.</li>
+</ul>
+<p>Las pruebas unitarias pueden aprobar y aun así existir skew, porque cada implementación puede ser internamente correcta pero semánticamente distinta.</p>
+<hr />
+<h2 id="8-hardware-physics-and-performance-sizing">8. Hardware Physics and Performance Sizing</h2>
+<h3 id="81-arithmetic-intensity">8.1. Arithmetic Intensity</h3>
+<div class="arithmatex">\[
+I = \frac{\text{FLOPs}}{\text{bytes movidos}}
+\]</div>
+<ul>
+<li>Un valor alto indica una carga <strong>compute-bound</strong>: el límite está en las unidades de cálculo.</li>
+<li>Un valor bajo indica una carga <strong>Memory-Bound</strong>: el límite está en mover <strong>Weights</strong> y <strong>Activations</strong> desde memoria.</li>
+</ul>
+<p>Las <strong>Convolutional Neural Networks (CNNs)</strong> densas suelen aprovechar más cómputo; la generación token a token de un <strong>Large Language Model (LLM)</strong> puede quedar limitada por ancho de banda de memoria.</p>
+<h3 id="82-roofline-model">8.2. Roofline Model</h3>
+<p>El rendimiento alcanzable se limita por el menor de dos techos:</p>
+<div class="arithmatex">\[
+R_{alcanzable} = \min(R_{pico}, BW \cdot I)
+\]</div>
+<pre class="mermaid"><code>flowchart TD
+    I[Measure Arithmetic Intensity] --&gt; Q{Is BW x I below Peak Compute?}
+    Q --&gt;|Yes| M[Memory-Bound]
+    Q --&gt;|No| C[Compute-Bound]
+    M --&gt; M1[Reduce Transfers, Quantize, Improve Locality]
+    C --&gt; C1[Reduce Operations or Increase Compute]</code></pre>
+<h3 id="83-deployment-scale-limits">8.3. Deployment Scale Limits</h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Orden de cómputo</th>
+<th>Memoria aproximada</th>
+<th>Potencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud ML</td>
+<td>TeraFLOPs</td>
+<td>80 GB o más</td>
+<td>Más de 300 W</td>
+</tr>
+<tr>
+<td>Servidor edge</td>
+<td>GigaFLOPs</td>
+<td>16-32 GB</td>
+<td>Aproximadamente 50 W</td>
+</tr>
+<tr>
+<td>Mobile ML</td>
+<td>GigaFLOPs</td>
+<td>2-4 GB compartidos</td>
+<td>Menos de 5 W</td>
+</tr>
+<tr>
+<td>TinyML</td>
+<td>MegaFLOPs</td>
+<td>Menos de 256 KB SRAM</td>
+<td>Milivatios</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pruning</strong> y <strong>Quantization</strong> no son simples optimizaciones opcionales cuando el destino es <strong>Tiny Machine Learning (TinyML)</strong>: forman parte de los requisitos de viabilidad.</p>
+<hr />
+<h2 id="9-gpu-non-determinism">9. GPU Non-Determinism</h2>
+<p>En números reales, la suma es asociativa; en coma flotante, el redondeo hace que el orden importe:</p>
+<div class="arithmatex">\[
+\operatorname{Float32}((a+b)+c)
+\neq
+\operatorname{Float32}(a+(b+c))
+\]</div>
+<p>Una <strong>Graphics Processing Unit (GPU)</strong> distribuye reducciones y sumas entre miles de hilos cuyo orden puede variar. Incluso con los mismos datos y <strong>Random Seed</strong>, dos ejecuciones de <strong>Training</strong> pueden producir <strong>Weights</strong> binariamente distintos.</p>
+<h3 id="engineering-consequences">Engineering Consequences</h3>
+<ul>
+<li>pequeñas diferencias pueden acumularse durante <strong>Training</strong>;</li>
+<li>repetir exactamente un experimento puede ser costoso o imposible;</li>
+<li>una semilla fija es necesaria, pero no siempre suficiente;</li>
+<li>la reproducibilidad debe definirse mediante tolerancias y artefactos versionados.</li>
+</ul>
+<p>En <strong>Production</strong> debe registrarse el modelo exacto que se despliega, incluyendo el <strong>Weights Hash</strong>, no solo el script que podría ejecutar de nuevo el <strong>Training</strong>.</p>
+<hr />
+<h2 id="10-cace-changing-anything-changes-everything">10. CACE: Changing Anything Changes Everything</h2>
+<p>Los modelos suelen consumir salidas de otros modelos. Si cambia un modelo situado aguas arriba, cambia la distribución de entrada de todos sus consumidores.</p>
+<pre class="mermaid"><code>flowchart LR
+    R[Datos brutos] --&gt; E[Modelo de embeddings]
+    E --&gt; REC[Recomendador]
+    E --&gt; FRA[Detector de fraude]
+    E --&gt; SEG[Segmentación]</code></pre>
+<p>Actualizar el <strong>Embedding Model</strong> puede mejorar su <strong>Local Metric</strong> y, al mismo tiempo, destruir la <strong>Calibration</strong> del recomendador o del detector de fraude.</p>
+<h3 id="required-controls">Required Controls</h3>
+<ul>
+<li>registro de dependencias entre modelos;</li>
+<li>versionado de contratos de salida;</li>
+<li>pruebas de integración y regresión aguas abajo;</li>
+<li><strong>Canary Deployment</strong> o <strong>Shadow Deployment</strong>;</li>
+<li>posibilidad de rollback coordinado;</li>
+<li>propietario responsable de aprobar el cambio sistémico.</li>
+</ul>
+<hr />
+<h2 id="11-regulatory-boundaries">11. Regulatory Boundaries</h2>
+<p>El material resume una pirámide de riesgo inspirada en el Reglamento Europeo de IA:</p>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Ejemplos del material</th>
+<th>Consecuencia general</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inaceptable</td>
+<td><em>Social scoring</em>, determinadas vigilancias biométricas</td>
+<td>Uso prohibido o fuertemente restringido</td>
+</tr>
+<tr>
+<td>High Risk</td>
+<td>Dispositivos médicos, infraestructura crítica, empleo</td>
+<td><strong>Human Oversight</strong>, registros, <strong>Risk Management</strong> y <strong>Monitoring</strong></td>
+</tr>
+<tr>
+<td>Riesgo limitado</td>
+<td>Chatbots y <em>deepfakes</em></td>
+<td>Obligaciones de transparencia</td>
+</tr>
+<tr>
+<td>Riesgo mínimo</td>
+<td>Filtros de spam o IA en videojuegos</td>
+<td>Obligaciones menores</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Esta tabla sirve como mapa conceptual del material docente, no como asesoramiento jurídico. La clasificación real depende del uso previsto, el contexto, las excepciones y la normativa vigente.</p>
+</div>
+<hr />
+<h2 id="12-nine-failure-causes-across-build-deploy-and-operate">12. Nine Failure Causes Across Build, Deploy and Operate</h2>
+<table>
+<thead>
+<tr>
+<th>Momento</th>
+<th>Causa</th>
+<th>Plano</th>
+<th>Comprobación mínima</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build</td>
+<td>Class Imbalance</td>
+<td>Data</td>
+<td>Contar clases y calcular IR</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Metric Illusions</td>
+<td>Algorithm</td>
+<td>Evaluar el <em>do-nothing system</em></td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Temporal Leakage</td>
+<td>Data</td>
+<td>Auditar significado y disponibilidad temporal; usar <em>time-based split</em></td>
+</tr>
+<tr>
+<td>Build</td>
+<td>SRAM Limits</td>
+<td>Machine</td>
+<td>Calcular memory footprint y compararlo con el dispositivo</td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>Training-Serving Skew</td>
+<td>Machine / Integration</td>
+<td>Reutilizar transformación o Feature Store</td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>GPU Non-Determinism</td>
+<td>Machine</td>
+<td>Registrar los weights exactos publicados</td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>CACE</td>
+<td>Algorithm / System</td>
+<td>Registrar dependencias y revalidar consumidores</td>
+</tr>
+<tr>
+<td>Operate</td>
+<td>Data Drift</td>
+<td>Data</td>
+<td>Monitorizar PSI y distribuciones</td>
+</tr>
+<tr>
+<td>Operate</td>
+<td>Concept Drift</td>
+<td>Algorithm</td>
+<td>Medir performance con labels recientes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-ml-diagnostic-tree">13. ML Diagnostic Tree</h2>
+<pre class="mermaid"><code>flowchart TD
+    A{Does Quality Degrade over Time?}
+    A --&gt;|Yes| D[Measure Data Drift with PSI and Revalidate Metrics]
+    A --&gt;|No| B{Is Lab Performance much better than Production?}
+    B --&gt;|Yes| L[Check Temporal Leakage and Training-Serving Skew]
+    B --&gt;|No| C{Is the Latency Budget exceeded?}
+    C --&gt;|Yes| H[Measure Arithmetic Intensity and Apply Roofline]
+    C --&gt;|No| X[Review Metric, Calibration, Capacity and Dependencies]</code></pre>
+<p>Este árbol no sustituye el análisis causal, pero evita tres errores comunes:</p>
+<ul>
+<li>reentrenar automáticamente cuando el problema está en la integración;</li>
+<li>comprar hardware cuando el cuello de botella es memoria;</li>
+<li>celebrar una accuracy alta cuando la clase importante nunca se detecta.</li>
+</ul>
+<h2 id="source-material">Source Material</h2>
+<ul>
+<li><strong>B1.2 Challenges in Developing AI Based Applications.pdf</strong>, diapositivas 1-20.</li>
+<li>Los ejemplos de máquinas y los conceptos de coste y métrica enlazan con <strong>B1.1 Engineering_AI_Software_Requirements.pdf</strong>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../1-1-requisitos-de-software-basado-en-ia/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1.1. AI-Based Software Requirements">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1.1. AI-Based Software Requirements
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../1-3-familias-de-inteligencia-artificial/" class="md-footer__link md-footer__link--next" aria-label="Next: 1.3. AI Families">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                1.3. AI Families
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["navigation.tabs","navigation.sections","navigation.indexes","navigation.path","navigation.top","navigation.footer","content.code.annotate","content.code.copy","content.code.select","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6970bfe9.min.js"></script>
+      
+        <script src="../../../../javascripts/shortcuts.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../javascripts/pwa.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
