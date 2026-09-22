@@ -1,0 +1,11 @@
+#!/bin/bash
+
+gcc -Wall -o P1_echo_server P1_echo_server.c
+gcc -Wall -o P1_echo_client P1_echo_client.c
+# terminal 1
+./P1_echo_server
+# terminal 2
+./P1_echo_client 127.0.0.1 9000 1024
+# useful while you work
+ps -ef | grep P1_echo_server # is your server still running
+echo $? # how the last program ended

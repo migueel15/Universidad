@@ -1,0 +1,5 @@
+Sube cuatro ficheros: P1_echo_server.c corregido y comentado, P1_echo_client.c sin modificar (o comentado si has añadido extensiones), resultados.txt con la salida copiada de tu terminal (intercambio correcto, tabla de tiempos de la etapa 2 y mensajes de la etapa 3) y una instantánea de tu pantalla o un PDF de tu página manuscrita con nombre y fecha evidencia-NOMBRE_APELLIDO1_ddmmaa.pdf (donde ddmmaa es la fecha del día que hiciste la toma de pantalla o similar, no la fecha en que estás subiendo la práctica).
+
+No comprimas ni renombres los ficheros, sube cuatro ficheros con estos nombres exactamente. 
+
+Debes poder justificar cualquier línea, comentario o número de la práctica uer presentes.
