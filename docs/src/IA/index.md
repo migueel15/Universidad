@@ -11,6 +11,7 @@ Documentación y apuntes de la asignatura de **Inteligencia Artificial**.
 - [1.1. AI-Based Software Requirements](temario/bloque-1/1-1-requisitos-de-software-basado-en-ia.md)
 - [1.2. Challenges in Developing AI-Based Applications](temario/bloque-1/1-2-retos-en-el-desarrollo-de-aplicaciones-basadas-en-ia.md)
 - [1.3. AI Families](temario/bloque-1/1-3-familias-de-inteligencia-artificial.md)
+- [1.4. Hardware Platforms and Basic Sizing](temario/bloque-1/1-4-plataformas-hardware-y-dimensionamiento-basico.md)
 
 ### Notas de clase
 
