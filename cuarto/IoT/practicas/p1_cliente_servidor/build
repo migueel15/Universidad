@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gcc -Wall -o P1_echo_server P1_echo_server.c
+gcc -Wall -o P1_echo_client P1_echo_client.c

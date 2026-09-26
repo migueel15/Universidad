@@ -22,7 +22,13 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define PORT 80
+/*
+ * Un puerto menor a 1024 es un puerto privilegiado que necesita
+ * privilegios de administrador para poder ser usado.
+ * Como el script de ejecución usa el puerto 9000, es el que defino aquí
+ */
+
+#define PORT 9000
 #define BUFSIZE 1024
 
 int main(void) {
@@ -54,7 +60,11 @@ int main(void) {
   memset(&serv_addr, 0, sizeof(serv_addr));
   serv_addr.sin_family = AF_INET;
   serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-  serv_addr.sin_prt = htons(PORT);
+  /*
+   * Fallo de typo:
+   * El compilador avisa de que sin_prt no es un miembro del struct serv_addr.
+   */
+  serv_addr.sin_port = htons(PORT);
 
   if (bind(listen_fd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
     perror("bind");
@@ -81,14 +91,47 @@ int main(void) {
            inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
     fflush(stdout);
 
-    n = read(conn_fd, buffer, BUFSIZE);
-    if (n < 0) {
-      perror("read");
-    } else {
+    /*
+     * El servidor solo espera un mensaje del cliente.
+     * Como el buffer está definido a 1024 bytes, este es el máximo
+     * tamaño que recibirá por mensaje.
+     *
+     * Para mensajes más grandes es necesario ir iterando hasta quedarse sin
+     * bytes de lectura.
+     * La función read devuelve la cantidad de bytes leidos por lo que podemos
+     * saber cuando terminar de leer.
+     */
+    while ((n = read(conn_fd, buffer, BUFSIZE)) > 0) {
       printf("server: received %zd bytes\n", n);
       fflush(stdout);
-      if (write(conn_fd, buffer, n) < 0)
-        perror("write");
+
+      /*
+       * Al escribir ocurre algo parecido que al leer. Es posible que el
+       * número de bytes escritos sea menor al definido en la función.
+       *
+       * Se va llevando una variable total que acumule los bytes escritos.
+       * Por lo general se va a mandar n de primeras pero es posible que por
+       * llenado de discos u otros casos no se mande al completo.
+       */
+
+      ssize_t total = 0;
+
+      sleep(2);
+
+      while (total < n) {
+        ssize_t current = write(conn_fd, buffer + total, n - total);
+        if (current <= 0) {
+          if (current < 0) {
+            perror("write");
+          }
+          break;
+        }
+        total += current;
+      }
+    }
+
+    if (n < 0) {
+      perror("read");
     }
 
     close(conn_fd);
