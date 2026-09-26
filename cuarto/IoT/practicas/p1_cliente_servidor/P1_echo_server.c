@@ -116,8 +116,6 @@ int main(void) {
 
       ssize_t total = 0;
 
-      sleep(2);
-
       while (total < n) {
         ssize_t current = write(conn_fd, buffer + total, n - total);
         if (current <= 0) {
