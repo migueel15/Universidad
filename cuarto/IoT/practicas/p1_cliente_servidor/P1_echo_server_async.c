@@ -15,11 +15,13 @@
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
 /*
@@ -31,12 +33,20 @@
 #define PORT 9000
 #define BUFSIZE 1024
 
+// maneja la recogida de hijos zombie
+void clean_child(int sig) {
+  while (waitpid(-1, NULL, WNOHANG) > 0) {
+  }
+}
+
 int main(void) {
   int listen_fd, conn_fd;
   struct sockaddr_in serv_addr, cli_addr;
   socklen_t cli_len;
   char buffer[BUFSIZE];
   ssize_t n;
+
+  signal(SIGCHLD, clean_child);
 
   listen_fd = socket(AF_INET, SOCK_STREAM, 0);
   if (listen_fd < 0) {
@@ -91,50 +101,67 @@ int main(void) {
            inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
     fflush(stdout);
 
-    /*
-     * El servidor solo espera un mensaje del cliente.
-     * Como el buffer está definido a 1024 bytes, este es el máximo
-     * tamaño que recibirá por mensaje.
-     *
-     * Para mensajes más grandes es necesario ir iterando hasta quedarse sin
-     * bytes de lectura.
-     * La función read devuelve la cantidad de bytes leidos por lo que podemos
-     * saber cuando terminar de leer.
-     */
-    while ((n = read(conn_fd, buffer, BUFSIZE)) > 0) {
-      printf("server: received %zd bytes\n", n);
-      fflush(stdout);
+    pid_t pid = fork();
+
+    if (pid < 0) {
+      perror("fork");
+      close(conn_fd);
+      continue;
+    }
+
+    if (pid == 0) {
+      close(listen_fd);
 
       /*
-       * Al escribir ocurre algo parecido que al leer. Es posible que el
-       * número de bytes escritos sea menor al definido en la función.
+       * El servidor solo espera un mensaje del cliente.
+       * Como el buffer está definido a 1024 bytes, este es el máximo
+       * tamaño que recibirá por mensaje.
        *
-       * Se va llevando una variable total que acumule los bytes escritos.
-       * Por lo general se va a mandar n de primeras pero es posible que por
-       * llenado de discos u otros casos no se mande al completo.
+       * Para mensajes más grandes es necesario ir iterando hasta quedarse sin
+       * bytes de lectura.
+       * La función read devuelve la cantidad de bytes leidos por lo que podemos
+       * saber cuando terminar de leer.
        */
+      while ((n = read(conn_fd, buffer, BUFSIZE)) > 0) {
+        printf("server: received %zd bytes\n", n);
+        fflush(stdout);
 
-      ssize_t total = 0;
+        /*
+         * Al escribir ocurre algo parecido que al leer. Es posible que el
+         * número de bytes escritos sea menor al definido en la función.
+         *
+         * Se va llevando una variable total que acumule los bytes escritos.
+         * Por lo general se va a mandar n de primeras pero es posible que por
+         * llenado de discos u otros casos no se mande al completo.
+         */
 
-      while (total < n) {
-        ssize_t current = write(conn_fd, buffer + total, n - total);
-        if (current <= 0) {
-          if (current < 0) {
-            perror("write");
+        ssize_t total = 0;
+        sleep(2);
+
+        while (total < n) {
+          ssize_t current = write(conn_fd, buffer + total, n - total);
+          if (current <= 0) {
+            if (current < 0) {
+              perror("write");
+            }
+            break;
           }
-          break;
+          total += current;
         }
-        total += current;
       }
-    }
 
-    if (n < 0) {
-      perror("read");
-    }
+      if (n < 0) {
+        perror("read");
+      }
 
-    close(conn_fd);
-    printf("server: client disconnected\n\n");
-    fflush(stdout);
+      printf("server: client disconnected\n\n");
+      fflush(stdout);
+      close(conn_fd);
+      exit(0);
+
+    } else {
+      close(conn_fd);
+    }
   }
 
   return 0;
