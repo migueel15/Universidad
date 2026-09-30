@@ -226,5 +226,6 @@ En una plataforma IoT, las mediciones simultáneas pueden agruparse en una pasar
 ## Referencias relacionadas
 
 - [Bloque 1 — Evolución de los sistemas distribuidos](bloque-1-evolucion-de-los-sistemas-distribuidos.md)
+- [Apuntes de clase — Miércoles 30 de septiembre de 2026](../notas-clase/clase-2026-09-30.md)
 - [Notas de clase](../notas-clase/index.md)
 - [PDF original del Bloque 2](../fuentes/B2_Elasticity_and_scalability.pdf)
