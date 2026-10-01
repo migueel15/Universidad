@@ -1,0 +1,25 @@
+transactions: 32768
+frauds: 102
+frauds over total: 0.311 %
+training transactions: 26214
+test transactions: 6554
+frauds inside the test set: 20
+
+--- model that always answers not fraud ---
+accuracy: 0.9969
+F1: 0.0000
+confusion matrix:
+[[6534    0]
+ [  20    0]]
+
+--- decision tree of depth 5 ---
+accuracy: 0.9994
+F1: 0.9000
+confusion matrix:
+[[6532    2]
+ [   2   18]]
+
+--- comparison ---
+model accuracy F1
+always not fraud 0.9969 0.0000
+decision tree 0.9994 0.9000

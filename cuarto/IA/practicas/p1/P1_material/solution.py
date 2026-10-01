@@ -6,8 +6,9 @@ Run it with:   python3 initial_solution.py
 
 import pandas as pd
 from sklearn.dummy import DummyClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
 
 DATA = "creditcard_subset.csv"
 SEED = 42
@@ -41,18 +42,37 @@ trivial_answer = trivial.predict(x_test)
 print("\n--- model that always answers not fraud ---")
 print("accuracy: %.4f" % accuracy_score(y_test, trivial_answer))
 
-# TODO_1
+# TODO_1. Calcula el F1 y la matriz de confusión para el primer modelo
+print("F1: %.4f" % f1_score(y_test, trivial_answer))
+print("confusion matrix:")
+print(confusion_matrix(y_test, trivial_answer))
 
 # --- Step 3. A model that does learn ----------------------------------------
 
 print("\n--- decision tree of depth %d ---" % DEPTH)
 
-# TODO_2
+# TODO_2. Genera un arbol de decision con el conjunto de datos de entrenamiento y predice la salida para el conjunto de testeo.
+tree = DecisionTreeClassifier(max_depth=DEPTH, random_state=SEED)
+tree.fit(x_train, y_train)
+tree_answer = tree.predict(x_test)
 
-# TODO_3
+# TODO_3. Muestra los datos obtenidos del nuevo modelo. Se añade el score f1
+print("accuracy: %.4f" % accuracy_score(y_test, tree_answer))
+print("F1: %.4f" % f1_score(y_test, tree_answer))
+print("confusion matrix:")
+print(confusion_matrix(y_test, tree_answer))
 
 # --- Step 4. The two of them side by side -----------------------------------
 
 print("\n--- comparison ---")
 
 # TODO_4
+print("model accuracy F1")
+print(
+    "always not fraud %.4f %.4f"
+    % (accuracy_score(y_test, trivial_answer), f1_score(y_test, trivial_answer))
+)
+print(
+    "decision tree %.4f %.4f"
+    % (accuracy_score(y_test, tree_answer), f1_score(y_test, tree_answer))
+)
