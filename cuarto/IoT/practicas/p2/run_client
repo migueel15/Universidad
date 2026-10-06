@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./P2_conc_client 127.0.0.1 9100

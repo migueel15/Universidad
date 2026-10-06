@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gcc -Wall -o P2_conc_server P2_conc_server.c
+gcc -Wall -o P2_conc_client P2_conc_client.c
