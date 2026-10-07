@@ -37,10 +37,10 @@
 #define BUFSIZE 256
 
 // maneja la recogida de hijos zombie
-void clean_child(int sig) {
-  while (waitpid(-1, NULL, WNOHANG) > 0) {
-  }
-}
+// void clean_child(int sig) {
+//   while (waitpid(-1, NULL, WNOHANG) > 0) {
+//   }
+// }
 
 /* Attends one client. Runs inside the child process. */
 static void serve_client(int conn_fd, int served) {
@@ -52,9 +52,35 @@ static void serve_client(int conn_fd, int served) {
   sleep(5); /* pretend the work takes time */
 
   /* the client may already have gone away while we were working */
-  write(conn_fd, buffer, n);
+
+  /*
+   * Se añade comprobación de las escrituras del servidor al cliente.
+   * El cliente puede haber cerrado la conexión con el servidor. Si este trata
+   * de escribir se produce un error.
+   *
+   * Realmente si el write no se controla y trata de escribir, este lanza un
+   * SIGPIPE. Por defecto el sistema operativo cierra este proceso. En nuestro
+   * caso no afecta en nada controlarlo más allá de querer manejar el error y
+   * mostrar algún mensaje. Al cerrar el proceso, el descriptor de la conexión
+   * tambien se cierra.
+   *
+   * Para que el control de errores manual se ejecute se debe controlar y
+   * ignorar la señal SIGPIPE. En mi caso ignoro la señal en main son
+   * signal(SIGPIPE,SIG_IGN);
+   */
+  ssize_t w = write(conn_fd, buffer, n);
+  if (w < 0) {
+    perror("write");
+    close(conn_fd);
+    exit(-1);
+  }
   sleep(1);
-  write(conn_fd, "goodbye\n", 8);
+  w = write(conn_fd, "goodbye\n", 8);
+  if (w < 0) {
+    perror("write");
+    close(conn_fd);
+    exit(-1);
+  }
 
   close(conn_fd);
   printf("server: child %d finished with client %d\n", getpid(), served);
@@ -67,7 +93,14 @@ int main(void) {
   socklen_t cli_len;
   int served = 0;
 
-  signal(SIGCHLD, clean_child);
+  // las señales SIGCHLD son manejadas por clean_child para evitar procesos
+  // zombie
+  // signal(SIGCHLD, clean_child);
+
+  // Ignora las señales SIGPIPE lanzadas al hacer un write al socket cuando el
+  // cliente ha cerrado la conexión. Es manejado manualmente para mostrar un
+  // print por pantalla.
+  signal(SIGPIPE, SIG_IGN);
 
   listen_fd = socket(AF_INET, SOCK_STREAM, 0);
   if (listen_fd < 0) {
@@ -161,7 +194,7 @@ int main(void) {
       if (pid < 0) {
         perror("fork");
         close(conn_fd);
-        break;
+        continue;
       }
       close(conn_fd);
     }

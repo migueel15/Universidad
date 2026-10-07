@@ -1,0 +1,47 @@
+TRAZA EJECUCION CORRECTA:
+
+server: listening on port 9100, my process number is 38916
+server: client 1 connected from 127.0.0.1
+server: client 2 connected from 127.0.0.1
+client: hello, you are client number 1
+client: goodbye
+client: finished in 6.00 seconds
+server: child 38934 finished with client 1
+client: hello, you are client number 2
+client: goodbye
+client: finished in 6.00 seconds
+server: child 38953 finished with client 2
+
+TABLA:
+
+| number of clients | slowest time | number of server processes |
+| 1                 | 6.00         | 2                          |
+| 2                 | 6.00         | 3                          |
+| 3                 | 6.00         | 4                          |
+
+El tiempo que tarda en responder el servidor al cliente es similar y no escala conforme se aumenta el número de clientes simultaneos conectados. Cada conexión crea un proceso que la maneja por lo tanto el servidor puede atender simultaneamente a todos.
+
+Los 6 segundos que tardan vienen de los sleeps de 5 y 1 segundos que simulan trabajo del servidor.
+
+STAGE 3:
+
+3.1:
+Al ejecutar un cliente con --leave, tras establecerse la conexión el cliente la abandona. Como el servidor escribe de vuelta y está controlado, se muestran errores de escritura por pantalla en el servidor.
+
+3.2:
+  54999 pts/6    00:00:00 P2_conc_server
+  55068 pts/6    00:00:00 P2_conc_server <defunct>
+  55172 pts/6    00:00:00 P2_conc_server <defunct>
+  55254 pts/6    00:00:00 P2_conc_server <defunct>
+Tras terminar los 3 procesos estos procesos no son recogidos por el padre y quedan en estado zombie.
+
+He implementado el manejo de hijos y lo he dejado comentado. Ejecutandolo de nuevo, los hijos si son recogidos correctamente y ya no se muestran como <defunt>.
+
+3.3:
+Al matar a un hijo el servidor sigue funciona y puede manejar nuevos clientes como se puede observar en esta traza:
+
+server: listening on port 9100, my process number is 59902
+server: client 1 connected from 127.0.0.1
+write: Broken pipe
+server: client 2 connected from 127.0.0.1
+server: child 60153 finished with client 2
