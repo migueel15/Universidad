@@ -343,3 +343,4 @@ El ecosistema de herramientas se elige por función: librerías de ML como Sciki
 - [AI Families](../bloque-1/1-3-familias-de-inteligencia-artificial.md)
 - [Hardware Platforms and Basic Sizing](../bloque-1/1-4-plataformas-hardware-y-dimensionamiento-basico.md)
 - [PDF original — Block 2. Architecture and Design](fuentes/Block%202.%20Architecture%20and%20Design.pdf)
+- [7 de octubre — Del pipeline de datos al sistema de IA en producción](../../notas-clase/clase-2026-10-07.md)

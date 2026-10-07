@@ -23,6 +23,7 @@ Documentación y apuntes de la asignatura de **Inteligencia Artificial**.
 Los apuntes tomados a partir de las clases están organizados por fecha dentro de la carpeta `notas-clase`.
 
 - [Índice de notas de clase](notas-clase/index.md)
+- [7 de octubre de 2026 — Del pipeline de datos al sistema de IA en producción](notas-clase/clase-2026-10-07.md)
 - [23 de septiembre de 2026 — Análisis estadístico y gestión de datos para IA](notas-clase/clase-2026-09-23.md)
 - [18 de septiembre de 2026 — Mecanismos de inferencia, búsqueda y optimización](notas-clase/clase-2026-09-18.md)
 
