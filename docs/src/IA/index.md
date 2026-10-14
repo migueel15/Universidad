@@ -18,6 +18,10 @@ Documentación y apuntes de la asignatura de **Inteligencia Artificial**.
 
 - [2. Architecture and Design](temario/bloque-2/2-arquitectura-y-diseno.md)
 
+#### Bloque 3 — Data Quality
+
+- [3. Data quality — preparar, comprobar y medir los datos de un modelo](temario/bloque-3/3-calidad-de-datos.md)
+
 ### Notas de clase
 
 Los apuntes tomados a partir de las clases están organizados por fecha dentro de la carpeta `notas-clase`.
