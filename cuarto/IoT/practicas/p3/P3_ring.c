@@ -15,51 +15,50 @@
  * noticed it.
  */
 
+#include <mpi.h>
 #include <stdio.h>
 #include <string.h>
-#include <mpi.h>
 
 #define MAXWORD 64
-#define TAG     1
+#define TAG 1
 
-int main(int argc, char *argv[])
-{
-    int rank, size, next, prev;
-    char word[MAXWORD];
-    MPI_Status status;
+int main(int argc, char *argv[]) {
+  int rank, size, next, prev;
+  char word[MAXWORD];
+  MPI_Status status;
 
-    MPI_Init(&argc, &argv);
-    MPI_Comm_rank(MPI_COMM_ALL, &rank);
-    MPI_Comm_size(MPI_COMM_ALL, &size);
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_ALL, &rank);
+  MPI_Comm_size(MPI_COMM_ALL, &size);
 
-    next = rank + 1;
-    prev = (rank - 1 + size) % size;
+  next = rank + 1;
+  prev = (rank - 1 + size) % size;
 
-    if (rank == 0) {
-        printf("type a word and press enter: ");
-        fflush(stdout);
-        if (scanf("%63s", word) != 1) {
-            printf("no word was read\n");
-            MPI_Finalize();
-            return 1;
-        }
-        printf("process 0 sends the word %s\n", word);
-        fflush(stdout);
-
-        MPI_Send(word, MAXWORD, MPI_CHAR, next, TAG, MPI_COMM_WORLD);
-        MPI_Recv(word, MAXWORD, MPI_CHAR, prev, TAG, MPI_COMM_WORLD, &status);
-
-        printf("the word %s came back to process 0, the ring is closed\n", word);
-        fflush(stdout);
-    } else {
-        MPI_Recv(word, MAXWORD, MPI_CHAR, 0, TAG, MPI_COMM_WORLD, &status);
-
-        printf("process %d has the word %s\n", rank, word);
-        fflush(stdout);
-
-        MPI_Send(word, MAXWORD, MPI_CHAR, next, TAG, MPI_COMM_WORLD);
+  if (rank == 0) {
+    printf("type a word and press enter: ");
+    fflush(stdout);
+    if (scanf("%63s", word) != 1) {
+      printf("no word was read\n");
+      MPI_Finalize();
+      return 1;
     }
+    printf("process 0 sends the word %s\n", word);
+    fflush(stdout);
 
-    MPI_Finalize();
-    return 0;
+    MPI_Send(word, MAXWORD, MPI_CHAR, next, TAG, MPI_COMM_WORLD);
+    MPI_Recv(word, MAXWORD, MPI_CHAR, prev, TAG, MPI_COMM_WORLD, &status);
+
+    printf("the word %s came back to process 0, the ring is closed\n", word);
+    fflush(stdout);
+  } else {
+    MPI_Recv(word, MAXWORD, MPI_CHAR, 0, TAG, MPI_COMM_WORLD, &status);
+
+    printf("process %d has the word %s\n", rank, word);
+    fflush(stdout);
+
+    MPI_Send(word, MAXWORD, MPI_CHAR, next, TAG, MPI_COMM_WORLD);
+  }
+
+  MPI_Finalize();
+  return 0;
 }
