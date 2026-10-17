@@ -456,18 +456,18 @@ Si un diálogo necesita seis viajes Madrid–Tokio, el retardo acumulado puede s
 
 El documento usa:
 
-\[
+$$
 Disponibilidad = \frac{MTBF}{MTBF + MTTR}
-\]
+$$
 
 - **MTBF:** tiempo medio entre fallos.
 - **MTTR:** tiempo medio de reparación.
 
 Ejemplo del PDF:
 
-\[
+$$
 \frac{200}{200+4}\approx 98\%
-\]
+$$
 
 La disponibilidad puede mejorarse haciendo que el componente falle con menor frecuencia o reparándolo más deprisa. La recuperación automática suele ser más económica que intentar construir hardware que nunca falle.
 
@@ -506,15 +506,15 @@ Una caché conserva respuestas recientes. Un acierto evita utilizar la red; un f
 
 El documento aproxima la latencia media así:
 
-\[
+$$
 L_{media} \approx proporción\ de\ fallos \times RTT
-\]
+$$
 
 Con un 90 % de aciertos y un RTT de 80 ms:
 
-\[
+$$
 0,1 \times 80 = 8\ ms
-\]
+$$
 
 La contrapartida es la obsolescencia: una copia local puede dejar de reflejar el servidor.
 
@@ -601,9 +601,9 @@ La dirección IP identifica una interfaz de red, no estrictamente una máquina n
 
 El puerto identifica el punto de comunicación del proceso. Tiene 16 bits:
 
-\[
+$$
 0 \ldots 65535
-\]
+$$
 
 Una conexión se identifica mediante cinco valores:
 
@@ -913,9 +913,9 @@ Una tabla hash distribuida transforma el nombre de un elemento en una posición 
 
 Cada peer conserva atajos. La búsqueda requiere aproximadamente:
 
-\[
+$$
 O(\log N)
-\]
+$$
 
 Con alrededor de un millón de nodos, unas veinte decisiones binarias bastan como orden de magnitud.
 

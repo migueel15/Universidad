@@ -46,9 +46,9 @@ Una ejecución de IA combina dos costes fundamentales:
 
 Una aproximación conceptual es:
 
-\[
+$$
 T_{AI} \approx T_{compute} + T_{data\ movement}
-\]
+$$
 
 Esto implica que mejorar únicamente el rendimiento aritmético no garantiza una mejora proporcional. Si la mayor parte del tiempo se dedica a transportar datos, aumentar los FLOPs disponibles puede tener un impacto pequeño.
 
@@ -60,9 +60,9 @@ flowchart LR
     M --> T
 ```
 
-!!! important "Regla de ingeniería"
-    Antes de optimizar o comprar hardware hay que identificar si el cuello de botella está en el cálculo o en el movimiento de datos.
-
+::: tip Regla de ingeniería
+Antes de optimizar o comprar hardware hay que identificar si el cuello de botella está en el cálculo o en el movimiento de datos.
+:::
 ---
 
 ## 2. CPU, GPU and TPU
@@ -156,9 +156,9 @@ La diapositiva compara:
 
 La conclusión cualitativa es que un acceso a memoria externa puede costar mucho más que una operación aritmética.
 
-!!! warning "Inconsistencia numérica del material"
-    La diapositiva afirma que mover un valor desde DRAM cuesta aproximadamente **173 veces** más energía que una operación Multiply-Accumulate. Sin embargo, utilizando literalmente los dos valores mostrados, \(640 / 1,1 \approx 582\). Por tanto, esos números no producen la relación indicada. La conclusión de ingeniería sí permanece: **mover datos puede dominar ampliamente el consumo energético**.
-
+::: warning Inconsistencia numérica del material
+La diapositiva afirma que mover un valor desde DRAM cuesta aproximadamente **173 veces** más energía que una operación Multiply-Accumulate. Sin embargo, utilizando literalmente los dos valores mostrados, \(640 / 1,1 \approx 582\). Por tanto, esos números no producen la relación indicada. La conclusión de ingeniería sí permanece: **mover datos puede dominar ampliamente el consumo energético**.
+:::
 La principal palanca de eficiencia energética es la localidad: cada movimiento de datos evitado puede ahorrar más energía que optimizar una operación matemática individual.
 
 ---
@@ -189,9 +189,9 @@ Los accesos secuenciales suelen ser energéticamente eficientes porque el hardwa
 
 Supongamos una secuencia:
 
-\[
+$$
 MatMul \rightarrow Bias \rightarrow ReLU
-\]
+$$
 
 Si cada operación se ejecuta como un kernel independiente, cada etapa puede volver a escribir y leer resultados desde DRAM.
 
@@ -225,41 +225,41 @@ Sea:
 
 El **Speedup** es:
 
-\[
+$$
 S(p)=\frac{T_1}{T_p}
-\]
+$$
 
 La **Parallel Efficiency** es:
 
-\[
+$$
 E(p)=\frac{S(p)}{p}
-\]
+$$
 
 ### Worked Example
 
 Si:
 
-\[
+$$
 T_1=100\ s
-\]
+$$
 
 y con ocho procesadores:
 
-\[
+$$
 T_8=17\ s
-\]
+$$
 
 entonces:
 
-\[
+$$
 S(8)=\frac{100}{17}\approx5,88
-\]
+$$
 
 y:
 
-\[
+$$
 E(8)=\frac{5,88}{8}\approx0,74
-\]
+$$
 
 La eficiencia es aproximadamente del **74 %**. El resto del potencial se pierde en coordinación, sincronización, comunicación, reparto desigual del trabajo o acceso a memoria.
 
@@ -271,9 +271,9 @@ La eficiencia es aproximadamente del **74 %**. El resto del potencial se pierde 
 
 El ideal es:
 
-\[
+$$
 S(p)=p
-\]
+$$
 
 Duplicar procesadores duplicaría el rendimiento.
 
@@ -281,9 +281,9 @@ Duplicar procesadores duplicaría el rendimiento.
 
 Es el comportamiento habitual:
 
-\[
+$$
 S(p)<p
-\]
+$$
 
 Al aumentar \(p\), también crecen comunicación, sincronización, contención y overhead.
 
@@ -291,9 +291,9 @@ Al aumentar \(p\), también crecen comunicación, sincronización, contención y
 
 En casos poco frecuentes puede ocurrir:
 
-\[
+$$
 S(p)>p
-\]
+$$
 
 Una causa posible es que, al dividir el problema, cada fragmento pase a caber completamente en una caché rápida y se reduzcan drásticamente los accesos a memoria lenta.
 
@@ -311,41 +311,41 @@ Sea:
 
 El tiempo paralelo es:
 
-\[
+$$
 T_p=T_1\left(f+\frac{1-f}{p}\right)
-\]
+$$
 
 El speedup es:
 
-\[
+$$
 S(p)=\frac{1}{f+\frac{1-f}{p}}
-\]
+$$
 
 Cuando \(p\rightarrow\infty\):
 
-\[
+$$
 S_{max}=\frac{1}{f}
-\]
+$$
 
 ### Worked Scenario
 
 Si el 5 % del programa es secuencial:
 
-\[
+$$
 f=0,05
-\]
+$$
 
 Con ocho GPUs:
 
-\[
+$$
 S(8)=\frac{1}{0,05+\frac{0,95}{8}}\approx5,93
-\]
+$$
 
 Con un número infinito de procesadores:
 
-\[
+$$
 S_{max}=\frac{1}{0,05}=20
-\]
+$$
 
 Por tanto, añadir GPUs después de cierto punto produce rendimientos decrecientes. Si el escalado se estanca, la acción adecuada es localizar y reducir la **Serial Fraction**.
 
@@ -355,9 +355,9 @@ Por tanto, añadir GPUs después de cierto punto produce rendimientos decrecient
 
 Si un modelo contiene \(P\) parámetros y cada parámetro utiliza \(b\) bits:
 
-\[
+$$
 M_w=P\times\frac{b}{8}
-\]
+$$
 
 Para 25 millones de parámetros:
 
@@ -378,15 +378,15 @@ La **Quantization** disminuye el número de bits utilizado para representar peso
 
 Por ejemplo:
 
-\[
+$$
 FP32 \rightarrow INT8
-\]
+$$
 
 reduce teóricamente la memoria de los pesos a una cuarta parte:
 
-\[
+$$
 \frac{8}{32}=0,25
-\]
+$$
 
 El material muestra que bajar la precisión reduce de forma importante memoria y energía, pero que por debajo de cierto punto la calidad predictiva puede caer rápidamente.
 
@@ -399,18 +399,18 @@ flowchart LR
     V -->|Quality degraded| R[Use higher precision]
 ```
 
-!!! important
-    La cuantización es una **Quality-Resource Gate**. No puede aceptarse únicamente porque el modelo sea más pequeño. Después de cambiar la precisión deben volver a evaluarse las métricas exigidas.
-
+::: tip Importante
+La cuantización es una **Quality-Resource Gate**. No puede aceptarse únicamente porque el modelo sea más pequeño. Después de cambiar la precisión deben volver a evaluarse las métricas exigidas.
+:::
 ---
 
 ## 12. Energy: Power and Execution Time
 
 La energía total es:
 
-\[
+$$
 E=P_{avg}\times t
-\]
+$$
 
 donde \(P_{avg}\) es la potencia media y \(t\) el tiempo de ejecución.
 
@@ -421,13 +421,13 @@ donde \(P_{avg}\) es la potencia media y \(t\) el tiempo de ejecución.
 | CPU | 65 W | 40 s | 2.600 J |
 | GPU | 220 W | 8 s | 1.760 J |
 
-\[
+$$
 E_{CPU}=65\times40=2600\ J
-\]
+$$
 
-\[
+$$
 E_{GPU}=220\times8=1760\ J
-\]
+$$
 
 Aunque la GPU consume más potencia instantánea, termina la tarea mucho antes y en este ejemplo utiliza menos energía total.
 

@@ -33,5 +33,6 @@ Los apuntes tomados a partir de las clases están organizados por fecha dentro d
 - [23 de septiembre de 2026 — Análisis estadístico y gestión de datos para IA](notas-clase/clase-2026-09-23.md)
 - [18 de septiembre de 2026 — Mecanismos de inferencia, búsqueda y optimización](notas-clase/clase-2026-09-18.md)
 
-!!! note
-    Los apuntes de clase condensan y reorganizan las explicaciones de la sesión, corrigiendo errores evidentes de transcripción y añadiendo esquemas, tablas y fórmulas para facilitar el estudio.
+::: info Nota
+Los apuntes de clase condensan y reorganizan las explicaciones de la sesión, corrigiendo errores evidentes de transcripción y añadiendo esquemas, tablas y fórmulas para facilitar el estudio.
+:::

@@ -61,10 +61,10 @@ El conjunto de ejemplo no contiene duplicados. La diapositiva muestra que duplic
 
 Una **feature** es un número que se entrega al modelo; un **feature vector** reúne las features de una fila. Las categorías deben convertirse a representación numérica. Para una variable periódica como la hora, la codificación ordinal 0–23 crea una discontinuidad artificial entre 23 y 0. La codificación circular usa seno y coseno:
 
-\[
+$$
 hr_{sin}=\sin\left(\frac{2\pi\,hr}{24}\right),\qquad
 hr_{cos}=\cos\left(\frac{2\pi\,hr}{24}\right)
-\]
+$$
 
 Las horas 23 y 0 quedan vecinas en el círculo. Para la fila del 12 de septiembre de 2012 a las 07:00, la diapositiva da `hr_sin = 0,9659`, `hr_cos = −0,2588`, temperatura normalizada `0,52`, alquileres de la hora `cnt = 557`, media móvil de tres horas `mean_3h = 276,0` y target `next_hour = 770`.
 
@@ -208,15 +208,15 @@ La matriz de confusión de la decisión «enviar la hora a una persona» es:
 
 De ahí se calculan:
 
-\[
+$$
 \text{precision}=\frac{TP}{TP+FP}=93,55\%,\qquad
 \text{recall}=\frac{TP}{TP+FN}=81,78\%
-\]
+$$
 
-\[
+$$
 F1=2\frac{\text{precision}\cdot\text{recall}}{\text{precision}+\text{recall}}=87,27\%,\qquad
 \text{accuracy}=\frac{TP+TN}{TP+TN+FP+FN}=94,76\%
-\]
+$$
 
 *Precision* mide qué proporción de las alertas correspondía a horas ocupadas; *recall*, qué proporción de las horas ocupadas se detectó. Accuracy puede ocultar fallos si las clases están desequilibradas. Si perder una hora ocupada es más costoso que emitir una alerta falsa, el recall tiene prioridad.
 
