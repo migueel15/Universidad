@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "vitepress dev src --host 127.0.0.1",
+    "build": "vitepress build src",
+    "preview": "vitepress preview src --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "debug": "^4.4.3",
+    "markdown-it-mathjax3": "^4.3.2",
+    "mermaid": "^11.17.2",
+    "pagefind": "^1.5.2",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vitepress-plugin-pagefind": "^0.4.25"
+  }
+}
