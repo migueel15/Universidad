@@ -125,11 +125,11 @@ flowchart LR
 | Predicted positive | True Positive (TP) | False Positive (FP) |
 | Predicted negative | False Negative (FN) | True Negative (TN) |
 
-\[
+$$
 \mathrm{Precision}=\frac{TP}{TP+FP},\qquad
 \mathrm{Recall}=\frac{TP}{TP+FN},\qquad
 F_1=2\frac{\mathrm{Precision}\cdot\mathrm{Recall}}{\mathrm{Precision}+\mathrm{Recall}}
-\]
+$$
 
 Precision answers what fraction of alerts were correct; recall answers what fraction of actual positives were found. The threshold depends on the relative cost of false positives and false negatives. A high aggregate score is insufficient if a critical subgroup or failure mode is hidden.
 
@@ -178,15 +178,15 @@ La elección combina requisitos de privacidad, conectividad, latencia, operació
 
 El coste de memoria incluye pesos, activaciones, cache y temporales; durante training también intervienen gradientes y estado del optimizer. Para inferencia, una estimación inicial es:
 
-\[
+$$
 \text{VRAM total}\approx\text{weights}+\text{activations}+\text{KV cache}+\text{workspace/overhead}
-\]
+$$
 
 Los pesos solos ocupan aproximadamente:
 
-\[
+$$
 \text{weight bytes}=\text{parameter count}\times\text{bytes per parameter}
-\]
+$$
 
 Así, 8 mil millones de parámetros en FP16 requieren aproximadamente 16 GB decimales (unos 14.9 GiB) solo para los pesos. La **KV cache** crece con la longitud de contexto y el número de secuencias concurrentes; por ello, un modelo cuyos pesos caben justo en una GPU puede fallar al atender una carga real. La cuantización puede reducir memoria y tráfico, pero se deben reevaluar precisión, latencia y compatibilidad.
 
@@ -212,9 +212,9 @@ Un modelo puede tener alta precisión y aun así dar la respuesta equivocada en 
 
 Una descomposición útil de latencia síncrona es:
 
-\[
+$$
 T_{sync}=T_{client}+T_{service}+T_{network}
-\]
+$$
 
 La cifra real debe incluir colas, serialización, reintentos y los percentiles altos, además del tiempo de inferencia.
 
@@ -222,9 +222,9 @@ La cifra real debe incluir colas, serialización, reintentos y los percentiles a
 
 Si cada etapa independiente de una ruta debe funcionar para responder, la fiabilidad de la cadena es el producto de las fiabilidades de las etapas. Cuatro dependencias con 99% de disponibilidad cada una dan:
 
-\[
+$$
 0.99^4\approx0.9606\quad(96.06\%)
-\]
+$$
 
 Es una ilustración bajo el supuesto de independencia; fallos correlacionados alteran el cálculo. Reintentos limitados, redundancia y rutas alternativas pueden mejorar la disponibilidad, mientras que un fallback definido reduce el impacto de una dependencia fallida.
 

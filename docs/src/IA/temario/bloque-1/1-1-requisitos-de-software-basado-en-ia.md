@@ -85,21 +85,21 @@ Por eso, la verificación pasa de «esta entrada siempre produce exactamente est
 
 El espacio de entradas reales suele ser demasiado grande para probarlo exhaustivamente. Una imagen RGB de $224 \times 224$ píxeles puede adoptar:
 
-\[
+$$
 256^{224 \cdot 224 \cdot 3}
-\]
+$$
 
 combinaciones distintas. Un conjunto de prueba de decenas de miles de imágenes cubre una fracción despreciable de ese espacio.
 
 La **Verification Gap** es la parte del espacio de entradas que no queda cubierta por las pruebas. Por tanto:
 
-\[
+$$
 \text{Brecha de verificación}
 =
 \text{espacio total de entradas}
 -
 \text{cobertura del conjunto de prueba}
-\]
+$$
 
 No se puede garantizar el comportamiento para todas las entradas posibles. La ingeniería sustituye esa garantía imposible por:
 
@@ -204,17 +204,17 @@ flowchart LR
 
 Un falso negativo cuesta aproximadamente:
 
-\[
+$$
 \frac{480}{2,10} \approx 228,57
-\]
+$$
 
 veces más que un falso positivo. Tratar ambos errores como equivalentes conduce a decisiones económicas incorrectas.
 
 El coste semanal es:
 
-\[
+$$
 C = 2,10 \cdot FP + 480 \cdot FN
-\]
+$$
 
 ---
 
@@ -263,28 +263,28 @@ El **Decision Threshold** debe quedar fijado por contrato. No basta con decir «
 
 El número total de casos es:
 
-\[
+$$
 n = TP + FP + FN + TN
-\]
+$$
 
 ### 6.2. Core Evaluation Metrics
 
-\[
+$$
 \text{Accuracy} = \frac{TP + TN}{n}
-\]
+$$
 
-\[
+$$
 \text{Precision} = \frac{TP}{TP + FP}
-\]
+$$
 
-\[
+$$
 \text{Recall} = \frac{TP}{TP + FN}
-\]
+$$
 
-\[
+$$
 F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}
 {\text{Precision} + \text{Recall}}
-\]
+$$
 
 - **Accuracy** responde: «¿En qué proporción total acertamos?».
 - **Precision** responde: «De las alarmas generadas, ¿cuántas eran reales?».
@@ -301,15 +301,15 @@ Un componente que siempre responde «no habrá fallo» produce:
 
 Su accuracy es:
 
-\[
+$$
 \frac{0 + 4954}{5000} = 0,9908 = 99,08\%
-\]
+$$
 
 Sin embargo, omite todos los fallos y cuesta:
 
-\[
+$$
 46 \cdot 480 = 22.080\text{ € por semana}
-\]
+$$
 
 El 99,08 % se obtiene únicamente porque la clase negativa es mayoritaria. No demuestra que el componente aporte valor.
 
@@ -345,9 +345,9 @@ La **Hand-Written Rule** inicial marca una máquina si presenta vibración alta 
 
 Aunque tiene peor **Accuracy**, la **Hand-Written Rule** reduce el coste semanal en:
 
-\[
+$$
 22.080 - 11.719,50 = 10.360,50\text{ €}
-\]
+$$
 
 La **Baseline** de un nuevo modelo no debe ser cero: debe ser la regla existente que ya utiliza la organización.
 
@@ -366,21 +366,21 @@ Además, B excede la capacidad de 100 visitas semanales. Es económicamente atra
 
 Cambiar el **Decision Threshold** modifica simultáneamente FP, FN y $k$. El valor óptimo minimiza el coste sujeto a las restricciones:
 
-\[
+$$
 \min_k\; 2,10 \cdot FP(k) + 480 \cdot FN(k)
-\]
+$$
 
 sujeto a:
 
-\[
+$$
 k \leq 100
-\]
+$$
 
 No debe elegirse el **Decision Threshold** únicamente para eliminar todos los FN. A partir de cierto punto, cada nueva inspección cuesta más que el fallo adicional que evita.
 
-!!! warning "Inconsistencia detectada en las diapositivas"
-    La diapositiva 13 muestra 1.645,50 € para $k=600$, mientras que la recapitulación indica $TP=46$, $FP=554$ y $FN=0$. Aplicando la fórmula declarada, el coste correcto de esas cuentas es $554 \cdot 2,10 = 1.163,40$ €. La conclusión general no cambia: $k=345$ es el mínimo económico mostrado, pero no es viable con una capacidad de 100 visitas.
-
+::: warning Inconsistencia detectada en las diapositivas
+La diapositiva 13 muestra 1.645,50 € para $k=600$, mientras que la recapitulación indica $TP=46$, $FP=554$ y $FN=0$. Aplicando la fórmula declarada, el coste correcto de esas cuentas es $554 \cdot 2,10 = 1.163,40$ €. La conclusión general no cambia: $k=345$ es el mínimo económico mostrado, pero no es viable con una capacidad de 100 visitas.
+:::
 ---
 
 ## 8. Performance and Deployment Requirements
@@ -389,13 +389,13 @@ No debe elegirse el **Decision Threshold** únicamente para eliminar todos los F
 
 El tiempo de ejecución puede aproximarse como:
 
-\[
+$$
 T = \frac{D_{vol}}{BW}
 +
 \frac{O}{R_{peak}\eta_{hw}}
 +
 L_{lat}
-\]
+$$
 
 donde:
 
@@ -412,9 +412,9 @@ Un modelo puede estar limitado por cómputo o por movimiento de memoria. Comprar
 
 Si un modelo tiene $P$ parámetros y cada parámetro utiliza $b$ bits:
 
-\[
+$$
 M_{modelo} = P \cdot \frac{b}{8}
-\]
+$$
 
 Para 25 millones de parámetros:
 

@@ -46,9 +46,9 @@ La regla fundamental es: **no se debe forzar Deep Learning en todos los problema
 
 El conocimiento se codifica explícitamente mediante **Facts**, **Rules**, **States**, **Operators** o **Constraints**.
 
-\[
+$$
 \text{Facts} + \text{Logic} \longrightarrow \text{Answers}
-\]
+$$
 
 Características:
 
@@ -62,13 +62,13 @@ Características:
 
 Las reglas internas se ajustan mediante **Optimization**:
 
-\[
+$$
 \text{Data} + \text{Expected Answers}
 \longrightarrow
 \text{Optimization}
 \longrightarrow
 \text{Weights}
-\]
+$$
 
 Características:
 
@@ -190,9 +190,9 @@ Un problema de búsqueda define:
 
 El algoritmo A* evalúa cada nodo con:
 
-\[
+$$
 f(n) = g(n) + h(n)
-\]
+$$
 
 donde:
 
@@ -202,14 +202,15 @@ donde:
 
 Para garantizar optimalidad en **Tree Search**, la **Heuristic** debe ser **Admissible**:
 
-\[
+$$
 0 \leq h(n) \leq h^*(n)
-\]
+$$
 
 Es decir, nunca debe sobreestimar el coste real restante.
 
-!!! example "Ejemplo de navegación"
-    La distancia en línea recta hasta el destino es una **Admissible Heuristic** cuando el coste real es la distancia recorrida por carretera: normalmente no puede ser mayor que la ruta disponible. Una heurística más informativa reduce nodos explorados, pero una sobreestimación puede perder la garantía de encontrar la ruta óptima.
+::: tip Ejemplo de navegación
+La distancia en línea recta hasta el destino es una **Admissible Heuristic** cuando el coste real es la distancia recorrida por carretera: normalmente no puede ser mayor que la ruta disponible. Una heurística más informativa reduce nodos explorados, pero una sobreestimación puede perder la garantía de encontrar la ruta óptima.
+:::
 
 ### 4.2. When to Use Search
 
@@ -229,9 +230,9 @@ Se busca minimizar o maximizar una función definida sobre variables continuas.
 
 ### 5.1. First-Order Gradient Descent
 
-\[
+$$
 x_{k+1} = x_k - \eta \nabla f(x_k)
-\]
+$$
 
 - $\eta$: **Learning Rate** o **Step Size**;
 - $\nabla f(x_k)$: **Gradient**, dirección de máxima subida; su negativo indica descenso.
@@ -240,11 +241,11 @@ Es barato por iteración y escala a muchos parámetros, pero puede necesitar num
 
 ### 5.2. Second-Order Newton-Raphson
 
-\[
+$$
 x_{k+1}
 =
 x_k - H_f(x_k)^{-1}\nabla f(x_k)
-\]
+$$
 
 La matriz Hessiana $H_f$ contiene segundas derivadas y representa la curvatura local. Puede converger en menos pasos cerca del óptimo, pero calcular, almacenar e invertir la Hessiana resulta muy costoso en alta dimensión.
 
@@ -268,11 +269,11 @@ Cuando las decisiones son discretas, no siempre se puede aplicar cálculo difere
 
 Para maximización:
 
-\[
+$$
 UB \leq V_{incumbent}
 \quad \Longrightarrow \quad
 \text{Prune Branch}
-\]
+$$
 
 ### 6.2. Worked Example: 0/1 Knapsack
 
@@ -287,9 +288,9 @@ Con capacidad de 7 kg:
 
 Una relajación fraccional permite obtener una cota superior, aunque la solución final solo admita objetos completos.
 
-!!! note "Comprobación del ejemplo"
-    La combinación de los objetos 1 y 4 pesa exactamente 7 kg y vale 110 €. También los objetos 2 y 3 pesan 7 kg y valen 110 €. Una traza de poda solo es correcta si sus cotas nunca descartan una rama capaz de alcanzar ese valor.
-
+::: info Comprobación del ejemplo
+La combinación de los objetos 1 y 4 pesa exactamente 7 kg y vale 110 €. También los objetos 2 y 3 pesan 7 kg y valen 110 €. Una traza de poda solo es correcta si sus cotas nunca descartan una rama capaz de alcanzar ese valor.
+:::
 Branch and Bound puede garantizar el óptimo, pero en el peor caso continúa siendo exponencial. Su eficacia depende de la calidad de las cotas y del orden de exploración.
 
 ---
@@ -304,15 +305,15 @@ Se inspira en el enfriamiento de metales. Al principio acepta movimientos peores
 
 Si el nuevo estado mejora el objetivo:
 
-\[
+$$
 P(aceptar)=1
-\]
+$$
 
 Si empeora en $\Delta E > 0$:
 
-\[
+$$
 P(aceptar)=e^{-\Delta E/T}
-\]
+$$
 
 Cuando $T$ es alta, todavía son probables saltos grandes. Cuando $T \to 0$, el algoritmo se aproxima a una búsqueda codiciosa.
 
@@ -343,17 +344,17 @@ El coste no está únicamente en evaluar el fitness. Copiar poblaciones y aplica
 
 Cada partícula conserva su mejor posición personal y conoce la mejor posición global:
 
-\[
+$$
 v_i(t+1)
 =
 w v_i(t)
 + c_1r_1(p_{best}-x_i)
 + c_2r_2(g_{best}-x_i)
-\]
+$$
 
-\[
+$$
 x_i(t+1)=x_i(t)+v_i(t+1)
-\]
+$$
 
 - $w$: inercia;
 - $c_1$: influencia de la experiencia individual;
@@ -364,11 +365,11 @@ x_i(t+1)=x_i(t)+v_i(t+1)
 
 Las hormigas artificiales refuerzan rutas cortas mediante feromonas:
 
-\[
+$$
 \tau_{ij}(t+1)
 =
 (1-\rho)\tau_{ij}(t) + \Delta\tau_{ij}
-\]
+$$
 
 - $\rho$: evaporación que evita convergencia prematura;
 - $\Delta\tau_{ij}$: depósito, normalmente mayor en rutas mejores.
@@ -418,7 +419,7 @@ La diferencia esencial es que las acciones del agente cambian los datos que obse
 
 Q-learning aprende el valor esperado de ejecutar una acción $a$ en un estado $s$:
 
-\[
+$$
 Q(s,a)
 \leftarrow
 Q(s,a)
@@ -427,7 +428,7 @@ Q(s,a)
 \left[
 r + \gamma \max_{a'}Q(s',a') - Q(s,a)
 \right]
-\]
+$$
 
 | Símbolo | Significado |
 | --- | --- |
@@ -446,15 +447,15 @@ Con $\alpha = 0,5$, $\gamma = 0,9$ y **Terminal Reward** $r=10$:
 
 1. al entrar en la meta desde A, si los valores eran cero:
 
-\[
+$$
 Q(A, derecha) = 0 + 0,5[10 + 0,9(0)-0] = 5
-\]
+$$
 
 2. al entrar en A desde B sin **Immediate Reward**:
 
-\[
+$$
 Q(B, derecha) = 0 + 0,5[0 + 0,9(5)-0] = 2,25
-\]
+$$
 
 El valor de la meta se propaga hacia estados anteriores.
 
@@ -466,15 +467,15 @@ El valor de la meta se propaga hacia estados anteriores.
 
 Una **Layer** ejecuta un **Forward Pass** y calcula:
 
-\[
+$$
 z = W^TX + b
-\]
+$$
 
 y aplica una función no lineal:
 
-\[
+$$
 a = f(z)
-\]
+$$
 
 Aquí $W$ es la **Weight Matrix**, $b$ el **Bias** y $f$ la **Activation Function**. Sin no linealidad, apilar capas lineales seguiría siendo equivalente a una única transformación lineal.
 
@@ -490,7 +491,7 @@ Aquí $W$ es la **Weight Matrix**, $b$ el **Bias** y $f$ la **Activation Functio
 
 La **Chain Rule** permite calcular cómo afecta cada **Weight** a la **Loss Function**:
 
-\[
+$$
 \frac{\partial L}{\partial W}
 =
 \frac{\partial L}{\partial a}
@@ -498,7 +499,7 @@ La **Chain Rule** permite calcular cómo afecta cada **Weight** a la **Loss Func
 \frac{\partial a}{\partial z}
 \cdot
 \frac{\partial z}{\partial W}
-\]
+$$
 
 Durante **Training** se almacenan **Intermediate Activations** para calcular **Gradients**. Por eso Training suele requerir bastante más memoria que **Inference**.
 
@@ -510,33 +511,33 @@ Durante **Training** se almacenan **Intermediate Activations** para calcular **G
 
 Primer momento:
 
-\[
+$$
 m_t = \beta_1m_{t-1} + (1-\beta_1)g_t
-\]
+$$
 
 Segundo momento:
 
-\[
+$$
 v_t = \beta_2v_{t-1} + (1-\beta_2)g_t^2
-\]
+$$
 
 **Bias Correction**:
 
-\[
+$$
 \hat{m}_t = \frac{m_t}{1-\beta_1^t},
 \qquad
 \hat{v}_t = \frac{v_t}{1-\beta_2^t}
-\]
+$$
 
 Actualización:
 
-\[
+$$
 \theta_t
 =
 \theta_{t-1}
 -
 \alpha\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\varepsilon}
-\]
+$$
 
 Adam mantiene dos **Optimizer States** adicionales por parámetro. En modelos grandes, estos estados y los **Gradients** elevan notablemente el consumo de **Video Random-Access Memory (VRAM)**.
 
@@ -546,14 +547,14 @@ Adam mantiene dos **Optimizer States** adicionales por parámetro. En modelos gr
 
 ### 12.1. Self-attention
 
-\[
+$$
 \operatorname{Attention}(Q,K,V)
 =
 \operatorname{softmax}
 \left(
 \frac{QK^T}{\sqrt{d_k}}
 \right)V
-\]
+$$
 
 - **Queries $Q$:** qué busca cada token.
 - **Keys $K$:** con qué contenido puede compararse.
@@ -580,11 +581,11 @@ flowchart LR
 
 La temperatura modifica la distribución:
 
-\[
+$$
 p_i
 =
 \frac{\exp(z_i/T)}{\sum_j \exp(z_j/T)}
-\]
+$$
 
 - $T=1$: distribución original.
 - $T<1$: distribución más concentrada y predecible.

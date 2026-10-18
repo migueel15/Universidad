@@ -35,9 +35,9 @@ Para observaciones \(x_1,\ldots,x_n\):
 
 La **media aritmética** es:
 
-\[
+$$
 \bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i
-\]
+$$
 
 Es un centro útil cuando la distribución y el objetivo hacen razonable resumir mediante un promedio. Es sensible a valores extremos: un tiempo de ejecución excepcionalmente largo puede elevar la media y dejar de representar el tiempo habitual.
 
@@ -57,15 +57,15 @@ La media, la mediana y la moda no son sustitutos automáticos: se eligen de acue
 
 La **varianza** mide la distancia cuadrática promedio respecto de la media. Para una población:
 
-\[
+$$
 \sigma^2=\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2
-\]
+$$
 
 Para estimarla a partir de una muestra, suele utilizarse:
 
-\[
+$$
 s^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2
-\]
+$$
 
 La **desviación típica** (*standard deviation*) es la raíz cuadrada de la varianza. A diferencia de la varianza, queda expresada en las mismas unidades que los datos.
 
@@ -73,15 +73,15 @@ La **desviación típica** (*standard deviation*) es la raíz cuadrada de la var
 
 Los cuartiles \(Q_1\), \(Q_2\) y \(Q_3\) marcan los percentiles 25, 50 y 75. El **IQR** mide el ancho del 50 % central:
 
-\[
+$$
 IQR=Q_3-Q_1
-\]
+$$
 
 La regla de Tukey señala como posibles *outliers* los valores fuera de:
 
-\[
+$$
 [Q_1-1.5\,IQR,\;Q_3+1.5\,IQR]
-\]
+$$
 
 Es una regla exploratoria: un valor fuera de esos límites merece investigación, pero no se elimina automáticamente. Puede ser un error de medición o un caso real que el sistema deba aprender a tratar.
 
@@ -130,9 +130,9 @@ Las columnas pueden usar escalas muy diferentes: milisegundos, kilogramos o cana
 
 Para una característica con media \(\mu\) y desviación típica \(\sigma\):
 
-\[
+$$
 z=\frac{x-\mu}{\sigma}
-\]
+$$
 
 El resultado expresa cuántas desviaciones típicas separan \(x\) de la media. Por ejemplo, con \(\mu=70\), \(\sigma=10\) y una lectura \(x=84\), se obtiene \(z=1.4\).
 
@@ -142,9 +142,9 @@ La estandarización da media cero y desviación típica uno cuando se aplican es
 
 La transformación min-max es:
 
-\[
+$$
 x'=\frac{x-x_{\min}}{x_{\max}-x_{\min}}
-\]
+$$
 
 Con extremos válidos, lleva los datos observados al intervalo [0, 1]. Los datos nuevos pueden quedar fuera de ese intervalo si superan los extremos originales.
 
@@ -158,21 +158,21 @@ Sea \(e_i=y_i-\hat{y}_i\) el error entre el valor real y la predicción.
 
 ### L1 y L2 norms
 
-\[
+$$
 \lVert e\rVert_1=\sum_i|e_i|,
 \qquad
 \lVert e\rVert_2=\sqrt{\sum_i e_i^2}
-\]
+$$
 
 La norma \(L_1\) suma magnitudes absolutas y corresponde a la distancia Manhattan. La norma \(L_2\) es la distancia euclídea. Al elevar los errores al cuadrado, los errores grandes adquieren mucho más peso.
 
 ### Mean Absolute Error (MAE) y Mean Squared Error (MSE)
 
-\[
+$$
 MAE=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat{y}_i|,
 \qquad
 MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-\]
+$$
 
 MAE promedia errores absolutos; MSE promedia errores cuadrados. MSE enfatiza más las desviaciones grandes y se expresa en unidades al cuadrado. La raíz del MSE, **Root Mean Squared Error (RMSE)**, vuelve a las unidades originales.
 
@@ -200,9 +200,9 @@ La **Wasserstein distance** (también llamada *Earth Mover's Distance* en cierto
 
 El estadístico KS entre funciones de distribución acumulada \(F\) y \(G\) es la máxima diferencia vertical:
 
-\[
+$$
 D=\sup_x|F(x)-G(x)|
-\]
+$$
 
 El test KS puede comparar una muestra con una distribución de referencia o dos muestras, según la variante. No todo uso de `kstest` es una prueba válida de normalidad: hay que elegir la hipótesis, la variante y los supuestos apropiados. Estimar parámetros de la distribución de referencia con los mismos datos también afecta a la calibración del test.
 

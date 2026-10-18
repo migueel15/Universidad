@@ -33,9 +33,9 @@ El objetivo es aprender a diagnosticar los fallos por su causa y por el momento 
 | Canary Deployment | - | Despliegue gradual sobre una pequeña fracción del tráfico para limitar el riesgo |
 | Shadow Deployment | - | Ejecución del modelo nuevo en paralelo sin que sus salidas controlen todavía el sistema |
 
-!!! note "Acrónimo contextual"
-    En este apartado, **AI** puede significar *Artificial Intelligence* o *Arithmetic Intensity*. El contexto permite distinguirlos; cuando se hable de rendimiento de hardware se usará *Arithmetic Intensity* explícitamente.
-
+::: info Acrónimo contextual
+En este apartado, **AI** puede significar *Artificial Intelligence* o *Arithmetic Intensity*. El contexto permite distinguirlos; cuando se hable de rendimiento de hardware se usará *Arithmetic Intensity* explícitamente.
+:::
 ```mermaid
 flowchart LR
     D[Data Plane] --> A[Algorithm / Model Plane]
@@ -72,10 +72,10 @@ Se observan 10.000 transacciones:
 
 El **Imbalance Ratio (IR)** es:
 
-\[
+$$
 IR = \frac{N_{majority}}{N_{minority}}
 = \frac{9950}{50} = 199
-\]
+$$
 
 Un sistema trivial que clasifica todo como legítimo obtiene:
 
@@ -86,32 +86,32 @@ Un sistema trivial que clasifica todo como legítimo obtiene:
 
 ### 2.2. Global Accuracy vs. Balanced Accuracy
 
-\[
+$$
 \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 = \frac{9950}{10000} = 0,995
-\]
+$$
 
 El resultado aparente es 99,5 %, pero el sistema no detecta ningún fraude.
 
 La **specificity** mide la proporción de negativos correctamente identificados:
 
-\[
+$$
 \text{Specificity} = \frac{TN}{TN + FP}
-\]
+$$
 
 La **balanced accuracy** concede el mismo peso a ambas clases:
 
-\[
+$$
 \text{Balanced Accuracy}
 =
 \frac{\text{Recall} + \text{Specificity}}{2}
-\]
+$$
 
 Para el sistema trivial:
 
-\[
+$$
 \frac{0 + 1}{2} = 0,5
-\]
+$$
 
 La puntuación revela que su capacidad real equivale a la referencia más básica, no a un sistema fiable.
 
@@ -126,9 +126,9 @@ La puntuación revela que su capacidad real equivale a la referencia más básic
 | F1 | Media armónica de precision y recall | 0 | Ignora TN y penaliza omitir positivos |
 | Balanced accuracy | Media de recall y specificity | 0,5 | Equilibra el peso de las clases |
 
-!!! note "Regla práctica"
-    Una **Candidate Metric** debe calcularse también para el **Do-Nothing System**. Si ese sistema obtiene una puntuación excelente, la métrica no es adecuada como criterio principal.
-
+::: info Regla práctica
+Una **Candidate Metric** debe calcularse también para el **Do-Nothing System**. Si ese sistema obtiene una puntuación excelente, la métrica no es adecuada como criterio principal.
+:::
 ---
 
 ## 3. Weighted Cross-Entropy for Class Imbalance
@@ -137,35 +137,35 @@ La puntuación revela que su capacidad real equivale a la referencia más básic
 
 Para un **Label** $y \in \{0,1\}$ y una probabilidad estimada $\hat{y} \in [0,1]$:
 
-\[
+$$
 L = -\left[y\log(\hat{y}) + (1-y)\log(1-\hat{y})\right]
-\]
+$$
 
 Con muchas más observaciones legítimas, la **Majority Class** domina la **Loss Function**. El modelo puede minimizarla aprendiendo a favorecer sistemáticamente la **Negative Class**.
 
 ### 3.2. Weighted Binary Cross-Entropy
 
-\[
+$$
 L = -\left[w_1 y\log(\hat{y}) + w_0(1-y)\log(1-\hat{y})\right]
-\]
+$$
 
 Una forma de calcular los **Class Weights** es:
 
-\[
+$$
 w_j = \frac{N}{C \cdot N_j}
-\]
+$$
 
 donde $N$ es el número total de observaciones, $C$ el número de clases y $N_j$ el número de observaciones de la clase $j$.
 
 En el ejemplo:
 
-\[
+$$
 w_1 = \frac{10000}{2 \cdot 50} = 100
-\]
+$$
 
-\[
+$$
 w_0 = \frac{10000}{2 \cdot 9950} \approx 0,5025
-\]
+$$
 
 La relación $w_1/w_0 \approx 199$ coincide con el **Imbalance Ratio**. Un error sobre un fraude genera un **Gradient** aproximadamente 199 veces mayor que un error sobre una transacción legítima.
 
@@ -220,15 +220,15 @@ Si se mezclan aleatoriamente filas de diferentes fechas, una variable futura pue
 
 La distribución de las entradas cambia:
 
-\[
+$$
 P(X_{live}) \neq P(X_{train})
-\]
+$$
 
 mientras que la relación entre entrada y objetivo puede mantenerse:
 
-\[
+$$
 P(Y \mid X)_{live} = P(Y \mid X)_{train}
-\]
+$$
 
 Ejemplo: un sensor envejece y empieza a producir voltajes con una distribución distinta, aunque la relación física entre vibración y avería no haya cambiado.
 
@@ -236,9 +236,9 @@ Ejemplo: un sensor envejece y empieza a producir voltajes con una distribución 
 
 Cambia la relación condicional:
 
-\[
+$$
 P(Y \mid X)_{live} \neq P(Y \mid X)_{train}
-\]
+$$
 
 Ejemplo: una modificación del proceso de fabricación hace que una misma vibración deje de indicar el mismo riesgo de fallo.
 
@@ -259,9 +259,9 @@ Un PSI estable no demuestra ausencia de **Concept Drift**. Para detectarlo hacen
 
 El PSI compara la proporción de observaciones que cae en cada intervalo antes y después del despliegue:
 
-\[
+$$
 PSI = \sum_{i=1}^{B}(A_i-E_i)\ln\left(\frac{A_i}{E_i}\right)
-\]
+$$
 
 donde:
 
@@ -279,9 +279,9 @@ donde:
 
 La suma directa de los componentes mostrados es:
 
-\[
+$$
 0,1022 + 0,0405 + 0,2749 = 0,4176
-\]
+$$
 
 Los **Conventional Thresholds** incluidos en el material son:
 
@@ -291,9 +291,9 @@ Los **Conventional Thresholds** incluidos en el material son:
 | $0,10 \leq PSI < 0,25$ | Cambio moderado; investigar y monitorizar |
 | $PSI \geq 0,25$ | Cambio crítico; ejecutar **Revalidation** y valorar **Retraining** |
 
-!!! warning "Dos matices importantes"
-    La diapositiva de cálculo muestra un resultado final de 0,4410, pero los tres componentes visibles suman 0,4176. Ambos superan 0,25, por lo que la decisión cualitativa no cambia. Además, 0,10 y 0,25 son convenciones, no leyes universales: el **System Requirement** debe fijar sus propios **Thresholds**, **Bins**, **Reference Population** y respuesta.
-
+::: warning Dos matices importantes
+La diapositiva de cálculo muestra un resultado final de 0,4410, pero los tres componentes visibles suman 0,4176. Ambos superan 0,25, por lo que la decisión cualitativa no cambia. Además, 0,10 y 0,25 son convenciones, no leyes universales: el **System Requirement** debe fijar sus propios **Thresholds**, **Bins**, **Reference Population** y respuesta.
+:::
 El PSI tampoco indica por qué cambió una variable ni si el cambio perjudica al modelo. Es una alarma, no un diagnóstico completo.
 
 ---
@@ -326,9 +326,9 @@ Las pruebas unitarias pueden aprobar y aun así existir skew, porque cada implem
 
 ### 8.1. Arithmetic Intensity
 
-\[
+$$
 I = \frac{\text{FLOPs}}{\text{bytes movidos}}
-\]
+$$
 
 - Un valor alto indica una carga **compute-bound**: el límite está en las unidades de cálculo.
 - Un valor bajo indica una carga **Memory-Bound**: el límite está en mover **Weights** y **Activations** desde memoria.
@@ -339,9 +339,9 @@ Las **Convolutional Neural Networks (CNNs)** densas suelen aprovechar más cómp
 
 El rendimiento alcanzable se limita por el menor de dos techos:
 
-\[
+$$
 R_{alcanzable} = \min(R_{pico}, BW \cdot I)
-\]
+$$
 
 ```mermaid
 flowchart TD
@@ -369,11 +369,11 @@ flowchart TD
 
 En números reales, la suma es asociativa; en coma flotante, el redondeo hace que el orden importe:
 
-\[
+$$
 \operatorname{Float32}((a+b)+c)
 \neq
 \operatorname{Float32}(a+(b+c))
-\]
+$$
 
 Una **Graphics Processing Unit (GPU)** distribuye reducciones y sumas entre miles de hilos cuyo orden puede variar. Incluso con los mismos datos y **Random Seed**, dos ejecuciones de **Training** pueden producir **Weights** binariamente distintos.
 
@@ -424,9 +424,9 @@ El material resume una pirámide de riesgo inspirada en el Reglamento Europeo de
 | Riesgo limitado | Chatbots y *deepfakes* | Obligaciones de transparencia |
 | Riesgo mínimo | Filtros de spam o IA en videojuegos | Obligaciones menores |
 
-!!! note
-    Esta tabla sirve como mapa conceptual del material docente, no como asesoramiento jurídico. La clasificación real depende del uso previsto, el contexto, las excepciones y la normativa vigente.
-
+::: info Nota
+Esta tabla sirve como mapa conceptual del material docente, no como asesoramiento jurídico. La clasificación real depende del uso previsto, el contexto, las excepciones y la normativa vigente.
+:::
 ---
 
 ## 12. Nine Failure Causes Across Build, Deploy and Operate
