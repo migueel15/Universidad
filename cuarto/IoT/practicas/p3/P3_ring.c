@@ -28,10 +28,20 @@ int main(int argc, char *argv[]) {
   MPI_Status status;
 
   MPI_Init(&argc, &argv);
-  MPI_Comm_rank(MPI_COMM_ALL, &rank);
-  MPI_Comm_size(MPI_COMM_ALL, &size);
+  /* Al compilar el programa se mostraba un error en la línea 31 y 32. Al
+   * tratarse de una ejecución en la que tenemos 4 procesos, debemos definir
+   * MPI_COMM_WORLD. De esta forma cada uno de los procesos obtendrá en rank su
+   * identificador y en size el número total de procesos.
+   */
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-  next = rank + 1;
+  /* El cálculo del siguiente no era adecuado. Con 4 procesos, el proceso con id
+   * 3 enviaba al proceso con id 4, el cual es inválido. Mostraba un error de
+   * MPI_ERR_RANK. Se resuelve usando el operador módulo para que el último
+   * proceso vuelva a principio del anillo.
+   */
+  next = (rank + 1) % size;
   prev = (rank - 1 + size) % size;
 
   if (rank == 0) {
@@ -51,7 +61,14 @@ int main(int argc, char *argv[]) {
     printf("the word %s came back to process 0, the ring is closed\n", word);
     fflush(stdout);
   } else {
-    MPI_Recv(word, MAXWORD, MPI_CHAR, 0, TAG, MPI_COMM_WORLD, &status);
+
+    /* Siempre se esperaba la respuesta del proceso 0. Cuando se ejecutaba solo
+     * se mostraba una comunicación. Todos los procesos esperaban al proceso con
+     * id 0. El proceso con id 0 solo enviaba a 1. Al tratarse de una cadena de
+     * eventos, cada proceso debe esperar el mensaje del proceso con id anterior
+     * al suyo.
+     */
+    MPI_Recv(word, MAXWORD, MPI_CHAR, prev, TAG, MPI_COMM_WORLD, &status);
 
     printf("process %d has the word %s\n", rank, word);
     fflush(stdout);

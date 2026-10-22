@@ -1,0 +1,108 @@
+STAGE 1
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » mpirun -np 4 ./P3_ring
+hola
+type a word and press enter: process 0 sends the word hola
+process 1 has the word hola
+process 2 has the word hola
+process 3 has the word hola
+the word hola came back to process 0, the ring is closed
+
+STAGE 2
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » time (echo hello | mpirun --oversubscribe -np 8 ./P3_ring_after)
+type a word and press enter: process 0 sends the word hello
+process 1 has the word hello
+process 2 has the word hello
+process 3 has the word hello
+process 4 has the word hello
+process 5 has the word hello
+process 6 has the word hello
+process 7 has the word hello
+the word hello came back to process 0, the ring is closed
+( echo hello | mpirun --oversubscribe -np 8 ./P3_ring_after; )  56,86s user 1,37s system 334% cpu 17,408 total
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » time (echo hello | mpirun --oversubscribe -np 8 ./P3_ring_before)
+type a word and press enter: process 0 sends the word hello
+process 1 has the word hello
+process 2 has the word hello
+process 3 has the word hello
+process 4 has the word hello
+process 5 has the word hello
+process 6 has the word hello
+process 7 has the word hello
+the word hello came back to process 0, the ring is closed
+( echo hello | mpirun --oversubscribe -np 8 ./P3_ring_before; )  0,82s user 1,21s system 59% cpu 3,427 total
+
+En el primer caso, como se trata de un sleep al recibir y antes de enviarlo al próximo proceso, es un sleep en cadena. No se hace ningun sleep en paralelo y todos deben ser esperados.
+En el segundo caso todos los procesos esperan 2 segundos en paralelo al arrancar el programa. Despues el flujo de intercambio de mensajes es directo y sin esperas.
+
+STAGE 3
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » time (echo hello | mpirun --oversubscribe -np 1 ./P3_ring)
+type a word and press enter: process 0 sends the word hello
+the word hello came back to process 0, the ring is closed
+( echo hello | mpirun --oversubscribe -np 1 ./P3_ring; )  0,07s user 0,14s system 16% cpu 1,267 total
+
+Se ejecuta solo el proceso con id 0. Se manda el valor a él mismo. Termina exitosamente.
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » nproc
+16
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » time (echo hello | mpirun -np 18 ./P3_ring)            
+--------------------------------------------------------------------------
+There are not enough slots available in the system to satisfy the 18
+slots that were requested by the application:
+
+  ./P3_ring
+
+Either request fewer procs for your application, or make more slots
+available for use.
+
+A "slot" is the PRRTE term for an allocatable unit where we can
+launch a process.  The number of slots available are defined by the
+environment in which PRRTE processes are run:
+
+  1. Hostfile, via "slots=N" clauses (N defaults to number of
+     processor cores if not provided)
+  2. The --host command line parameter, via a ":N" suffix on the
+     hostname (N defaults to 1 if not provided)
+  3. Resource manager (e.g., SLURM, PBS/Torque, LSF, etc.)
+  4. If none of a hostfile, the --host command line parameter, or an
+     RM is present, PRRTE defaults to the number of processor cores
+
+In all the above cases, if you want PRRTE to default to the number
+of hardware threads instead of the number of processor cores, use the
+--use-hwthread-cpus option.
+
+Alternatively, you can use the --map-by :OVERSUBSCRIBE option to ignore the
+number of available slots when deciding the number of processes to
+launch.
+--------------------------------------------------------------------------
+( echo hello | mpirun -np 18 ./P3_ring; )  0,01s user 0,01s system 64% cpu 0,033 total
+
+Al pedir la ejecución con 18 procesos sin oversubscribe el programa no se ejecuta y avisa de un número de procesadores inaccesibles. El programa no se ejecuta.
+
+󰣇 miguel ~/Universidad/cuarto/IoT/practicas/p3 (main) ✗ » time (echo hello | mpirun --oversubscribe -np 18 ./P3_ring)
+type a word and press enter: process 0 sends the word hello
+process 1 has the word hello
+process 2 has the word hello
+process 3 has the word hello
+process 4 has the word hello
+process 5 has the word hello
+process 6 has the word hello
+process 7 has the word hello
+process 8 has the word hello
+process 9 has the word hello
+process 10 has the word hello
+process 11 has the word hello
+process 12 has the word hello
+process 13 has the word hello
+process 14 has the word hello
+process 15 has the word hello
+process 16 has the word hello
+process 17 has the word hello
+the word hello came back to process 0, the ring is closed
+( echo hello | mpirun --oversubscribe -np 18 ./P3_ring; )  3,36s user 3,25s system 374% cpu 1,764 total
+
+Con oversubscribe el programa crea los procesos pedidos. En el caso de que sean más que el numero de cores, varios procesos son asignados al mismo y la cpu es la encargada de gestionar el uso de cada uno.

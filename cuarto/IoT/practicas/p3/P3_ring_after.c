@@ -18,6 +18,7 @@
 #include <mpi.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #define MAXWORD 64
 #define TAG 1
@@ -36,9 +37,10 @@ int main(int argc, char *argv[]) {
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-  /* El cálculo del siguiente no era adecuado. En este caso el úlitmo proceso
-   * enviaba a un id inválido. Se recoge en un módulo para que el último proceso
-   * vuelva a principio del anillo.
+  /* El cálculo del siguiente no era adecuado. Con 4 procesos, el proceso con id
+   * 3 enviaba al proceso con id 4, el cual es inválido. Mostraba un error de
+   * MPI_ERR_RANK. Se resuelve usando el operador módulo para que el último
+   * proceso vuelva a principio del anillo.
    */
   next = (rank + 1) % size;
   prev = (rank - 1 + size) % size;
@@ -59,15 +61,20 @@ int main(int argc, char *argv[]) {
 
     printf("the word %s came back to process 0, the ring is closed\n", word);
     fflush(stdout);
+    sleep(2);
   } else {
 
-    /* Siempre se esperaba la respuesta del proceso 0. Al tratarse de una cadena
-     * de eventos, cada proceso debe esperar el mensaje del proceso con id
-     * anterior al suyo.
+    /* Siempre se esperaba la respuesta del proceso 0. Cuando se ejecutaba solo
+     * se mostraba una comunicación. Todos los procesos esperaban al proceso con
+     * id 0. El proceso con id 0 solo enviaba a 1. Al tratarse de una cadena de
+     * eventos, cada proceso debe esperar el mensaje del proceso con id anterior
+     * al suyo.
      */
     MPI_Recv(word, MAXWORD, MPI_CHAR, prev, TAG, MPI_COMM_WORLD, &status);
     printf("process %d has the word %s\n", rank, word);
     fflush(stdout);
+
+    sleep(2);
 
     MPI_Send(word, MAXWORD, MPI_CHAR, next, TAG, MPI_COMM_WORLD);
   }
