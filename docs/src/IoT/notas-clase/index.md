@@ -4,6 +4,8 @@ Apuntes generados y organizados a partir de las clases de **Sistemas Distribuido
 
 ## Curso 2026-2027
 
+- [Miércoles 21 de octubre de 2026 — Escalado, elasticidad, balanceo de carga, colas y gossip](clase-2026-10-21.md)
+
 - [Miércoles 14 de octubre de 2026 — Hashing distribuido, publish/subscribe, multicast y MPI](clase-2026-10-14.md)
 
 - [Lunes 14 de septiembre de 2026 — Taxonomía de Flynn, redes ad hoc y PDU](clase-2026-09-14.md)
