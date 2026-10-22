@@ -1,0 +1,3 @@
+#!/bin/bash
+mpicc -Wall -o P3_ring P3_ring.c
+mpirun -np 4 ./P3_ring
