@@ -2,7 +2,7 @@
 
 ## Estado actual del repositorio
 
-Zensical está configurado en `docs/zensical.toml`, con `docs_dir = "src"` y `site_dir = "site"`. El contenido fuente vive en `docs/src`; `docs/site` es salida generada y no debe editarse manualmente. Mermaid está habilitado mediante `pymdownx.superfences`.
+La documentación usa VitePress, configurado en `docs/src/.vitepress/config.mts`. El contenido fuente vive en `docs/src`; la salida generada (`site/`) no debe editarse manualmente. Mermaid está habilitado con `vitepress-plugin-mermaid` y las fórmulas con `math: true` (`$...$`, `$$...$$`). Los avisos usan contenedores de VitePress (`::: tip`, `::: warning`, `::: info` con título opcional, cerrados con `:::`). La barra lateral (`themeConfig.sidebar`) es manual: cada documento nuevo debe añadirse ahí en su sección.
 
 Actualmente existen las asignaturas `IA/` e `IoT/`. Cada una tiene `index.md`; los apuntes están en `notas-clase/` con índice propio, nombres fechados `clase-AAAA-MM-DD.md`, y temario en `temario/`. IA organiza el temario en `temario/bloque-1/`; IoT conserva un documento de bloque directamente en `temario/`. Sigue la organización establecida en cada asignatura antes de normalizarla.
 
