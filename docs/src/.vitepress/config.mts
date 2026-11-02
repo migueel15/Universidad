@@ -66,6 +66,7 @@ export default withMermaid(defineConfig({
           link('1.5 Conceptos de estadística', '/IA/temario/bloque-1/1-5-conceptos-basicos-de-estadistica'),
           link('Bloque 2 · Arquitectura y diseño', '/IA/temario/bloque-2/2-arquitectura-y-diseno'),
           link('Bloque 3 · Calidad de datos', '/IA/temario/bloque-3/3-calidad-de-datos'),
+          link('Bloque 4 · Datos masivos', '/IA/temario/bloque-4/4-datos-masivos'),
         ] },
         { text: 'Notas de clase', collapsed: false, items: [
           link('Índice', '/IA/notas-clase/'),
