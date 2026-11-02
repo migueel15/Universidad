@@ -22,6 +22,10 @@ Documentación y apuntes de la asignatura de **Inteligencia Artificial**.
 
 - [3. Data quality — preparar, comprobar y medir los datos de un modelo](temario/bloque-3/3-calidad-de-datos.md)
 
+#### Bloque 4 — Management and processing of massive data
+
+- [4. Management and processing of massive data — procesar millones de registros](temario/bloque-4/4-datos-masivos.md)
+
 ### Notas de clase
 
 Los apuntes tomados a partir de las clases están organizados por fecha dentro de la carpeta `notas-clase`.
