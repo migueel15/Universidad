@@ -67,15 +67,37 @@ static double rnd(void) { return (double)rand() / ((double)RAND_MAX + 1.0); }
  *        var*BITS_PER_VAR  ...  var*BITS_PER_VAR + BITS_PER_VAR - 1
  *    with the most significant bit first.
  *    Return a value between X_MIN and X_MAX. */
-double decode(const char *gene, int var) { return 0.0; }
+double decode(const char *gene, int var) {
+  int result = 0;
+  for (int i = var * BITS_PER_VAR; i < var * BITS_PER_VAR + BITS_PER_VAR; i++) {
+    // 1 -> 10 -> 11
+    // (results << 1) = 00
+    // 00 | gene[i] = 01
+    result = (result << 1) | gene[i];
+  }
+  return result;
+}
 
 /* 2. Return the value of the function for this individual.
  *    The function is x*x + y*y, with x and y obtained by decoding. */
-double fitness(const char *gene) { return 0.0; }
+double fitness(const char *gene) {
+  double x = decode(gene, 0);
+  double y = decode(gene, 1);
+
+  return x * x + y * y;
+}
 
 /* 3. Binary tournament. Choose two positions of the subpopulation at random
  *    and return the index of the one with the higher fitness. */
-int tournament(const Individual *pop) { return 0; }
+int tournament(const Individual *pop) {
+  int ran1 = rand() % POP_SIZE;
+  int ran2 = rand() % POP_SIZE;
+
+  double position1 = pop[ran1].fit;
+  double position2 = pop[ran2].fit;
+
+  return position1 >= position2 ? ran1 : ran2;
+}
 
 /* 4. Two point crossover.
  *    With probability P_CROSS choose two cut points and exchange the segment
