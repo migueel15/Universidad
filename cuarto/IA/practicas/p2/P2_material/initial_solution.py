@@ -1,0 +1,65 @@
+"""Practice P2. A learned model and a written rule in one system.
+
+Fill in the four places marked TODO_1 to TODO_4. Everything else works.
+Run it with:   python3 initial_solution.py
+"""
+
+import warnings
+
+import pandas as pd
+from sklearn.metrics import mean_absolute_error
+from sklearn.neural_network import MLPRegressor
+from sklearn.preprocessing import StandardScaler
+
+warnings.filterwarnings("ignore")
+
+DATA = "bikes.csv"
+SEED = 42
+TRAIN_SHARE = 0.8
+TRAINING_BUDGET = 16
+HIDDEN = (32, 32)
+CAPACITY = 400
+
+# --- Step 1. Load the data, in chronological order --------------------------
+
+table = pd.read_csv(DATA)
+target = table["next_hour"].to_numpy()
+inputs = table.drop(columns=["next_hour"])
+
+cut = int(len(table) * TRAIN_SHARE)
+x_train, x_test = inputs.iloc[:cut], inputs.iloc[cut:]
+y_train, y_test = target[:cut], target[cut:]
+
+print("hours in the file: %d" % len(table))
+print("training hours: %d" % len(x_train))
+print("test hours: %d" % len(x_test))
+print("mean demand of the test hours: %.1f bicycles" % y_test.mean())
+
+# --- Step 2. The rule written by a person -----------------------------------
+# The simplest rule anyone would write: the next hour will be like this one.
+
+rule_answer = x_test["cnt"].to_numpy()
+
+print("\n--- rule, the next hour is like this one ---")
+print("mean absolute error: %.2f bicycles" % mean_absolute_error(y_test, rule_answer))
+
+# TODO_1
+
+# --- Step 3. The network ----------------------------------------------------
+
+scaler = StandardScaler().fit(x_train)
+x_train_scaled, x_test_scaled = scaler.transform(x_train), scaler.transform(x_test)
+
+# TODO_2
+
+# --- Step 4. The two of them in one system ----------------------------------
+
+print("\n--- model with a person for the busy hours ---")
+
+# TODO_3
+
+# --- Step 5. Everything side by side ----------------------------------------
+
+print("\n--- comparison ---")
+
+# TODO_4
