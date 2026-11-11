@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore")
 DATA = "bikes.csv"
 SEED = 42
 TRAIN_SHARE = 0.8
-TRAINING_BUDGET = 16
+TRAINING_BUDGET = 512
 HIDDEN = (32, 32)
 CAPACITY = 400
 
@@ -68,16 +68,44 @@ print("mean absolute error: %.2f bicycles" % mean_absolute_error(y_test, better_
 scaler = StandardScaler().fit(x_train)
 x_train_scaled, x_test_scaled = scaler.transform(x_train), scaler.transform(x_test)
 
-# TODO_2
+network = MLPRegressor(
+    hidden_layer_sizes=HIDDEN, max_iter=TRAINING_BUDGET, random_state=SEED
+)
+network.fit(x_train_scaled, y_train)
+network_answer = network.predict(x_test_scaled)
+
+print("\n--- network trained for %d epochs ---" % TRAINING_BUDGET)
+print(
+    "mean absolute error: %.2f bicycles" % mean_absolute_error(y_test, network_answer)
+)
 
 # --- Step 4. The two of them in one system ----------------------------------
 
 print("\n--- model with a person for the busy hours ---")
 
-# TODO_3
+automatic = network_answer <= CAPACITY
+
+print("hours answered by the model: %.2f %%" % (100.0 * automatic.mean()))
+print("hours sent to a person: %.2f %%" % (100.0 * (~automatic).mean()))
+print(
+    "mean absolute error of the automatic hours: %.2f bicycles"
+    % mean_absolute_error(y_test[automatic], network_answer[automatic])
+)
 
 # --- Step 5. Everything side by side ----------------------------------------
 
 print("\n--- comparison ---")
 
-# TODO_4
+print("answer                                     MAE")
+print(
+    "rule, next hour like this one              %.2f"
+    % mean_absolute_error(y_test, rule_answer)
+)
+print(
+    "rule corrected by the hour                 %.2f"
+    % mean_absolute_error(y_test, better_answer)
+)
+print(
+    "network                                    %.2f"
+    % mean_absolute_error(y_test, network_answer)
+)
