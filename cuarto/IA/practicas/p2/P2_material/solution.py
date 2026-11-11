@@ -43,7 +43,25 @@ rule_answer = x_test["cnt"].to_numpy()
 print("\n--- rule, the next hour is like this one ---")
 print("mean absolute error: %.2f bicycles" % mean_absolute_error(y_test, rule_answer))
 
-# TODO_1
+ratio = (
+    pd.DataFrame(
+        {
+            "hour": x_train["hr"],
+            "next": y_train,
+            "now": x_train["cnt"],
+        }
+    )
+    .groupby("hour")
+    .apply(
+        lambda group: group["next"].mean() / max(group["now"].mean(), 1),
+        include_groups=False,
+    )
+)
+
+better_answer = x_test["cnt"].to_numpy() * x_test["hr"].map(ratio).to_numpy()
+
+print("\n--- rule, corrected by the hour of the day ---")
+print("mean absolute error: %.2f bicycles" % mean_absolute_error(y_test, better_answer))
 
 # --- Step 3. The network ----------------------------------------------------
 
