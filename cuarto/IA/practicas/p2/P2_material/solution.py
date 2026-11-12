@@ -63,6 +63,30 @@ better_answer = x_test["cnt"].to_numpy() * x_test["hr"].map(ratio).to_numpy()
 print("\n--- rule, corrected by the hour of the day ---")
 print("mean absolute error: %.2f bicycles" % mean_absolute_error(y_test, better_answer))
 
+ratio_two = (
+    pd.DataFrame(
+        {
+            "hour": x_train["hr"],
+            "work": x_train["workingday"],
+            "next": y_train,
+            "now": x_train["cnt"],
+        }
+    )
+    .groupby(["hour", "work"])
+    .apply(
+        lambda group: group["next"].mean() / max(group["now"].mean(), 1),
+        include_groups=False,
+    )
+)
+test_pairs = pd.MultiIndex.from_frame(x_test[["hr", "workingday"]])
+better_answer_two = x_test["cnt"].to_numpy() * test_pairs.map(ratio_two).to_numpy()
+
+print("\n--- rule, corrected by hour and working day ---")
+print(
+    "mean absolute error: %.2f bicycles"
+    % mean_absolute_error(y_test, better_answer_two)
+)
+
 # --- Step 3. The network ----------------------------------------------------
 
 scaler = StandardScaler().fit(x_train)
@@ -104,6 +128,10 @@ print(
 print(
     "rule corrected by the hour                 %.2f"
     % mean_absolute_error(y_test, better_answer)
+)
+print(
+    "rule corrected by hour and working day     %.2f"
+    % mean_absolute_error(y_test, better_answer_two)
 )
 print(
     "network                                    %.2f"

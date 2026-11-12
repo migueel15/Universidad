@@ -1,0 +1,28 @@
+hours in the file: 17378
+training hours: 13902
+test hours: 3476
+mean demand of the test hours: 248.8 bicycles
+
+--- rule, the next hour is like this one ---
+mean absolute error: 85.18 bicycles
+
+--- rule, corrected by the hour of the day ---
+mean absolute error: 42.35 bicycles
+
+--- rule, corrected by hour and working day ---
+mean absolute error: 29.25 bicycles
+
+--- network trained for 512 epochs ---
+mean absolute error: 34.28 bicycles
+
+--- model with a person for the busy hours ---
+hours answered by the model: 79.69 %
+hours sent to a person: 20.31 %
+mean absolute error of the automatic hours: 25.88 bicycles
+
+--- comparison ---
+answer                                     MAE
+rule, next hour like this one              85.18
+rule corrected by the hour                 42.35
+rule corrected by hour and working day     29.25
+network                                    34.28
