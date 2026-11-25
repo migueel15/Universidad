@@ -1,0 +1,59 @@
+STAGE 1
+
+Lecturas en terminal C: 100
+Comandos en terminal B: 7
+
+Salida de terminal B:
+building/floor2/valve/03 open
+building/floor2/valve/03 close
+building/floor2/valve/03 open
+building/floor2/valve/03 close
+building/floor2/valve/03 open
+building/floor2/valve/03 close
+building/floor2/valve/03 open
+
+Líneas de terminal C donde cambió la válvula:
+read 204, the valve is closed
+   the valve has been opened
+read 216, the valve is open
+   the valve has been closed
+read 199, the valve is closed
+   the valve has been opened
+read 221, the valve is open
+   the valve has been closed
+read 204, the valve is closed
+   the valve has been opened
+read 227, the valve is open
+   the valve has been closed
+read 197, the valve is closed
+   the valve has been opened
+
+
+STAGE 2
+
+Comandos en Stage 1: 7
+Comandos en Stage 2: 11
+
+Al poner LOW y HIGH iguales en 210 ya no hay margen entre abrir y cerrar, así que cualquier pequeña variación del sensor alrededor de 21 grados hace que la válvula cambie todo el rato.
+En una válvula real eso haría que se desgastase mucho antes el motor por estar abriendo y cerrando continuamente.
+
+
+STAGE 3
+
+1. Parar el termostato:
+Solo se entera el broker, que saca el aviso de desconexión del cliente. La válvula no imprime nada y el sensor sigue publicando temperaturas normal.
+En el edificio solo dejaría de controlarse la temperatura de la habitación 07, quedando la válvula como estaba.
+
+2. Parar el broker:
+El sensor se entera al instante y empieza a dar Error: Connection refused y not sent, no broker answered, mientras que el termostato y la válvula dejan de recibir datos y ya no se publican temperaturas.
+Aquí dejaría de funcionar la calefacción de todo el edificio porque todos los dispositivos pasan por el broker.
+
+3. Parar el suscriptor de la válvula:
+Solo el broker avisa de que ese cliente se ha desconectado, mientras que el sensor sigue enviando temperaturas y el termostato sigue leyendo y decidiendo sin enterarse.
+Solo dejaría de responder el radiador de la habitación 07, el resto del edificio seguiría funcionando bien.
+
+
+OPCIONAL
+
+Al arrancar la terminal B después de que el termostato ya hubiera abierto la válvula, imprime directamente:
+building/floor2/valve/03 open

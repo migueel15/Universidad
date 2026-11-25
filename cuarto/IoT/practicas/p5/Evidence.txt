@@ -1,0 +1,17 @@
+Nombre y Apellidos - ddmmyy
+Práctica P5: Termostato para una habitación
+
+Stage 1
+Arranqué las cuatro terminales con el broker mosquitto, el suscriptor de la válvula en la terminal B, el termostato original en la C y el sensor con 100 lecturas en la D. Vi que el termostato recibió las 100 temperaturas pero la válvula solo imprimió 7 comandos entre abrir y cerrar, porque hay un margen entre 20,5 y 21,5 grados que evita que cambie con cada lectura.
+
+Stage 2
+Hice una copia del termostato llamada P5_thermostat_flat.sh y puse tanto LOW como HIGH a 210. Al repetir las 100 lecturas los comandos en la terminal B subieron de 7 a 11. Pasa porque al no haber margen entre los dos límites, el ruido de las lecturas cerca de 21 grados hace que la válvula abra y cierre muchas más veces, lo que en una válvula real acabaría desgastando el motor antes de tiempo.
+
+Stage 3
+Probé a cortar cada parte por separado mientras el sensor seguía mandando datos:
+- Al cortar el termostato solo se enteró el broker. El sensor siguió enviando temperaturas y la válvula no recibió nada más. Solo fallaría el control de esa habitación.
+- Al cortar el broker el sensor empezó a dar Connection refused y dejaron de enviarse temperaturas. En este caso se pararía todo el edificio porque todo depende del broker.
+- Al cortar la terminal B de la válvula solo el broker avisó de la desconexión, mientras el sensor y el termostato siguieron igual. Solo dejaría de actuar el radiador de esa habitación.
+
+Opcional
+Por último probé a añadir -r a los mosquitto_pub en P5_thermostat_retained.sh. Al abrir la terminal B después de que el termostato ya hubiese mandado abrir la válvula, recibió al momento building/floor2/valve/03 open porque el broker se queda guardado el último mensaje.
